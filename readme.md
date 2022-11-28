@@ -3,4 +3,4 @@ There is nothing yet.
 
 chimpo!
 
-Chromebookのうんちぶり突破記念！
+Chromebook x GitHub
