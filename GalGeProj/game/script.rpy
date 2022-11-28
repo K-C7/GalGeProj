@@ -9,6 +9,7 @@
 # color のパラメーターを追加すると、キャラクターの名前を色付けできます。
 
 define e = Character('Eileen', color="#c8ffc8")
+define g = Character('ギャル', color="800000")
 
 
 # label ステートメント（文）はゲームの処理をまとめてラベル付けします。
