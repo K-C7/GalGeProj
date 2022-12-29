@@ -15,15 +15,15 @@ examNumberList = []
 examTFList = []
 
 
-def ranNoKaburi(a:int, b:int, c:int, e = []):
+def ranNoKaburi(min, max, n, remove = []):
     # (乱数の下限, 上限, 個数, 除外リスト)
-    d = []
-    while(len(d) < c):
-        n = random.randint(a, b)
-        if not(n in d):
-            if not(n in e):
-                d.append(n)
-    return d
+    result = []
+    while(len(result) < n):
+        ran = random.randint(min, max)
+        if not(ran in result):
+            if not(ran in remove):
+                result.append(ran)
+    return result
 
 
 def verifyValue(min,max,numOfQue) -> bool:
