@@ -15,7 +15,7 @@ examNumberList = []
 examTFList = []
 
 
-def ranNoKaburi(a, b, c, e = []):
+def ranNoKaburi(a:int, b:int, c:int, e = []):
     # (乱数の下限, 上限, 個数, 除外リスト)
     d = []
     while(len(d) < c):
