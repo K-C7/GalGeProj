@@ -16,6 +16,7 @@ examTFList = []
 
 
 def ranNoKaburi(a, b, c, e = []):
+    # (乱数の下限, 上限, 個数, 除外リスト)
     d = []
     while(len(d) < c):
         n = random.randint(a, b)
