@@ -88,9 +88,11 @@ label examMode(part,numOfQue):
 
         $ selected = 0
 
-        L "第[questionNumber]問、Leap[leapNum]番です。\n[que]は？"
+        # L "第[questionNumber]問、Leap[leapNum]番です。\n[que]は？"
 
         menu:
+            L "第[questionNumber]問、Leap[leapNum]番です。\n[que]は？"
+
             "[opt[0]]":
                 $ selected = 0
             "[opt[1]]":
@@ -109,9 +111,9 @@ label examMode(part,numOfQue):
         
         $ questionNumber += 1
             
-    $ result = leapModule.resultExam()
+    $ sumT = leapModule.resultExam()
 
-    L "結果は、[result]でした。"
+    L "結果は、[numOfQue]問中[sumT]問正解でした。"
     L "もう一度、同じ条件で練習しますか？"
 
     menu:

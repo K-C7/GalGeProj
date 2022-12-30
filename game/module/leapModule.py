@@ -119,4 +119,4 @@ def ansExam(ans):
         examTFList.append(0)
 
 def resultExam():
-    return examTFList
+    return sum(examTFList)
