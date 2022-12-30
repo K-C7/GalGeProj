@@ -16,7 +16,7 @@ examTFList = []
 
 
 def ranNoKaburi(min, max, n, remove = []):
-    # (乱数の下限, 上限, 個数, 除外リスト)
+    """乱数の下限, 上限, 個数, 除外リスト(省略可) -> 乱数のリスト"""
     result = []
     while(len(result) < n):
         ran = random.randint(min, max)
@@ -48,7 +48,7 @@ def verifyValue(min,max,numOfQue) -> bool:
 
 
 def partToRange(part):
-    # パート番号(1~4)を突っ込むと問題番号の範囲をリストとして返す
+    """パート番号(1~4) -> 問題番号の範囲リスト[最初, 最後]"""
     min = 0
     max = 0
 
@@ -78,6 +78,7 @@ def makeExam(min,max,num):
 '''
 
 def makeExam(part,numOfQue):
+    """パート番号, 問題数でテスト問題のリスト作成(返り値なし)"""
     global examNumberList
     global examTFList
     examTFList = []
@@ -88,6 +89,7 @@ def makeExam(part,numOfQue):
 
 
 def getExam(questionNumber,optMin,optMax,optNum):
+    """問題番号,選択肢の問題番号範囲の下限,〃の上限,選択肢の数 -> Leap上の問題番号,解答,問題,選択肢(リスト)"""
     global examNumberList
     questionNumber -= 1
     ans = ''

@@ -114,17 +114,38 @@ label examMode(part,numOfQue):
     $ sumT = leapModule.resultExam()
 
     L "結果は、[numOfQue]問中[sumT]問正解でした。"
-    L "もう一度、同じ条件で練習しますか？"
+    L "この後どうされますか？"
 
     menu:
-        "Yes":
+        "今回の単語を復習する。":
+            L "了解です。"
+            "復習モードに移行します。"
+            jump review
+        
+        "間違った単語をMy単語帳に保存する。":
+            "保存中です..."
+            pause 1.0
+            "My単語帳に保存されました。"
+            jump exit
+
+        "同じ条件で続ける。":
             L "了解です。ではいきますよ。"
             call examMode(part,numOfQue)
             jump exit
+
+        "条件を変えて続ける。":
+            L "了解です。"
+            "モード選択画面に戻ります。"
+            jump modeSelect
         
-        "No":
+        "休憩する。":
             L "了解です。今日もお疲れさまでした。"
             jump exit
+
+
+label review:
+    $ questionNumber = 1
+
     
 
 label exit:
