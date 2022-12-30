@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 315: 'call' is not a keyword argument or valid child for the textbutton statement.
-    textbutton _("テスト") call modeSelect
-                            ^
+File "game/script.rpy", line 109: expected statement.
+    resultList.append([leapNum, ans, que, 1])
+                                             ^
+
+File "game/script.rpy", line 113: expected statement.
+    resultList.append([leapNum, ans, que, 0])
+                                             ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Fri Dec 30 21:57:40 2022
+Fri Dec 30 22:18:25 2022

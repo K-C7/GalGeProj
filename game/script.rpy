@@ -75,6 +75,8 @@ label examMode(part,numOfQue):
     $ optNum = 3 #ここを変えると選択肢を手動で増やす必要アリ、触らないことを勧める
     $ questionNumber = 1
     $ minMax = []
+    
+    $ resultList = []
 
     $ leapModule.makeExam(part,numOfQue)
     $ minMax = leapModule.partToRange(part)
@@ -91,7 +93,7 @@ label examMode(part,numOfQue):
         # L "第[questionNumber]問、Leap[leapNum]番です。\n[que]は？"
 
         menu:
-            L "第[questionNumber]問、Leap[leapNum]番です。\n[que]は？"
+            L "第[questionNumber]問、Leap[leapNum]番です。\n[que] は？"
 
             "[opt[0]]":
                 $ selected = 0
@@ -104,10 +106,12 @@ label examMode(part,numOfQue):
         
         if(opt[selected] == ans):
             $ leapModule.ansExam(True)
-            L "正解です！[ans]の意味は[que]です。"
+            L "正解です！\n{color=#26aa5d}[ans]{/color} の意味は [que] です。"
+            $ resultList.append([leapNum, ans, que, 1])
         else:
             $ leapModule.ansExam(False)
-            L "不正解です。[ans]の意味は[que]です。"
+            L "不正解です。\n[que] は {color=#26aa5d}[ans]{/color} です。"
+            $ resultList.append([leapNum, ans, que, 0])
         
         $ questionNumber += 1
             
@@ -146,6 +150,30 @@ label examMode(part,numOfQue):
 label review:
     $ questionNumber = 1
 
+    while questionNumber <= numOfQue:
+        $ leapNum = resultList[questionNumber-1][0]
+        $ ans = resultList[questionNumber-1][1]
+        $ que = resultList[questionNumber-1][2]
+        $ tf = resultList[questionNumber-1][3]
+
+        if(tf == 1):
+            L "第[questionNumber]問、Leap[leapNum]番は正解でした。\n[que] は [ans] です。"
+        else:
+            L "第[questionNumber]問、Leap[leapNum]番は不正解でした。\n[que] は [ans] です。"
+        
+        $ questionNumber += 1
+    
+    menu:
+        "同じ条件で続ける。":
+            L "了解です。ではいきますよ。"
+            call examMode(part,numOfQue)
+        "条件を変えて続ける。":
+            L "了解です。"
+            "モード選択画面に戻ります。"
+            jump modeSelect
+        "休憩する。":
+            L "了解です。今日もお疲れさまでした。"
+            jump exit
     
 
 label exit:
