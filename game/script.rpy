@@ -1,5 +1,6 @@
 ﻿define L = Character('Leapちゃん', color="#26aa5d")
 define Me = Character('自分', color="#000000")
+define God = DynamicCharacter("godName",color="#adbb5d")
 
 init:
     $ import module.leapModule as leapModule
@@ -8,9 +9,19 @@ init:
 
 label start:
 
-    scene bg classroom evening
+    scene bg black
 
-    "This is label 'start'."
+    $ godName = "???"
+
+    God "...よ ...よ"
+
+    God "名はなんと申す?"
+
+    $ playerName = renpy.input()
+
+    $ godName = "神(?)"
+
+    God "わしは全国の受験生を合格へ導く受験神じゃ!"
 
     jump modeSelect
 
