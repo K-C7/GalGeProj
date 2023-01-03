@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 85: 'jump' is not a keyword argument or valid child for the screen statement.
-    jump("start")
-        ^
+File "game/script.rpy", line 298: expected statement.
+    ShowMenu()
+              ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Tue Jan  3 17:23:07 2023
+Tue Jan  3 19:53:48 2023
