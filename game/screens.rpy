@@ -299,7 +299,7 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("スタート") action Start()
+            textbutton _("ニューゲーム") action Start()
 
         else:
 
@@ -309,7 +309,7 @@ screen navigation():
 
         textbutton _("ロード") action ShowMenu("load")
 
-        textbutton _("環境設定") action ShowMenu("preferences")
+        textbutton _("設定") action ShowMenu("preferences")
 
         textbutton _("学習モード") action Start("modeSelect")
 
