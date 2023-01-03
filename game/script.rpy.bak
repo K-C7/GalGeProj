@@ -186,7 +186,7 @@ label modeSelect:
     menu:
         "Yes":
             L "はい、ではいきますよ。"
-            call examMode(part,numOfQue) from _call_examMode
+            call examMode(part,numOfQue)
 
         "No":
             L "あれ、聞き間違えたかしら..."
@@ -256,7 +256,7 @@ label examMode(part,numOfQue):
 
         "同じ条件で続ける。":
             L "了解です。ではいきますよ。"
-            call examMode(part,numOfQue) from _call_examMode_1
+            call examMode(part,numOfQue)
             jump exit
 
         "条件を変えて続ける。":
@@ -288,7 +288,7 @@ label review:
     menu:
         "同じ条件で続ける。":
             L "了解です。ではいきますよ。"
-            call examMode(part,numOfQue) from _call_examMode_2
+            call examMode(part,numOfQue)
         "条件を変えて続ける。":
             L "了解です。"
             "モード選択画面に戻ります。"
