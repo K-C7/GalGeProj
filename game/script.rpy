@@ -92,9 +92,20 @@ label op2:
 
     Me "...寝てたのか。それにしても変な夢だったなぁ。"
 
+    show teacher at center
+
     Tea "「お前ら静かにしろー。HRを始めるぞー。」"
 
     Tea "「二年生になってまだ一週間しか経ってないが、今日は転校生を紹介するぞ。じゃ、入ってくれ。」"
+
+    hide teacher
+    with dissolve
+
+    pause 1.0
+
+    show leap at center:
+        zoom 1.2
+    with dissolve
 
     L "「ハ...えっと、こんにちは。イギリスから来ました。リープといいます。今日からよろしくお願いします。」"
 

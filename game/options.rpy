@@ -13,7 +13,7 @@
 ##
 ## _() で囲まれた文字列は翻訳時に生成されるファイルに記載されます。
 
-define config.name = _("LEAPer_beta")
+define config.name = _("GalGeProj_beta")
 
 
 ## 上で定義したタイトルをメインメニュースクリーン（ゲーム起動後、最初に表示され
@@ -38,7 +38,7 @@ define gui.about = _p("""
 ## 名。簡易名は ASCII 文字（半角英数字）のみで構成され、スペース・コロン・セミコ
 ## ロンなどを含んでは行けません。
 
-define build.name = "LEAPer_beta"
+define build.name = "GalGeProj_beta"
 
 
 ## サウンドと音楽 #####################################################################
