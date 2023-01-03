@@ -10,12 +10,16 @@ label start:
 
     scene bg classroom evening
 
-    show leap at center:
-        zoom 1.2
+    "This is label 'start'."
 
     jump modeSelect
 
 label modeSelect:
+
+    scene bg classroom evening
+
+    show leap at center:
+        zoom 1.2
 
     $ part = 0
     $ numOfQue = 0

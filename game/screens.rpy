@@ -81,7 +81,6 @@ style frame:
 ## ゲーム内のスクリーン
 ################################################################################
 
-
 ## Say（発話）スクリーン ################################################################
 ##
 ## Say スクリーンはプレイヤーにダイアローグ（台詞）を表示するのに使います。who、
@@ -311,6 +310,8 @@ screen navigation():
         textbutton _("ロード") action ShowMenu("load")
 
         textbutton _("環境設定") action ShowMenu("preferences")
+
+        textbutton _("学習モード") action Start("modeSelect")
 
         if _in_replay:
 

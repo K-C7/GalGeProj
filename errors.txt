@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 109: expected statement.
-    resultList.append([leapNum, ans, que, 1])
-                                             ^
-
-File "game/script.rpy", line 113: expected statement.
-    resultList.append([leapNum, ans, que, 0])
-                                             ^
+File "game/screens.rpy", line 85: 'jump' is not a keyword argument or valid child for the screen statement.
+    jump("start")
+        ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Fri Dec 30 22:18:25 2022
+Tue Jan  3 17:23:07 2023
