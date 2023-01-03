@@ -13,15 +13,15 @@ label start:
 
     $ godName = "???"
 
-    God "...よ ...よ"
+    God "「...よ ...よ」"
 
-    God "名はなんと申す?"
+    God "「名はなんと申す?」"
 
     $ playerName = renpy.input()
 
     $ godName = "神(?)"
 
-    God "わしは全国の受験生を合格へ導く受験神じゃ!"
+    God "「わしは全国の受験生を合格へ導く受験神じゃ!」"
 
     jump modeSelect
 
