@@ -1,20 +1,37 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 19, in script
-    scene bg classroom evening
-Exception: Possible infinite loop.
+  File "game/script.rpy", line 5, in script
+    define God = Character(godName,color="#adbb5d")
+  File "game/script.rpy", line 5, in script
+    define God = Character(godName,color="#adbb5d")
+  File "game/script.rpy", line 5, in <module>
+    define God = Character(godName,color="#adbb5d")
+NameError: name 'godName' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 19, in script
-    scene bg classroom evening
-  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\execution.py", line 61, in check_infinite_loop
-    raise Exception("Possible infinite loop.")
-Exception: Possible infinite loop.
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\bootstrap.py", line 277, in bootstrap
+    renpy.main.main()
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\main.py", line 558, in main
+    renpy.game.context().run(node)
+  File "game/script.rpy", line 5, in script
+    define God = Character(godName,color="#adbb5d")
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 441, in raise_
+  File "game/script.rpy", line 5, in script
+    define God = Character(godName,color="#adbb5d")
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 2441, in execute
+    self.set()
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 2455, in set
+    value = renpy.python.py_eval_bytecode(self.code.bytecode)
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 5, in <module>
+    define God = Character(godName,color="#adbb5d")
+NameError: name 'godName' is not defined
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.0.3.22090809
 LEAPer_beta 1.0
-Tue Jan  3 17:27:02 2023
+Tue Jan  3 17:39:26 2023
