@@ -1,37 +1,36 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 5, in script
-    define God = Character(godName,color="#adbb5d")
-  File "game/script.rpy", line 5, in script
-    define God = Character(godName,color="#adbb5d")
-  File "game/script.rpy", line 5, in <module>
-    define God = Character(godName,color="#adbb5d")
-NameError: name 'godName' is not defined
+  File "game/script.rpy", line 62, in script
+    God "「なるほど、[subject]じゃな?」"
+KeyError: 'subject'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\bootstrap.py", line 277, in bootstrap
-    renpy.main.main()
-  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\main.py", line 558, in main
-    renpy.game.context().run(node)
-  File "game/script.rpy", line 5, in script
-    define God = Character(godName,color="#adbb5d")
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 441, in raise_
-  File "game/script.rpy", line 5, in script
-    define God = Character(godName,color="#adbb5d")
-  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 2441, in execute
-    self.set()
-  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 2455, in set
-    value = renpy.python.py_eval_bytecode(self.code.bytecode)
-  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 5, in <module>
-    define God = Character(godName,color="#adbb5d")
-NameError: name 'godName' is not defined
+  File "game/script.rpy", line 62, in script
+    God "「なるほど、[subject]じゃな?」"
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 921, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\exports.py", line 1373, in say
+    who(what, *args, **kwargs)
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\character.py", line 1253, in __call__
+    what = self.prefix_suffix("what", self.what_prefix, what, self.what_suffix)
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\character.py", line 1172, in prefix_suffix
+    return (sub(prefix) + sub(body) + sub(suffix))
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\character.py", line 1152, in sub
+    return renpy.substitutions.substitute(s, scope=scope, force=force, translate=translate)[0]
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\substitutions.py", line 278, in substitute
+    s = formatter.vformat(s, (), kwargs) # type: ignore
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/string.py", line 165, in vformat
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/string.py", line 205, in _vformat
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\substitutions.py", line 168, in get_field
+    obj, arg_used = super(Formatter, self).get_field(field_name, args, kwargs)
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/string.py", line 270, in get_field
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/string.py", line 227, in get_value
+KeyError: 'subject'
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.0.3.22090809
 LEAPer_beta 1.0
-Tue Jan  3 17:39:26 2023
+Tue Jan  3 18:26:20 2023

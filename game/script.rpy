@@ -1,14 +1,19 @@
 ﻿define L = Character('Leapちゃん', color="#26aa5d")
 define Me = Character('自分', color="#000000")
-define God = DynamicCharacter("godName",color="#adbb5d")
+define God = DynamicCharacter("godName",color="#5f6634")
+
 
 init:
     $ import module.leapModule as leapModule
 
     image bg classroom evening = im.Scale("bg classroom evening notrim.jpg", 1280, 720)
 
-label start:
 
+label start:
+    jump op
+
+
+label op:
     scene bg black
 
     $ godName = "???"
@@ -17,13 +22,69 @@ label start:
 
     God "「名はなんと申す?」"
 
-    $ playerName = renpy.input()
+    $ playerName = renpy.input("プレイヤー名を入力してください。")
 
-    $ godName = "神(?)"
+    God "「[playerName]よ...[playerName]よ...」"
 
-    God "「わしは全国の受験生を合格へ導く受験神じゃ!」"
+    Me "「...この声は...?」"
 
-    jump modeSelect
+    $ godName = "神"
+
+    God "「わしは全国の受験生を合格へ導く受験の神じゃ!」"
+
+    Me "「受験の神...？そんな人が一体何の用ですか？」"
+
+    God "「お主、困っている教科があるのじゃろう?」"
+
+    Me "「ギクッ！じ、実は...」"
+
+    jump subSelect
+
+
+label subSelect:
+    menu:
+        "英語":
+            # God "nan"
+            $ subject = "英語"
+
+        "国語":
+            God "まだ準備中じゃ。"
+            jump subSelect
+
+        "数学":
+            God "まだ準備中じゃ。"
+            jump subSelect
+
+        "化学":
+            God "まだ準備中じゃ。"
+            jump subSelect
+    
+    God "「なるほど、[subject]じゃな?」"
+
+    menu:
+        "はい":
+            jump opEnd
+        
+        "いいえ":
+            God "「では何の教科が苦手なのじゃ?」"
+            jump subSelect
+
+
+label opEnd:
+    God "「そうかそうか、ならばわしに任せるのじゃ!」"
+
+    # 効果音予定地
+
+    Me "「...今の音は一体？」"
+    
+    God "「なに、すぐに分かるわい!じゃあワシはもう行くからの。」"
+
+    Me "「あ、ちょっと待っ...」"
+
+    scene bg white
+    with dissolve
+
+    pause 1.0
 
 label modeSelect:
 
