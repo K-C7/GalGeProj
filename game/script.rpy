@@ -1,6 +1,8 @@
 ﻿define L = Character('Leapちゃん', color="#26aa5d")
 define Me = Character('自分', color="#000000")
-define God = DynamicCharacter("godName",color="#5f6634")
+define Tea = Character('担任', color="#006d75")
+define God = DynamicCharacter("godName", color="#5f6634")
+define S = Character("生徒", color="#000000")
 
 
 init:
@@ -63,14 +65,14 @@ label subSelect:
 
     menu:
         "はい":
-            jump opEnd
+            jump op2
         
         "いいえ":
             God "「では何の教科が苦手なのじゃ?」"
             jump subSelect
 
 
-label opEnd:
+label op2:
     God "「そうかそうか、ならばわしに任せるのじゃ!」"
 
     # 効果音予定地
@@ -84,7 +86,35 @@ label opEnd:
     scene bg white
     with dissolve
 
-    pause 1.0
+    scene bg classroom evening
+
+    "ザワザワ"
+
+    Me "...寝てたのか。それにしても変な夢だったなぁ。"
+
+    Tea "「お前ら静かにしろー。HRを始めるぞー。」"
+
+    Tea "「二年生になってまだ一週間しか経ってないが、今日は転校生を紹介するぞ。じゃ、入ってくれ。」"
+
+    L "「ハ...えっと、こんにちは。イギリスから来ました。リープといいます。今日からよろしくお願いします。」"
+
+    S "「結構可愛くね？」"
+
+    S "「聞いた？イギリスから来たんだって！」"
+
+    Tea "「リープは両親の都合でイギリスから日本に帰ってきた帰国子女なんだ。仲良くしてやってくれ。」"
+
+    Me "LEAPさんか...英語ができない俺には縁のない子だな..."
+
+    Tea "「じゃあ、LEAPの席は...おっ、[playerName]の隣の席が空いてるな。あそこに座ってくれ。」"
+
+    L "「わかりました。」"
+
+    Me "...おいおい、マジかよ。"
+
+    "こうして、英語が苦手な俺とペラペラなLEAPさんとの学校生活が始まるのだった..."
+
+
 
 label modeSelect:
 
