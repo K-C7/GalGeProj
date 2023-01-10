@@ -8,6 +8,11 @@ define S = Character("生徒", color="#000000")
 init:
     $ import module.leapModule as leapModule
 
+    python:
+        LEAP_PATH = config.basedir + r"\game\module\leap.csv"
+        print(LEAP_PATH)
+        leapModule.leapPathSet(LEAP_PATH)
+
     image bg classroom evening = im.Scale("bg classroom evening notrim.jpg", 1280, 720)
 
 

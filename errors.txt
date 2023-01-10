@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 298: expected statement.
-    ShowMenu()
-              ^
+File "game/script.rpy", line 21: expected statement.
+    risuto = renpy.list_files()
+           ^
 
-Ren'Py Version: Ren'Py 8.0.3.22090809
-Tue Jan  3 19:53:48 2023
+Ren'Py Version: Ren'Py 8.1.0.23010208n
+Tue Jan  3 22:47:35 2023

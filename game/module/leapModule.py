@@ -2,6 +2,7 @@
 # import renpy.exports as renpy
 import random
 import csv
+import os
 
 #定数の設定
 QN_PART1 = 400
@@ -9,11 +10,15 @@ QN_PART2 = 1000
 QN_PART3 = 1400
 QN_PART4 = 1935
 
-LEAP_PATH = "C:/Users/Shiina/Desktop/Projects/Renpy/LEAPer_beta/game/module/leap.csv"
+LEAP_PATH = ""
 
 examNumberList = []
 examTFList = []
 
+
+def leapPathSet(path):
+    global LEAP_PATH
+    LEAP_PATH = path
 
 def ranNoKaburi(min, max, n, remove = []):
     """乱数の下限, 上限, 個数, 除外リスト(省略可) -> 乱数のリスト"""
