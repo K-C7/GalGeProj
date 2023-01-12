@@ -66,6 +66,8 @@ label subSelect:
             God "まだ準備中じゃ。"
             jump subSelect
     
+    Me "実は[subject]が苦手で..."
+    
     God "「なるほど、[subject]じゃな?」"
 
     menu:
