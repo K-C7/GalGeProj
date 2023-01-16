@@ -1,4 +1,4 @@
-define Ano = Character('???', color="#252525")
+
 
 label Opeaning2:
     scene bg road day
