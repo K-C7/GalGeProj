@@ -233,6 +233,9 @@ label examMode(part,numOfQue):
             "[opt[3]]":
                 $ selected = 3
         
+        $ CC_ansT = "1b615d" 
+        # CCはColorCodeの略、変数に保存できるかのテスト用です。
+
         if(opt[selected] == ans):
             $ leapModule.ansExam(True)
             L "正解です！\n{color=#26aa5d}[ans]{/color} の意味は [que] です。"
@@ -247,6 +250,8 @@ label examMode(part,numOfQue):
     $ sumT = leapModule.resultExam()
 
     L "結果は、[numOfQue]問中[sumT]問正解でした。"
+
+label EndSelect:
     L "この後どうされますか？"
 
     menu:
@@ -259,7 +264,7 @@ label examMode(part,numOfQue):
             "保存中です..."
             pause 1.0
             "My単語帳に保存されました。"
-            jump exit
+            jump EndSelect
 
         "同じ条件で続ける。":
             L "了解です。ではいきますよ。"

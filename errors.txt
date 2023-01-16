@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 21: expected statement.
-    risuto = renpy.list_files()
-           ^
+File "game/script.rpy", line 252: expected ':' not found.
+    label EndSelect
+                   ^
 
-Ren'Py Version: Ren'Py 8.1.0.23010208n
-Tue Jan  3 22:47:35 2023
+Ren'Py Version: Ren'Py 8.0.3.22090809
+Mon Jan 16 17:39:24 2023
