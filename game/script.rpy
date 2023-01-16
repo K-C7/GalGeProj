@@ -17,7 +17,7 @@ init:
 
 
 label start:
-    jump op
+    jump Opeaning
 
 
 label op:
