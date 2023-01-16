@@ -1,5 +1,3 @@
-
-
 label Opeaning2:
     scene bg road day
 
