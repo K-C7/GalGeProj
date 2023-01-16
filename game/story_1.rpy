@@ -1,3 +1,0 @@
-label Opeaning:
-    
-    jump modeSelect

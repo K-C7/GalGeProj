@@ -135,10 +135,6 @@ label op2:
     # プロローグ終わり
 
 
-
-
-
-
 label modeSelect:
 
     scene bg classroom evening
