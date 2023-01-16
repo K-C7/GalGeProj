@@ -11,7 +11,7 @@ label Opening1:
 
     show mother at center
 
-    Mom "おきなさぁーい。" size 100
+    Mom "おきなさぁーい。" #デカ文字
 
     menu:
         "起きてるよ。":
@@ -40,11 +40,11 @@ label Opening1:
 
     menu:
         "何で？":
-            #何もしない
+            "何で？"
         "は？":
-            #何もしない
+            "は？"
         "行きたくな～い。":
-            #何もしない
+            "行きたくな～い。"
     
     Mom "いいじゃないの。さっさと行ってきなさい。"
 
@@ -76,13 +76,13 @@ label Opening1:
 
     menu:
         "誰だッ...！":
-            #何もしない
+            "誰だッ...！"
         
         "何奴...！":
-            #何もしない
+            "何奴...！"
 
         "貴様はッ！":
-            #何もしない
+            "貴様はッ！"
 
     $ godName = "God"
     God "我は神なり..."
@@ -106,10 +106,10 @@ label Opening1:
     Me "...何が起きた？"
     Me "気絶していたのか？今は何時だ？"
     Me "！！！ッ"
-    Me "１２時" size 100
+    Me "１２時！！" #デカ文字
     Me "早く帰らないと母さんに叱られるッ！急げッ！"
 
     scene bg black
     with dissolve
-    
+
     $ renpy.movie_cutscene("opening.mpg")

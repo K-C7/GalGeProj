@@ -2,9 +2,21 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 252: expected ':' not found.
-    label EndSelect
+File "game/story_1.rpy", line 14: end of line expected.
+    Mom "おきなさぁーい。" size 100
                    ^
 
-Ren'Py Version: Ren'Py 8.0.3.22090809
-Mon Jan 16 17:39:24 2023
+File "game/story_1.rpy", line 42: choice menuitem expects a non-empty block.
+    "何で？":
+          ^
+
+File "game/story_1.rpy", line 78: choice menuitem expects a non-empty block.
+    "誰だッ...！":
+              ^
+
+File "game/story_1.rpy", line 109: end of line expected.
+    Me "１２時" size 100
+             ^
+
+Ren'Py Version: Ren'Py 8.1.0.23010208n
+Tue Jan 17 00:51:03 2023
