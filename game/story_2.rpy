@@ -17,6 +17,8 @@ label Opeaning2:
     Me "あの〜すみません。　お怪我はありませんか？"
 
     # LEAPちゃん表示
+    show leap at center:
+        zoom 1.2
 
     Me "うっ..."
     Me "（かわいい...）"
@@ -31,6 +33,7 @@ label Opeaning2:
     Me "あっ　ホントだ！　急がないと！！"
 
     # 背景：電車内
+    scene bg train day
 
     Me "何とか間に合った"
     Ano "そうですね"
@@ -102,6 +105,5 @@ label Opeaning2:
     Me "（いや、だけど新しい後輩の前で恥をさらすわけにはいかないし、これ以上印象を悪くしたくない）"
     L "先輩行きますよ"
     Me "やるしかないのか"
-
 
     jump modeSelect
