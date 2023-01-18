@@ -1,4 +1,4 @@
-label op:
+label oldOp:
     scene bg black
 
     $ godName = "???"
