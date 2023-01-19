@@ -5,6 +5,7 @@ label modeSelect:
     show leap at center:
         zoom 1.2
 
+    $ mode = 1 #0なら学習モード、1なら本番
     $ part = 0
     $ numOfQue = 0
 
@@ -58,6 +59,12 @@ label modeSelect:
             L "あれ、聞き間違えたかしら..."
             jump modeSelect
     
+label testPrepare(progress):
+    $ mode = 1
+
+    if progress == 1:
+        call examMode(1, 10) from _call_examMode_3
+    #partシステムについて要検討
 
 label examMode(part,numOfQue):
     $ optNum = 3 #ここを変えると選択肢を手動で増やす必要アリ、触らないことを勧める
@@ -110,34 +117,40 @@ label examMode(part,numOfQue):
 
     L "結果は、[numOfQue]問中[sumT]問正解でした。"
 
+    jump EndSelect
+
 label EndSelect:
-    L "この後どうされますか？"
-
-    menu:
-        "今回の単語を復習する。":
-            L "了解です。"
-            "復習モードに移行します。"
-            jump review
+    if progress = 0:
+        L "この後どうされますか？"
         
-        "間違った単語をMy単語帳に保存する。":
-            "保存中です..."
-            pause 1.0
-            "My単語帳に保存されました。"
-            jump EndSelect
+        menu:
+            "今回の単語を復習する。":
+                L "了解です。"
+                "復習モードに移行します。"
+                jump review
+            
+            "間違った単語をMy単語帳に保存する。":
+                "保存中です..."
+                pause 1.0
+                "My単語帳に保存されました。"
+                jump EndSelect
 
-        "同じ条件で続ける。":
-            L "了解です。ではいきますよ。"
-            call examMode(part,numOfQue) from _call_examMode_1
-            jump exit
+            "同じ条件で続ける。":
+                L "了解です。ではいきますよ。"
+                call examMode(part,numOfQue) from _call_examMode_1
+                jump exit
 
-        "条件を変えて続ける。":
-            L "了解です。"
-            "モード選択画面に戻ります。"
-            jump modeSelect
-        
-        "休憩する。":
-            L "了解です。今日もお疲れさまでした。"
-            jump exit
+            "条件を変えて続ける。":
+                L "了解です。"
+                "モード選択画面に戻ります。"
+                jump modeSelect
+            
+            "休憩する。":
+                L "了解です。今日もお疲れさまでした。"
+                jump exit
+
+    else if progress == 1:
+        #ストーリーに戻る
 
 
 label review:
