@@ -1,7 +1,7 @@
-label Opening1:
+label Opening:
     scene bg shrine
     
-    "20XX年3月〇〇日　10：00　天気　晴れ〇〇神社にある男が現れた。"
+    "20XX年3月〇〇日 10 00 天気 晴れ 〇〇神社にある男が現れた。"
 
     Me "この神社に来るのも久しぶりだぜ。テンション上がるなぁ〜"
     Me "明日で2年生になるからって、母さんもひどいよなぁ。"
@@ -84,7 +84,6 @@ label Opening1:
         "貴様はッ！":
             Me "貴様はッ！"
 
-    $ godName = "神"
     God "我は神なり..."
     God "もう一度言う..."
     God "貴様の願いをかなえてやろうッ！！"
@@ -114,11 +113,6 @@ label Opening1:
 
     $ renpy.movie_cutscene("opening.mpg")
 
-    jump Opeaning2
-
-
-
-label Opeaning2:
     scene bg road day
 
     "数日後"
@@ -184,7 +178,6 @@ label Opeaning2:
     Me "二礼二拍手一礼っと"
     Me "(どうか神様、『英語』がもっと得意になりますように)"
     Me "うっ... 急に頭痛がっ..."
-    $ godName = "神"
     God "貴様の願いをかなえてやろう..."
     Me "うっ... なんだこの光はッ...！"
 
