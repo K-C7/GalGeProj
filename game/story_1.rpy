@@ -190,5 +190,5 @@ label Opening2_menu:
 
     menu:
         "やるしかないのか":
-            jump modeSelect
+            call testPrepare(progress)
     

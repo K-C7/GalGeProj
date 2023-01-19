@@ -5,7 +5,7 @@ label modeSelect:
     show leap at center:
         zoom 1.2
 
-    $ mode = 1 #0なら学習モード、1なら本番
+    $ mode = 0 #0なら学習モード、1なら本番
     $ part = 0
     $ numOfQue = 0
 
@@ -63,7 +63,7 @@ label testPrepare(progress):
     $ mode = 1
 
     if progress == 1:
-        call examMode(1, 10) from _call_examMode_3
+        call examMode(1, 10)
     #partシステムについて要検討
 
 label examMode(part,numOfQue):
@@ -120,7 +120,7 @@ label examMode(part,numOfQue):
     jump EndSelect
 
 label EndSelect:
-    if progress = 0:
+    if mode == 0:
         L "この後どうされますか？"
         
         menu:
@@ -149,7 +149,7 @@ label EndSelect:
                 L "了解です。今日もお疲れさまでした。"
                 jump exit
 
-    else if progress == 1:
+    else if mode == 1:
         #ストーリーに戻る
 
 
