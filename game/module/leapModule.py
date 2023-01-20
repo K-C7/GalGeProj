@@ -93,9 +93,9 @@ def makeExam(min, max, numOfQue):
     examNumberList = ranNoKaburi(min, max ,numOfQue)
     examTFList = []
 
-
+"""
 def makeExamFromPart(part,numOfQue):
-    """パート番号, 問題数でテスト問題のリスト作成(返り値なし)"""
+    #パート番号, 問題数でテスト問題のリスト作成(返り値なし)
     global examNumberList
     global examTFList
     examTFList = []
@@ -103,6 +103,7 @@ def makeExamFromPart(part,numOfQue):
 
     minMax = partToRange(part)
     examNumberList = ranNoKaburi(minMax[0],minMax[1],numOfQue)
+"""
 
 
 def getExam(questionNumber,optMin,optMax,optNum):
