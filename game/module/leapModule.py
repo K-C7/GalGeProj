@@ -46,14 +46,14 @@ def verifyValue(min,max,numOfQue) -> bool:
         tf = False
     if(max > 1935):
         tf = False
-    if(max - min < numOfQue):
+    if(max - min + 1 < numOfQue):
         tf = False
 
     return tf
 
 
 def partToRange(part):
-    """パート番号(1~4) -> 問題番号の範囲リスト[最初, 最後]"""
+    """パート番号(1~4) -> 最初の問題番号, 最後の問題番号"""
     min = 0
     max = 0
 
@@ -72,8 +72,12 @@ def partToRange(part):
     else:
         pass
 
-    return [min, max]
+    return min, max
 
+
+def getLastNum():
+    """-> LEAPの最後の問題番号"""
+    return QN_PART4
 
 '''
 def makeExam(min,max,num):
@@ -82,7 +86,15 @@ def makeExam(min,max,num):
     examNumberList = ranNoKaburi(min,max,num)
 '''
 
-def makeExam(part,numOfQue):
+def makeExam(min, max, numOfQue):
+    """問題番号の下限, 上限、問題数でテスト問題のリスト作成(返り値なし)"""
+    global examNumberList
+    global examTFList
+    examNumberList = ranNoKaburi(min, max ,numOfQue)
+    examTFList = []
+
+
+def makeExamFromPart(part,numOfQue):
     """パート番号, 問題数でテスト問題のリスト作成(返り値なし)"""
     global examNumberList
     global examTFList

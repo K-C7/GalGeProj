@@ -8,27 +8,65 @@ label modeSelect:
     $ mode = 0 #0なら学習モード、1なら本番
     $ part = 0
     $ numOfQue = 0
+    $ minNum, maxNum = 0
 
-    L "それでは、今日はどのPartを練習しますか？"
+    L "それでは、今日はどの範囲で練習しますか？"
 
     menu:
+        "カスタム範囲":
+            Me "じゃあ、この範囲から出してほしいな。えっと..."
+
+            jump rangeSelect
+
+        "一つのPart":
+            Me "じゃあ、このPartから出してほしいな。えっと..."
+
+            jump partSelect
+        
+        "全範囲":
+            $ minNum, maxNum = 1, getLastNum()
+
+            Me "全範囲でお願い。"
+
+            L "分かりました。全範囲ですね。"
+
+            jump numOfQueSelect
+            
+label rangeSelect:
+    $ minNum = renpy.input("何番から？")
+    $ maxNum = renpy.input("何番まで？")
+
+    Me "[minNum]番から[maxNum]番の範囲でお願い。"
+    
+    L "分かりました。[minNum]番から[maxNum]番ですね。"
+
+    jump numOfQueSelect
+
+label partSelect:
+    menu:
         "Part1":
-            Me "じゃあPart1で。"
+            Me "Part1で。"
             $ part = 1
 
         "Part2":
-            Me "じゃあPart2で。"
+            Me "Part2で。"
             $ part = 2
         
         "Part3":
-            Me "じゃあPart3で。"
+            Me "Part3で。"
             $ part = 3
 
         "Part4":
-            Me "じゃあpart4で。"
+            Me "part4で。"
             $ part = 4
     
     L "分かりました、Part[part]ですね。"
+
+    $ minNum, maxNum = leapModule.partToRange(part)
+
+    jump numOfQueSelect
+
+label numOfQueSelect:
     L "何問ほど出したらいいでしょうか？"
 
     menu:
@@ -36,48 +74,61 @@ label modeSelect:
             Me "10問で。"
             $ numOfQue = 10
 
-        "20問":
-            Me "20問で。"
-            $ numOfQue = 20
+        "30問":
+            Me "30問で。"
+            $ numOfQue = 30
 
         "50問":
             Me "50問で。"
             $ numOfQue = 50
+        
+        "その他":
+            $ numOfQue = renpy.input("何問出す？")
+            Me "[numOfQue]問で。"
 
-        "100問":
-            Me "100問で。"
-            $ numOfQue = 100
+    isCorrectNums = verifyValue(minNum, maxNum, numOfQue)
+    if isCorrectNums != True:
+        L "範囲か問題数がおかしいですよ。最初から確認しましょう。"
 
-    L "了解です。それでは、Part[part]を[numOfQue]問出題するのでよろしいでしょうか。"
+        jump modeSelect
+
+    if part == 0:
+        L "了解です。それでは、[minNum]番から[maxNum]番の範囲で[numOfQue]問出題するのでよろしいでしょうか。"
+    else:
+        L "了解です。それでは、Part[part]から[numOfQue]問出題するのでよろしいでしょうか。"
 
     menu:
         "Yes":
             L "はい、ではいきますよ。"
-            call examMode(part,numOfQue)
+
+            jump examMode
 
         "No":
             L "あれ、聞き間違えたかしら..."
+
             jump modeSelect
     
 label testPrepare(progress):
     $ mode = 1
 
     if progress == 1:
-        call examMode(1, 10)
-    #partシステムについて要検討
+        $ minNum = 1
+        $ maxNum = 100
+    else:
+        $ minNum = 1
+        $ maxNum = 100
+        #あとでいじってください
 
-label examMode(part,numOfQue):
+    jump examMode
+
+label examMode:
     $ optNum = 3 #ここを変えると選択肢を手動で増やす必要アリ、触らないことを勧める
     $ questionNumber = 1
-    $ minMax = []
-    
     $ resultList = []
-
-    $ leapModule.makeExam(part,numOfQue)
-    $ minMax = leapModule.partToRange(part)
+    $ leapModule.makeExam(minNum, MaxNum, numOfQue)
 
     while questionNumber <= numOfQue:
-        $ exam = leapModule.getExam(questionNumber,minMax[0],minMax[1],optNum)
+        $ exam = leapModule.getExam(questionNumber,minNum,maxNum,optNum)
         $ leapNum = exam[0]
         $ ans = exam[1]
         $ que = exam[2]
@@ -128,17 +179,10 @@ label EndSelect:
                 L "了解です。"
                 "復習モードに移行します。"
                 jump review
-            
-            "間違った単語をMy単語帳に保存する。":
-                "保存中です..."
-                pause 1.0
-                "My単語帳に保存されました。"
-                jump EndSelect
 
             "同じ条件で続ける。":
                 L "了解です。ではいきますよ。"
-                call examMode(part,numOfQue)
-                jump exit
+                jump examMode
 
             "条件を変えて続ける。":
                 L "了解です。"
@@ -172,7 +216,7 @@ label review:
     menu:
         "同じ条件で続ける。":
             L "了解です。ではいきますよ。"
-            call examMode(part,numOfQue)
+            jump examMode
         "条件を変えて続ける。":
             L "了解です。"
             "モード選択画面に戻ります。"
