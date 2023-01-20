@@ -1,45 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-OSError: Couldn't find file 'opening.mpg'.
+  File "game/story_1.rpy", line 277, in script call
+    call testPrepare(progress)
+  File "game/examMode.rpy", line 130, in script
+    $ leapModule.makeExam(minNum, maxNum, numOfQue)
+  File "game/examMode.rpy", line 130, in <module>
+    $ leapModule.makeExam(minNum, maxNum, numOfQue)
+NameError: name 'numOfQue' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in script
-    python hide:
+  File "game/story_1.rpy", line 277, in script call
+    call testPrepare(progress)
+  File "game/examMode.rpy", line 130, in script
+    $ leapModule.makeExam(minNum, maxNum, numOfQue)
   File "I:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 1132, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "I:\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in <module>
-    python hide:
-  File "renpy/common/_layout/screen_main_menu.rpym", line 35, in _execute_python_hide
-    ui.interact()
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\ui.py", line 299, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 3435, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 3903, in interact_core
-    renpy.audio.audio.interact()
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\audio\audio.py", line 1218, in interact
-    periodic()
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\audio\audio.py", line 1171, in periodic
-    raise_(exc[0], exc[1], exc[2])
-  File "/home/tom/ab/nightly-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 441, in raise_
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\audio\audio.py", line 1149, in periodic_thread_main
-    periodic_pass()
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\audio\audio.py", line 1091, in periodic_pass
-    c.periodic()
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\audio\audio.py", line 517, in periodic
-    topf = load(filename)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\audio\audio.py", line 70, in load
-    rv = renpy.loader.load(fn)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\loader.py", line 820, in load
-    raise IOError("Couldn't find file '%s'." % name)
-OSError: Couldn't find file 'opening.mpg'.
+  File "game/examMode.rpy", line 130, in <module>
+    $ leapModule.makeExam(minNum, maxNum, numOfQue)
+NameError: name 'numOfQue' is not defined
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.1.0.23010208n
 GalGeProj_beta 1.0
-Tue Jan 17 01:00:50 2023
+Fri Jan 20 20:11:33 2023

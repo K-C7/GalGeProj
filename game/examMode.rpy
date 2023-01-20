@@ -8,7 +8,7 @@ label modeSelect:
     $ mode = 0 #0なら学習モード、1なら本番
     $ part = 0
     $ numOfQue = 0
-    $ minNum, maxNum = 0
+    $ minNum, maxNum = 0, 0
 
     L "それでは、今日はどの範囲で練習しますか？"
 
@@ -24,7 +24,7 @@ label modeSelect:
             jump partSelect
         
         "全範囲":
-            $ minNum, maxNum = 1, getLastNum()
+            $ minNum, maxNum = 1, leapModule.getLastNum()
 
             Me "全範囲でお願い。"
 
@@ -33,8 +33,8 @@ label modeSelect:
             jump numOfQueSelect
             
 label rangeSelect:
-    $ minNum = renpy.input("何番から？")
-    $ maxNum = renpy.input("何番まで？")
+    $ minNum = int(renpy.input("何番から？"))
+    $ maxNum = int(renpy.input("何番まで？"))
 
     Me "[minNum]番から[maxNum]番の範囲でお願い。"
     
@@ -83,10 +83,10 @@ label numOfQueSelect:
             $ numOfQue = 50
         
         "その他":
-            $ numOfQue = renpy.input("何問出す？")
+            $ numOfQue = int(renpy.input("何問出す？"))
             Me "[numOfQue]問で。"
 
-    isCorrectNums = verifyValue(minNum, maxNum, numOfQue)
+    $ isCorrectNums = leapModule.verifyValue(minNum, maxNum, numOfQue)
     if isCorrectNums != True:
         L "範囲か問題数がおかしいですよ。最初から確認しましょう。"
 
@@ -114,9 +114,11 @@ label testPrepare(progress):
     if progress == 1:
         $ minNum = 1
         $ maxNum = 100
+        $ numOfQue = 10
     else:
         $ minNum = 1
         $ maxNum = 100
+        $ numOfQue = 10
         #あとでいじってください
 
     jump examMode
@@ -125,7 +127,7 @@ label examMode:
     $ optNum = 3 #ここを変えると選択肢を手動で増やす必要アリ、触らないことを勧める
     $ questionNumber = 1
     $ resultList = []
-    $ leapModule.makeExam(minNum, MaxNum, numOfQue)
+    $ leapModule.makeExam(minNum, maxNum, numOfQue)
 
     while questionNumber <= numOfQue:
         $ exam = leapModule.getExam(questionNumber,minNum,maxNum,optNum)
@@ -193,8 +195,9 @@ label EndSelect:
                 L "了解です。今日もお疲れさまでした。"
                 jump exit
 
-    else if mode == 1:
-        #ストーリーに戻る
+    elif mode == 1:
+        jump exit
+        #ストーリーに戻して
 
 
 label review:

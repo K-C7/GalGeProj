@@ -2,21 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/story_1.rpy", line 14: end of line expected.
-    Mom "おきなさぁーい。" size 100
-                   ^
+File "game/examMode.rpy", line 89: expected statement.
+    isCorrectNums = leapModule.verifyValue(minNum, maxNum, numOfQue)
+                  ^
 
-File "game/story_1.rpy", line 42: choice menuitem expects a non-empty block.
-    "何で？":
-          ^
-
-File "game/story_1.rpy", line 78: choice menuitem expects a non-empty block.
-    "誰だッ...！":
-              ^
-
-File "game/story_1.rpy", line 109: end of line expected.
-    Me "１２時" size 100
-             ^
+File "game/story_1.rpy", line 252: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    Me "何が？"
+    ^
 
 Ren'Py Version: Ren'Py 8.1.0.23010208n
-Tue Jan 17 00:51:03 2023
+Fri Jan 20 19:55:54 2023
