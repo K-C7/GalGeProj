@@ -128,11 +128,15 @@ def getExam(questionNumber,optMin,optMax,optNum):
     return examNumberList[questionNumber], ans, que, opt
 
 
-def ansExam(questionNumber):
+def ansExam(questionNumber, tf):
     # 答え合わせ、および不正解時の解答表示はできればRenpy側で実装したい <- しました
     # ここでは正誤の結果を保存するのみ
     global examTFList
-    examTFList[questionNumber - 1] = 1
+
+    if tf:
+        examTFList[questionNumber - 1] = 1
+    else:
+        examTFList[questionNumber - 1] = 0
 
 def resultExam():
     return sum(examTFList)

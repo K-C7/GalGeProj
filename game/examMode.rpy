@@ -156,12 +156,14 @@ label examMode:
         # CCはColorCodeの略、変数に保存できるかのテスト用です。
 
         if(opt[selected] == ans):
-            $ leapModule.ansExam(questionNumber)
-            L "正解です！\n{color=#26aa5d}[ans]{/color} の意味は [que] です。"
+            $ leapModule.ansExam(questionNumber, True)
             $ resultList.append([leapNum, ans, que, 1])
+            L "正解です！\n{color=#26aa5d}[ans]{/color} の意味は [que] です。"
+
         else:
-            L "不正解です。\n[que] は {color=#26aa5d}[ans]{/color} です。"
+            $ leapModule.ansExam(questionNumber, False)
             $ resultList.append([leapNum, ans, que, 0])
+            L "不正解です。\n[que] は {color=#26aa5d}[ans]{/color} です。"
         
         $ questionNumber += 1
             
