@@ -184,7 +184,6 @@ label EndSelect:
                 jump review
 
             "同じ条件で続ける。":
-                L "了解です。ではいきますよ。"
                 jump examMode
 
             "条件を変えて続ける。":
@@ -219,7 +218,6 @@ label review:
     
     menu:
         "同じ条件で続ける。":
-            L "了解です。ではいきますよ。"
             jump examMode
         "条件を変えて続ける。":
             L "了解です。"
