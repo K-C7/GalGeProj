@@ -1,30 +1,27 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/story_1.rpy", line 277, in script call
-    call testPrepare(progress)
-  File "game/examMode.rpy", line 130, in script
-    $ leapModule.makeExam(minNum, maxNum, numOfQue)
-  File "game/examMode.rpy", line 130, in <module>
-    $ leapModule.makeExam(minNum, maxNum, numOfQue)
-NameError: name 'numOfQue' is not defined
+  File "game/examMode.rpy", line 159, in script
+    $ leapModule.ansExam(questionNumber)
+  File "game/examMode.rpy", line 159, in <module>
+    $ leapModule.ansExam(questionNumber)
+IndexError: list assignment index out of range
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/story_1.rpy", line 277, in script call
-    call testPrepare(progress)
-  File "game/examMode.rpy", line 130, in script
-    $ leapModule.makeExam(minNum, maxNum, numOfQue)
+  File "game/examMode.rpy", line 159, in script
+    $ leapModule.ansExam(questionNumber)
   File "I:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 1132, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "I:\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/examMode.rpy", line 130, in <module>
-    $ leapModule.makeExam(minNum, maxNum, numOfQue)
-NameError: name 'numOfQue' is not defined
+  File "game/examMode.rpy", line 159, in <module>
+    $ leapModule.ansExam(questionNumber)
+  File "module/leapModule.py", line 135, in ansExam
+IndexError: list assignment index out of range
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.1.0.23010208n
 GalGeProj_beta 1.0
-Fri Jan 20 20:11:33 2023
+Sat Jan 21 23:45:42 2023

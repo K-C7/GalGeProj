@@ -91,7 +91,7 @@ def makeExam(min, max, numOfQue):
     global examNumberList
     global examTFList
     examNumberList = ranNoKaburi(min, max ,numOfQue)
-    examTFList = []
+    examTFList = [0 for i in range(0, numOfQue)]
 
 """
 def makeExamFromPart(part,numOfQue):
@@ -128,15 +128,11 @@ def getExam(questionNumber,optMin,optMax,optNum):
     return examNumberList[questionNumber], ans, que, opt
 
 
-def ansExam(ans):
+def ansExam(questionNumber):
     # 答え合わせ、および不正解時の解答表示はできればRenpy側で実装したい <- しました
     # ここでは正誤の結果を保存するのみ
     global examTFList
-
-    if(ans):
-        examTFList.append(1)
-    else:
-        examTFList.append(0)
+    examTFList[questionNumber - 1] = 1
 
 def resultExam():
     return sum(examTFList)

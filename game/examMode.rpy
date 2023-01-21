@@ -99,8 +99,6 @@ label numOfQueSelect:
 
     menu:
         "Yes":
-            L "はい、ではいきますよ。"
-
             jump examMode
 
         "No":
@@ -129,6 +127,8 @@ label examMode:
     $ resultList = []
     $ leapModule.makeExam(minNum, maxNum, numOfQue)
 
+    L "はい、ではいきますよ。"
+
     while questionNumber <= numOfQue:
         $ exam = leapModule.getExam(questionNumber,minNum,maxNum,optNum)
         $ leapNum = exam[0]
@@ -156,11 +156,10 @@ label examMode:
         # CCはColorCodeの略、変数に保存できるかのテスト用です。
 
         if(opt[selected] == ans):
-            $ leapModule.ansExam(True)
+            $ leapModule.ansExam(questionNumber)
             L "正解です！\n{color=#26aa5d}[ans]{/color} の意味は [que] です。"
             $ resultList.append([leapNum, ans, que, 1])
         else:
-            $ leapModule.ansExam(False)
             L "不正解です。\n[que] は {color=#26aa5d}[ans]{/color} です。"
             $ resultList.append([leapNum, ans, que, 0])
         
