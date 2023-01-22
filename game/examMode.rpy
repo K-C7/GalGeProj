@@ -93,20 +93,29 @@ label numOfQueSelect:
 
     menu:
         "10問":
-            Me "10問で。"
             $ numOfQue = 10
 
         "30問":
-            Me "30問で。"
             $ numOfQue = 30
 
         "50問":
-            Me "50問で。"
             $ numOfQue = 50
         
         "その他":
-            $ numOfQue = int(renpy.input("何問出す？"))
-            Me "[numOfQue]問で。"
+            python:
+                flag = False
+                while flag == False:
+                    try:
+                        kariNum = int(renpy.input("何問出す？"))
+                        numOfQue = int(kariNum)
+                
+                    except:
+                        renpy.say(None, "数字を入力してください。")
+                    
+                    else:
+                        flag = True
+
+    Me "[numOfQue]問で。"
 
     $ isCorrectNums = leapModule.verifyValue(minNum, maxNum, numOfQue)
     if isCorrectNums != True:
