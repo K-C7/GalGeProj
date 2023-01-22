@@ -117,8 +117,8 @@ label numOfQueSelect:
 
     Me "[numOfQue]問で。"
 
-    $ isCorrectNums = leapModule.verifyValue(minNum, maxNum, numOfQue)
-    if isCorrectNums != True:
+    $ isCorrectValue = leapModule.verifyValue(minNum, maxNum, numOfQue)
+    if isCorrectValue != True:
         L "範囲か問題数がおかしいですよ。最初から確認しましょう。"
 
         jump modeSelect

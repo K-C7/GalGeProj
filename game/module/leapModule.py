@@ -32,15 +32,8 @@ def ranNoKaburi(min, max, n, remove = []):
 
 
 def verifyValue(min,max,numOfQue) -> bool:
-    # ここでは引数として設定される予定の値の不正がないかを見る
+    """出題範囲の最小値、最大値、出題数 -> 問題が作れるかどうか"""
     tf = True
-
-    if not(type(min) is int):
-        tf = False
-    elif not(type(max) is int):
-        tf = False
-    elif not(type(numOfQue) is int):
-        tf = False
     
     if(min < 1):
         tf = False
@@ -129,8 +122,9 @@ def getExam(questionNumber,optMin,optMax,optNum):
 
 
 def ansExam(questionNumber, tf):
-    # 答え合わせ、および不正解時の解答表示はできればRenpy側で実装したい <- しました
-    # ここでは正誤の結果を保存するのみ
+    """問題番号、その正誤"""
+    #各問題の正誤を0か1かで記録する
+
     global examTFList
 
     if tf:
@@ -139,4 +133,5 @@ def ansExam(questionNumber, tf):
         examTFList[questionNumber - 1] = 0
 
 def resultExam():
+    """-> 問題の正解数"""
     return sum(examTFList)
