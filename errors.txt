@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/examMode.rpy", line 89: expected statement.
-    isCorrectNums = leapModule.verifyValue(minNum, maxNum, numOfQue)
-                  ^
-
-File "game/story_1.rpy", line 252: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    Me "何が？"
-    ^
+File "game/script.rpy", line 16: invalid syntax
+    LEAP_PATH = /game/module/leap.csv
+                 ^
 
 Ren'Py Version: Ren'Py 8.1.0.23010208n
-Fri Jan 20 19:55:54 2023
+Sun Jan 22 13:34:14 2023

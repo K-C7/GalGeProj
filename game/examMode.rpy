@@ -33,8 +33,30 @@ label modeSelect:
             jump numOfQueSelect
             
 label rangeSelect:
-    $ minNum = int(renpy.input("何番から？"))
-    $ maxNum = int(renpy.input("何番まで？"))
+    python:
+        flag = False
+        while flag == False:
+            try:
+                kariNum = renpy.input("何番から？")
+                minNum = int(kariNum)
+        
+            except:
+                renpy.say(None, "数字を入力してください。")
+            
+            else:
+                flag = True
+        
+        flag = False
+        while flag == False:
+            try:
+                kariNum = renpy.input("何番まで？")
+                maxNum = int(kariNum)
+        
+            except:
+                renpy.say(None, "数字を入力してください。")
+            
+            else:
+                flag = True
 
     Me "[minNum]番から[maxNum]番の範囲でお願い。"
     

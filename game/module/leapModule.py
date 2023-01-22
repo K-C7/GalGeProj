@@ -112,7 +112,7 @@ def getExam(questionNumber,optMin,optMax,optNum):
     questionNumber -= 1
     ans = ''
     que = ''
-    with open(LEAP_PATH, encoding = 'cp932') as L:
+    with open(LEAP_PATH, encoding='UTF-8') as L:
         # leap = csv.reader(L)
         leap = list(csv.reader(L))
         ans = leap[examNumberList[questionNumber]][0]
