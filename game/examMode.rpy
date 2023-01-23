@@ -227,7 +227,8 @@ label EndSelect:
                 jump exit
 
     elif mode == 1:
-        jump exit
+        if progress == 1:
+            call Opening2(sumT)
         #ストーリーに戻して
 
 
