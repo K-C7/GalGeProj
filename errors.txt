@@ -2,21 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/examMode.rpy", line 105: expected statement.
-    flag = False
-         ^
-
-File "game/examMode.rpy", line 107: expected statement.
-    try:
-       ^
-
-File "game/examMode.rpy", line 111: expected statement.
-    except:
-          ^
-
-File "game/examMode.rpy", line 114: expected statement.
-    else:
-        ^
+File "game/story_2.rpy", line 45: Indentation mismatch.
 
 Ren'Py Version: Ren'Py 8.1.0.23010208n
-Sun Jan 22 14:06:25 2023
+Tue Jan 24 20:47:42 2023

@@ -229,8 +229,6 @@ label EndSelect:
     elif mode == 1:
         if progress == 1:
             call Opening2(sumT)
-        #ストーリーに戻して
-
 
 label review:
     $ questionNumber = 1

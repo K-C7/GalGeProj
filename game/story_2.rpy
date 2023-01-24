@@ -42,7 +42,7 @@ label Opening2(sumT):
 
         Me "そうなった時はよろしく頼むよ。"
     
-     elif 8 <= sumT <= 10:
+    elif 8 <= sumT <= 10:
         L "すごいじゃないですか！英語が苦手って嘘じゃないんですか？"
 
         Me "今回はたまたまできただけだよ。"
@@ -89,3 +89,5 @@ label Opening2(sumT):
 
     "体験版はここまでです。\n続きは製品版を買ってください。"
     "to be continued..."
+
+    jump quit
