@@ -153,6 +153,8 @@ label testPrepare(progress):
     jump examMode
 
 label examMode:
+    $ config.rollback_enabled = False
+
     $ optNum = 3 #ここを変えると選択肢を手動で増やす必要アリ、触らないことを勧める
     $ questionNumber = 1
     $ resultList = []
@@ -201,6 +203,9 @@ label examMode:
     $ sumT = leapModule.resultExam()
 
     L "結果は、[numOfQue]問中[sumT]問正解でした。"
+
+    $ renpy.block_rollback()
+    $ config.rollback_enabled = True
 
     jump EndSelect
 

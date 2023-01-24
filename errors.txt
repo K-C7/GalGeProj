@@ -2,7 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/story_2.rpy", line 45: Indentation mismatch.
+File "game/examMode.rpy", line 207: expected statement.
+    config.rollback_enabled = True
+                            ^
 
 Ren'Py Version: Ren'Py 8.1.0.23010208n
-Tue Jan 24 20:47:42 2023
+Tue Jan 24 21:25:10 2023
