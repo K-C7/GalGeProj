@@ -14,6 +14,8 @@ init:
         LEAP_PATH = config.basedir + r"\game\module\leap.csv"
         leapModule.leapPathSet(LEAP_PATH)
 
+        config.rollback_enabled = False
+
     image bg classroom evening = im.Scale("bg classroom evening notrim.jpg", 1280, 720)
 
     $ progress = 1 #ストーリーの進行状況
