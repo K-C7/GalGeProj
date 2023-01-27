@@ -445,7 +445,7 @@ label Opening2(sumT):
     "体験版はここまでです。\n続きは製品版を買ってください。"
     "to be continued..."
 
-    jump quit
+    jump exit
 
 label badEnd_call:
     show bg black
