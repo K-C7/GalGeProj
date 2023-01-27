@@ -121,7 +121,7 @@ def getExamFourChoice(questionNumber,optMin,optMax,optNum):
     return examNumberList[questionNumber], ans, que, opt
 
 
-def getExamSpell:
+def getExamSpell(questionNumber):
     """問題番号 -> Leap上の問題番号,解答,問題"""
     global examNumberList
     questionNumber -= 1

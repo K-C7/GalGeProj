@@ -236,7 +236,7 @@ label examModeSpell:
     L "了解です、ではいきますよ。"
 
     while questionNumber <= numOfQue:
-        $ exam = leapModule.getExamSpell(questionNumber,minNum,maxNum)
+        $ exam = leapModule.getExamSpell(questionNumber)
         $ leapNum = exam[0]
         $ ans = exam[1]
         $ que = exam[2]
