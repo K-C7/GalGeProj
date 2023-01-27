@@ -1,36 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/examMode.rpy", line 155, in script
-    "[strafile]"
-KeyError: 'strafile'
+While loading the script.
+Exception: Line with id Opening2_dbe07efe appeared twice, at game/story_1.rpy:292 and game/story_2.rpy:5.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/examMode.rpy", line 155, in script
-    "[strafile]"
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 923, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\exports.py", line 1464, in say
-    who(what, *args, **kwargs)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\character.py", line 1304, in __call__
-    what = self.prefix_suffix("what", self.what_prefix, what, self.what_suffix)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\character.py", line 1223, in prefix_suffix
-    return (sub(prefix) + sub(body) + sub(suffix))
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\character.py", line 1203, in sub
-    return renpy.substitutions.substitute(s, scope=scope, force=force, translate=translate)[0]
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\substitutions.py", line 278, in substitute
-    s = formatter.vformat(s, (), kwargs) # type: ignore
-  File "/home/tom/ab/nightly-build/tmp/install.linux-x86_64/lib/python3.9/string.py", line 165, in vformat
-  File "/home/tom/ab/nightly-build/tmp/install.linux-x86_64/lib/python3.9/string.py", line 205, in _vformat
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\substitutions.py", line 168, in get_field
-    obj, arg_used = super(Formatter, self).get_field(field_name, args, kwargs)
-  File "/home/tom/ab/nightly-build/tmp/install.linux-x86_64/lib/python3.9/string.py", line 270, in get_field
-  File "/home/tom/ab/nightly-build/tmp/install.linux-x86_64/lib/python3.9/string.py", line 227, in get_value
-KeyError: 'strafile'
+  File "I:\Renpy\renpy-8.0.3-sdk\renpy\bootstrap.py", line 275, in bootstrap
+    renpy.main.main()
+  File "I:\Renpy\renpy-8.0.3-sdk\renpy\main.py", line 489, in main
+    renpy.game.script.load_script() # sets renpy.game.script.
+  File "I:\Renpy\renpy-8.0.3-sdk\renpy\script.py", line 308, in load_script
+    self.load_appropriate_file(".rpyc", [ "_ren.py", ".rpy" ], dir, fn, initcode)
+  File "I:\Renpy\renpy-8.0.3-sdk\renpy\script.py", line 842, in load_appropriate_file
+    self.finish_load(stmts, initcode, filename=lastfn) # type: ignore
+  File "I:\Renpy\renpy-8.0.3-sdk\renpy\script.py", line 438, in finish_load
+    self.translator.take_translates(all_stmts)
+  File "I:\Renpy\renpy-8.0.3-sdk\renpy\translation\__init__.py", line 166, in take_translates
+    raise Exception("Line with id %s appeared twice, at %s:%d and %s:%d." %
+Exception: Line with id Opening2_dbe07efe appeared twice, at game/story_1.rpy:292 and game/story_2.rpy:5.
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.1.0.23010208n
 GalGeProj_beta 1.0
-Sun Jan 22 13:52:37 2023
+Fri Jan 27 18:48:11 2023

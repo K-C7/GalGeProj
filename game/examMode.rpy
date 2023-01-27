@@ -1,3 +1,18 @@
+label testPrepare(progress):
+    $ mode = 1
+
+    if progress == 1:
+        $ minNum = 1
+        $ maxNum = 100
+        $ numOfQue = 10
+    else:
+        $ minNum = 1
+        $ maxNum = 100
+        $ numOfQue = 10
+        #あとでいじってください
+
+    jump examModeFourChoice
+
 label modeSelect:
 
     scene bg classroom evening
@@ -122,23 +137,9 @@ label numOfQueSelect:
     $ isCorrectValue = leapModule.verifyValue(minNum, maxNum, numOfQue)
     if isCorrectValue != True:
         L "範囲か問題数がおかしいですよ。最初から確認しましょう。"
-
         jump modeSelect
-
     else:
-        if part == 0:
-            L "了解です。それでは、[minNum]番から[maxNum]番の範囲で[numOfQue]問出題するのでよろしいでしょうか。"
-        else:
-            L "了解です。それでは、Part[part]から[numOfQue]問出題するのでよろしいでしょうか。"
-            
-        menu:
-            "Yes":
-                jump answerWaySelect
-
-            "No":
-                L "あれ、聞き間違えたかしら..."
-
-                jump modeSelect
+        jump answerWaySelect
 
 label answerWaySelect:
     L "それでは、解答形式はどのようにしますか？"
@@ -147,27 +148,32 @@ label answerWaySelect:
         "４択問題":
             $ answerWay = 0
             Me "４択でお願い。"
-            jump examModeFourChoice
 
         "スペル入力":
             $ answerWay = 1
             Me "じゃあ、スペルが合ってるか判定してほしい。"
-            jump examModeSpell
-    
-label testPrepare(progress):
-    $ mode = 1
 
-    if progress == 1:
-        $ minNum = 1
-        $ maxNum = 100
-        $ numOfQue = 10
+    if part == 0:
+        if answerWay == 0:
+            L "了解です。それでは、[minNum]番から[maxNum]番の範囲で[numOfQue]問を、四択形式で出題するのでよろしいでしょうか。"
+        else:
+            L "了解です。それでは、[minNum]番から[maxNum]番の範囲で[numOfQue]問を、スペル形式で出題するのでよろしいでしょうか。"
     else:
-        $ minNum = 1
-        $ maxNum = 100
-        $ numOfQue = 10
-        #あとでいじってください
+        if answerWay == 0:
+            L "了解です。それでは、Part[part]から[numOfQue]問を、四択形式で出題するのでよろしいでしょうか。"
+        else:
+            L "了解です。それでは、Part[part]から[numOfQue]問を、スペル形式で出題するのでよろしいでしょうか。"
+            
+    menu:
+        "Yes":
+            if answerWay == 0:
+                jump examModeFourChoice
+            else:
+                jump examModeSpell
 
-    jump examModeFourChoice
+        "No":
+            L "あれ、聞き間違えたかしら..."
+            jump modeSelect
 
 label examModeFourChoice:
     $ config.rollback_enabled = False
