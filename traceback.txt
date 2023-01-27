@@ -1,6 +1,7 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
+<<<<<<< HEAD
   File "game/story_1.rpy", line 286, in script call
     call testPrepare(progress)
   File "game/examMode.rpy", line 299, in script call
@@ -8,10 +9,16 @@ While running game code:
   File "game/story_1.rpy", line 380, in script
     jump quit
 ScriptError: could not find label 'quit'.
+=======
+  File "game/story_1.rpy", line 18, in script
+    jump end_Nidone
+ScriptError: could not find label 'end_Nidone'.
+>>>>>>> 69d8aa586de30b9c7ae9a4e89196b71b80a37358
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
+<<<<<<< HEAD
   File "game/story_1.rpy", line 286, in script call
     call testPrepare(progress)
   File "game/examMode.rpy", line 299, in script call
@@ -23,8 +30,21 @@ Full traceback:
   File "I:\Renpy\renpy-8.0.3-sdk\renpy\script.py", line 967, in lookup
     raise ScriptError("could not find label '%s'." % str(original))
 ScriptError: could not find label 'quit'.
+=======
+  File "game/story_1.rpy", line 18, in script
+    jump end_Nidone
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 1986, in execute
+    rv = renpy.game.script.lookup(target)
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\script.py", line 967, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'end_Nidone'.
+>>>>>>> 69d8aa586de30b9c7ae9a4e89196b71b80a37358
 
-Windows-10-10.0.22621 AMD64
+Windows-10-10.0.19045 AMD64
 Ren'Py 8.1.0.23010208n
 GalGeProj_beta 1.0
+<<<<<<< HEAD
 Fri Jan 27 23:58:49 2023
+=======
+Fri Jan 27 22:40:10 2023
+>>>>>>> 69d8aa586de30b9c7ae9a4e89196b71b80a37358
