@@ -117,25 +117,42 @@ label numOfQueSelect:
 
     Me "[numOfQue]問で。"
 
+    L "分かりました。[numOfQue]問ですね。"
+
     $ isCorrectValue = leapModule.verifyValue(minNum, maxNum, numOfQue)
     if isCorrectValue != True:
         L "範囲か問題数がおかしいですよ。最初から確認しましょう。"
 
         jump modeSelect
 
-    if part == 0:
-        L "了解です。それでは、[minNum]番から[maxNum]番の範囲で[numOfQue]問出題するのでよろしいでしょうか。"
     else:
-        L "了解です。それでは、Part[part]から[numOfQue]問出題するのでよろしいでしょうか。"
+        if part == 0:
+            L "了解です。それでは、[minNum]番から[maxNum]番の範囲で[numOfQue]問出題するのでよろしいでしょうか。"
+        else:
+            L "了解です。それでは、Part[part]から[numOfQue]問出題するのでよろしいでしょうか。"
+            
+        menu:
+            "Yes":
+                jump answerWaySelect
+
+            "No":
+                L "あれ、聞き間違えたかしら..."
+
+                jump modeSelect
+
+label answerWaySelect:
+    L "それでは、解答形式はどのようにしますか？"
 
     menu:
-        "Yes":
-            jump examMode
+        "４択問題":
+            $ answerWay = 0
+            Me "４択でお願い。"
+            jump examModeFourChoice
 
-        "No":
-            L "あれ、聞き間違えたかしら..."
-
-            jump modeSelect
+        "スペル入力":
+            $ answerWay = 1
+            Me "じゃあ、スペルが合ってるか判定してほしい。"
+            jump examModeSpell
     
 label testPrepare(progress):
     $ mode = 1
@@ -150,9 +167,9 @@ label testPrepare(progress):
         $ numOfQue = 10
         #あとでいじってください
 
-    jump examMode
+    jump examModeFourChoice
 
-label examMode:
+label examModeFourChoice:
     $ config.rollback_enabled = False
 
     $ optNum = 3 #ここを変えると選択肢を手動で増やす必要アリ、触らないことを勧める
@@ -160,10 +177,10 @@ label examMode:
     $ resultList = []
     $ leapModule.makeExam(minNum, maxNum, numOfQue)
 
-    L "はい、ではいきますよ。"
+    L "了解です、ではいきますよ。"
 
     while questionNumber <= numOfQue:
-        $ exam = leapModule.getExam(questionNumber,minNum,maxNum,optNum)
+        $ exam = leapModule.getExamFourChoice(questionNumber,minNum,maxNum,optNum)
         $ leapNum = exam[0]
         $ ans = exam[1]
         $ que = exam[2]
@@ -209,6 +226,46 @@ label examMode:
 
     jump EndSelect
 
+label examModeSpell:
+    $ config.rollback_enabled = False
+
+    $ questionNumber = 1
+    $ resultList = []
+    $ leapModule.makeExam(minNum, maxNum, numOfQue)
+
+    L "了解です、ではいきますよ。"
+
+    while questionNumber <= numOfQue:
+        $ exam = leapModule.getExamSpell(questionNumber,minNum,maxNum)
+        $ leapNum = exam[0]
+        $ ans = exam[1]
+        $ que = exam[2]
+
+        $ spell = renpy.input("第[questionNumber]問、Leap[leapNum]番です。\n[que] は？")
+        
+        $ CC_ansT = "1b615d" 
+        # CCはColorCodeの略、変数に保存できるかのテスト用です。
+
+        if spell == ans:
+            $ leapModule.ansExam(questionNumber, True)
+            $ resultList.append([leapNum, ans, que, 1])
+            L "正解です！\n{color=#26aa5d}[ans]{/color} の意味は [que] です。"
+        else:
+            $ leapModule.ansExam(questionNumber, False)
+            $ resultList.append([leapNum, ans, que, 0])
+            L "不正解です。\n[que] は {color=#26aa5d}[ans]{/color} です。"
+        
+        $ questionNumber += 1
+            
+    $ sumT = leapModule.resultExam()
+
+    L "結果は、[numOfQue]問中[sumT]問正解でした。"
+
+    $ renpy.block_rollback()
+    $ config.rollback_enabled = True
+
+    jump EndSelect
+
 label EndSelect:
     if mode == 0:
         L "この後どうされますか？"
@@ -220,7 +277,10 @@ label EndSelect:
                 jump review
 
             "同じ条件で続ける。":
-                jump examMode
+                if answerWay == 0:
+                    jump examModeFourChoice
+                else:
+                    jump examModeSpell
 
             "条件を変えて続ける。":
                 L "了解です。"
@@ -253,7 +313,11 @@ label review:
     
     menu:
         "同じ条件で続ける。":
-            jump examMode
+            if answerWay == 0:
+                jump examModeFourChoice
+            else:
+                jump examModeSpell
+
         "条件を変えて続ける。":
             L "了解です。"
             "モード選択画面に戻ります。"

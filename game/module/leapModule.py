@@ -99,7 +99,7 @@ def makeExamFromPart(part,numOfQue):
 """
 
 
-def getExam(questionNumber,optMin,optMax,optNum):
+def getExamFourChoice(questionNumber,optMin,optMax,optNum):
     """問題番号,選択肢の問題番号範囲の下限,〃の上限,選択肢の数 -> Leap上の問題番号,解答,問題,選択肢(リスト)"""
     global examNumberList
     questionNumber -= 1
@@ -119,6 +119,20 @@ def getExam(questionNumber,optMin,optMax,optNum):
         random.shuffle(opt)
         
     return examNumberList[questionNumber], ans, que, opt
+
+
+def getExamSpell:
+    """問題番号 -> Leap上の問題番号,解答,問題"""
+    global examNumberList
+    questionNumber -= 1
+    ans = ''
+    que = ''
+    with open(LEAP_PATH, encoding='UTF-8') as L:
+        leap = list(csv.reader(L))
+        ans = leap[examNumberList[questionNumber]][0]
+        que = leap[examNumberList[questionNumber]][1]
+    
+    return examNumberList[questionNumber], ans, que
 
 
 def ansExam(questionNumber, tf):
