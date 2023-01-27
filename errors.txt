@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/examMode.rpy", line 207: expected statement.
-    config.rollback_enabled = True
-                            ^
+File "game/examMode.rpy", line 140: expected ':' not found.
+    "４択問題" numOfQue >= 4:
+           ^
 
 Ren'Py Version: Ren'Py 8.1.0.23010208n
-Tue Jan 24 21:25:10 2023
+Fri Jan 27 23:57:05 2023
