@@ -1,26 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While loading the script.
-Exception: Line with id Opening2_dbe07efe appeared twice, at game/story_1.rpy:292 and game/story_2.rpy:5.
+While running game code:
+  File "game/story_1.rpy", line 18, in script
+    jump end_Nidone
+ScriptError: could not find label 'end_Nidone'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\bootstrap.py", line 275, in bootstrap
-    renpy.main.main()
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\main.py", line 489, in main
-    renpy.game.script.load_script() # sets renpy.game.script.
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\script.py", line 308, in load_script
-    self.load_appropriate_file(".rpyc", [ "_ren.py", ".rpy" ], dir, fn, initcode)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\script.py", line 842, in load_appropriate_file
-    self.finish_load(stmts, initcode, filename=lastfn) # type: ignore
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\script.py", line 438, in finish_load
-    self.translator.take_translates(all_stmts)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\translation\__init__.py", line 166, in take_translates
-    raise Exception("Line with id %s appeared twice, at %s:%d and %s:%d." %
-Exception: Line with id Opening2_dbe07efe appeared twice, at game/story_1.rpy:292 and game/story_2.rpy:5.
+  File "game/story_1.rpy", line 18, in script
+    jump end_Nidone
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 1986, in execute
+    rv = renpy.game.script.lookup(target)
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\script.py", line 967, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'end_Nidone'.
 
-Windows-10-10.0.22621 AMD64
+Windows-10-10.0.19045 AMD64
 Ren'Py 8.1.0.23010208n
 GalGeProj_beta 1.0
-Fri Jan 27 18:48:11 2023
+Fri Jan 27 22:40:10 2023

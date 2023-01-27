@@ -1,11 +1,57 @@
 label Opening1:
-    # 個人的に気に入らない台詞を勝手に修正しました。気に入らなかったらs1_backupから復元してください。
-    # 時間が戻ったり進んだりするのは分かりづらいと思う。大幅に修正。
+    "Note: 会話中に下の「ロールバック」ボタンを押すと、\nひとつ前の画面に戻ることができます。\n一部の場面を除いて基本的に使用できるので、ぜひご活用ください。"
 
-    scene bg shrine
+    # 個人的に気に入らない台詞を勝手に修正しました。気に入らなかったらs1_backupから復元してください。
+
+    scene bg room
+    with fade
+
+    "3月某日"
+    "春休みがもう終ろうとしていた、ある日。"
+
+    Mom "おきなさーい。" #でかもじ
+
+    $ nidoneCount = 0
+
+label Opening1_menu1:
+    if(nidoneCount == 3):
+        jump badEnd_call
     
+    menu:
+        "起きる":
+            Me "起きてるよー。"
+
+        "二度寝する":
+            Me "..."
+            $ nidoneCount += 1
+
+            $ badEndCode = 1
+            jump Opening1_menu1
+    
+    pause 2.0
+
+    Mom "宿題は終わったの？終わってなかったら今日中にもさっさと始めなさい。"
+
+    Me "もう終わってるよ。とっくに。"
+    
+    Mom "あら、終わってるの？"
+    Mom "じゃあ、せっかくだし神社にでも行ってきたら？初詣も行ってないんだし。"
+
+    Me "えー、神社？"
+
+    menu:
+        "理由を尋ねる":
+            Me "何で？"
+
+        "拒否する":
+            Me "行きたくなーい。"
+    
+    Mom "いいじゃないの。さっさと行ってきなさい。"
+
+    scene bg shrine day
+    with fade
+
     Me "この神社に来るのも久しぶりだな。"
-    Me "母親に言われて来た初詣で、願い事なんて叶うのだろうか。"
     Me "じゃあ、お祈りでもするか。"
     
     #小銭が落ちる音
@@ -52,13 +98,13 @@ label Opening1:
 
     "..."
 
-    scene bg shrine #できればここでさっきより時間のたった神社画像がいい
+    scene bg shrine evening
     with fade
 
     Me "...何が起きた？"
     Me "気絶していたのか？今は何時だ？"
     Me "！！！"
-    Me "１２時！！" #デカ文字
+    Me "５時！！" #デカ文字
     Me "早く帰らないと母さんに叱られる！急げ！"
 
     scene bg black
@@ -70,8 +116,8 @@ label Opening1:
 
     "数日後"
 
-    Me "今日から新学期か。"
-    Me "しかし過ぎてみると冬休みって短く感じるな。"
+    Me "今日から２年生か。"
+    Me "しかし過ぎてみると春休みって短く感じるな。"
     Me "って時間やばいな。このままだと電車乗れないぞ。"
     Me "初日からいきなり遅刻は困るから少し急ぐか。"
 
@@ -282,8 +328,30 @@ label Opening_menu1:
     L "先輩、いきますよ。"
 
     menu:
-        "やるしかないのか。":
+        "挑戦する":
+            Me "やるしかないのか。"
             call testPrepare(progress)
+        
+        "断る":
+            Me "..."
+
+            L "先輩...？"
+
+            Me "非常に言いにくいんだけど、"
+            Me "気に障るんだよ、君。"
+
+            L "え..."
+
+            Me "もう関わらないでくれ。"
+
+            hide leap
+            with dissolve
+
+            $ badEndCode = 2
+            jump badEnd_call
+
+            
+
 
 label Opening2(sumT):
     $ progress = 2
@@ -378,3 +446,14 @@ label Opening2(sumT):
     "to be continued..."
 
     jump quit
+
+label badEnd_call:
+    show bg black
+    with dissolve
+
+    if(badEndCode == 1):
+        "そのまま、主人公は目覚めることはなく、平凡な人生を送ったのでした。"
+        "BadEnd 1 : 二度寝"
+    elif(badEndCode == 2):
+        "その後、二度とLeapさんと出会うことはなく、平凡な人生を送ったのでした。"
+        "BadEnd 2 : 邪魔者"
