@@ -299,19 +299,21 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("ニューゲーム") action Start()
+            textbutton _("はじめから") action Start()
+
+            textbutton _("つづきから") action ShowMenu("load")
 
         else:
 
-            textbutton _("ヒストリー") action ShowMenu("history")
-
             textbutton _("セーブ") action ShowMenu("save")
 
-        textbutton _("ロード") action ShowMenu("load")
+            textbutton _("ロード") action ShowMenu("load")
 
-        textbutton _("設定") action ShowMenu("preferences")
+            textbutton _("ヒストリー") action ShowMenu("history")
 
         textbutton _("学習モード") action Start("modeSelect")
+
+        textbutton _("設定") action ShowMenu("preferences")
 
         if _in_replay:
 
@@ -321,12 +323,12 @@ screen navigation():
 
             textbutton _("メインメニュー") action MainMenu()
 
-        textbutton _("バージョン情報") action ShowMenu("about")
+        #textbutton _("バージョン情報") action ShowMenu("about")
 
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+        #if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## モバイルデバイスにはヘルプは不要であるか不適切です。
-            textbutton _("ヘルプ") action ShowMenu("help")
+            #textbutton _("ヘルプ") action ShowMenu("help")
 
         if renpy.variant("pc"):
 
