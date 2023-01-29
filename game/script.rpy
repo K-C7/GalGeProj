@@ -23,4 +23,6 @@ label start:
     jump Opening1
 
 label exit:
-    $ renpy.quit()
+    #$ renpy.quit()
+    
+    return

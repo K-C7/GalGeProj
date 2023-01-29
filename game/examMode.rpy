@@ -21,6 +21,8 @@ label modeSelect:
     show leap at center:
         zoom 1.2
 
+    L "それでは、今日はどうやって勉強しますか？"
+
     menu:
         L "それでは、今日はどうやって勉強しますか？"
 
@@ -100,6 +102,8 @@ label learn:
     jump endSelect
 
 label numOfQueSelect:
+    L "何問ほど出したらいいでしょうか？"
+
     menu:
         L "何問ほど出したらいいでしょうか？"
 
@@ -134,6 +138,8 @@ label numOfQueSelect:
     jump answerWaySelect
 
 label answerWaySelect:
+    L "それでは、解答形式はどのようにしますか？"
+
     menu:
         L "それでは、解答形式はどのようにしますか？"
 
@@ -241,6 +247,15 @@ label endSelect:
 
                 jump rangeSelect
             
+            "この範囲でテストをする":
+                $ mode = 'exam'
+
+                Me "じゃあ、今の範囲でテストをしたいな。"
+
+                L "了解です。"
+
+                jump numOfQueSelect
+            
             "テストをする":
                 $ mode = 'exam'
 
@@ -287,7 +302,7 @@ label endSelect:
 
                 jump rangeSelect
 
-            "休憩する。":
+            "休憩する":
                 Me "疲れたから、いったん休憩したいな。"
 
                 L "了解です。お疲れさまでした。"
