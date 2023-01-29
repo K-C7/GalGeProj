@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/examMode.rpy", line 140: expected ':' not found.
-    "４択問題" numOfQue >= 4:
-           ^
+File "game/story_1.rpy", line 216: Line is indented, but the preceding scene statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    zoom 1.2
+    ^
 
 Ren'Py Version: Ren'Py 8.1.0.23010208n
-Fri Jan 27 23:57:05 2023
+Sun Jan 29 23:56:05 2023

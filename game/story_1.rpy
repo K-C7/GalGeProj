@@ -9,7 +9,8 @@ label Opening1:
     "3月某日"
     "春休みがもう終ろうとしていた、ある日。"
 
-    Mom "おきなさーい。" #でかもじ
+    Mom "{size=*2.0}おきなさーい。{/size}"
+
 
     $ nidoneCount = 0
 
@@ -54,14 +55,15 @@ label Opening1_menu1:
     Me "この神社に来るのも久しぶりだな。"
     Me "じゃあ、お祈りでもするか。"
     
-    #小銭が落ちる音
+    play sound "audio/charin.mp3"
 
     Me "二礼二拍手一礼っと。"
     Me "(どうか神様、「英語」がもっと得意になりますように。)"
     Me "よし。帰るか。"
 
     #背景をぐわんぐわんにする
-    #風の音
+
+    play music "audio/blow.mp3" volume 0.2
 
     "ざわ...ざわ..."
 
@@ -87,6 +89,9 @@ label Opening1_menu1:
     God "もう一度言う..."
     God "貴様の願いをかなえてやろう！"
 
+    stop music
+    play sound "audio/holysound.mp3" volume 0.3
+
     scene bg white
     with dissolve
 
@@ -101,10 +106,12 @@ label Opening1_menu1:
     scene bg shrine evening
     with fade
 
+    play sound "audio/wakeup.mp3" volume 0.5
+
     Me "...何が起きた？"
     Me "気絶していたのか？今は何時だ？"
     Me "！！！"
-    Me "５時！！" #デカ文字
+    Me "{size=*2.0}５時！！{/size}"
     Me "早く帰らないと母さんに叱られる！急げ！"
 
     scene bg black
@@ -120,10 +127,16 @@ label Opening1_menu1:
     Me "しかし過ぎてみると春休みって短く感じるな。"
     Me "って時間やばいな。このままだと電車乗れないぞ。"
     Me "初日からいきなり遅刻は困るから少し急ぐか。"
+    
+    play music "audio/run.mp3"
+    pause
 
-    "（走る音）"
+    stop music
+    scene bg black
+    play sound "audio/hit.mp3"
+    pause
 
-    "黒く暗転（ぶつかる音）"
+    scene bg road day
 
     Me "うわっ！"
 
@@ -132,7 +145,6 @@ label Opening1_menu1:
     Me "（急ぐあまり、人とぶつかってしまった。謝らないと）"
     Me "あのーすみません。お怪我はありませんか？"
 
-    # LEAPちゃん表示
     show leap at center:
         zoom 1.2
 
@@ -156,11 +168,12 @@ label Opening1_menu1:
 
     Me "あっ、ホントだ！急がないと！！"
 
-    # 背景：電車内
     scene bg train day
 
     show leap at center:
         zoom 1.2
+
+    play music "audio/train.mp3" volume 0.2
 
     Me "何とか間に合った。"
 
@@ -180,7 +193,9 @@ label Opening1_menu1:
 
     L "私、LEAPといいます。"
 
-    Me "は？LEAP？"
+    pause
+
+    Me "...は？LEAP？"
     Me "（どういうことだ？どうなっているんだ？）"
     Me "英単語の？"
 
@@ -196,14 +211,14 @@ label Opening1_menu1:
     Me "(確かに初対面の後輩に「キラキラネーム」って言う人間は狂っているのか？)"
     Me "（いや...待てよ、そういえばあの時...）"
 
-    "走馬灯のようなもの"
-
-    scene bg shrine
-
-    Me "二礼二拍手一礼っと"
-    Me "(どうか神様、『英語』がもっと得意になりますように)"
+    play sound "audio/poyon.mp3"
+    scene bg remember:
+        zoom 1.28
+    with fade
+    pause
 
     scene bg train day
+    with dissolve
 
     show leap at center:
         zoom 1.2
@@ -274,7 +289,7 @@ label Opening_menu1:
 
             jump Opening_menu1
         
-        "LEAPちゃんって得意教科何？": #この「もしかして」何か不自然？
+        "LEAPちゃんって得意教科何？":
             L "当ててみてください。"
 
             menu:
@@ -320,17 +335,21 @@ label Opening_menu1:
     L "...じゃあそうだ。"
     L "これも何かの縁、電車が駅に着くまで私が英語の問題を出してあげますよ！"
     
+    play music "audio/beat.mp3" volume 0.5
+
     Me "！！"
     Me "（まずい展開になってしまった。"
     Me "下手に教えてなんて言わなければよかった。）"
     Me "（いや、だけど新しい後輩の前で恥をさらすわけにはいかないし、ここで少しはいい印象を与えたい。）"
     
+    stop music
+
     L "先輩、いきますよ。"
 
     menu:
         "挑戦する":
             Me "やるしかないのか。"
-            call testPrepare(progress)
+            jump testPrepare
         
         "断る":
             Me "..."
@@ -350,10 +369,7 @@ label Opening_menu1:
             $ badEndCode = 2
             jump badEnd_call
 
-            
-
-
-label Opening2(sumT):
+label Opening2:
     $ progress = 2
 
     if 0 <= sumT <= 3:
@@ -413,7 +429,7 @@ label Opening2(sumT):
 
         L "じゃあ、また今度会ったときも問題出してあげますよ。"
 
-        Me "...だるいな。"#小文字
+        Me "{size=*0.8}...だるいな。{/size}"
 
         L "なにか言いました？"
 
@@ -454,6 +470,7 @@ label badEnd_call:
     if(badEndCode == 1):
         "そのまま、主人公は目覚めることはなく、平凡な人生を送ったのでした。"
         "BadEnd 1 : 二度寝"
+
     elif(badEndCode == 2):
         "その後、二度とLeapさんと出会うことはなく、平凡な人生を送ったのでした。"
         "BadEnd 2 : 邪魔者"

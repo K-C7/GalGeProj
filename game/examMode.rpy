@@ -1,4 +1,4 @@
-label testPrepare(progress):
+label testPrepare:
     $ mode = 'story'
     $ answerWay = 'fourChoice'
 
@@ -232,6 +232,8 @@ label exam:
 
 label endSelect:
     if mode == 'learn': 
+        L "この後どうされますか？"
+
         menu:
             L "この後どうされますか？"
 
@@ -271,6 +273,8 @@ label endSelect:
                 jump exit
     
     elif mode == 'exam':
+        L "この後どうされますか？"
+
         menu:
             L "この後どうされますか？"
 
@@ -311,7 +315,7 @@ label endSelect:
 
     elif mode == 'story':
         if progress == 1:
-            call Opening2(sumT)
+            jump Opening2
     
     else:
         L "変数\"mode\"がバグってるっぴ！"
