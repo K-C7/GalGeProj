@@ -191,11 +191,11 @@ label Opening1_menu1:
 
     Ano "あっ！そういえば名乗ってなかったですね。"
 
-    L "私、LEAPといいます。"
+    L "私、Leapといいます。"
 
     pause
 
-    Me "...は？LEAP？"
+    Me "...は？Leap？"
     Me "（どういうことだ？どうなっているんだ？）"
     Me "英単語の？"
 
