@@ -7,6 +7,7 @@ examNumberList = []
 examTFList = []
 
 def leapPathSet(path):
+    """leap.csvのパス(返り値なし)"""
     global LEAP_PATH
     LEAP_PATH = path
 
@@ -38,7 +39,7 @@ def makeExam(min, max, numOfQue):
     examTFList = [0 for i in range(0, numOfQue)]
 
 def getExam(questionNumber, answerWay, optMin=0, optMax=0, optNum=3):
-    """問題番号,解答方法,選択肢の問題番号範囲の下限,〃の上限,選択肢の数 -> Leap上の問題番号,解答,問題(,選択肢(リスト))"""
+    """問題番号,解答方法(,選択肢の問題番号範囲の下限,〃の上限,選択肢の数) -> Leap上の問題番号,解答,問題(,選択肢(リスト))"""
     global examNumberList
     questionNumber -= 1
     ans = ''
