@@ -179,7 +179,7 @@ label answerWaySelect:
 
                     jump exam
                 
-                "やっぱ待って"
+                "やっぱ待って":
                     Me "やっぱ待って！"
 
                     L "分かりました。では最初からいきましょう。"
@@ -228,8 +228,8 @@ label exam:
         
         elif answerWay == 'spell':
             $ leapNum, ans, que = leapModule.getExam(questionNumber,answerWay)
-
-            $ spell = renpy.input("第{0}問、Leap{1}番です。\n{2} は？".format(questionNumber,leapNumber,que))
+            $ kariQue = "第{0}問、Leap{1}番です。\n{2} は？".format(questionNumber,leapNum,que).replace('[','(').replace(']',')')
+            $ spell = renpy.input(kariQue)
 
             if spell == ans:
                 $ leapModule.ansExam(questionNumber, True)
