@@ -325,10 +325,10 @@ screen navigation():
 
         #textbutton _("バージョン情報") action ShowMenu("about")
 
-        #if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
-            ## モバイルデバイスにはヘルプは不要であるか不適切です。
-            #textbutton _("ヘルプ") action ShowMenu("help")
+            # モバイルデバイスにはヘルプは不要であるか不適切です。
+            textbutton _("ヘルプ") action ShowMenu("help")
 
         if renpy.variant("pc"):
 

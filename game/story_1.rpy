@@ -11,8 +11,8 @@ label Opening1:
 
     Mom "{size=*2.0}おきなさーい。{/size}"
 
-
     $ nidoneCount = 0
+    jump Opening1_menu1
 
 label Opening1_menu1:
     if(nidoneCount == 3):
@@ -191,11 +191,11 @@ label Opening1_menu1:
 
     Ano "あっ！そういえば名乗ってなかったですね。"
 
-    L "私、LEAPといいます。"
+    L "私、Leapといいます。"
 
     pause
 
-    Me "...は？LEAP？"
+    Me "...は？Leap？"
     Me "（どういうことだ？どうなっているんだ？）"
     Me "英単語の？"
 
@@ -243,9 +243,9 @@ label Opening1_menu1:
     Me "（このままだとこちらの印象は悪くなるし、もっと差し障りのない話題に変えなければ。）"
     Me "あっそうだ、"
 
-    jump Opening_menu1
+    jump Opening1_menu2
 
-label Opening_menu1:
+label Opening1_menu2:
     menu:
         "君は転校生、でいいんだよね？":
             Me "君は転校生、でいいんだよね？"
@@ -266,7 +266,7 @@ label Opening_menu1:
 
             Me "（会話が終わってしまった。何か次の話題はないのか？）"
 
-            jump Opening_menu1
+            jump Opening1_menu2
 
         "LEAPちゃんって何か部活入るの？":
             L "うーん。"
@@ -287,7 +287,7 @@ label Opening_menu1:
 
             Me "（会話が終わってしまった。何か次の話題はないのか？）"
 
-            jump Opening_menu1
+            jump Opening1_menu2
         
         "LEAPちゃんって得意教科何？":
             L "当ててみてください。"

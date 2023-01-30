@@ -1,4 +1,5 @@
 label testPrepare:
+    $ config.rollback_enabled = False
     $ mode = 'story'
     $ answerWay = 'fourChoice'
 
@@ -20,6 +21,8 @@ label modeSelect:
 
     show leap at center:
         zoom 1.2
+    
+    $ config.rollback_enabled = False
 
     L "それでは、今日はどうやって勉強しますか？"
 
@@ -77,7 +80,18 @@ label rangeSelect:
     if mode == 'learn':
         L "ではいきますよ。"
 
-        jump learn
+        menu:
+            L "ではいきますよ。"
+
+            "OK":
+                jump learn
+
+            "やっぱ待って":
+                Me "やっぱ待って！"
+
+                L "分かりました。では最初からいきましょう。"
+
+                jump modeSelect
 
     elif mode == 'exam':
         jump numOfQueSelect
@@ -157,12 +171,22 @@ label answerWaySelect:
 
             L "了解です。それでは、[minNum]番から[maxNum]番の範囲で[numOfQue]問を、スペル形式で出題しますね。"
 
-    L "ではいきますよ。"
+            menu:
+                L "了解です。それでは、[minNum]番から[maxNum]番の範囲で[numOfQue]問を、スペル形式で出題しますね。"
 
-    jump exam
+                "OK":
+                    L "ではいきますよ。"
+
+                    jump exam
+                
+                "やっぱ待って"
+                    Me "やっぱ待って！"
+
+                    L "分かりました。では最初からいきましょう。"
+
+                    jump modeSelect
 
 label exam:
-    $ config.rollback_enabled = False
     $ isReview = False
 
     $ questionNumber = 1
@@ -194,7 +218,7 @@ label exam:
                 $ leapModule.ansExam(questionNumber, True)
                 $ resultList.append([leapNum, ans, que, 1])
 
-                L "正解です！\n{color=#26aa5d}[ans]{/color} の意味は [que] です。"
+                L "正解です！\n[que] は {color=#26aa5d}[ans]{/color} です。"
 
             else:
                 $ leapModule.ansExam(questionNumber, False)
@@ -205,13 +229,13 @@ label exam:
         elif answerWay == 'spell':
             $ leapNum, ans, que = leapModule.getExam(questionNumber,answerWay)
 
-            $ spell = renpy.input("第[questionNumber]問、Leap[leapNum]番です。\n[que] は？")
+            $ spell = renpy.input("第{0}問、Leap{1}番です。\n{2} は？".format(questionNumber,leapNumber,que))
 
             if spell == ans:
                 $ leapModule.ansExam(questionNumber, True)
                 $ resultList.append([leapNum, ans, que, 1])
 
-                L "正解です！\n{color=#26aa5d}[ans]{/color} の意味は [que] です。"
+                L "正解です！\n[que] は {color=#26aa5d}[ans]{/color} です。"
 
             else:
                 $ leapModule.ansExam(questionNumber, False)
@@ -224,9 +248,6 @@ label exam:
     $ sumT = leapModule.resultExam()
 
     L "結果は、[numOfQue]問中[sumT]問正解でした。"
-
-    $ renpy.block_rollback()
-    $ config.rollback_enabled = True
 
     jump endSelect
 
@@ -270,6 +291,9 @@ label endSelect:
 
                 L "了解です。お疲れさまでした。"
 
+                $ renpy.block_rollback()
+                $ config.rollback_enabled = True
+
                 jump exit
     
     elif mode == 'exam':
@@ -311,10 +335,16 @@ label endSelect:
 
                 L "了解です。お疲れさまでした。"
 
+                $ renpy.block_rollback()
+                $ config.rollback_enabled = True
+
                 jump exit
 
     elif mode == 'story':
         if progress == 1:
+            $ renpy.block_rollback()
+            $ config.rollback_enabled = True
+
             jump Opening2
     
     else:
