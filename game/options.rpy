@@ -13,18 +13,18 @@
 ##
 ## _() で囲まれた文字列は翻訳時に生成されるファイルに記載されます。
 
-define config.name = _("GalGeProj_beta")
+define config.name = _("英語ができない俺が縁結び神社に行ったら英単語帳が後輩になった件")
 
 
 ## 上で定義したタイトルをメインメニュースクリーン（ゲーム起動後、最初に表示され
 ## るスクリーン）に表示するかどうか決めます。False にすると表示しません。
 
-define gui.show_name = True
+define gui.show_name = False
 
 
 ## ゲームのバージョン。
 
-define config.version = "1.0"
+define config.version = "5.2b"
 
 
 ## About（バージョン情報）スクリーンに表示されるテキスト。トリプルクオートの間に
@@ -38,7 +38,7 @@ define gui.about = _p("""
 ## 名。簡易名は ASCII 文字（半角英数字）のみで構成され、スペース・コロン・セミコ
 ## ロンなどを含んでは行けません。
 
-define build.name = "GalGeProj_beta"
+define build.name = "GalGeProj"
 
 
 ## サウンドと音楽 #####################################################################
@@ -213,3 +213,4 @@ init python:
 ## ッシュで分けてください。
 
 # define build.itch_project = "renpytom/test-project"
+
