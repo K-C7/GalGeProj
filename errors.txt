@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/examMode.rpy", line 182: end of line expected.
-    "やっぱ待って":\
-             ^
+File "game/examMode.rpy", line 49: expected 'simple_expression' not found.
+    pos = (20, 20)
+        ^
 
-Ren'Py Version: Ren'Py 8.1.0.23010208n
-Mon Jan 30 19:52:15 2023
+Ren'Py Version: Ren'Py 8.0.3.22090809
+Tue Jan 31 17:24:33 2023

@@ -1,78 +1,42 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/examMode.rpy", line 232, in script
-    $ spell = renpy.input(kariQue)
-  File "game/examMode.rpy", line 232, in <module>
-    $ spell = renpy.input(kariQue)
-  File "game/screens.rpy", line 177, in execute
-    screen input(prompt):
-  File "game/screens.rpy", line 177, in execute
-    screen input(prompt):
-  File "game/screens.rpy", line 180, in execute
-    window:
-  File "game/screens.rpy", line 182, in execute
-    vbox:
-  File "game/screens.rpy", line 188, in execute
-    text prompt style "input_prompt"
-Exception: String '第1問、Leap109番です。\n[] ①〈米〉店員 ②事務員，社員 は？' ends with an open format operation.
+  File "renpy/common/00start.rpy", line 215, in script call
+    call _load_reload_game from _call__load_reload_game_1
+  File "renpy/common/00keymap.rpy", line 517, in script
+    python hide:
+  File "renpy/common/00keymap.rpy", line 517, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 528, in _execute_python_hide
+    renpy.load(renpy.session["_reload_slot"])
+Exception: Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/examMode.rpy", line 232, in script
-    $ spell = renpy.input(kariQue)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 1132, in execute
+  File "renpy/common/00start.rpy", line 215, in script call
+    call _load_reload_game from _call__load_reload_game_1
+  File "renpy/common/00keymap.rpy", line 517, in script
+    python hide:
+  File "M:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 1131, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_exec_bytecode
+  File "M:\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1061, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/examMode.rpy", line 232, in <module>
-    $ spell = renpy.input(kariQue)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\exports.py", line 976, in input
-    rv = renpy.ui.interact(mouse='prompt', type="input", roll_forward=roll_forward)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\ui.py", line 299, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 3435, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 3865, in interact_core
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 587, in visit_all
-    d.visit_all(callback, seen)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 587, in visit_all
-    d.visit_all(callback, seen)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 587, in visit_all
-    d.visit_all(callback, seen)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\screen.py", line 451, in visit_all
-    callback(self)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 3865, in <lambda>
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\screen.py", line 462, in per_interact
-    self.update()
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\screen.py", line 653, in update
-    self.screen.function(**self.scope)
-  File "game/screens.rpy", line 177, in execute
-    screen input(prompt):
-  File "game/screens.rpy", line 177, in execute
-    screen input(prompt):
-  File "game/screens.rpy", line 180, in execute
-    window:
-  File "game/screens.rpy", line 182, in execute
-    vbox:
-  File "game/screens.rpy", line 188, in execute
-    text prompt style "input_prompt"
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\text\text.py", line 1630, in __init__
-    self.set_text(text, scope, substitute) # type: ignore
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\text\text.py", line 1760, in set_text
-    i, did_sub = renpy.substitutions.substitute(i, scope, substitute) # type: ignore
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\substitutions.py", line 278, in substitute
-    s = formatter.vformat(s, (), kwargs) # type: ignore
-  File "/home/tom/ab/nightly-build/tmp/install.linux-x86_64/lib/python3.9/string.py", line 165, in vformat
-  File "/home/tom/ab/nightly-build/tmp/install.linux-x86_64/lib/python3.9/string.py", line 174, in _vformat
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\substitutions.py", line 162, in parse
-    raise Exception("String {0!r} ends with an open format operation.".format(s))
-Exception: String '第1問、Leap109番です。\n[] ①〈米〉店員 ②事務員，社員 は？' ends with an open format operation.
+  File "renpy/common/00keymap.rpy", line 517, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 528, in _execute_python_hide
+    renpy.load(renpy.session["_reload_slot"])
+  File "M:\Renpy\renpy-8.0.3-sdk\renpy\loadsave.py", line 769, in load
+    log.unfreeze(roots, label="_after_load")
+  File "M:\Renpy\renpy-8.0.3-sdk\renpy\rollback.py", line 1078, in unfreeze
+    self.rollback(0, force=True, label=label, greedy=greedy, on_load=True)
+  File "M:\Renpy\renpy-8.0.3-sdk\renpy\rollback.py", line 889, in rollback
+    self.load_failed()
+  File "M:\Renpy\renpy-8.0.3-sdk\renpy\rollback.py", line 807, in load_failed
+    raise Exception("Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?")
+Exception: Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?
 
-Windows-10-10.0.22621 AMD64
-Ren'Py 8.1.0.23010208n
-GalGeProj_beta 1.0
-Mon Jan 30 20:05:59 2023
+Windows-10-10.0.19044 AMD64
+Ren'Py 8.0.3.22090809
+英語ができない俺が縁結び神社に行ったら英単語帳が後輩になった件 5.2b
+Tue Jan 31 17:57:09 2023

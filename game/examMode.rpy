@@ -44,6 +44,10 @@ label modeSelect:
 label rangeSelect:
     L "分かりました。範囲はどうしますか？"
 
+    show leapseclist at topleft:
+        zoom 0.8
+        pos (20, 20)
+
     python:
         flag = False
         while flag == False:
@@ -74,6 +78,8 @@ label rangeSelect:
                 flag = True
     
     Me "[minNum]番から[maxNum]番の範囲でお願い。"
+
+    hide leapseclist
     
     L "分かりました。[minNum]番から[maxNum]番ですね。"
 
@@ -157,7 +163,7 @@ label answerWaySelect:
     menu:
         L "それでは、解答形式はどのようにしますか？"
 
-        "４択問題" if numOfQue >= 4:
+        "４択問題" if maxNum - minNum + 1 >= 4:
             $ answerWay = 'fourChoice'
 
             Me "４択でお願い。"
