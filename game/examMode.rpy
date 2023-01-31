@@ -21,8 +21,6 @@ label modeSelect:
 
     show leap at center:
         zoom 1.2
-    
-    $ config.rollback_enabled = False
 
     L "それでは、今日はどうやって勉強しますか？"
 
@@ -62,6 +60,8 @@ label rangeSelect:
                 
             else:
                 flag = True
+            
+            renpy.block_rollback()
         
         flag = False
         while flag == False:
@@ -76,6 +76,8 @@ label rangeSelect:
             
             else:
                 flag = True
+            
+            renpy.block_rollback()
     
     Me "[minNum]番から[maxNum]番の範囲でお願い。"
 
@@ -150,6 +152,8 @@ label numOfQueSelect:
                     
                     else:
                         flag = True
+                    
+                renpy.block_rollback()
 
     Me "[numOfQue]問で。"
 
@@ -220,6 +224,8 @@ label exam:
                 "[opt[3]]":
                     $ selected = 3
 
+            $ renpy.block_rollback()
+
             if(opt[selected] == ans):
                 $ leapModule.ansExam(questionNumber, True)
                 $ resultList.append([leapNum, ans, que, 1])
@@ -236,6 +242,7 @@ label exam:
             $ leapNum, ans, que = leapModule.getExam(questionNumber,answerWay)
             $ kariQue = "第{0}問、Leap{1}番です。\n{2} は？".format(questionNumber,leapNum,que).replace('[','(').replace(']',')')
             $ spell = renpy.input(kariQue)
+            $ renpy.block_rollback()
 
             if spell == ans:
                 $ leapModule.ansExam(questionNumber, True)
@@ -297,9 +304,6 @@ label endSelect:
 
                 L "了解です。お疲れさまでした。"
 
-                $ renpy.block_rollback()
-                $ config.rollback_enabled = True
-
                 jump exit
     
     elif mode == 'exam':
@@ -341,16 +345,10 @@ label endSelect:
 
                 L "了解です。お疲れさまでした。"
 
-                $ renpy.block_rollback()
-                $ config.rollback_enabled = True
-
                 jump exit
 
     elif mode == 'story':
         if progress == 1:
-            $ renpy.block_rollback()
-            $ config.rollback_enabled = True
-
             jump Opening2
     
     else:

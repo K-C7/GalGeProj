@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/examMode.rpy", line 49: expected 'simple_expression' not found.
-    pos = (20, 20)
-        ^
+File "game/examMode.rpy", line 64: invalid syntax
+        $ renpy.block_rollback()
+         ^
 
-Ren'Py Version: Ren'Py 8.0.3.22090809
-Tue Jan 31 17:24:33 2023
+File "game/examMode.rpy", line 156: invalid syntax
+    $ renpy.block_rollback()
+     ^
+
+Ren'Py Version: Ren'Py 8.1.0.23010208n
+Tue Jan 31 21:10:30 2023
