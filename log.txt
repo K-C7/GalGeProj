@@ -1,198 +1,65 @@
-Mon Jan 30 20:05:45 2023
-Windows-10-10.0.22621
-Ren'Py 8.1.0.23010208n
+Tue Jan 31 17:24:33 2023
+Windows-10-10.0.19044
+Ren'Py 8.0.3.22090809
  
 
-Bootstrap to the start of init.init took 0.03s
-Early init took 0.00s
-Loader init took 0.01s
-Loading error handling took 0.02s
-Loading script took 0.12s
-Loading save slot metadata. took 0.03s
+Bootstrap to the start of init.init took 0.04s
+Early init took 0.01s
+Loader init took 0.15s
+Loading error handling took 0.05s
+Loading script took 0.40s
+Loading save slot metadata. took 0.13s
 Loading persistent took 0.00s
-Faled to initialize steam: FileNotFoundError("Could not find module 'I:\\Renpy\\renpy-8.0.3-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
-Running init code took 0.04s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\programing\\AppData\\Roaming/RenPy/backups\\GalGeProj':
-Dump and make backups. took 0.04s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc. took 0.02s
+
+File "game/examMode.rpy", line 49: expected 'simple_expression' not found.
+    pos = (20, 20)
+        ^
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.23s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.04s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Performance test:
-Interface start took 0.05s
+Interface start took 0.32s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
 swap interval: 1 frames
 Windowed mode.
 Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce GTX 1660/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 516.59'
+Renderer: b'Quadro P620/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 511.79'
 Display Info: None
-Screen sizes: virtual=(1280, 720) physical=(992, 558) drawable=(992, 558)
+Screen sizes: virtual=(1280, 720) physical=(1280, 720) drawable=(1280, 720)
 Maximum texture size: 4096x4096
-
-Full traceback:
-  File "game/examMode.rpy", line 232, in script
-    $ spell = renpy.input(kariQue)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 1132, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/examMode.rpy", line 232, in <module>
-    $ spell = renpy.input(kariQue)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\exports.py", line 976, in input
-    rv = renpy.ui.interact(mouse='prompt', type="input", roll_forward=roll_forward)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\ui.py", line 299, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 3435, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 3865, in interact_core
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 587, in visit_all
-    d.visit_all(callback, seen)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 587, in visit_all
-    d.visit_all(callback, seen)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 587, in visit_all
-    d.visit_all(callback, seen)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\screen.py", line 451, in visit_all
-    callback(self)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 3865, in <lambda>
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\screen.py", line 462, in per_interact
-    self.update()
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\screen.py", line 653, in update
-    self.screen.function(**self.scope)
-  File "game/screens.rpy", line 177, in execute
-    screen input(prompt):
-  File "game/screens.rpy", line 177, in execute
-    screen input(prompt):
-  File "game/screens.rpy", line 180, in execute
-    window:
-  File "game/screens.rpy", line 182, in execute
-    vbox:
-  File "game/screens.rpy", line 188, in execute
-    text prompt style "input_prompt"
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\text\text.py", line 1630, in __init__
-    self.set_text(text, scope, substitute) # type: ignore
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\text\text.py", line 1760, in set_text
-    i, did_sub = renpy.substitutions.substitute(i, scope, substitute) # type: ignore
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\substitutions.py", line 278, in substitute
-    s = formatter.vformat(s, (), kwargs) # type: ignore
-  File "/home/tom/ab/nightly-build/tmp/install.linux-x86_64/lib/python3.9/string.py", line 165, in vformat
-  File "/home/tom/ab/nightly-build/tmp/install.linux-x86_64/lib/python3.9/string.py", line 174, in _vformat
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\substitutions.py", line 162, in parse
-    raise Exception("String {0!r} ends with an open format operation.".format(s))
-Exception: String '第1問、Leap109番です。\n[] ①〈米〉店員 ②事務員，社員 は？' ends with an open format operation.
-
-While running game code:
-  File "game/examMode.rpy", line 232, in script
-    $ spell = renpy.input(kariQue)
-  File "game/examMode.rpy", line 232, in <module>
-    $ spell = renpy.input(kariQue)
-  File "game/screens.rpy", line 177, in execute
-    screen input(prompt):
-  File "game/screens.rpy", line 177, in execute
-    screen input(prompt):
-  File "game/screens.rpy", line 180, in execute
-    window:
-  File "game/screens.rpy", line 182, in execute
-    vbox:
-  File "game/screens.rpy", line 188, in execute
-    text prompt style "input_prompt"
-Exception: String '第1問、Leap109番です。\n[] ①〈米〉店員 ②事務員，社員 は？' ends with an open format operation.
 Resetting cache.
-Bootstrap to the start of init.init took 210.51s
+Bootstrap to the start of init.init took 58.04s
 Early init took 0.00s
-Loader init took 0.01s
-Loading error handling took 0.02s
-Loading script took 0.10s
-Loading save slot metadata. took 0.02s
+Loader init took 0.10s
+Loading error handling took 0.05s
+Loading script took 0.44s
+Loading save slot metadata. took 0.03s
 Loading persistent took 0.00s
-Faled to initialize steam: FileNotFoundError("Could not find module 'I:\\Renpy\\renpy-8.0.3-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
-Running init code took 0.02s
+Faled to initialize steam: FileNotFoundError("Could not find module 'M:\\Renpy\\renpy-8.0.3-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.23s
 Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
-Backing up script files to 'C:\\Users\\programing\\AppData\\Roaming/RenPy/backups\\GalGeProj':
-Dump and make backups. took 0.03s
+Backing up script files to 'C:\\Users\\2021130\\AppData\\Roaming/RenPy/backups\\GalGeProj':
+Dump and make backups. took 0.08s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc. took 0.02s
+Initial gc. took 0.01s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
 Creating interface object took 0.24s
 Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.04s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Performance test:
-Interface start took 0.03s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce GTX 1660/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 516.59'
-Display Info: None
-Screen sizes: virtual=(1280, 720) physical=(992, 558) drawable=(992, 558)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init took 259.24s
-Early init took 0.00s
-Loader init took 0.01s
-Loading error handling took 0.01s
-Loading script took 0.10s
-Loading save slot metadata. took 0.02s
-Loading persistent took 0.00s
-Faled to initialize steam: FileNotFoundError("Could not find module 'I:\\Renpy\\renpy-8.0.3-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
-Running init code took 0.02s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\programing\\AppData\\Roaming/RenPy/backups\\GalGeProj':
-Dump and make backups. took 0.03s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc. took 0.02s
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.22s
-Cleaning stores took 0.00s
 Init translation took 0.02s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.05s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.04s
+Save pyanalysis. took 0.03s
+Save bytecode. took 0.04s
 Running _start took 0.00s
 Performance test:
 Interface start took 0.03s
@@ -202,8 +69,12 @@ primary display bounds: (0, 0, 1920, 1080)
 swap interval: 1 frames
 Windowed mode.
 Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce GTX 1660/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 516.59'
+Renderer: b'Quadro P620/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 511.79'
 Display Info: None
-Screen sizes: virtual=(1280, 720) physical=(992, 558) drawable=(992, 558)
+Screen sizes: virtual=(1280, 720) physical=(1280, 720) drawable=(1280, 720)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1280, 720) physical=(1920, 1017) drawable=(1920, 1017)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1280, 720) physical=(1280, 720) drawable=(1280, 720)
 Maximum texture size: 4096x4096
