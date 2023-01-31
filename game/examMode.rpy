@@ -157,7 +157,7 @@ label answerWaySelect:
     menu:
         L "それでは、解答形式はどのようにしますか？"
 
-        "４択問題" if numOfQue >= 4:
+        "４択問題" if maxNum - minNum + 1 >= 4:
             $ answerWay = 'fourChoice'
 
             Me "４択でお願い。"
