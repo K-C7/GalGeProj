@@ -464,7 +464,7 @@ label Opening2:
     scene bg black
     with dissolve
 
-    "体験版はここまでです。\n続きは製品版を買ってください。"
+    "体験版はここまでです。\n続きは製品版でお楽しみください。"
     "to be continued..."
 
     jump exit
