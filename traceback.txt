@@ -1,27 +1,27 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/examMode.rpy", line 114, in script
-    $ en, jp = leapModule.getWords(leapNumber)
-  File "game/examMode.rpy", line 114, in <module>
-    $ en, jp = leapModule.getWords(leapNumber)
-FileNotFoundError: [Errno 2] No such file or directory: '/game/module/leap.csv'
+  File "game/examMode.rpy", line 233, in script
+    $ leapNum, ans, que = leapModule.getExam(questionNumber,answerWay)
+  File "game/examMode.rpy", line 233, in <module>
+    $ leapNum, ans, que = leapModule.getExam(questionNumber,answerWay)
+IndexError: list index out of range
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/examMode.rpy", line 114, in script
-    $ en, jp = leapModule.getWords(leapNumber)
+  File "game/examMode.rpy", line 233, in script
+    $ leapNum, ans, que = leapModule.getExam(questionNumber,answerWay)
   File "I:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 1132, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "I:\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/examMode.rpy", line 114, in <module>
-    $ en, jp = leapModule.getWords(leapNumber)
-  File "module/leapModule.py", line 16, in getWords
-FileNotFoundError: [Errno 2] No such file or directory: '/game/module/leap.csv'
+  File "game/examMode.rpy", line 233, in <module>
+    $ leapNum, ans, que = leapModule.getExam(questionNumber,answerWay)
+  File "module/leapModule.py", line 50, in getExam
+IndexError: list index out of range
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.1.0.23010208n
 英語ができない俺が縁結び神社に行ったら英単語帳が後輩になった件 5.2b
-Tue Jan 31 21:03:19 2023
+Fri Feb  3 19:40:06 2023

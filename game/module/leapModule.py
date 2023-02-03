@@ -41,7 +41,7 @@ def makeExam(min, max, numOfQue):
 def getExam(questionNumber, answerWay, optMin=0, optMax=0, optNum=3):
     """問題番号,解答方法(,選択肢の問題番号範囲の下限,〃の上限,選択肢の数) -> Leap上の問題番号,解答,問題(,選択肢(リスト))"""
     global examNumberList
-    questionNumber -= 1
+    questionNumber -= 1 #leap.csvとのつじつま合わせ
     ans = ''
     que = ''
 
@@ -82,17 +82,17 @@ def resultExam():
     """-> 問題の正解数"""
     return sum(examTFList)
 
-def verifyValue(rangeNum):
+def verifyValue(rangeNum, minNum=1):
     """出題範囲が正しいか確認"""
     try:
         rangeNum = int(rangeNum)
-        if rangeNum < 1:
-            rangeNum= 1
+        if rangeNum < minNum:
+            rangeNum = minNum
         elif rangeNum > 1935:
             rangeNum = 1935
             
-        except:
-            return -1
+    except:
+        return -1
             
-        else:
-            return rangeNum
+    else:
+        return rangeNum

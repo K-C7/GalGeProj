@@ -50,8 +50,8 @@ label rangeSelect:
         flag = False
         while flag == False:
             kariNum = renpy.input("何番から？")
-            minNum = verifyValue(kariNum)
-            if minNum = -1:
+            minNum = leapModule.verifyValue(kariNum)
+            if minNum == -1:
                 renpy.say(None, "数字を入力してください。")
             else:
                 flag = True
@@ -61,8 +61,8 @@ label rangeSelect:
         flag = False
         while flag == False:
             kariNum = renpy.input("何番まで？")
-            maxNum = verifyValue(kariNum)
-            if maxNum = -1:
+            maxNum = leapModule.verifyValue(kariNum, minNum)
+            if maxNum == -1:
                 renpy.say(None, "数字を入力してください。")
             else:
                 flag = True

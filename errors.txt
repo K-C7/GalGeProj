@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/examMode.rpy", line 64: invalid syntax
-        $ renpy.block_rollback()
-         ^
-
-File "game/examMode.rpy", line 156: invalid syntax
-    $ renpy.block_rollback()
-     ^
+File "game/examMode.rpy", line 65: invalid syntax
+        if maxNum = -1:
+                   ^
 
 Ren'Py Version: Ren'Py 8.1.0.23010208n
-Tue Jan 31 21:10:30 2023
+Fri Feb  3 19:20:52 2023
