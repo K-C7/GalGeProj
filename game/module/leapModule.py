@@ -81,3 +81,18 @@ def ansExam(questionNumber, tf):
 def resultExam():
     """-> 問題の正解数"""
     return sum(examTFList)
+
+def verifyValue(rangeNum):
+    """出題範囲が正しいか確認"""
+    try:
+        rangeNum = int(rangeNum)
+        if rangeNum < 1:
+            rangeNum= 1
+        elif rangeNum > 1935:
+            rangeNum = 1935
+            
+        except:
+            return -1
+            
+        else:
+            return rangeNum

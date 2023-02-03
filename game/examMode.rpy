@@ -49,15 +49,10 @@ label rangeSelect:
     python:
         flag = False
         while flag == False:
-            try:
-                kariNum = renpy.input("何番から？")
-                minNum = int(kariNum)
-                if minNum < 1:
-                    minNum = 1
-            
-            except:
+            kariNum = renpy.input("何番から？")
+            minNum = verifyValue(kariNum)
+            if minNum = -1:
                 renpy.say(None, "数字を入力してください。")
-                
             else:
                 flag = True
             
@@ -65,19 +60,15 @@ label rangeSelect:
         
         flag = False
         while flag == False:
-            try:
-                kariNum = renpy.input("何番まで？")
-                maxNum = int(kariNum)
-                if maxNum > 1935:
-                    maxNum = 1935
-        
-            except:
+            kariNum = renpy.input("何番まで？")
+            maxNum = verifyValue(kariNum)
+            if maxNum = -1:
                 renpy.say(None, "数字を入力してください。")
-            
             else:
                 flag = True
             
             renpy.block_rollback()
+
     
     Me "[minNum]番から[maxNum]番の範囲でお願い。"
 
