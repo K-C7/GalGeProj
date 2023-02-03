@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/examMode.rpy", line 65: invalid syntax
-        if maxNum = -1:
-                   ^
+File "game/screens.rpy", line 332: vbox expects a non-empty block.
+    if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+                                                                                     ^
 
 Ren'Py Version: Ren'Py 8.1.0.23010208n
-Fri Feb  3 19:20:52 2023
+Fri Feb  3 21:01:41 2023

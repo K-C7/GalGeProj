@@ -309,11 +309,15 @@ screen navigation():
 
             textbutton _("ロード") action ShowMenu("load")
 
-            textbutton _("ヒストリー") action ShowMenu("history")
+            #textbutton _("ヒストリー") action ShowMenu("history")
 
         textbutton _("学習モード") action Start("modeSelect")
 
         textbutton _("設定") action ShowMenu("preferences")
+
+        textbutton _("感想を送る") action OpenURL("https://forms.gle/necrMXe7TZ3YoXmdA")
+
+        textbutton _("バグを報告する") action OpenURL("https://forms.gle/uBEScAWzY81fnyMk9")
 
         if _in_replay:
 
@@ -328,7 +332,8 @@ screen navigation():
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             # モバイルデバイスにはヘルプは不要であるか不適切です。
-            textbutton _("ヘルプ") action ShowMenu("help")
+            #textbutton _("ヘルプ") action ShowMenu("help")
+            pass
 
         if renpy.variant("pc"):
 
