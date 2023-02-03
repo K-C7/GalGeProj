@@ -6,6 +6,8 @@ label Opening1:
     scene bg room
     with fade
 
+    play music "audio/morning.mp3" volume 0.05
+
     "3月某日"
     "春休みがもう終ろうとしていた、ある日。"
 
@@ -51,6 +53,8 @@ label Opening1_menu1:
 
     scene bg shrine day
     with fade
+
+    stop music
 
     Me "この神社に来るのも久しぶりだな。"
     Me "じゃあ、お祈りでもするか。"
@@ -121,6 +125,8 @@ label Opening1_menu1:
 
     scene bg road day
 
+    play music "audio/routine.mp3" volume 0.05
+
     "数日後"
 
     Me "今日から２年生か。"
@@ -147,6 +153,7 @@ label Opening1_menu1:
 
     show leap at center:
         zoom 1.2
+    play music "audio/leap.mp3" volume 0.05
 
     Me "かっ..."
     Me "（かわいい...）"
@@ -378,6 +385,8 @@ label Opening1_menu2:
 label Opening2:
     $ progress = 2
 
+    play music "audio/leap.mp3" volume 0.05
+
     if 0 <= sumT <= 3:
         L "わぁ、本当に英語が苦手なんですね。"
 
@@ -442,6 +451,9 @@ label Opening2:
         Me "いや、ありがとうって言ったんだ。"
 
         L "それなら良かったです。"
+    
+    stop music
+    with dissolve
 
     cd "次は〇〇駅、〇〇駅に到着します。車内にお忘れ物のないようにご注意ください。"
     cd "お出口は左側です。扉にご注意ください。"

@@ -1,7 +1,8 @@
 label testPrepare:
-    $ config.rollback_enabled = False
     $ mode = 'story'
     $ answerWay = 'fourChoice'
+
+    play music "audio/exam.mp3" volume 0.05
 
     if progress == 1:
         $ minNum = 1
@@ -15,6 +16,16 @@ label testPrepare:
         #あとでいじってください
 
     jump exam
+
+label initExamMode:
+    scene bg classroom evening
+
+    show leap at center:
+        zoom 1.2
+    
+    play music "audio/leap.mp3" volume 0.05
+
+    jump modeSelect
 
 label modeSelect:
     scene bg classroom evening
@@ -340,6 +351,8 @@ label endSelect:
 
     elif mode == 'story':
         if progress == 1:
+            stop music
+
             jump Opening2
     
     else:

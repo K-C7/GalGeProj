@@ -311,7 +311,7 @@ screen navigation():
 
             #textbutton _("ヒストリー") action ShowMenu("history")
 
-        textbutton _("学習モード") action Start("modeSelect")
+        textbutton _("学習モード") action Start("initExamMode")
 
         textbutton _("設定") action ShowMenu("preferences")
 
