@@ -10,6 +10,7 @@ init:
 
     python:
         LEAP_PATH = config.basedir + r"\game\module\leap.csv"
+        #LEAP_PATH = "/game/module/leap.csv"
         leapModule.leapPathSet(LEAP_PATH)
 
     image bg classroom evening = im.Scale("bg classroom evening notrim.jpg", 1280, 720)
