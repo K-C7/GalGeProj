@@ -18,7 +18,7 @@ init:
     image leap smile = im.Scale("leap smile.png", 500, 1000)
     image leap surprise = im.Scale("leap surprise.png", 500, 1000)
     image leap question = im.Scale("leap question.png", 500, 1000)
-    image leap question_2 = im.Scale("leap question_2.png", 500, 1000)
+    image leap question_2 = im.Scale("leap question_mark.png", 500, 1000)
 
     $ progress = 1 #ストーリーの進行状況
 
