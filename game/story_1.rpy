@@ -151,8 +151,9 @@ label Opening1_menu1:
     Me "（急ぐあまり、人とぶつかってしまった。謝らないと。）"
     Me "あのーすみません。お怪我はありませんか？"
 
-    show leap at center:
-        zoom 1.2
+    show leap normal at center:
+        zoom 0.2
+    
     play music "audio/leap.mp3" volume 0.05
 
     Me "かっ..."
@@ -167,6 +168,8 @@ label Opening1_menu1:
 
     Me "（たしかに同じ制服だけど、この子誰だ？学校で見たことないぞ。）"
 
+    show leap surprise
+
     Ano "あーーーっ！先輩！"
 
     Me "何？"
@@ -175,10 +178,11 @@ label Opening1_menu1:
 
     Me "あっ、ホントだ！急がないと！！"
 
+
     scene bg train day
 
-    show leap at center:
-        zoom 1.2
+    show leap normal at center:
+        zoom 0.2
 
     play music "audio/train.mp3" volume 0.2
 
@@ -227,8 +231,7 @@ label Opening1_menu1:
     scene bg train day
     with dissolve
 
-    show leap at center:
-        zoom 1.2
+    show leap normal at center
 
     Me "............."
     Me "あれか。"
