@@ -151,8 +151,7 @@ label Opening1_menu1:
     Me "（急ぐあまり、人とぶつかってしまった。謝らないと。）"
     Me "あのーすみません。お怪我はありませんか？"
 
-    show leap normal at center:
-        zoom 0.2
+    show leap normal at leapPos
     
     play music "audio/leap.mp3" volume 0.05
 
@@ -181,8 +180,7 @@ label Opening1_menu1:
 
     scene bg train day
 
-    show leap normal at center:
-        zoom 0.2
+    show leap normal at leapPos
 
     play music "audio/train.mp3" volume 0.2
 
@@ -231,7 +229,7 @@ label Opening1_menu1:
     scene bg train day
     with dissolve
 
-    show leap normal at center
+    show leap normal at leapPos
 
     Me "............."
     Me "あれか。"

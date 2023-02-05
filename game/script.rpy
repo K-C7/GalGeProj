@@ -14,11 +14,13 @@ init:
         leapModule.leapPathSet(LEAP_PATH)
 
     image bg classroom evening = im.Scale("bg classroom evening notrim.jpg", 1280, 720)
-    image leap normal = im.Scale("leap normal.png", 500, 1000)
-    image leap smile = im.Scale("leap smile.png", 500, 1000)
-    image leap surprise = im.Scale("leap surprise.png", 500, 1000)
-    image leap question = im.Scale("leap question.png", 500, 1000)
-    image leap question_2 = im.Scale("leap question_mark.png", 500, 1000)
+    image leap normal = im.Scale("leap normal.png", 800, 1600)
+    image leap smile = im.Scale("leap smile.png", 800, 1600)
+    image leap surprise = im.Scale("leap surprise.png", 800, 1600)
+    image leap question = im.Scale("leap question.png", 800, 1600)
+    image leap question_mark = im.Scale("leap question_mark.png", 800, 1600)
+
+    define leapPos = Position(xancor=0.0, ypos=2.15)
 
     $ progress = 1 #ストーリーの進行状況
 
