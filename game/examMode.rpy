@@ -20,8 +20,7 @@ label testPrepare:
 label initExamMode:
     scene bg classroom evening
 
-    show leap at center:
-        zoom 1.2
+    show leap normal at center
     
     play music "audio/leap.mp3" volume 0.05
 
@@ -30,8 +29,7 @@ label initExamMode:
 label modeSelect:
     scene bg classroom evening
 
-    show leap at center:
-        zoom 1.2
+    show leap normal at center
 
     L "それでは、今日はどうやって勉強しますか？"
 
