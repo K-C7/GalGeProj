@@ -121,7 +121,7 @@ label Opening1_menu1:
     scene bg black
     with dissolve
 
-    $ renpy.movie_cutscene("movie/opening.mpg")
+    # $ renpy.movie_cutscene("movie/opening.mpg")
 
     scene bg road day
 
