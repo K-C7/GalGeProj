@@ -1,8 +1,6 @@
 label Opening1:
     "Note: 会話中に下の「ロールバック」ボタンを押すと、\nひとつ前の画面に戻ることができます。\n一部の場面を除いて基本的に使用できるので、ぜひご活用ください。"
 
-    # 個人的に気に入らない台詞を勝手に修正しました。気に入らなかったらs1_backupから復元してください。
-
     scene bg room
     with fade
 
@@ -18,6 +16,8 @@ label Opening1:
 
 label Opening1_menu1:
     if(nidoneCount >= 3):
+        $ badEndCode = 1
+        
         jump badEnd_call
     
     menu:
@@ -26,9 +26,9 @@ label Opening1_menu1:
 
         "二度寝する":
             Me "..."
+
             $ nidoneCount += 1
 
-            $ badEndCode = 1
             jump Opening1_menu1
     
     pause 2.0
@@ -93,12 +93,12 @@ label Opening1_menu1:
     God "もう一度言う..."
     God "貴様の願いをかなえてやろう！"
 
-    stop music
-    play sound "audio/holysound.mp3" volume 0.3
-
     scene bg white
     with dissolve
 
+    stop music
+    play sound "audio/holysound.mp3" volume 0.3
+    
     Me "うっ...なんだこの光は...！"
     Me "ウワアァァァァァァァァァァ！"
 
@@ -135,11 +135,14 @@ label Opening1_menu1:
     Me "初日からいきなり遅刻は困るから少し急ぐか。"
     
     play music "audio/run.mp3"
+
     pause
 
-    stop music
     scene bg black
+
+    stop music
     play sound "audio/hit.mp3"
+
     pause
 
     scene bg road day
@@ -180,7 +183,6 @@ label Opening1_menu1:
     Ano "早くしないと電車乗れませんよ？"
 
     Me "あっ、ホントだ！急がないと！！"
-
 
     scene bg train day
 
@@ -237,6 +239,7 @@ label Opening1_menu1:
     scene bg remember:
         zoom 1.28
     with fade
+
     pause
 
     scene bg train day
@@ -408,6 +411,7 @@ label Opening1_menu2:
     menu:
         "挑戦する":
             Me "やるしかないのか。"
+
             jump testPrepare
         
         "断る":
@@ -426,6 +430,7 @@ label Opening1_menu2:
             with dissolve
 
             $ badEndCode = 2
+            
             jump badEnd_call
 
 label Opening2:
