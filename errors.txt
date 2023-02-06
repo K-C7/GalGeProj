@@ -2,9 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 332: vbox expects a non-empty block.
-    if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-                                                                                     ^
+File "game/examMode.rpy", line 219: expected menuitem
+    show leap question_mark at leapPos
+    ^
+
+File "game/examMode.rpy", line 286: expected ':' not found.
+    else if(numOfQue - sumT = 1):
+         ^
+
+File "game/examMode.rpy", line 288: expected statement.
+    else:
+        ^
 
 Ren'Py Version: Ren'Py 8.1.0.23010208n
-Fri Feb  3 21:01:41 2023
+Mon Feb  6 20:04:00 2023

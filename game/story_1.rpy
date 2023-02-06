@@ -245,7 +245,7 @@ label Opening1_menu1:
     scene bg train day
     with dissolve
 
-    show leap normal at leapPos
+    show leap question at leapPos
 
     Me "............."
     Me "あれか。"
@@ -443,9 +443,13 @@ label Opening2:
 
         Me "く、くそぉ..."
 
+        show leap question
+
         L "勉強してます？"
 
         Me "苦手なんだからしょうがないだろ。"
+
+        show leap normal
 
         L "いや、先輩。むしろこれは伸びしろですよ。"
 
@@ -471,6 +475,8 @@ label Opening2:
         show leap question
 
         L "？英語のテストをですよ？"
+
+        show leap normal
 
     elif 4 <= sumT <= 7:
         L "まあまあじゃないですか。"
@@ -516,6 +522,8 @@ label Opening2:
         L "なにか言いました？"
 
         Me "いや、ありがとうって言ったんだ。"
+
+        show leap normal
 
         L "それなら良かったです。"
     

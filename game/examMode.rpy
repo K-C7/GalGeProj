@@ -215,8 +215,9 @@ label exam:
             $ leapNum, ans, que, opt = leapModule.getExam(questionNumber,answerWay,minNum,maxNum,optNum)
             $ selected = 0
 
+            show leap question_mark at leapPos
+
             menu:
-                show leap question_mark at leapPos
                 L "第[questionNumber]問、Leap[leapNum]番です。\n[que] は？"
 
                 "[opt[0]]":
@@ -279,11 +280,11 @@ label exam:
         $ questionNumber += 1
             
     $ sumT = leapModule.resultExam()
-    $ rateT = round((numOfQue / sumT) * 100, 1)
+    $ rateT = round((sumT / numOfQue) * 100, 1)
 
-    if(numOfQue = sumT):
+    if(numOfQue == sumT):
         L "結果は、[numOfQue]問中全問正解でした。素晴らしいです！"
-    else if(numOfQue - sumT = 1):
+    elif(numOfQue - sumT == 1):
         L "結果は、[numOfQue]問中１問間違えでした。おしいです。"
     else:
         L "結果は、[numOfQue]問中[sumT]問正解で、正答率は[rateT]でした。"
