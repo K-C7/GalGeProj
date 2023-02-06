@@ -92,7 +92,7 @@ define gui.title_text_size = 50
 ## に表示されるメニュー、ゲームメニューはゲーム中右クリックで呼び出せるメニュー
 ## です。画像を変えたい場合は gui ディレクトリーにある該当の画像を入れ替えてくだ
 ## さい。
-define gui.main_menu_background = "gui/main_menu.png"
+define gui.main_menu_background = "gui/main_menu.jpg"
 define gui.game_menu_background = "gui/game_menu.png"
 
 
