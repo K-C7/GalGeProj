@@ -149,7 +149,7 @@ label Opening1_menu1:
     Ano "きゃっ！"
 
     Me "（急ぐあまり、人とぶつかってしまった。謝らないと。）"
-    Me "あのーすみません。お怪我はありませんか？"
+    Me "あのーすみません。お怪我はあり...？"
 
     show leap normal at leapPos
     
@@ -158,9 +158,13 @@ label Opening1_menu1:
     Me "かっ..."
     Me "（かわいい...）"
 
+    show leap surprise
+
     Ano "大丈夫ですか！？"
 
     Me "あっ、ああ。大丈夫だよ。"
+
+    show leap question_mark
 
     Ano "同じ制服？"
     Ano "あのー、もしかして同じ学校の先輩なんですか？"
@@ -194,11 +198,18 @@ label Opening1_menu1:
     Me "…"
 
     Ano "…"
+
+    show leap question
+
     Ano "どうしたんですか先輩？"
 
     Me "いっ、いやなんでも。"
 
+    show leap surprise
+
     Ano "あっ！そういえば名乗ってなかったですね。"
+
+    show leap normal
 
     L "私、Leapといいます。"
 
@@ -212,6 +223,8 @@ label Opening1_menu1:
 
     Me "え？"
     Me "あっ、ああ、キラキラネーム的な？"
+
+    show leap question
 
     L "キラキラネーム？私の名前ってそんなにおかしいですか？"
 
@@ -236,14 +249,20 @@ label Opening1_menu1:
     Me "........"
     Me "いや、こうはならないだろ。"
 
+    show leap question
+
     L "どうしたんですか先輩、そんな難しい顔して。"
     
     Me "いや、何でもないよ。"
+
+    show leap question_mark
 
     L "...そんなに私の名前変ですか？"
     
     Me "........"
     Me "俺の気のせいだった、気にしないでくれ。"
+
+    show leap normal
     
     L "あっそうですか。良かった。"
     
@@ -277,23 +296,37 @@ label Opening1_menu2:
             jump Opening1_menu2
 
         "LEAPちゃんって何か部活入るの？":
+            show leap question
+
             L "うーん。"
             L "まだ決めてないですね。"
+
+            show leap normal
+
             L "何かおすすめとかありますか？"
 
             Me "..."
             Me "実は俺部活入ってないんだよね。"
 
+            show leap surprise
+
             L "えっ、そうなんですか。"
+
+            show leap question_mark
+
             L "何で入らなかったんですか？"
 
             Me "うーーーん。"
             Me "入りたいところがなかったから？"
             Me "..."
 
+            show leap question
+
             L "..."
 
             Me "（会話が終わってしまった。何か次の話題はないのか？）"
+
+            show leap normal
 
             jump Opening1_menu2
         
@@ -303,6 +336,8 @@ label Opening1_menu2:
             menu:
                 "英語":
                     Me "英語だろ。"
+
+                    show leap surprise
 
                     L "なんでわかったんですか？"
 
@@ -316,6 +351,8 @@ label Opening1_menu2:
 
                     Me "引っ掛けとかじゃなかったか。"
 
+                    show leap question
+
                     L "何がですか？"
 
                     Me "いや、なんでもない。"
@@ -327,19 +364,27 @@ label Opening1_menu2:
 
                     Me "引っ掛けとかじゃなかったか。"
 
+                    show leap question
+
                     L "何がですか？"
 
                     Me "いや、なんでもない。"
 
+    show leap normal
+
     L "そうなんですか、じゃあ先輩はどうなんですか？"
         
     Me "何が？"
+
+    show leap question
         
     L "英語は得意なんですか？"
         
     Me "...実は結構苦手で..."
     Me "期始めの実力テストでは毎回酷い点数しかとれなくて。"
     Me "本当に誰かに教えてもらいたいくらいだよ。"
+        
+    show leap normal
         
     L "苦手なんですね。へー。"
     L "..."
@@ -406,13 +451,19 @@ label Opening2:
 
         Me "そ、そうかな。"
 
+        show leap smile
+
         L "そうですよ！"
 
         Me "じゃあ、ちゃんと英語勉強するか。"
 
+        show leap normal
+
         L "その調子です。それなら付き合ってあげますよ。"
 
         Me "えっ、それって...？"
+
+        show leap question
 
         L "？英語のテストをですよ？"
 
@@ -421,18 +472,26 @@ label Opening2:
 
         Me "そうかな。"
 
+        show leap smile
+
         L "単語はちゃんと覚えられてるってことですし、素晴らしいと思いますよ！"
 
         Me "そっか。ありがとう。"
+
+        show leap normal
 
         L "もしまたご一緒することがあったら、その時はまた英語の問題を出してあげますよ。"
 
         Me "そうなった時はよろしく頼むよ。"
     
     elif 8 <= sumT <= 10:
+        show leap smile
+
         L "すごいじゃないですか！英語が苦手って嘘じゃないんですか？"
 
         Me "今回はたまたまできただけだよ。"
+
+        show leap normal
 
         L "本当ですかー？"
         L "でも、この調子なら実力テストもいい点数取れると思いますよ。"
@@ -446,6 +505,8 @@ label Opening2:
         L "じゃあ、また今度会ったときも問題出してあげますよ。"
 
         Me "{size=*0.8}...だるいな。{/size}"
+
+        show leap question
 
         L "なにか言いました？"
 
@@ -469,7 +530,12 @@ label Opening2:
 
     Me "褒めてるよ。"
 
+    show leap smile
+
     L "ふふふ、それはありがとうございます。"
+
+    show leap normal
+
     L "じゃあ、学校に行きましょうか。"
 
     Me "そうだな。"

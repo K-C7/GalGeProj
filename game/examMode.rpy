@@ -226,13 +226,13 @@ label exam:
                 $ leapModule.ansExam(questionNumber, True)
                 $ resultList.append([leapNum, ans, que, 1])
 
-                L "正解です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
+                L "{color=#26aa5d}正解{/color}です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
 
             else:
                 $ leapModule.ansExam(questionNumber, False)
                 $ resultList.append([leapNum, ans, que, 0])
 
-                L "不正解です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
+                L "{color=#ED1616}不正解{/color}です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
         
         elif answerWay == 'spell':
             $ leapNum, ans, que = leapModule.getExam(questionNumber,answerWay)
@@ -244,13 +244,13 @@ label exam:
                 $ leapModule.ansExam(questionNumber, True)
                 $ resultList.append([leapNum, ans, que, 1])
 
-                L "正解です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
+                L "{color=#26aa5d}正解{/color}です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
 
             else:
                 $ leapModule.ansExam(questionNumber, False)
                 $ resultList.append([leapNum, ans, que, 0])
 
-                L "不正解です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
+                L "{color=#ED1616}不正解{/color}です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
         
         $ questionNumber += 1
             
