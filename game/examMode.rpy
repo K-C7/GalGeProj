@@ -19,9 +19,7 @@ label testPrepare:
 
 label initExamMode:
     scene bg classroom evening
-
-    show leap normal at leapPos
-    
+    show leap question_mark at leapPos
     play music "audio/leap.mp3" volume 0.05
 
     jump modeSelect
@@ -45,7 +43,12 @@ label modeSelect:
     jump rangeSelect
     
 label rangeSelect:
-    L "分かりました。範囲はどうしますか？"
+
+    show leap normal at leapPos
+    L "分かりました。"
+
+    show leap question_mark at leapPos
+    L "範囲はどうしますか？"
 
     show leapseclist at topleft:
         zoom 0.8
@@ -74,6 +77,8 @@ label rangeSelect:
             
             renpy.block_rollback()
 
+    
+    show leap normal at leapPos
     
     Me "[minNum]番から[maxNum]番の範囲でお願い。"
 
@@ -120,6 +125,7 @@ label learn:
     jump endSelect
 
 label numOfQueSelect:
+    show leap question_mark at leapPos
     L "何問ほど出したらいいでしょうか？"
 
     menu:
@@ -153,11 +159,13 @@ label numOfQueSelect:
 
     Me "[numOfQue]問で。"
 
+    show leap normal at leapPos
     L "分かりました。[numOfQue]問ですね。"
 
     jump answerWaySelect
 
 label answerWaySelect:
+    show leap question_mark at leapPos
     L "それでは、解答形式はどのようにしますか？"
 
     menu:
@@ -168,6 +176,7 @@ label answerWaySelect:
 
             Me "４択でお願い。"
 
+            show leap normal at leapPos
             L "了解です。それでは、[minNum]番から[maxNum]番の範囲で[numOfQue]問を、四択形式で出題しますね。"
 
         "スペル入力":
@@ -175,6 +184,7 @@ label answerWaySelect:
 
             Me "じゃあ、スペルが合ってるか判定してほしい。"
 
+            show leap normal at leapPos
             L "了解です。それでは、[minNum]番から[maxNum]番の範囲で[numOfQue]問を、スペル形式で出題しますね。"
 
             menu:
@@ -206,6 +216,7 @@ label exam:
             $ selected = 0
 
             menu:
+                show leap question_mark at leapPos
                 L "第[questionNumber]問、Leap[leapNum]番です。\n[que] は？"
 
                 "[opt[0]]":
@@ -226,13 +237,21 @@ label exam:
                 $ leapModule.ansExam(questionNumber, True)
                 $ resultList.append([leapNum, ans, que, 1])
 
-                L "正解です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
+                show leap smile at leapPos
+
+                L "{color=#26aa5d}正解{/color}です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
+
+                show leap normal at leapPos
 
             else:
                 $ leapModule.ansExam(questionNumber, False)
                 $ resultList.append([leapNum, ans, que, 0])
 
-                L "不正解です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
+                show leap question at leapPos
+
+                L "{color=#ED1616}不正解{/color}です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
+
+                show leap normal at leapPos
         
         elif answerWay == 'spell':
             $ leapNum, ans, que = leapModule.getExam(questionNumber,answerWay)
@@ -244,19 +263,30 @@ label exam:
                 $ leapModule.ansExam(questionNumber, True)
                 $ resultList.append([leapNum, ans, que, 1])
 
-                L "正解です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
+                show leap smile at leapPos
 
+                L "{color=#26aa5d}正解{/color}です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
+
+                show leap normal at leapPos
             else:
                 $ leapModule.ansExam(questionNumber, False)
                 $ resultList.append([leapNum, ans, que, 0])
 
-                L "不正解です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
-        
+                show leap question at leapPos
+                L "{color=#ED1616}不正解{/color}です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
+                show leap normal at leapPos
+
         $ questionNumber += 1
             
     $ sumT = leapModule.resultExam()
+    $ rateT = round((numOfQue / sumT) * 100, 1)
 
-    L "結果は、[numOfQue]問中[sumT]問正解でした。"
+    if(numOfQue = sumT):
+        L "結果は、[numOfQue]問中全問正解でした。素晴らしいです！"
+    else if(numOfQue - sumT = 1):
+        L "結果は、[numOfQue]問中１問間違えでした。おしいです。"
+    else:
+        L "結果は、[numOfQue]問中[sumT]問正解で、正答率は[rateT]でした。"
 
     jump endSelect
 
