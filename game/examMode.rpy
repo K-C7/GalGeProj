@@ -52,7 +52,7 @@ label rangeSelect:
 
     show leapseclist at topleft:
         zoom 0.8
-        pos (20, 20)
+        pos (20, 150)
 
     python:
         flag = False
