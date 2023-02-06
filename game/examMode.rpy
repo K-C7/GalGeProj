@@ -277,6 +277,7 @@ label exam:
                 L "{color=#ED1616}不正解{/color}です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
                 show leap normal at leapPos
 
+        $ renpy.block_rollback()
         $ questionNumber += 1
             
     $ sumT = leapModule.resultExam()
@@ -392,10 +393,10 @@ label review:
         $ leapNum, ans, que, tf = resultList[questionNumber-1]
 
         if(tf == 1):
-            L "第[questionNumber]問、Leap[leapNum]番は正解でした。\n[que] は [ans] です。"
+            L "第[questionNumber]問、Leap[leapNum]番は{color=#26aa5d}正解{/color}でした。\n[que] は [ans] です。"
         
         else:
-            L "第[questionNumber]問、Leap[leapNum]番は不正解でした。\n[que] は [ans] です。"
+            L "第[questionNumber]問、Leap[leapNum]番は{color=#ED1616}不正解{/color}でした。\n[que] は [ans] です。"
         
         $ questionNumber += 1
     
