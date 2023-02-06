@@ -224,13 +224,21 @@ label exam:
                 $ leapModule.ansExam(questionNumber, True)
                 $ resultList.append([leapNum, ans, que, 1])
 
+                show leap smile at leapPos
+
                 L "{color=#26aa5d}正解{/color}です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
+
+                show leap normal at leapPos
 
             else:
                 $ leapModule.ansExam(questionNumber, False)
                 $ resultList.append([leapNum, ans, que, 0])
 
+                show leap question at leapPos
+
                 L "{color=#ED1616}不正解{/color}です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
+
+                show leap normal at leapPos
         
         elif answerWay == 'spell':
             $ leapNum, ans, que = leapModule.getExam(questionNumber,answerWay)
