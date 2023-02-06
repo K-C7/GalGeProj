@@ -287,7 +287,7 @@ label exam:
     elif(numOfQue - sumT == 1):
         L "結果は、[numOfQue]問中１問間違えでした。おしいです。"
     else:
-        L "結果は、[numOfQue]問中[sumT]問正解で、正答率は[rateT]でした。"
+        L "結果は、[numOfQue]問中[sumT]問正解で、正答率は[rateT]％でした。"
 
     jump endSelect
 
