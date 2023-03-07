@@ -1,6 +1,7 @@
 label testPrepare:
     $ mode = 'story'
     $ answerWay = 'fourChoice'
+    $ isReview = False
 
     play music "audio/exam.mp3" volume 0.05
 

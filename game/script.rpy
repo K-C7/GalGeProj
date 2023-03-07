@@ -23,6 +23,7 @@ init:
     define leapPos = Position(xancor=0.0, ypos=2.15)
 
     $ progress = 1 #ストーリーの進行状況
+    $ like = 30#好感度
 
 
 label start:

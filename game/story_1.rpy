@@ -434,8 +434,6 @@ label Opening1_menu2:
             jump badEnd_call
 
 label Opening2:
-    $ progress = 2
-
     play music "audio/leap.mp3" volume 0.05
 
     if 0 <= sumT <= 3:
@@ -556,8 +554,14 @@ label Opening2:
     scene bg black
     with dissolve
 
-    "体験版はここまでです。\n続きは製品版でお楽しみください。"
-    "to be continued..."
+    "この物語は謎の少女Leapちゃんと数奇な恋愛な恋愛を追う物語である。"
+
+    jump rest
+
+label rest:
+    $ progress += 1
+    #$ renpy.take_screenshot(scale=None, background=False)
+    #$ renpy.save("test")
 
     jump exit
 

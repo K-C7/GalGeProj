@@ -1,22 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/examMode.rpy", line 337, in script
-    jump review
-ScriptError: could not find label 'review'.
+  File "game/story_1.rpy", line 564, in script
+    $ renpy.save(test, extra_info='')
+  File "game/story_1.rpy", line 564, in <module>
+    $ renpy.save(test, extra_info='')
+NameError: name 'test' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/examMode.rpy", line 337, in script
-    jump review
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 1986, in execute
-    rv = renpy.game.script.lookup(target)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\script.py", line 967, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'review'.
+  File "game/story_1.rpy", line 564, in script
+    $ renpy.save(test, extra_info='')
+  File "I:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 1132, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "I:\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/story_1.rpy", line 564, in <module>
+    $ renpy.save(test, extra_info='')
+NameError: name 'test' is not defined
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.1.0.23010208n
 英語ができない俺が縁結び神社に行ったら英単語帳が後輩になった件 5.2b
-Tue Mar  7 16:21:36 2023
+Tue Mar  7 22:54:07 2023
