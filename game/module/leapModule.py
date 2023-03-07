@@ -4,7 +4,6 @@ import csv
 LEAP_PATH = ""
 
 examNumberList = []
-examTFList = []
 
 def leapPathSet(path):
     """leap.csvのパス(返り値なし)"""
@@ -34,9 +33,7 @@ def ranNoKaburi(min, max, n, remove = []):
 def makeExam(min, max, numOfQue):
     """問題番号の下限,上限,問題数でテスト問題のリスト作成(返り値なし)"""
     global examNumberList
-    global examTFList
     examNumberList = ranNoKaburi(min, max ,numOfQue)
-    examTFList = [0 for i in range(0, numOfQue)]
 
 def getExam(questionNumber, answerWay, optMin=0, optMax=0, optNum=3):
     """問題番号,解答方法(,選択肢の問題番号範囲の下限,〃の上限,選択肢の数) -> Leap上の問題番号,解答,問題(,選択肢(リスト))"""
@@ -65,22 +62,6 @@ def getExam(questionNumber, answerWay, optMin=0, optMax=0, optNum=3):
         
         else:
             raise Exception("変数\"answerWay\"の設定がバグってるっぴ!")
-
-def ansExam(questionNumber, tf):
-    """問題番号,その正誤"""
-    #各問題の正誤を0か1かで記録する
-
-    global examTFList
-
-    if tf:
-        examTFList[questionNumber - 1] = 1
-
-    else:
-        examTFList[questionNumber - 1] = 0
-
-def resultExam():
-    """-> 問題の正解数"""
-    return sum(examTFList)
 
 def verifyValue(rangeNum, minNum=1):
     """出題範囲が正しいか確認"""

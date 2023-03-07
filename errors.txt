@@ -2,17 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/examMode.rpy", line 219: expected menuitem
-    show leap question_mark at leapPos
-    ^
+File "game/examMode.rpy", line 216: if statement expects a non-empty block.
+    if answerWay == 'fourChoice':
+                                 ^
 
-File "game/examMode.rpy", line 286: expected ':' not found.
-    else if(numOfQue - sumT = 1):
-         ^
-
-File "game/examMode.rpy", line 288: expected statement.
-    else:
-        ^
+File "game/examMode.rpy", line 248: expected statement.
+    elif answerWay == 'spell':
+                   ^
 
 Ren'Py Version: Ren'Py 8.1.0.23010208n
-Mon Feb  6 20:04:00 2023
+Tue Mar  7 16:02:42 2023

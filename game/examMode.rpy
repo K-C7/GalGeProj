@@ -19,35 +19,39 @@ label testPrepare:
 
 label initExamMode:
     scene bg classroom evening
-    show leap question_mark at leapPos
+    show leap normal at leapPos
     play music "audio/leap.mp3" volume 0.05
+    $ isReview = False
 
     jump modeSelect
 
 label modeSelect:
-    L "それでは、今日はどうやって勉強しますか？"
-
+    L "それでは、どうやって勉強しますか？"
     menu:
-        L "それでは、今日はどうやって勉強しますか？"
+        L "それでは、どうやって勉強しますか？"
 
         "単語を覚える":
             $ mode = 'learn'
 
             Me "単語を覚えたいな。"
+
+            jump rangeSelect
         
         "テストをする":
             $ mode = 'exam'
 
-            Me "単語を覚えてるかテストしたいな。"
+            jump rangeSelect
 
-    jump rangeSelect
+        "休憩する":
+            Me "疲れたから、いったん休憩したいな。"
+
+            L "了解です。お疲れさまでした。"
+
+            jump exit
     
 label rangeSelect:
 
-    show leap normal at leapPos
     L "分かりました。"
-
-    show leap question_mark at leapPos
     L "範囲はどうしますか？"
 
     show leapseclist at topleft:
@@ -77,9 +81,6 @@ label rangeSelect:
             
             renpy.block_rollback()
 
-    
-    show leap normal at leapPos
-    
     Me "[minNum]番から[maxNum]番の範囲でお願い。"
 
     hide leapseclist
@@ -88,7 +89,6 @@ label rangeSelect:
 
     if mode == 'learn':
         L "ではいきますよ。"
-
         menu:
             L "ではいきますよ。"
 
@@ -125,9 +125,7 @@ label learn:
     jump endSelect
 
 label numOfQueSelect:
-    show leap question_mark at leapPos
     L "何問ほど出したらいいでしょうか？"
-
     menu:
         L "何問ほど出したらいいでしょうか？"
 
@@ -159,15 +157,13 @@ label numOfQueSelect:
 
     Me "[numOfQue]問で。"
 
-    show leap normal at leapPos
+    show leap normal
     L "分かりました。[numOfQue]問ですね。"
 
     jump answerWaySelect
 
 label answerWaySelect:
-    show leap question_mark at leapPos
     L "それでは、解答形式はどのようにしますか？"
-
     menu:
         L "それでは、解答形式はどのようにしますか？"
 
@@ -176,7 +172,6 @@ label answerWaySelect:
 
             Me "４択でお願い。"
 
-            show leap normal at leapPos
             L "了解です。それでは、[minNum]番から[maxNum]番の範囲で[numOfQue]問を、四択形式で出題しますね。"
 
         "スペル入力":
@@ -184,7 +179,6 @@ label answerWaySelect:
 
             Me "じゃあ、スペルが合ってるか判定してほしい。"
 
-            show leap normal at leapPos
             L "了解です。それでは、[minNum]番から[maxNum]番の範囲で[numOfQue]問を、スペル形式で出題しますね。"
 
             menu:
@@ -203,99 +197,107 @@ label answerWaySelect:
                     jump modeSelect
 
 label exam:
-    $ isReview = False
-
+    $ renpy.block_rollback()
     $ questionNumber = 1
+    $ withHint = False
     $ resultList = []
-    $ leapModule.makeExam(minNum, maxNum, numOfQue)
+    if isReview == False:
+        $ tfList = [0 for i in range(0, numOfQue)]
+        $ leapModule.makeExam(minNum, maxNum, numOfQue)
     $ optNum = 3 #ここを変えると選択肢を手動で増やす必要アリ、触らないことを勧める
 
     while questionNumber <= numOfQue:
-        if answerWay == 'fourChoice':
-            $ leapNum, ans, que, opt = leapModule.getExam(questionNumber,answerWay,minNum,maxNum,optNum)
-            $ selected = 0
+        if tfList[questionNumber-1] == 1:
+            $ questionNumber += 1
+        else:
+            if answerWay == 'fourChoice':
+                $ leapNum, ans, que, opt = leapModule.getExam(questionNumber,answerWay,minNum,maxNum,optNum)
+                $ selected = 0
 
-            show leap question_mark at leapPos
+                show leap question_mark
+                menu:
+                    L "第[questionNumber]問、Leap[leapNum]番です。\n[que] は？"
 
-            menu:
-                L "第[questionNumber]問、Leap[leapNum]番です。\n[que] は？"
+                    "[opt[0]]":
+                        $ selected = 0
 
-                "[opt[0]]":
-                    $ selected = 0
+                    "[opt[1]]":
+                        $ selected = 1
 
-                "[opt[1]]":
-                    $ selected = 1
+                    "[opt[2]]":
+                        $ selected = 2
 
-                "[opt[2]]":
-                    $ selected = 2
+                    "[opt[3]]":
+                        $ selected = 3
 
-                "[opt[3]]":
-                    $ selected = 3
+                $ renpy.block_rollback()
 
-            $ renpy.block_rollback()
-
-            if(opt[selected] == ans):
-                $ leapModule.ansExam(questionNumber, True)
-                $ resultList.append([leapNum, ans, que, 1])
-
-                show leap smile at leapPos
-
-                L "{color=#26aa5d}正解{/color}です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
-
-                show leap normal at leapPos
-
-            else:
-                $ leapModule.ansExam(questionNumber, False)
-                $ resultList.append([leapNum, ans, que, 0])
-
-                show leap question at leapPos
-
-                L "{color=#ED1616}不正解{/color}です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
-
-                show leap normal at leapPos
+                if(opt[selected] == ans):
+                    $ tfList[questionNumber-1] = 1
+                    show leap smile
+                    L "{color=#26aa5d}正解{/color}です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
+                else:
+                    show leap question
+                    L "{color=#ED1616}不正解{/color}です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
+                
+                $ renpy.block_rollback()
+                $ questionNumber += 1
         
-        elif answerWay == 'spell':
-            $ leapNum, ans, que = leapModule.getExam(questionNumber,answerWay)
-            $ kariQue = "第{0}問、Leap{1}番です。\n{2} は？".format(questionNumber,leapNum,que).replace('[','(').replace(']',')')
-            $ spell = renpy.input(kariQue)
-            $ renpy.block_rollback()
 
-            if spell == ans:
-                $ leapModule.ansExam(questionNumber, True)
-                $ resultList.append([leapNum, ans, que, 1])
+            elif answerWay == 'spell':
+                show leap question_mark
+                $ leapNum, ans, que = leapModule.getExam(questionNumber,answerWay)
+                if withHint:
+                    $ initial = ans[0]
+                    $ kariQue = "第{0}問、Leap{1}番です。\n{2} は？\nHint: {3} から始まるよ。".format(questionNumber,leapNum,que,initial).replace('[','(').replace(']',')')
+                else:
+                    $ kariQue = "第{0}問、Leap{1}番です。\n{2} は？\n(hを入力すると頭文字が出ます。)".format(questionNumber,leapNum,que).replace('[','(').replace(']',')')
+                $ spell = renpy.input(kariQue)
 
-                show leap smile at leapPos
+                $ renpy.block_rollback()
 
-                L "{color=#26aa5d}正解{/color}です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
-
-                show leap normal at leapPos
-            else:
-                $ leapModule.ansExam(questionNumber, False)
-                $ resultList.append([leapNum, ans, que, 0])
-
-                show leap question at leapPos
-                L "{color=#ED1616}不正解{/color}です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
-                show leap normal at leapPos
-
-        $ renpy.block_rollback()
-        $ questionNumber += 1
+                if spell == "h":
+                    $ withHint = True
+                elif spell == ans:
+                    $ tfList[questionNumber-1] = 1
+                    $ withHint = False
+                    $ questionNumber += 1
+                    show leap smile
+                    L "{color=#26aa5d}正解{/color}です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
+                else:
+                    $ withHint = False
+                    $ questionNumber += 1
+                    show leap question
+                    L "{color=#ED1616}不正解{/color}です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
             
-    $ sumT = leapModule.resultExam()
-    $ rateT = round((sumT / numOfQue) * 100, 1)
 
-    if(numOfQue == sumT):
-        L "結果は、[numOfQue]問中全問正解でした。素晴らしいです！"
-    elif(numOfQue - sumT == 1):
-        L "結果は、[numOfQue]問中１問間違えでした。おしいです。"
-    else:
-        L "結果は、[numOfQue]問中[sumT]問正解で、正答率は[rateT]％でした。"
+            else:
+                "変数\"answerway\"の設定がバグってるっぴ！"
+
+                jump modeSelect
+    
+    $ sumT = sum(tfList)
+    $ rateT = round((sumT / numOfQue) * 100, 1)
+    if isReview == False:
+        if(numOfQue == sumT):
+            show leap smile
+            L "結果は、[numOfQue]問中全問正解でした。素晴らしいです！"
+        elif(numOfQue - sumT == 1):
+            show leap normal
+            L "結果は、[numOfQue]問中１問間違えでした。おしいです。"
+        else:
+            show leap normal
+            L "結果は、[numOfQue]問中[sumT]問正解で、正答率は[rateT]％でした。"
+
+    $ isReview = False
 
     jump endSelect
 
 label endSelect:
-    if mode == 'learn': 
-        L "この後どうされますか？"
+    show leap normal
 
+    if mode == 'learn':
+        L "この後どうされますか？"
         menu:
             L "この後どうされますか？"
 
@@ -320,34 +322,23 @@ label endSelect:
 
                 jump numOfQueSelect
             
-            "テストをする":
-                $ mode = 'exam'
-
-                Me "じゃあ、テストをしたいな。"
-
-                jump rangeSelect
-            
-            "休憩する":
-                Me "疲れたから、いったん休憩したいな。"
-
-                L "了解です。お疲れさまでした。"
-
-                jump exit
+            "戻る":
+                jump modeSelect
     
+
     elif mode == 'exam':
         L "この後どうされますか？"
-
         menu:
             L "この後どうされますか？"
 
-            "今回のテストを復習する" if isReview == False:
+            "間違えた問題を復習する" if rateT != 100:
                 $ isReview = True
 
-                Me "復習がしたいな。"
+                Me "間違えた問題を復習したいな。"
 
                 L "了解です。ではいきますよ。"
 
-                jump review
+                jump exam
 
             "同じ条件で続ける":
                 Me "もう一回やりたいな。"
@@ -361,19 +352,9 @@ label endSelect:
 
                 jump rangeSelect
             
-            "単語を覚える":
-                $ mode = 'learn'
+            "戻る":
+                jump modeSelect
 
-                Me "やっぱり単語を覚えたいな。"
-
-                jump rangeSelect
-
-            "休憩する":
-                Me "疲れたから、いったん休憩したいな。"
-
-                L "了解です。お疲れさまでした。"
-
-                jump exit
 
     elif mode == 'story':
         if progress == 1:
@@ -381,23 +362,8 @@ label endSelect:
 
             jump Opening2
     
+
     else:
         L "変数\"mode\"がバグってるっぴ！"
 
         jump modeSelect
-    
-label review:
-    $ questionNumber = 1
-
-    while questionNumber <= numOfQue:
-        $ leapNum, ans, que, tf = resultList[questionNumber-1]
-
-        if(tf == 1):
-            L "第[questionNumber]問、Leap[leapNum]番は{color=#26aa5d}正解{/color}でした。\n[que] は [ans] です。"
-        
-        else:
-            L "第[questionNumber]問、Leap[leapNum]番は{color=#ED1616}不正解{/color}でした。\n[que] は [ans] です。"
-        
-        $ questionNumber += 1
-    
-    jump endSelect
