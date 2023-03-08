@@ -6,6 +6,7 @@ define cd = Character("車掌", color="#000000")
 define Ano = Character('???', color="#252525")
 
 init:
+    $ import time
     $ import module.leapModule as leapModule
 
     python:
@@ -24,7 +25,7 @@ init:
 
     $ progress = 1 #ストーリーの進行状況
     $ like = 30#好感度
-
+    $ noSave = True
 
 label start:
     jump Opening1

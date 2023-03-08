@@ -3,12 +3,12 @@ label Opening1:
 
     scene bg room
     with fade
-
     play music "audio/morning.mp3" volume 0.05
 
     "3月某日"
     "春休みがもう終ろうとしていた、ある日。"
 
+    play sound "audio/thunder.mp3" volume 0.05
     Mom "{size=*2.0}おきなさーい。{/size}"
 
     $ nidoneCount = 0
@@ -53,20 +53,18 @@ label Opening1_menu1:
 
     scene bg shrine day
     with fade
-
     stop music
 
     Me "この神社に来るのも久しぶりだな。"
     Me "じゃあ、お祈りでもするか。"
-    
     play sound "audio/charin.mp3"
-
     Me "二礼二拍手一礼っと。"
     Me "(どうか神様、「英語」がもっと得意になりますように。)"
     Me "よし。帰るか。"
 
-    #背景をぐわんぐわんにする
-
+    scene bg shrine day guwan:
+        zoom 1.2
+    with dissolve
     play music "audio/blow.mp3" volume 0.2
 
     "ざわ...ざわ..."
@@ -95,10 +93,9 @@ label Opening1_menu1:
 
     scene bg white
     with dissolve
-
     stop music
+
     play sound "audio/holysound.mp3" volume 0.3
-    
     Me "うっ...なんだこの光は...！"
     Me "ウワアァァァァァァァァァァ！"
 
@@ -111,10 +108,10 @@ label Opening1_menu1:
     with fade
 
     play sound "audio/wakeup.mp3" volume 0.5
-
     Me "...何が起きた？"
     Me "気絶していたのか？今は何時だ？"
     Me "！！！"
+    play sound "audio/thunder.mp3" volume 0.05
     Me "{size=*2.0}５時！！{/size}"
     Me "早く帰らないと母さんに叱られる！急げ！"
 
@@ -122,6 +119,10 @@ label Opening1_menu1:
     with dissolve
 
     # $ renpy.movie_cutscene("movie/opening.mpg")
+    scene opening-0001
+    show toumei
+    $ time.sleep(2)
+    #助けてくれ
 
     scene bg road day
 
@@ -560,10 +561,32 @@ label Opening2:
 
 label rest:
     $ progress += 1
-    #$ renpy.take_screenshot(scale=None, background=False)
-    #$ renpy.save("test")
+    
+    menu:
+        "セーブしますか？"
 
-    jump exit
+        "はい":
+            $ noSave = False
+            $ renpy.call_screen("save")
+
+        "いいえ":
+            $ hoge = True #何も置かないとエラーをはくので
+
+    menu:
+        "続けますか？"
+
+        "はい":
+            if progress == 2:
+                jump spring
+            else:
+                "変数\"progress\"の設定がバグってるっぴ！"
+
+                return
+        
+        "いいえ":
+            "お疲れさまでした。タイトル画面に戻ります。"
+
+            return
 
 label badEnd_call:
     show bg black
