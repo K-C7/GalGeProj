@@ -65,7 +65,7 @@ label rest:
 
         "はい":
             if progress == 2:
-                jump spring1
+                jump spring
             elif progress == 3:
                 jump summer
             else:

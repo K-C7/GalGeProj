@@ -1,3 +1,6 @@
+label spring:
+    jump spring1
+
 label spring1:
     scene bg black
 
