@@ -9,7 +9,10 @@ label testPrepare:
         $ minNum = 1
         $ maxNum = 100
         $ numOfQue = 10
-
+    elif progress == 2:
+        $ minNum = 101
+        $ maxNum = 200
+        $ numOfQue = 10
     else:
         $ minNum = 1
         $ maxNum = 100
@@ -236,9 +239,11 @@ label exam:
                 if(opt[selected] == ans):
                     $ tfList[questionNumber-1] = 1
                     show leap smile
+                    play sound "audio/seikai.mp3" volume 0.1
                     L "{color=#26aa5d}正解{/color}です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
                 else:
                     show leap question
+                    play sound "audio/hazure.mp3" volume 0.1
                     L "{color=#ED1616}不正解{/color}です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
                 
                 $ renpy.block_rollback()
@@ -264,11 +269,13 @@ label exam:
                     $ withHint = False
                     $ questionNumber += 1
                     show leap smile
+                    play sound "audio/seikai.mp3" volume 0.1
                     L "{color=#26aa5d}正解{/color}です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
                 else:
                     $ withHint = False
                     $ questionNumber += 1
                     show leap question
+                    play sound "audio/hazure.mp3" volume 0.1
                     L "{color=#ED1616}不正解{/color}です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
             
 
@@ -359,6 +366,7 @@ label endSelect:
 
     elif mode == 'story':
         if progress == 1:
+<<<<<<< HEAD
             stop music
             jump Opening2
         
@@ -366,6 +374,11 @@ label endSelect:
         if progress == 3:
             stop music
             jump sum3
+=======
+            jump Opening2
+        elif progress == 2:
+            jump spring2
+>>>>>>> fbfe57d35f248a02c7e691ac5edc1eec33f08769
     
 
     else:
