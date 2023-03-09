@@ -197,7 +197,7 @@ label sum1:
     Me "よし、じゃあこの辺で..."
 
     # 登場：Leap(水着)
-    show leap normal
+    show leap normal at leapPos
     with dissolve
 
     Me "あ..."
@@ -359,7 +359,7 @@ label sum2:
     Me "英単語テストでもする？"
 
     show leap smile
-    L "{size*=2.0}良いですね！{/size}"
+    L "{size=*2.0}良いですね！{/size}"
 
     Me "うわ、ビックリした。"
 
@@ -527,7 +527,7 @@ label sum3:
         Me "Leapちゃ..."
 
         # 登場：Leap＆男
-        show leap smile at center
+        show leap smile at leapPos
         with dissolve
         show otoko at left
         with dissolve
@@ -602,9 +602,9 @@ label sum3:
 
         scene bg sea
         with dissolve
-        show leap smile
+        show leap smile at leapPos
         with dissolve
-        show otoko
+        show otoko at left
         with dissolve
 
         L "わぁ～スゴイ！全部あってます。"
@@ -670,7 +670,7 @@ label sum3:
         L "それでは失礼します。先輩。"
 
         Man "じゃ、そういう事だから。"
-        Man "Bye Bye senpai."
+        Man "Bye bye, senpai."
 
         $ badEndCode = 4
         jump badEnd_call

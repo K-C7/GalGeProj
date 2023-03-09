@@ -13,6 +13,10 @@ label testPrepare:
         $ minNum = 101
         $ maxNum = 200
         $ numOfQue = 10
+    elif progress == 3:
+        $ minNum = 201
+        $ maxNum = 300
+        $ numOfQue = 10
     else:
         $ minNum = 1
         $ maxNum = 100

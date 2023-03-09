@@ -1,22 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/examMode.rpy", line 370, in script
-    jump Opening2
-ScriptError: could not find label 'Opening2'.
+  File "game/story_summer.rpy", line 607, in script
+    show otoko left
+Exception: Image 'otoko' does not accept attributes 'left'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/examMode.rpy", line 370, in script
-    jump Opening2
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 1986, in execute
-    rv = renpy.game.script.lookup(target)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\script.py", line 967, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'Opening2'.
+  File "game/story_summer.rpy", line 607, in script
+    show otoko left
+  File "I:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 1422, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+  File "I:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 1385, in show_imspec
+    renpy.config.show(name,
+  File "I:\Renpy\renpy-8.0.3-sdk\renpy\exports.py", line 734, in show
+    if not base.find_target() and renpy.config.missing_show:
+  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\image.py", line 421, in find_target
+    self.target = target._duplicate(a)
+  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 402, in _duplicate
+    args.extraneous()
+  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 265, in extraneous
+    raise Exception("Image '{}' does not accept attributes '{}'.".format(
+Exception: Image 'otoko' does not accept attributes 'left'.
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.1.0.23010208n
 英語ができない俺が縁結び神社に行ったら英単語帳が後輩になった件 5.2b
-Fri Mar 10 01:22:04 2023
+Fri Mar 10 03:19:38 2023
