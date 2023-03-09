@@ -236,9 +236,11 @@ label exam:
                 if(opt[selected] == ans):
                     $ tfList[questionNumber-1] = 1
                     show leap smile
+                    play sound "audio/seikai.mp3" volume 0.1
                     L "{color=#26aa5d}正解{/color}です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
                 else:
                     show leap question
+                    play sound "audio/hazure.mp3" volume 0.1
                     L "{color=#ED1616}不正解{/color}です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
                 
                 $ renpy.block_rollback()
@@ -264,11 +266,13 @@ label exam:
                     $ withHint = False
                     $ questionNumber += 1
                     show leap smile
+                    play sound "audio/seikai.mp3" volume 0.1
                     L "{color=#26aa5d}正解{/color}です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
                 else:
                     $ withHint = False
                     $ questionNumber += 1
                     show leap question
+                    play sound "audio/hazure.mp3" volume 0.1
                     L "{color=#ED1616}不正解{/color}です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
             
 
