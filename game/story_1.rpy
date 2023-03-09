@@ -119,13 +119,11 @@ label Opening1_menu1:
     with dissolve
 
     # $ renpy.movie_cutscene("movie/opening.mpg")
-    scene opening-0001
-    show toumei
-    $ time.sleep(2)
-    #助けてくれ
+    play music "audio/kagurasuzu.mp3" volume 0.3
+    scene opening
+    pause 16.0
 
     scene bg road day
-
     play music "audio/routine.mp3" volume 0.05
 
     "数日後"
@@ -140,7 +138,6 @@ label Opening1_menu1:
     pause
 
     scene bg black
-
     stop music
     play sound "audio/hit.mp3"
 
@@ -156,27 +153,23 @@ label Opening1_menu1:
     Me "あのーすみません。お怪我はあり...？"
 
     show leap normal at leapPos
-    
     play music "audio/leap.mp3" volume 0.05
 
     Me "かっ..."
     Me "（かわいい...）"
 
     show leap surprise
-
     Ano "大丈夫ですか！？"
 
     Me "あっ、ああ。大丈夫だよ。"
 
     show leap question_mark
-
     Ano "同じ制服？"
     Ano "あのー、もしかして同じ学校の先輩なんですか？"
 
     Me "（たしかに同じ制服だけど、この子誰だ？学校で見たことないぞ。）"
 
     show leap surprise
-
     Ano "あーーーっ！先輩！"
 
     Me "何？"
@@ -185,10 +178,21 @@ label Opening1_menu1:
 
     Me "あっ、ホントだ！急がないと！！"
 
+    scene bg black
+    with dissolve
+    stop music
+    play sound "audio/run.mp3"
+
+    pause 2.0
+
+    stop sound fadeout 1.0
+
+    pause 1.0
+
     scene bg train day
+    with dissolve
 
     show leap normal at leapPos
-
     play music "audio/train.mp3" volume 0.2
 
     Me "何とか間に合った。"
@@ -203,21 +207,19 @@ label Opening1_menu1:
     Ano "…"
 
     show leap question
-
     Ano "どうしたんですか先輩？"
 
     Me "いっ、いやなんでも。"
 
     show leap surprise
-
     Ano "あっ！そういえば名乗ってなかったですね。"
 
     show leap normal
-
     L "私、Leapといいます。"
 
     pause
 
+    play sound "audio/poyon.mp3"
     Me "...は？Leap？"
     Me "（どういうことだ？どうなっているんだ？）"
     Me "英単語の？"
@@ -251,6 +253,7 @@ label Opening1_menu1:
     Me "............."
     Me "あれか。"
     Me "........"
+    play sound "audio/thunder.mp3" volume 0.05
     Me "いや、こうはならないだろ。"
 
     show leap question
@@ -558,35 +561,6 @@ label Opening2:
     "この物語は謎の少女Leapちゃんと数奇な恋愛な恋愛を追う物語である。"
 
     jump rest
-
-label rest:
-    $ progress += 1
-    
-    menu:
-        "セーブしますか？"
-
-        "はい":
-            $ noSave = False
-            $ renpy.call_screen("save")
-
-        "いいえ":
-            $ hoge = True #何も置かないとエラーをはくので
-
-    menu:
-        "続けますか？"
-
-        "はい":
-            if progress == 2:
-                jump spring
-            else:
-                "変数\"progress\"の設定がバグってるっぴ！"
-
-                return
-        
-        "いいえ":
-            "お疲れさまでした。タイトル画面に戻ります。"
-
-            return
 
 label badEnd_call:
     show bg black

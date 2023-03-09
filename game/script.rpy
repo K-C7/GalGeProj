@@ -20,6 +20,21 @@ init:
     image leap surprise = im.Scale("leap surprise.png", 800, 1600)
     image leap question = im.Scale("leap question.png", 800, 1600)
     image leap question_mark = im.Scale("leap question_mark.png", 800, 1600)
+    image opening:
+        "opening-0001.jpg"
+        pause 2.0
+        "opening-0002.jpg"
+        pause 2.0
+        "opening-0001.jpg"
+        pause 2.0
+        "opening-0003.jpg"
+        pause 2.0
+        "opening-0004.jpg"
+        pause 2.0
+        "opening-0005.jpg"
+        pause 2.0
+        "opening-0006.jpg"
+        pause 2.0
 
     define leapPos = Position(xancor=0.0, ypos=2.15)
 
@@ -29,6 +44,37 @@ init:
 
 label start:
     jump Opening1
+
+label rest:
+    $ progress += 1
+    
+    menu:
+        "セーブしますか？"
+
+        "はい":
+            $ noSave = False
+            $ renpy.call_screen("save")
+
+        "いいえ":
+            $ hoge = True #何も置かないとエラーをはくので
+
+    menu:
+        "続けますか？"
+
+        "はい":
+            if progress == 2:
+                jump spring
+            elif progress == 3:
+                jump summer
+            else:
+                "変数\"progress\"の設定がバグってるっぴ！"
+
+                return
+        
+        "いいえ":
+            "お疲れさまでした。タイトル画面に戻ります。"
+
+            return
 
 label exit:
     return

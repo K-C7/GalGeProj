@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/story_1.rpy", line 122: expected 'image_name_component' not found.
-    scene "movie/opening-0002.png"
-          ^
+File "game/script.rpy", line 37: Line is indented, but the preceding ATL statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    with dissolve
+    ^
 
 Ren'Py Version: Ren'Py 8.1.0.23010208n
-Wed Mar  8 17:53:28 2023
+Thu Mar  9 11:42:43 2023
