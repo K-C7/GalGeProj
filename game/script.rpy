@@ -26,7 +26,7 @@ init:
     image leap question_mark = im.Scale("leap question_mark.png", 800, 1600)
     image bg seahouse = im.Scale("bg seahouse.jpg", 1280, 720)
     image bg sea = im.Scale("bg sea.jpg", 1280, 720)
-    image opening:
+    image openingVideo:
         "opening-0001.jpg"
         pause 2.0
         "opening-0002.jpg"
@@ -48,10 +48,7 @@ init:
     $ like = 30#好感度
 
 label start:
-    # jump Opening1
-
-    $progress = 3
-    jump summer
+    jump opening
 
 label rest:
     $ progress += 1
@@ -63,7 +60,7 @@ label rest:
             $ renpy.call_screen("save")
 
         "いいえ":
-            $ hoge = True #何も置かないとエラーをはくので
+            pause 0
 
     menu:
         "続けますか？"
@@ -82,6 +79,28 @@ label rest:
             "お疲れさまでした。タイトル画面に戻ります。"
 
             return
+
+label badEnd_call:
+    show bg black
+    with dissolve
+
+    if(badEndCode == 1):
+        "そのまま、主人公は目覚めることはなく、平凡な人生を送ったのでした。"
+        "BadEnd 1 : 二度寝"
+
+    elif(badEndCode == 2):
+        "その後、二度とLeapさんと出会うことはなく、平凡な人生を送ったのでした。"
+        "BadEnd 2 : 邪魔者"
+    
+    elif(badEndCode == 3):
+        Me "...どこで間違えたんだろう..."
+        "BadEnd 3 : 理想と現実"
+
+    elif(badEndCode == 4):
+        "そういうと男はニヤリと笑ってLeapちゃんとともに人ごみの中に消えていった。"
+        "BadEnd 4 : No Time Return"
+    
+    return
 
 label exit:
     return

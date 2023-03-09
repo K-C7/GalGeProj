@@ -39,6 +39,7 @@ label spring1:
 
             Me "Leapちゃんだよね。"
             
+            show leap smile
             L "あっ、はいそうです。覚えてくれたんですね。"
         
         "Brightstageちゃん":
@@ -46,7 +47,9 @@ label spring1:
 
             Me "Brightstageちゃんだよね。"
             
+            show leap question
             Ano "違いますよ。私の名前を忘れたんですか。"
+            show leap normal
             L "私の名前はLeap\nエル　イー　エー　ピー　Leapですよ！"
         
         "新明説漢文ちゃん":
@@ -54,7 +57,9 @@ label spring1:
 
             Me "新明説漢文ちゃんだよね。"
 
+            show leap question
             Ano "違いますよ。ていうかそれまったく英語じゃないじゃないですか。"
+            show leap normal
             L "私の名前はLeap\nエル　イー　エー　ピー　Leapですよ！"
 
     L "それより遅れてすみません。"
@@ -85,10 +90,12 @@ label spring1:
 
             Me "遅刻とは感心しないな。"
 
+            show leap question
             L "すみません..."
 
             Me "許す。"
 
+            show leap normal
             L "あ、意外とあっさり許してくれるんですね。"
 
             Me "怒るだけ損だしね。"
@@ -109,6 +116,7 @@ label spring1:
 
             Me "あれ？そうだっけ？"
 
+            show leap question
             L "...先輩？"
 
             Me "いや、あのー、そのー..."
@@ -118,6 +126,7 @@ label spring1:
 
             Me "..."
         
+    show leap question_mark
     L "そういえば、図書委員の仕事って何するんですか？"
 
     Me "本の貸し出しとか返却に来た人の対応だとか、後は本棚の整理かな？"
@@ -126,6 +135,7 @@ label spring1:
 
     Me "意外といるんじゃない？知らないけど。"
 
+    show leap normal
     L "曖昧ですね。"
 
     Me "まあ、ほら待ってたら来るかもしれないだろ？"
@@ -149,13 +159,16 @@ label spring1:
 
     Me "（うーん、どうしたものか。）"
 
+    show leap question
     L "先輩？"
 
     Me "うぉっ、な、なんだい？"
 
+    show leap question_mark
     L "英語の勉強しててもいいですか？"
 
     Me "ああ。別に構わないよ。"
+    show leap normal
     Me "（本当に英語のことが好きな子なんだなぁ。）"
     Me "（ていうか、改めて考えてみてもやっぱりおかしいよなぁ。）"
     Me "（名前がLeapってなんだよ、しかも英語好き。）"
@@ -174,6 +187,7 @@ label spring1:
 
             Me "君は何で図書委員になったの？"
 
+            show leap question
             L "私ですか？"
 
             Me "うん。なんか理由があるのかなぁと思って。"
@@ -184,13 +198,17 @@ label spring1:
 
             Me "そうか。"
 
+            show leap question_mark
             L "じゃあ先輩はなんで図書委員になったんですか？"
 
             Me "じゃんけんで負けたから。"
 
+            show leap question
             L "..."
 
             Me "..."
+
+            show leap normal
         
         "本は好き？":
             $ like += 5
@@ -225,16 +243,22 @@ label spring1:
 
             Me "ん－、普通かな。てか漫画しか読まないんだよね。"
 
+            L "そうなんですか。"
+
     Me "あれ、結構時間経ってるね。"
 
+    show leap surprise
     L "本当だ。あと少しですね。"
+    show leap question
     L "だけどなんかやり残したことがある気がするんですよね。"
 
     Me "やり残したこと？なんかあったっけ？"
 
     L "んー..."
+    show leap surprise
     play sound "audio/hit.mp3" volume 0.5
     L "{size=*2.0}あっ思い出した！{/size}"
+    show leap normal
     L "先輩～、忘れちゃいけないのは私じゃなくて先輩じゃないですか。"
 
     Me "え、俺？"
@@ -255,6 +279,7 @@ label spring2:
     if 0 <= sumT <= 3:
         $ like -= 15
 
+        show leap question
         L "先輩..."
 
         Me "ハイ..."
@@ -267,8 +292,11 @@ label spring2:
         L "英語は基礎ができてなんぼ、このままじゃ先輩英語がもっとダメになってしまいますよ。"
 
         Me "次こそは本気出します..."
+        
+        show leap normal
 
     elif 4 <= sumT <= 7:
+        show leap normal
         L "及第点って感じですね。"
 
         Me "まあまあだろ。どう？"
@@ -282,11 +310,14 @@ label spring2:
     elif 8 <= sumT <= 10:
         $ like += 10
 
+        show leap normal
         L "ちゃんとできてるじゃないですか。"
+        show leap smile
         L "英語を勉強してくれたんですね。"
 
         Me "ふっ、俺だってやるときはやるんだよ。"
 
+        show leap normal
         L "先輩のことだからできないとばかり思ってましたよ。"
 
         Me "それはどういう意味だよ。"
@@ -313,10 +344,12 @@ label normalEndSpring:
     
     L "本当ですね。"
     L "だけどそれなりには楽しかったですよ。"
+    show leap smile
     L "先輩と話せましたし、英単語テストもできましたし。"
 
     Me "それは良かった。"
 
+    show leap normal
     L "先輩も英単語テストできて良かったですよね？"
 
     menu:
@@ -352,6 +385,7 @@ label badEndSpring:
     Me "そうこうしてるうちにもう時間になったな。"
     Me "結局誰も来なかったね。"
 
+    show leap question
     L "..."
 
     Me "..."
@@ -392,6 +426,8 @@ label badEndSpring:
 
     L "あ。"
 
+    show leap question
+
     Me "あっ、えっと..."
 
     L "すみません失礼します。"
@@ -426,6 +462,7 @@ label badEndSpring:
     Ano "あっそういえばさ、あれどうなったん？Leap？"
 
     show leap normal at leapPos
+    with dissolve
 
     Me "！？"
 
@@ -454,11 +491,6 @@ label badEndSpring:
 
     Me "..."
 
-    scene bg black
-    with dissolve
+    $ badEndCode = 3
 
-    Me "...どこで間違えたんだろう..."
-    
-    "BadEnd 3 : 理想と現実"
-
-    return
+    jump badEnd_call

@@ -1,4 +1,7 @@
-label Opening1:
+label opening:
+    jump opening1
+
+label opening1:
     "Note: 会話中に下の「ロールバック」ボタンを押すと、\nひとつ前の画面に戻ることができます。\n一部の場面を除いて基本的に使用できるので、ぜひご活用ください。"
 
     scene bg room
@@ -12,9 +15,9 @@ label Opening1:
     Mom "{size=*2.0}おきなさーい。{/size}"
 
     $ nidoneCount = 0
-    jump Opening1_menu1
+    jump opening1_menu1
 
-label Opening1_menu1:
+label opening1_menu1:
     if(nidoneCount >= 3):
         $ badEndCode = 1
         
@@ -29,7 +32,7 @@ label Opening1_menu1:
 
             $ nidoneCount += 1
 
-            jump Opening1_menu1
+            jump opening1_menu1
     
     pause 2.0
 
@@ -120,7 +123,7 @@ label Opening1_menu1:
 
     # $ renpy.movie_cutscene("movie/opening.mpg")
     play music "audio/kagurasuzu.mp3" volume 0.3
-    scene opening
+    scene openingVideo
     pause 16.0
 
     scene bg road day
@@ -153,6 +156,7 @@ label Opening1_menu1:
     Me "あのーすみません。お怪我はあり...？"
 
     show leap normal at leapPos
+    with dissolve
     play music "audio/leap.mp3" volume 0.05
 
     Me "かっ..."
@@ -193,6 +197,7 @@ label Opening1_menu1:
     with dissolve
 
     show leap normal at leapPos
+    with dissolve
     play music "audio/train.mp3" volume 0.2
 
     Me "何とか間に合った。"
@@ -246,8 +251,8 @@ label Opening1_menu1:
 
     scene bg train day
     with dissolve
-
     show leap question at leapPos
+    with dissolve
 
     Me "............."
     Me "あれか。"
@@ -273,9 +278,9 @@ label Opening1_menu1:
     Me "（このままだとこちらの印象は悪くなるし、もっと差し障りのない話題に変えなければ。）"
     Me "あっそうだ、"
 
-    jump Opening1_menu2
+    jump opening1_menu2
 
-label Opening1_menu2:
+label opening1_menu2:
     menu:
         "君は新入生、でいいんだよね？":
             Me "君は新入生、でいいんだよね？"
@@ -296,7 +301,7 @@ label Opening1_menu2:
 
             Me "（会話が終わってしまった。何か次の話題はないのか？）"
 
-            jump Opening1_menu2
+            jump opening1_menu2
 
         "LEAPちゃんって何か部活入るの？":
             show leap question
@@ -326,7 +331,7 @@ label Opening1_menu2:
 
             show leap normal
 
-            jump Opening1_menu2
+            jump opening1_menu2
         
         "LEAPちゃんって得意教科何？":
             L "当ててみてください。"
@@ -419,7 +424,7 @@ label Opening1_menu2:
             
             jump badEnd_call
 
-label Opening2:
+label opening2:
     play music "audio/leap.mp3" volume 0.05
     if 0 <= sumT <= 3:
         $ like -= 15
@@ -533,19 +538,3 @@ label Opening2:
     "この物語は謎の少女Leapちゃんと数奇な恋愛な恋愛を追う物語である。"
 
     jump rest
-
-label badEnd_call:
-    show bg black
-    with dissolve
-
-    if(badEndCode == 1):
-        "そのまま、主人公は目覚めることはなく、平凡な人生を送ったのでした。"
-        "BadEnd 1 : 二度寝"
-
-    elif(badEndCode == 2):
-        "その後、二度とLeapさんと出会うことはなく、平凡な人生を送ったのでした。"
-        "BadEnd 2 : 邪魔者"
-    
-    elif(badEndCode == 4):
-        "そういうと男はニヤリと笑ってLeapちゃんとともに人ごみの中に消えていった。"
-        "BadEnd 4 : No Time Return"
