@@ -21,11 +21,12 @@ label spring1:
     
     play sound "audio/run.mp3"
 
-    pause 1.0 fadeout 0.5
+    pause 1.0
+    stop sound fadeout 0.5
 
     show leap normal at leapPos
     with dissolve
-    play music "audio/leap.mp3"
+    play music "audio/leap.mp3" volume 0.05
     Ano "{size=*2.0}すみませーん、遅れましたー！{/size}"
 
     Me "わぁ、ビックリした。"
@@ -136,6 +137,7 @@ label spring1:
     "数十分後..."
 
     scene bg library evening
+    with dissolve
     show leap normal at leapPos
 
     Me "（...誰も来ない...）"
@@ -231,7 +233,7 @@ label spring1:
     Me "やり残したこと？なんかあったっけ？"
 
     L "んー..."
-    play sound "audio/hit.mp3"
+    play sound "audio/hit.mp3" volume 0.5
     L "{size=*2.0}あっ思い出した！{/size}"
     L "先輩～、忘れちゃいけないのは私じゃなくて先輩じゃないですか。"
 
@@ -292,7 +294,7 @@ label spring2:
         L "冗談ですよ～。"
         L "さすが先輩といったところでしょうか。"
 
-        Me "(｀・∀・´)ｴｯﾍﾝ!!"
+        Me "(｀・v・)ｴｯﾍﾝ!!"
 
         L "{size=*0.8}チョロ{/size}"
 
@@ -324,7 +326,7 @@ label normalEndSpring:
             Me "もちろん。"
             Me "次があったらまたよろしく頼むよ。"
         
-        "楽しくは..."
+        "楽しくは...":
             $ like -= 5
 
             Me "楽しいかと言われると..."
@@ -339,7 +341,14 @@ label normalEndSpring:
 
     Me "そうだね。"
 
+    scene bg black
+    with dissolve
+
+    jump rest
+
 label badEndSpring:
+    stop music
+
     Me "そうこうしてるうちにもう時間になったな。"
     Me "結局誰も来なかったね。"
 
@@ -359,7 +368,12 @@ label badEndSpring:
     L "用事を思い出したので、お先に失礼します。"
 
     play sound "audio/run.mp3"
+
+    pause 1.0
+
+    stop sound fadeout 0.5
     hide leap
+    with dissolve
 
     Me "えっ、あ..."
     Me "ちょっと馴れ馴れしかったかな、失敗したな。"
@@ -385,7 +399,12 @@ label badEndSpring:
     Me "分かったよ。"
 
     play sound "audio/run.mp3"
+
+    pause 1.0
+
+    stop sound fadeout 0.5
     hide leap
+    with dissolve
 
     Me "嫌われちゃったかな。"
 
@@ -405,6 +424,8 @@ label badEndSpring:
     Me "うるさいな。廊下まで聞こえてくるぞ。\nやれやれだぜ。"
 
     Ano "あっそういえばさ、あれどうなったん？Leap？"
+
+    show leap normal at leapPos
 
     Me "！？"
 
@@ -439,3 +460,5 @@ label badEndSpring:
     Me "...どこで間違えたんだろう..."
     
     "BadEnd 3 : 理想と現実"
+
+    return
