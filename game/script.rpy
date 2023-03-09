@@ -4,6 +4,9 @@ define Mom = Character('母', color="#6b3d01")
 define God = Character('神', color="#5f6634")
 define cd = Character("車掌", color="#000000")
 define Ano = Character('???', color="#252525")
+define Sinseki = Character("親戚", color="FFFFFF") #色は未定
+define Kyaku = Character("客", color="FFFFFF") #色は未定
+define Fri = Character("Leapの友人", color="FFFFFF") #色は未定
 
 init:
     $ import time
