@@ -360,8 +360,12 @@ label endSelect:
     elif mode == 'story':
         if progress == 1:
             stop music
-
             jump Opening2
+        
+
+        if progress == 3:
+            stop music
+            jump sum3
     
 
     else:
