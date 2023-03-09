@@ -139,7 +139,7 @@ label Opening1_menu1:
 
     scene bg black
     stop music
-    play sound "audio/hit.mp3"
+    play sound "audio/hit.mp3" volume 0.5
 
     pause
 
