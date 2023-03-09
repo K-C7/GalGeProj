@@ -366,19 +366,14 @@ label endSelect:
 
     elif mode == 'story':
         if progress == 1:
-<<<<<<< HEAD
             stop music
-            jump Opening2
-        
-
-        if progress == 3:
-            stop music
-            jump sum3
-=======
             jump Opening2
         elif progress == 2:
+            stop music
             jump spring2
->>>>>>> fbfe57d35f248a02c7e691ac5edc1eec33f08769
+        elif progress == 3:
+            stop music
+            jump sum3
     
 
     else:
