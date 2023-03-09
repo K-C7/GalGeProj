@@ -7,6 +7,7 @@ define Ano = Character('???', color="#252525")
 define Sinseki = Character("親戚", color="FFFFFF") #色は未定
 define Kyaku = Character("客", color="FFFFFF") #色は未定
 define Fri = Character("Leapの友人", color="FFFFFF") #色は未定
+define Man = Character("男", color="FFFFFF") #色は未定
 
 init:
     $ import time
