@@ -319,6 +319,8 @@ screen navigation():
 
         textbutton _("バグを報告する") action OpenURL("https://forms.gle/uBEScAWzY81fnyMk9")
 
+        textbutton _("指定したラベルに") action Start(summer)
+
         if _in_replay:
 
             textbutton _("リプレイ終了") action EndReplay(confirm=True)

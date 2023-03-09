@@ -545,3 +545,7 @@ label badEnd_call:
     elif(badEndCode == 2):
         "その後、二度とLeapさんと出会うことはなく、平凡な人生を送ったのでした。"
         "BadEnd 2 : 邪魔者"
+    
+    elif(badEndCode == 4):
+        "そういうと男はニヤリと笑ってLeapちゃんとともに人ごみの中に消えていった。"
+        "BadEnd 4 : No Time Return"

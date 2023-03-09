@@ -2,9 +2,23 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 37: Line is indented, but the preceding ATL statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    with dissolve
-    ^
+File "game/examMode.rpy", line 374: Indentation mismatch.
+
+File "game/spring.rpy", line 21: expected end of line.
+    pause 1.0 fadeout 0.5
+              ^
+
+File "game/spring.rpy", line 324: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
+    "楽しくは..."
+             ^
+
+File "game/story_summer.rpy", line 9: end of line expected.
+    jump sum1:
+             ^
+
+File "game/story_summer.rpy", line 52: expected statement.
+    sound zawazawa
+                  ^
 
 Ren'Py Version: Ren'Py 8.1.0.23010208n
-Thu Mar  9 11:42:43 2023
+Thu Mar  9 14:55:13 2023
