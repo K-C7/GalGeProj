@@ -218,7 +218,7 @@ label exam:
                 $ leapNum, ans, que, opt = leapModule.getExam(questionNumber,answerWay,minNum,maxNum,optNum)
                 $ selected = 0
 
-                show leap question_mark
+                show leap question_mark at leapPos
                 menu:
                     L "第[questionNumber]問、Leap[leapNum]番です。\n[que] は？"
 

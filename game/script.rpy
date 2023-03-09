@@ -4,10 +4,10 @@ define Mom = Character('母', color="#6b3d01")
 define God = Character('神', color="#5f6634")
 define cd = Character("車掌", color="#000000")
 define Ano = Character('???', color="#252525")
-define Sinseki = Character("親戚", color="FFFFFF") #色は未定
-define Kyaku = Character("客", color="FFFFFF") #色は未定
-define Fri = Character("Leapの友人", color="FFFFFF") #色は未定
-define Man = Character("男", color="FFFFFF") #色は未定
+define Sinseki = Character("親戚", color="#080808") #色は未定
+define Kyaku = Character("客", color="#070707") #色は未定
+define Fri = Character("Leapの友人", color="#080808") #色は未定
+define Man = Character("男", color="#b8af3b") #色は未定
 
 init:
     $ import time
@@ -24,6 +24,8 @@ init:
     image leap surprise = im.Scale("leap surprise.png", 800, 1600)
     image leap question = im.Scale("leap question.png", 800, 1600)
     image leap question_mark = im.Scale("leap question_mark.png", 800, 1600)
+    image bg seahouse = im.Scale("bg seahouse.jpg", 1280, 720)
+    image bg sea = im.Scale("bg sea.jpg", 1280, 720)
     image opening:
         "opening-0001.jpg"
         pause 2.0
@@ -46,7 +48,10 @@ init:
     $ like = 30#好感度
 
 label start:
-    jump Opening1
+    # jump Opening1
+
+    $progress = 3
+    jump summer
 
 label rest:
     $ progress += 1

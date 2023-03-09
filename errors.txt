@@ -2,39 +2,7 @@
 errors listed below, and try again.
 
 
-<<<<<<< HEAD
-File "game/examMode.rpy", line 374: Indentation mismatch.
-
-File "game/spring.rpy", line 21: expected end of line.
-    pause 1.0 fadeout 0.5
-              ^
-
-File "game/spring.rpy", line 324: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
-=======
-File "game/story_spring.rpy", line 24: expected end of line.
-    pause 1.0 fadeout 0.5
-              ^
-
-File "game/story_spring.rpy", line 327: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
->>>>>>> a3478c90d33163a4e8a2b3cf8f962ebf22d51cbf
-    "楽しくは..."
-             ^
-
-File "game/story_summer.rpy", line 9: end of line expected.
-    jump sum1:
-             ^
-
-File "game/story_summer.rpy", line 52: expected statement.
-<<<<<<< HEAD
-    sound zawazawa
-                  ^
+File "game/story_summer.rpy", line 406: Indentation mismatch.
 
 Ren'Py Version: Ren'Py 8.1.0.23010208n
-Thu Mar  9 14:55:13 2023
-=======
-    sound zawazawa <---
-                   ^
-
-Ren'Py Version: Ren'Py 8.1.0.23010208n
-Thu Mar  9 14:19:41 2023
->>>>>>> a3478c90d33163a4e8a2b3cf8f962ebf22d51cbf
+Thu Mar  9 15:22:36 2023
