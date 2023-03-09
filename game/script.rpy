@@ -40,7 +40,6 @@ init:
 
     $ progress = 1 #ストーリーの進行状況
     $ like = 30#好感度
-    $ noSave = True
 
 label start:
     jump Opening1
@@ -52,7 +51,6 @@ label rest:
         "セーブしますか？"
 
         "はい":
-            $ noSave = False
             $ renpy.call_screen("save")
 
         "いいえ":
