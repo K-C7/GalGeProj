@@ -41,6 +41,8 @@ label spring1:
             
             show leap smile
             L "あっ、はいそうです。覚えてくれたんですね。"
+
+            show leap normal
         
         "Brightstageちゃん":
             $ like -= 5
@@ -149,6 +151,7 @@ label spring1:
     scene bg library evening
     with dissolve
     show leap normal at leapPos
+    with dissolve
 
     Me "（...誰も来ない...）"
     Me "（き、気まずい...）"
@@ -180,8 +183,9 @@ label spring1:
     Me "（とても静かになってしまった。）"
     Me "（ここは責任をもってなんか話題を振らないと。）"
     Me "そういえば、"
-
     menu:
+        "そういえば、"
+
         "君は何で図書委員になったの？":
             $ like -= 5
 
@@ -235,10 +239,12 @@ label spring1:
             play sound "audio/konwaku.mp3" volume 0.5
             Me "...もしかして原文のほう？"
 
+            show leap smile
             L "はいそうですよ。"
 
             Me "はいそうですよ、って。まぁ君からすれば当たり前なのかな？"
 
+            show leap normal
             L "先輩も本が好きなんですか？"
 
             Me "ん－、普通かな。てか漫画しか読まないんだよね。"
@@ -268,7 +274,9 @@ label spring1:
     Me "約束？...あ、もしかして..."
 
     L "はい、そのもしかしてですよ。"
+    show leap smile
     L "英単語テストの時間ですよ！"
+    show leap normal
     L "先輩があれからどれくらい英語を勉強したのか確かめないとですね。"
     L "じゃあ始めますよ。"
 

@@ -29,10 +29,6 @@ init:
     image openingVideo:
         "opening-0001.jpg"
         pause 2.0
-        "opening-0002.jpg"
-        pause 2.0
-        "opening-0001.jpg"
-        pause 2.0
         "opening-0003.jpg"
         pause 2.0
         "opening-0004.jpg"
@@ -41,11 +37,13 @@ init:
         pause 2.0
         "opening-0006.jpg"
         pause 2.0
+        "bg black.png"
+        pause 2.0
 
     define leapPos = Position(xancor=0.0, ypos=2.15)
 
     $ progress = 1 #ストーリーの進行状況
-    $ like = 30#好感度
+    $ like = 30 #好感度
 
 label start:
     jump opening
@@ -81,7 +79,7 @@ label rest:
             return
 
 label badEnd_call:
-    show bg black
+    scene bg black
     with dissolve
 
     if(badEndCode == 1):

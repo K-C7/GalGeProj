@@ -124,7 +124,7 @@ label opening1_menu1:
     # $ renpy.movie_cutscene("movie/opening.mpg")
     play music "audio/kagurasuzu.mp3" volume 0.3
     scene openingVideo
-    pause 16.0
+    pause 14.0
 
     scene bg road day
     play music "audio/routine.mp3" volume 0.05
