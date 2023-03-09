@@ -9,7 +9,10 @@ label testPrepare:
         $ minNum = 1
         $ maxNum = 100
         $ numOfQue = 10
-
+    elif progress == 2:
+        $ minNum = 101
+        $ maxNum = 200
+        $ numOfQue = 10
     else:
         $ minNum = 1
         $ maxNum = 100
@@ -363,9 +366,9 @@ label endSelect:
 
     elif mode == 'story':
         if progress == 1:
-            stop music
-
             jump Opening2
+        elif progress == 2:
+            jump spring2
     
 
     else:

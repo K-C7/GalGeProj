@@ -422,6 +422,8 @@ label Opening1_menu2:
 label Opening2:
     play music "audio/leap.mp3" volume 0.05
     if 0 <= sumT <= 3:
+        $ like -= 15
+
         L "わぁ、本当に英語が苦手なんですね。"
 
         Me "く、くそぉ..."
@@ -472,6 +474,8 @@ label Opening2:
         Me "そうなった時はよろしく頼むよ。"
     
     elif 8 <= sumT <= 10:
+        $ like += 10
+
         show leap smile
         L "すごいじゃないですか！英語が苦手って嘘じゃないんですか？"
 
