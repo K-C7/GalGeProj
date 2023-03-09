@@ -230,7 +230,6 @@ label Opening1_menu1:
     Me "あっ、ああ、キラキラネーム的な？"
 
     show leap question
-
     L "キラキラネーム？私の名前ってそんなにおかしいですか？"
 
     Me "？？？"
@@ -257,20 +256,17 @@ label Opening1_menu1:
     Me "いや、こうはならないだろ。"
 
     show leap question
-
     L "どうしたんですか先輩、そんな難しい顔して。"
     
     Me "いや、何でもないよ。"
 
     show leap question_mark
-
     L "...そんなに私の名前変ですか？"
     
     Me "........"
     Me "俺の気のせいだった、気にしないでくれ。"
 
     show leap normal
-    
     L "あっそうですか。良かった。"
     
     Me "（いや、良くないだろ。）"
@@ -304,23 +300,19 @@ label Opening1_menu2:
 
         "LEAPちゃんって何か部活入るの？":
             show leap question
-
             L "うーん。"
             L "まだ決めてないですね。"
 
             show leap normal
-
             L "何かおすすめとかありますか？"
 
             Me "..."
             Me "実は俺部活入ってないんだよね。"
 
             show leap surprise
-
             L "えっ、そうなんですか。"
 
             show leap question_mark
-
             L "何で入らなかったんですか？"
 
             Me "うーーーん。"
@@ -328,7 +320,6 @@ label Opening1_menu2:
             Me "..."
 
             show leap question
-
             L "..."
 
             Me "（会話が終わってしまった。何か次の話題はないのか？）"
@@ -345,7 +336,6 @@ label Opening1_menu2:
                     Me "英語だろ。"
 
                     show leap surprise
-
                     L "なんでわかったんですか？"
 
                     Me "(いや、分かるだろ。)"
@@ -359,7 +349,6 @@ label Opening1_menu2:
                     Me "引っ掛けとかじゃなかったか。"
 
                     show leap question
-
                     L "何がですか？"
 
                     Me "いや、なんでもない。"
@@ -372,27 +361,23 @@ label Opening1_menu2:
                     Me "引っ掛けとかじゃなかったか。"
 
                     show leap question
-
                     L "何がですか？"
 
                     Me "いや、なんでもない。"
 
     show leap normal
-
     L "そうなんですか、じゃあ先輩はどうなんですか？"
         
     Me "何が？"
 
-    show leap question
-        
+    show leap question  
     L "英語は得意なんですか？"
         
     Me "...実は結構苦手で..."
     Me "期始めの実力テストでは毎回酷い点数しかとれなくて。"
     Me "本当に誰かに教えてもらいたいくらいだよ。"
         
-    show leap normal
-        
+    show leap normal  
     L "苦手なんですね。へー。"
     L "..."
     
@@ -402,14 +387,12 @@ label Opening1_menu2:
     L "これも何かの縁、電車が駅に着くまで私が英語の問題を出してあげますよ！"
     
     play music "audio/beat.mp3" volume 0.5
-
     Me "！！"
     Me "（まずい展開になってしまった。"
     Me "下手に教えてなんて言わなければよかった。）"
     Me "（いや、だけど新しい後輩の前で恥をさらすわけにはいかないし、ここで少しはいい印象を与えたい。）"
     
     stop music
-
     L "先輩、いきますよ。"
 
     menu:
@@ -432,27 +415,23 @@ label Opening1_menu2:
 
             hide leap
             with dissolve
-
             $ badEndCode = 2
             
             jump badEnd_call
 
 label Opening2:
     play music "audio/leap.mp3" volume 0.05
-
     if 0 <= sumT <= 3:
         L "わぁ、本当に英語が苦手なんですね。"
 
         Me "く、くそぉ..."
 
         show leap question
-
         L "勉強してます？"
 
         Me "苦手なんだからしょうがないだろ。"
 
         show leap normal
-
         L "いや、先輩。むしろこれは伸びしろですよ。"
 
         Me "伸びしろ？"
@@ -463,19 +442,16 @@ label Opening2:
         Me "そ、そうかな。"
 
         show leap smile
-
         L "そうですよ！"
 
         Me "じゃあ、ちゃんと英語勉強するか。"
 
         show leap normal
-
         L "その調子です。それなら付き合ってあげますよ。"
 
         Me "えっ、それって...？"
 
         show leap question
-
         L "？英語のテストをですよ？"
 
         show leap normal
@@ -486,26 +462,22 @@ label Opening2:
         Me "そうかな。"
 
         show leap smile
-
         L "単語はちゃんと覚えられてるってことですし、素晴らしいと思いますよ！"
 
         Me "そっか。ありがとう。"
 
         show leap normal
-
         L "もしまたご一緒することがあったら、その時はまた英語の問題を出してあげますよ。"
 
         Me "そうなった時はよろしく頼むよ。"
     
     elif 8 <= sumT <= 10:
         show leap smile
-
         L "すごいじゃないですか！英語が苦手って嘘じゃないんですか？"
 
         Me "今回はたまたまできただけだよ。"
 
         show leap normal
-
         L "本当ですかー？"
         L "でも、この調子なら実力テストもいい点数取れると思いますよ。"
 
@@ -520,13 +492,11 @@ label Opening2:
         Me "{size=*0.8}...だるいな。{/size}"
 
         show leap question
-
         L "なにか言いました？"
 
         Me "いや、ありがとうって言ったんだ。"
 
         show leap normal
-
         L "それなら良かったです。"
     
     stop music
@@ -546,11 +516,9 @@ label Opening2:
     Me "褒めてるよ。"
 
     show leap smile
-
     L "ふふふ、それはありがとうございます。"
 
     show leap normal
-
     L "じゃあ、学校に行きましょうか。"
 
     Me "そうだな。"
