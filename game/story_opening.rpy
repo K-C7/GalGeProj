@@ -430,7 +430,7 @@ label opening2:
     play music "audio/leap.mp3" volume 0.05
 
     if 0 <= sumT <= 3:
-        $ like -= 15
+        $ likeChanger(-15)
 
         L "わぁ、本当に英語が苦手なんですね。"
 
@@ -467,6 +467,8 @@ label opening2:
         show leap normal
 
     elif 4 <= sumT <= 7:
+        $ likeChanger(5)
+
         L "まあまあじゃないですか。"
 
         Me "そうかな。"
@@ -482,7 +484,7 @@ label opening2:
         Me "そうなった時はよろしく頼むよ。"
     
     elif 8 <= sumT <= 10:
-        $ like += 10
+        $ likeChanger(15)
 
         show leap smile
         L "すごいじゃないですか！英語が苦手って嘘じゃないんですか？"

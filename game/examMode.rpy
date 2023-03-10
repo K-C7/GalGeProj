@@ -208,7 +208,6 @@ label exam:
     $ renpy.block_rollback()
     $ questionNumber = 1
     $ withHint = False
-    $ resultList = []
     if isReview == False:
         $ tfList = [0 for i in range(0, numOfQue)]
         $ leapModule.makeExam(minNum, maxNum, numOfQue)
