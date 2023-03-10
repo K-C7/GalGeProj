@@ -5,8 +5,8 @@ label opening1:
     "Note: 会話中に下の「ロールバック」ボタンを押すと、\nひとつ前の画面に戻ることができます。\n一部の場面を除いて基本的に使用できるので、ぜひご活用ください。"
 
     scene bg room
-    with fade
-    play music "audio/morning.mp3" volume 0.05
+    with dissolve
+    play music "audio/morning.mp3" volume 0.05 fadein 1.0
 
     "3月某日"
     "春休みがもう終ろうとしていた、ある日。"
@@ -56,7 +56,7 @@ label opening1_menu1:
 
     scene bg shrine day
     with fade
-    stop music
+    stop music fadeout 1.0
 
     Me "この神社に来るのも久しぶりだな。"
     Me "じゃあ、お祈りでもするか。"
@@ -68,7 +68,7 @@ label opening1_menu1:
     scene bg shrine day guwan:
         zoom 1.2
     with dissolve
-    play music "audio/blow.mp3" volume 0.2
+    play music "audio/blow.mp3" volume 0.2 fadein 1.0
 
     "ざわ...ざわ..."
 
@@ -127,7 +127,8 @@ label opening1_menu1:
     pause 14.0
 
     scene bg road day
-    play music "audio/routine.mp3" volume 0.05
+    with dissolve
+    play music "audio/routine.mp3" volume 0.05 fadein 1.0
 
     "数日後"
 
@@ -136,7 +137,7 @@ label opening1_menu1:
     Me "って時間やばいな。このままだと電車乗れないぞ。"
     Me "初日からいきなり遅刻は困るから少し急ぐか。"
     
-    play music "audio/run.mp3"
+    play music "audio/run.mp3" fadein 1.0
 
     pause
 
@@ -157,7 +158,7 @@ label opening1_menu1:
 
     show leap normal at leapPos
     with dissolve
-    play music "audio/leap.mp3" volume 0.05
+    play music "audio/leap.mp3" volume 0.05 fadein 1.0
 
     Me "かっ..."
     Me "（かわいい...）"
@@ -185,7 +186,7 @@ label opening1_menu1:
     scene bg black
     with dissolve
     stop music
-    play sound "audio/run.mp3"
+    play sound "audio/run.mp3" fadein 1.0
 
     pause 2.0
 
@@ -198,7 +199,7 @@ label opening1_menu1:
 
     show leap normal at leapPos
     with dissolve
-    play music "audio/train.mp3" volume 0.2
+    play music "audio/train.mp3" volume 0.2 fadein 1.0
 
     Me "何とか間に合った。"
 
@@ -426,6 +427,7 @@ label opening1_menu2:
 
 label opening2:
     play music "audio/leap.mp3" volume 0.05
+
     if 0 <= sumT <= 3:
         $ like -= 15
 
@@ -508,8 +510,7 @@ label opening2:
         show leap normal
         L "それなら良かったです。"
     
-    stop music
-    with dissolve
+    stop music fadeout 1.0
 
     cd "次は〇〇駅、〇〇駅に到着します。車内にお忘れ物のないようにご注意ください。"
     cd "お出口は左側です。扉にご注意ください。"

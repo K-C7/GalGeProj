@@ -50,6 +50,7 @@ label spring1:
             Me "Brightstageちゃんだよね。"
             
             show leap question
+            play sound "audio/konwaku.mp3" volume 0.5
             Ano "違いますよ。私の名前を忘れたんですか。"
             show leap normal
             L "私の名前はLeap\nエル　イー　エー　ピー　Leapですよ！"
@@ -60,6 +61,7 @@ label spring1:
             Me "新明説漢文ちゃんだよね。"
 
             show leap question
+            play sound "audio/konwaku.mp3" volume 0.5
             Ano "違いますよ。ていうかそれまったく英語じゃないじゃないですか。"
             show leap normal
             L "私の名前はLeap\nエル　イー　エー　ピー　Leapですよ！"
@@ -77,6 +79,7 @@ label spring1:
 
             Me "へー、やっぱり英語？"
 
+            play sound "audio/hit.mp3" volume 0.5
             L "やっぱりって何ですか。"
 
             Me "ごめんって。でも英語なんでしょ？"
@@ -384,6 +387,7 @@ label normalEndSpring:
 
     scene bg black
     with dissolve
+    stop music fadeout 2.0
 
     jump rest
 

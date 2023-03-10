@@ -18,6 +18,7 @@ label sum1:
     # 背景：海の家
     scene bg seahouse
     with dissolve
+    play music "audio/everyday.mp3" volume 0.1 fadein 1.0
 
     Me "はあ～..."
     Me "友達はみんな夏休みを謳歌してるっていうのになんで俺は..."
@@ -51,13 +52,14 @@ label sum1:
     # 背景：黒
     scene bg black
     with dissolve
+    stop music fadeout 2.0
 
     "数時間後のお昼時"
 
     # 背景：海の家　音：ザワザワ
     scene bg seahouse
     with dissolve
-    play music "audio/zawazawa.mp3" volume 0.05
+    play music "audio/zawazawa.mp3" volume 0.05 fadein 1.0
 
     Me "（あ゛～～～～～）"
     Me "（忙しすぎるぅ～～）"
@@ -75,6 +77,7 @@ label sum1:
 
     Me "はーい..."
     Me "（ん？　どっかで聞いたことがあるような？）"
+    stop music fadeout 1.0
     Me "！？！？！？"
 
     # 登場：Leap　Leap友達
@@ -82,6 +85,7 @@ label sum1:
     with dissolve
     show friend at left
     with dissolve
+    play music "audio/retroparty.mp3" volume 0.05 fadein 1.0
 
     menu:
         "あ":
@@ -159,17 +163,16 @@ label sum1:
     # 背景：黒
     scene bg black
     with dissolve
+    stop music fadeout 2.0
 
     "それから一時間後"
 
     # 背景：海の家
     scene bg seahouse
     with dissolve
-
-    pause 2.0
-
     show sinseki
     with dissolve
+    play music "audio/everyday.mp3" volume 0.1 fadein 1.0
 
     Sinseki "もう昼の時間は過ぎたな。"
     Sinseki "おーい、そっちは大丈夫か？"
@@ -186,28 +189,36 @@ label sum1:
     Me "わかりました、ありがとうございました。"
     Me "じゃあ、行ってきます。"
 
+    scene bg black
+    with dissolve
+    stop music fadeout 1.0
+
+    pause 1.0
+
     # 背景：海
     scene bg sea
     with dissolve
-    hide sinseki
-    with dissolve
+    play music "audio/sazanami.mp3" volume 0.1 fadein 1.0
 
-    Me "別に海で泳ぎたいのはそうだけど、なんかもう疲れちゃってはしゃぐ気分じゃないんだよなぁ。"
+    Me "とは言ったものの、なんかもう疲れちゃってはしゃぐ気分じゃないんだよなぁ。"
     Me "なんかその辺で休んでおこう。"
     Me "よし、じゃあこの辺で..."
 
     # 登場：Leap(水着)
     show leap normal at leapPos
     with dissolve
+    stop music fadeout 1.0
 
     Me "あ..."
 
     show leap surprise
     L "あ..."
 
+    show leap normal
+    play music "audio/leap.mp3" volume 0.05
+
     Me "久しぶり。"
 
-    show leap normal
     L "お久しぶりです。"
 
     Me "さっきは何かごめんね。"
@@ -342,7 +353,7 @@ label sum1:
 
             Me "まあ、疲れてるけど頑張るよ。"
 
-            show leam normal
+            show leap normal
             L "いえいえ、無理しなくていいですよ。"
             L "私も疲れてますし。"
 
@@ -356,7 +367,7 @@ label sum1:
 
 
 label sum2:
-    Me "英単語テストでもする？"
+    Me "じゃあ、英単語テストでもする？"
 
     show leap smile
     L "{size=*2.0}良いですね！{/size}"
@@ -400,6 +411,8 @@ label sum2:
 
 
 label sum3:
+    play music "audio/leap.mp3" volume 0.05
+
     if 0 <= sumT <= 3:
         $ like -= 15
     
@@ -472,6 +485,8 @@ label sum3:
 
     # バッドエンド処理
     if(like < 0):
+        stop music fadeout 1.0
+
         Me "だいぶ時間がたったな。"
 
         L "そうですね。"
@@ -531,6 +546,7 @@ label sum3:
         with dissolve
         show otoko at left
         with dissolve
+        play music "audio/distance.mp3" volume 0.1 fadein 2.0
 
         Me "あの男の人は誰だろう？知り合いかな？"
         Me "だけどそんな感じはしないな。もしかしてナンパかな？"
@@ -630,9 +646,10 @@ label sum3:
         Man "君たち結構仲良いんだね。"
         Man "もしかして付き合ってたりするの～？"
 
+        show leap surprise
+        
         Me "！？"
         
-        show leap surprise
         L "！？"
 
         Man "どうなのどうなの？"

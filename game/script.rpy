@@ -46,6 +46,8 @@ init:
     $ like = 30 #好感度
 
 label start:
+    scene bg black
+
     jump opening
 
 label rest:
@@ -98,6 +100,9 @@ label badEnd_call:
         "そういうと男はニヤリと笑ってLeapちゃんとともに人ごみの中に消えていった。"
         "BadEnd 4 : No Time Return"
     
+    stop music fadeout 2.0
+    pause 2.0
+
     return
 
 label exit:
