@@ -2,12 +2,14 @@ beat 0.5
 blow 0.2
 charin 1.0
 distance 0.1
+doyo-n 0.05
 everyday 0.1
 exam 0.05
 hazure 0.1
 hit 0.5
 holysound 0.3
 kagurasuzu 0.3
+kirakira 0.2
 konwaku 0.5
 leap 0.05
 morning 0.05
@@ -17,8 +19,11 @@ routine 0.05
 run 1.0
 sazanami 0.1
 seikai 0.1
+shock 0.1
+syakin 0.1
 tanukiti -
 thunder 0.05
 train 0.2
 wakeup 0.5
+walk 0.05
 zawazawa 0.05

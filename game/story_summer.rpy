@@ -78,6 +78,7 @@ label sum1:
     Me "はーい..."
     Me "（ん？　どっかで聞いたことがあるような？）"
     stop music fadeout 1.0
+    play sound "audio/wakeup.mp3" volume 0.5
     Me "！？！？！？"
 
     # 登場：Leap　Leap友達
@@ -108,6 +109,7 @@ label sum1:
             Me "Leapちゃん！？"
 
             show leap question
+            play sound "audio/poyon.mp3"
             L "先輩？"
 
             Fri "ん？知り合い？"
@@ -141,6 +143,7 @@ label sum1:
     Me "少しお待ちください。"
     Me "..."
     Me "（oh…）"
+    play sound "audio/konwaku.mp3" volume 0.5
     Me "こういう感じで知り合いと会うってのは気まずいというかなんというか。"
     Me "まあ今は仕事中だし、仕事に集中しなきゃ。"
     Me "お待たせしました。"
@@ -186,14 +189,16 @@ label sum1:
     Sinseki "ああ、これからは客も少なくなるし俺一人でも回せる。"
     Sinseki "お前もせっかく海に来たんだから、海に行ってこい！"
 
-    Me "わかりました、ありがとうございました。"
+    Me "わかりました、ありがとうございます。"
     Me "じゃあ、行ってきます。"
 
     scene bg black
     with dissolve
     stop music fadeout 1.0
+    play sound "audio/run.mp3" fadein 0.5
 
     pause 1.0
+    stop sound fadeout 0.5
 
     # 背景：海
     scene bg sea
@@ -251,6 +256,7 @@ label sum1:
             Me "本当は泳ぐつもりだったけど、いいかな。"
 
             show leap question_mark
+            play sound "audio/poyon.mp3"
             L "何でですか？"
 
             Me "店の手伝いで疲れちゃって。"
@@ -273,6 +279,7 @@ label sum1:
             Me "そうなんだけど、まさか海の家の手伝いがこんなに辛いとは..."
 
             show leap question
+            play sound "audio/konwaku.mp3" volume 0.5
             L "確かに大変そうでしたね。"
 
             Me "いやー本当に大変だった。"
@@ -328,6 +335,7 @@ label sum1:
             Me "いや、Leapちゃんも退屈してるかなぁと思って。"
             Me "それにせっかく海に来たんだしさ。"
 
+            play sound "audio/konwaku.mp3" volume 0.5
             L "いや、別に私はもう泳ぎたくないんですけど。"
             L "もう泳ぎ疲れました。"
 
@@ -344,6 +352,7 @@ label sum1:
 
             Me "ビーチバレーでもする？"
 
+            play sound "poyon.mp3"
             show leap question
             L "二人でですか？"
 
@@ -370,6 +379,7 @@ label sum2:
     Me "じゃあ、英単語テストでもする？"
 
     show leap smile
+    play sound "audio/kirakira.mp3" volume 0.2
     L "{size=*2.0}良いですね！{/size}"
 
     Me "うわ、ビックリした。"
@@ -429,6 +439,7 @@ label sum3:
 
         Me "まだやってないです..."
 
+        play sound "audio/konwaku.mp3" volume 0.5
         L "はぁ..."
         L "..."
         show leap normal
@@ -502,9 +513,17 @@ label sum3:
 
         Me "...そっか。"
         Me "じゃあ行ってくるね。"
+
+        scene bg black
+        with dissolve
+        play sound "audio/walk.mp3" volume 0.05
+
+        pause 2.0
+
         # 背景：海の家
         scene bg seahouse
-        with fade
+        with dissolve
+        stop sound
 
         Me "何の飲み物にしようかな。"
         Me "んー、コーラにしよう。"
@@ -518,6 +537,7 @@ label sum3:
 
         Sinseki "ちょっと手伝ってくれ。"
 
+        play sound "audio/doyo-n.mp3" volume 0.05
         Me "え、今急いでるんですけど。"
 
         Sinseki "いいだろ、ちょっとぐらい。"
@@ -556,6 +576,7 @@ label sum3:
         
         L "そうですね！"
 
+        play sound "audio/shock.mp3" volume 0.1
         Me "！？"
 
         L "あっ、先輩。遅かったですね。"
@@ -585,6 +606,7 @@ label sum3:
         
         L "haha."
         
+        play sound "audio/konwaku.mp3" volume 0.5
         Me "（やばい、発音が良すぎて全然わかんねぇ。）"
         
         Man "That's when I saw this cute girl and I just had to ask her out."
@@ -594,9 +616,11 @@ label sum3:
         Man "You are cute. You think so too, don't you, senpai?"
         
         Me "えっ...ああ...ん？"
-        Me "（なんて言ったんだ聞き取れなかった。）"
+        Me "（なんて言ったのか聞き取れなかった。）"
 
+        show leap question
         L "..."
+        show leap normal
 
         Man "oops.英語が聞き取れなかったかな？"
         Man "まあいいや。それより君たち英語のテストしてなかったかい？"
@@ -607,6 +631,7 @@ label sum3:
 
         Man "それさ、Meにもやらしてくれよ。"
 
+        show leap smile
         L "もちろんいいですよ。"
         L "ではいきますね。"
 
@@ -647,7 +672,7 @@ label sum3:
         Man "もしかして付き合ってたりするの～？"
 
         show leap surprise
-        
+
         Me "！？"
         
         L "！？"

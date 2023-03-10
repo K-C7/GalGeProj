@@ -122,6 +122,7 @@ label spring1:
             Me "あれ？そうだっけ？"
 
             show leap question
+            play sound "audio/konwaku.mp3" volume 0.5
             L "...先輩？"
 
             Me "いや、あのー、そのー..."
@@ -168,6 +169,7 @@ label spring1:
     show leap question
     L "先輩？"
 
+    play sound "audio/wakeup.mp3" volume 0.5
     Me "うぉっ、な、なんだい？"
 
     show leap question_mark
@@ -278,6 +280,7 @@ label spring1:
 
     L "はい、そのもしかしてですよ。"
     show leap smile
+    play sound "audio/kirakira.mp3" volume 0.2
     L "英単語テストの時間ですよ！"
     show leap normal
     L "先輩があれからどれくらい英語を勉強したのか確かめないとですね。"
@@ -299,6 +302,7 @@ label spring2:
 
         Me "いいえ..."
 
+        play sound "audio/konwaku.mp3" volume 0.5
         L "はぁ、ちゃんとやらないとだめじゃないですか。"
         L "英語は基礎ができてなんぼ、このままじゃ先輩英語がもっとダメになってしまいますよ。"
 
@@ -336,10 +340,12 @@ label spring2:
         L "冗談ですよ～。"
         L "さすが先輩といったところでしょうか。"
 
+        play sound "audio/syakin.mp3" volume 0.1
         Me "(｀・v・)ｴｯﾍﾝ!!"
 
         L "{size=*0.8}チョロ{/size}"
 
+        play sound "audio/poyon.mp3"
         Me "なにか言った？"
 
         L "何も言ってないですよ。"
@@ -361,6 +367,7 @@ label normalEndSpring:
     Me "それは良かった。"
 
     show leap normal
+    play sound "audio/poyon.mp3"
     L "先輩も英単語テストできて良かったですよね？"
 
     menu:
@@ -407,6 +414,7 @@ label badEndSpring:
 
     Me "..."
 
+    play sound "audio/wakeup.mp3" volume 0.5
     L "先輩。"
 
     Me "なに？"
