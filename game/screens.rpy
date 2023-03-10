@@ -334,7 +334,7 @@ screen navigation():
 
             # textbutton _("セーブ") action ShowMenu("save")
 
-            # textbutton _("ロード") action ShowMenu("load")
+            textbutton _("ロード") action ShowMenu("load")
 
             textbutton _("ヒストリー") action ShowMenu("history")
 
