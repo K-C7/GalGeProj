@@ -35,20 +35,18 @@ label spring1:
         "あれ、君は確か..."
 
         "Leapちゃん":
-            $ like += 5
-
             Me "Leapちゃんだよね。"
             
+            $ likeChanger(5)
             show leap smile
             L "あっ、はいそうです。覚えてくれたんですね。"
 
             show leap normal
         
         "Brightstageちゃん":
-            $ like -= 5
-
             Me "Brightstageちゃんだよね。"
             
+            $ likeChanger(-10)
             show leap question
             play sound "audio/konwaku.mp3" volume 0.5
             Ano "違いますよ。私の名前を忘れたんですか。"
@@ -56,10 +54,9 @@ label spring1:
             L "私の名前はLeap\nエル　イー　エー　ピー　Leapですよ！"
         
         "新明説漢文ちゃん":
-            $ like -= 15
-
             Me "新明説漢文ちゃんだよね。"
 
+            $ likeChanger(-20)
             show leap question
             play sound "audio/konwaku.mp3" volume 0.5
             Ano "違いますよ。ていうかそれまったく英語じゃないじゃないですか。"
@@ -71,8 +68,6 @@ label spring1:
 
     menu:
         "用事って？":
-            $ like += 5
-
             Me "用事って？"
 
             L "友達に勉強を教えてまして。"
@@ -84,6 +79,7 @@ label spring1:
 
             Me "ごめんって。でも英語なんでしょ？"
 
+            $ likeChanger(5)
             L "まあそうですけど..."
 
             Me "..."
@@ -91,15 +87,15 @@ label spring1:
             L "..."
         
         "遅刻とは感心しないな":
-            $ like += 0
-
             Me "遅刻とは感心しないな。"
 
+            $ likeChanger(-15)
             show leap question
             L "すみません..."
 
             Me "許す。"
 
+            $ likeChanger(5)
             show leap normal
             L "あ、意外とあっさり許してくれるんですね。"
 
@@ -112,8 +108,6 @@ label spring1:
             L "そうなんですね。"
 
         "君がもう一人の当番？":
-            $ like -= 15
-
             Me "君がもう一人の当番？"
 
             L "あっはいそうです。"
@@ -121,6 +115,7 @@ label spring1:
 
             Me "あれ？そうだっけ？"
 
+            $ likeChanger(-20)
             show leap question
             play sound "audio/konwaku.mp3" volume 0.5
             L "...先輩？"
@@ -192,8 +187,6 @@ label spring1:
         "そういえば、"
 
         "君は何で図書委員になったの？":
-            $ like -= 5
-
             Me "君は何で図書委員になったの？"
 
             show leap question
@@ -212,6 +205,7 @@ label spring1:
 
             Me "じゃんけんで負けたから。"
 
+            $ likeChanger(-10)
             show leap question
             L "..."
 
@@ -220,10 +214,9 @@ label spring1:
             show leap normal
         
         "本は好き？":
-            $ like += 5
-
             Me "本は好き？"
 
+            $ likeChanger(5)
             L "本ですか？まあまあ好きですよ。"
 
             Me "へえ、そうなんだ。ジャンルとかは？"
@@ -291,7 +284,7 @@ label spring1:
 label spring2:
     play music "audio/leap.mp3" volume 0.05
     if 0 <= sumT <= 3:
-        $ like -= 15
+        $ likeChanger(-15)
 
         show leap question
         L "先輩..."
@@ -311,6 +304,8 @@ label spring2:
         show leap normal
 
     elif 4 <= sumT <= 7:
+        $ likeChanger(5)
+
         show leap normal
         L "及第点って感じですね。"
 
@@ -323,7 +318,7 @@ label spring2:
         Me "精進いたします。"
     
     elif 8 <= sumT <= 10:
-        $ like += 10
+        $ likeChanger(15)
 
         show leap normal
         L "ちゃんとできてるじゃないですか。"
@@ -372,17 +367,10 @@ label normalEndSpring:
 
     menu:
         "もちろん":
-            $ like += 5
-
             Me "もちろん。"
             Me "次があったらまたよろしく頼むよ。"
         
-        "楽しくは...":
-            $ like -= 5
-
-            Me "楽しいかと言われると..."
-            Me "でも、次があるならまたお願いしようかな。"
-        
+    $ likeChanger(5)
     L "こちらこそよろしくお願いします。"
     L "なにげに問題出すほうも楽しいですしね。"
 
