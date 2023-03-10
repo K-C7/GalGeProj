@@ -260,13 +260,40 @@ screen quick_menu():
             textbutton _("Q.ロード") action QuickLoad()
             textbutton _("設定") action ShowMenu('preferences')
 
+screen like_meter():
+
+    zorder 100
+
+    if like_meter:
+        python:
+            if like < 0:
+                heartImage = "heart0.png"
+            if 0 <= like < 20:
+                heartImage = "heart1.png"
+            if 20 <= like < 40:
+                heartImage = "heart2.png"
+            if 40 <= like < 60:
+                heartImage = "heart3.png"
+            if 60 <= like < 80:
+                heartImage = "heart4.png"
+            if 80 <= like < 100:
+                heartImage = "heart5.png"
+            if like == 100:
+                heartImage = "heart6.png"
+
+        add heartImage align (heartImageAlignX, heartImageAlignY) zoom heartImageSize
+        text "[like]" size heartTextSize:
+            at transform:
+                align (heartTextAlignX, heartTextAlignY) alpha 1.0
 
 ## 次のコードは、プレイヤーが明示的にインターフェースを隠さない限り quick_menu
 ## スクリーンが常にゲーム中に表示されるようにしています。
 init python:
     config.overlay_screens.append("quick_menu")
+    config.overlay_screens.append("like_meter")
 
 default quick_menu = True
+default like_meter = False
 
 style quick_button is default
 style quick_button_text is button_text

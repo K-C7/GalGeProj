@@ -109,6 +109,7 @@ label opening1_menu1:
 
     scene bg shrine evening
     with fade
+    $ like_meter = True
 
     play sound "audio/wakeup.mp3" volume 0.5
     Me "...何が起きた？"

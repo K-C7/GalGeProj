@@ -18,6 +18,11 @@ init:
         #LEAP_PATH = "/game/module/leap.csv"
         leapModule.leapPathSet(LEAP_PATH)
 
+        def likeChanger(deltaLike):
+            like += deltaLike
+            if like > 100:
+                like = 100
+
     image bg classroom evening = im.Scale("bg classroom evening notrim.jpg", 1280, 720)
     image leap normal = im.Scale("leap normal.png", 800, 1600)
     image leap smile = im.Scale("leap smile.png", 800, 1600)
@@ -41,6 +46,12 @@ init:
         pause 2.0
 
     define leapPos = Position(xancor=0.0, ypos=2.15)
+    define heartImageAlignX = 0.02
+    define heartImageAlignY = 0.05
+    define heartImageSize = 0.3
+    define heartTextAlignX = 0.045
+    define heartTextAlignY = 0.09
+    define heartTextSize = 40
 
     $ progress = 1 #ストーリーの進行状況
     $ like = 30 #好感度

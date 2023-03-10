@@ -2,35 +2,9 @@
 errors listed below, and try again.
 
 
-The label opening is defined twice, at File "game/story_1.rpyc", line 1:
-
-and File "game/story_opening.rpy", line 1:
-label opening:
-
-
-The label opening1 is defined twice, at File "game/story_1.rpyc", line 4:
-
-and File "game/story_opening.rpy", line 4:
-label opening1:
-
-
-The label opening1_menu1 is defined twice, at File "game/story_1.rpyc", line 20:
-
-and File "game/story_opening.rpy", line 20:
-label opening1_menu1:
-
-
-The label opening1_menu2 is defined twice, at File "game/story_1.rpyc", line 284:
-
-and File "game/story_opening.rpy", line 284:
-label opening1_menu2:
-
-
-The label opening2 is defined twice, at File "game/story_1.rpyc", line 428:
-
-and File "game/story_opening.rpy", line 428:
-label opening2:
-
+File "game/screens.rpy", line 269: 'heartImage' is not a keyword argument or valid child for the screen statement.
+    heartImage = "heart0.png"
+              ^
 
 Ren'Py Version: Ren'Py 8.1.0.23010208n
-Fri Mar 10 16:12:43 2023
+Fri Mar 10 20:18:43 2023
