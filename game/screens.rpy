@@ -255,9 +255,9 @@ screen quick_menu():
             textbutton _("ヒストリー") action ShowMenu('history')
             textbutton _("スキップ") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("オート") action Preference("auto-forward", "toggle")
-            textbutton _("セーブ") action ShowMenu('save')
-            textbutton _("Q.セーブ") action QuickSave()
-            textbutton _("Q.ロード") action QuickLoad()
+            # textbutton _("セーブ") action ShowMenu('save')
+            # textbutton _("Q.セーブ") action QuickSave()
+            # textbutton _("Q.ロード") action QuickLoad()
             textbutton _("設定") action ShowMenu('preferences')
 
 screen like_meter():
@@ -332,11 +332,11 @@ screen navigation():
 
         else:
 
-            textbutton _("セーブ") action ShowMenu("save")
+            # textbutton _("セーブ") action ShowMenu("save")
 
-            textbutton _("ロード") action ShowMenu("load")
+            # textbutton _("ロード") action ShowMenu("load")
 
-            #textbutton _("ヒストリー") action ShowMenu("history")
+            textbutton _("ヒストリー") action ShowMenu("history")
 
         textbutton _("学習モード") action Start("initExamMode")
 
