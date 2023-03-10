@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 269: 'heartImage' is not a keyword argument or valid child for the screen statement.
-    heartImage = "heart0.png"
-              ^
+File "game/script.rpy", line 1: expected statement.
+    config.has_quicksave = False
+                         ^
+
+File "game/script.rpy", line 2: expected statement.
+    config.has_autosave = False
+                        ^
 
 Ren'Py Version: Ren'Py 8.1.0.23010208n
-Fri Mar 10 20:18:43 2023
+Fri Mar 10 23:39:27 2023

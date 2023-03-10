@@ -1,4 +1,7 @@
-﻿define L = Character('Leap', color="#26aa5d")
+﻿define config.has_quicksave = False
+define config.has_autosave = False
+
+define L = Character('Leap', color="#26aa5d")
 define Me = Character('自分', color="#000000")
 define Mom = Character('母', color="#6b3d01")
 define God = Character('神', color="#5f6634")
@@ -14,6 +17,8 @@ init:
     $ import module.leapModule as leapModule
 
     python:
+        
+
         LEAP_PATH = config.basedir + r"\game\module\leap.csv"
         #LEAP_PATH = "/game/module/leap.csv"
         leapModule.leapPathSet(LEAP_PATH)

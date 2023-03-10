@@ -256,8 +256,8 @@ screen quick_menu():
             textbutton _("スキップ") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("オート") action Preference("auto-forward", "toggle")
             textbutton _("セーブ") action ShowMenu('save')
-            textbutton _("Q.セーブ") action QuickSave()
-            textbutton _("Q.ロード") action QuickLoad()
+            # textbutton _("Q.セーブ") action QuickSave()
+            # textbutton _("Q.ロード") action QuickLoad()
             textbutton _("設定") action ShowMenu('preferences')
 
 screen like_meter():
