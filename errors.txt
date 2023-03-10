@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 333: vbox expects a non-empty block.
-    else:
-         ^
+File "game/script.rpy", line 23: invalid syntax
+    label start:
+           ^
 
 Ren'Py Version: Ren'Py 8.1.0.23010208n
-Fri Mar 10 23:50:57 2023
+Sat Mar 11 00:16:10 2023

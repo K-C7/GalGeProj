@@ -17,16 +17,16 @@ init:
     $ import module.leapModule as leapModule
 
     python:
-        
-
         LEAP_PATH = config.basedir + r"\game\module\leap.csv"
         #LEAP_PATH = "/game/module/leap.csv"
         leapModule.leapPathSet(LEAP_PATH)
 
-        def likeChanger(deltaLike):
+        def likeChanger(like, deltaLike):
             like += deltaLike
             if like > 100:
                 like = 100
+            
+            return like
 
     image bg classroom evening = im.Scale("bg classroom evening notrim.jpg", 1280, 720)
     image leap normal = im.Scale("leap normal.png", 800, 1600)
@@ -57,7 +57,6 @@ init:
     define heartTextAlignX = 0.045
     define heartTextAlignY = 0.09
     define heartTextSize = 40
-
     $ progress = 1 #ストーリーの進行状況
     $ like = 30 #好感度
 
@@ -68,6 +67,7 @@ label start:
 
 label rest:
     $ progress += 1
+    $ like_meter = False
     
     menu:
         "セーブしますか？"

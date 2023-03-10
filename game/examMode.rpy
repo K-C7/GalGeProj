@@ -29,6 +29,7 @@ label initExamMode:
     scene bg classroom evening
     show leap normal at leapPos
     play music "audio/leap.mp3" volume 0.05
+    $ like_meter = True
     $ isReview = False
 
     jump modeSelect

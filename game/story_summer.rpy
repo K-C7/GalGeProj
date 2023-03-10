@@ -6,6 +6,8 @@
 
 
 label summer:
+    $ like_meter = True
+
     jump sum1
 
 
@@ -92,7 +94,7 @@ label sum1:
         "あ":
             Me "あ。"
 
-            $ likeChanger(-10)
+            $ like = likeChanger(like, -10)
             show leap surprise
             L "あ。"
 
@@ -105,7 +107,7 @@ label sum1:
         "Leapちゃん！？":
             Me "Leapちゃん！？"
 
-            $ likeChanger(5)
+            $ like = likeChanger(like, 5)
             show leap question
             play sound "audio/poyon.mp3"
             L "先輩？"
@@ -119,7 +121,7 @@ label sum1:
         "ご注文は？":
             Me "ご注文は？"
 
-            $ likeChanger(-20)
+            $ like = likeChanger(like, -20)
             show leap question
             L "..."
 
@@ -231,7 +233,7 @@ label sum1:
         "友達はどうしたの":
             Me "友達はどうしたの？"
 
-            $ likeChanger(-10)
+            $ like = likeChanger(like, -10)
             L "あっちの方で泳いでますよ。"
 
             Me "あっそうなんだ。"
@@ -264,7 +266,7 @@ label sum1:
         "仕事の時は何かごめんね":
             Me "仕事の時は何かごめんね。"
 
-            $ likeChanger(10)
+            $ like = likeChanger(like, 10)
             L "あっ、いえいえ。こちらこそすみませんでした。"
 
             Me "まさか手伝いに来た先でLeapちゃんと会うなんて思ってなくてさ。"
@@ -331,7 +333,7 @@ label sum1:
             play sound "audio/konwaku.mp3" volume 0.5
             L "いや、別に私はもう泳ぎたくないんですけど。"
             L "もう泳ぎ疲れました。"
-            $ likeChanger(-20)
+            $ like = likeChanger(like, -20)
 
             Me "あれ？そっか。"
 
@@ -357,7 +359,7 @@ label sum1:
             show leap normal
             L "いえいえ、無理しなくていいですよ。"
             L "私も疲れてますし。"
-            $ likeChanger(-10)
+            $ like = likeChanger(like, -10)
 
             Me "えぇ？あぁ、そう？"
             #（少し減少して③の選択肢に行く）
@@ -365,7 +367,7 @@ label sum1:
 
         
         "英単語テストでもする？":
-            $ likeChanger(5)
+            $ like = likeChanger(like, 5)
 
             jump sum2
 
@@ -419,7 +421,7 @@ label sum3:
     play music "audio/leap.mp3" volume 0.05
 
     if 0 <= sumT <= 3:
-        $ likeChanger(-15)
+        $ like = likeChanger(like, -15)
     
         show leap question
         L "...先輩？"
@@ -448,7 +450,7 @@ label sum3:
 
 
     elif 4 <= sumT <= 7:
-        $ likeChnager(5)
+        $ like = likeChnager(like, 5)
 
         show leap normal
         L "まあまあ頑張りましたね。"
@@ -470,7 +472,7 @@ label sum3:
 
 
     elif 8 <= sumT <= 10:
-        $ likeChanger(15)
+        $ like = likeChanger(like, 15)
 
         show leap smile
         L "さすがですね先輩。"
@@ -493,6 +495,7 @@ label sum3:
 
     # バッドエンド処理
     if(like < 0):
+        $ like_meter = False
         stop music fadeout 1.0
 
         Me "だいぶ時間がたったな。"

@@ -282,7 +282,7 @@ screen like_meter():
                 heartImage = "heart6.png"
 
         add heartImage align (heartImageAlignX, heartImageAlignY) zoom heartImageSize
-        text "[like]" size heartTextSize:
+        text "[like]" size heartTextSize color "#FFFFFF":
             at transform:
                 align (heartTextAlignX, heartTextAlignY) alpha 1.0
 
