@@ -15,6 +15,7 @@ define Man = Character("男", color="#b8af3b") #色は未定
 init:
     $ import time
     $ import module.leapModule as leapModule
+    $ _game_menu_screen = 'load'
 
     python:
         LEAP_PATH = config.basedir + r"\game\module\leap.csv"

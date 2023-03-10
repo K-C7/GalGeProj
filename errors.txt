@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 23: invalid syntax
-    label start:
+File "game/screens.rpy", line 628: expected a keyword argument or end of line.
+    zorder = 0
            ^
 
 Ren'Py Version: Ren'Py 8.1.0.23010208n
-Sat Mar 11 00:16:10 2023
+Sat Mar 11 01:16:50 2023
