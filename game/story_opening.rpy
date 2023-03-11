@@ -3,6 +3,7 @@ label opening:
 
 label opening1:
     "Note: 会話中に下の「ロールバック」ボタンを押すと、\nひとつ前の画面に戻ることができます。\n一部の場面を除いて基本的に使用できるので、ぜひご活用ください。"
+    "Note: また、セーブは各章終了時にのみすることができます。\nご了承ください。"
 
     scene bg room
     with dissolve
@@ -19,6 +20,7 @@ label opening1:
 
 label opening1_menu1:
     if(nidoneCount >= 3):
+        $ renpy.block_rollback()
         $ badEndCode = 1
         
         jump badEnd_call
@@ -28,9 +30,9 @@ label opening1_menu1:
             Me "起きてるよー。"
 
         "二度寝する":
-            Me "..."
-
             $ nidoneCount += 1
+
+            Me "..."
 
             jump opening1_menu1
     
@@ -284,6 +286,8 @@ label opening1_menu1:
 
 label opening1_menu2:
     menu:
+        Me "あっそうだ、"
+
         "君は新入生、でいいんだよね？":
             Me "君は新入生、でいいんだよね？"
             
@@ -339,6 +343,8 @@ label opening1_menu2:
             L "当ててみてください。"
 
             menu:
+                L "当ててみてください。"
+
                 "英語":
                     Me "英語だろ。"
 
@@ -403,12 +409,17 @@ label opening1_menu2:
     L "先輩、いきますよ。"
 
     menu:
+        L "先輩、いきますよ。"
+
         "挑戦する":
+            $ renpy.block_rollback()
+
             Me "やるしかないのか。"
 
             jump testPrepare
         
         "断る":
+            $ renpy.block_rollback()
             $ like_meter = False
 
             Me "..."
@@ -430,6 +441,7 @@ label opening1_menu2:
 
 label opening2:
     play music "audio/leap.mp3" volume 0.05
+    $ renpy.block_rollback()
 
     if 0 <= sumT <= 3:
         $ like = likeChanger(like, -15)

@@ -92,6 +92,8 @@ label sum1:
 
     menu:
         "あ":
+            $ renpy.block_rollback()
+
             Me "あ。"
 
             $ like = likeChanger(like, -10)
@@ -105,6 +107,8 @@ label sum1:
         
 
         "Leapちゃん！？":
+            $ renpy.block_rollback()
+
             Me "Leapちゃん！？"
 
             $ like = likeChanger(like, 5)
@@ -119,6 +123,8 @@ label sum1:
         
 
         "ご注文は？":
+            $ renpy.block_rollback()
+
             Me "ご注文は？"
 
             $ like = likeChanger(like, -20)
@@ -231,6 +237,8 @@ label sum1:
 
     menu:
         "友達はどうしたの":
+            $ renpy.block_rollback()
+
             Me "友達はどうしたの？"
 
             $ like = likeChanger(like, -10)
@@ -264,6 +272,8 @@ label sum1:
 
 
         "仕事の時は何かごめんね":
+            $ renpy.block_rollback()
+
             Me "仕事の時は何かごめんね。"
 
             $ like = likeChanger(like, 10)
@@ -319,9 +329,11 @@ label sum1:
     Me "..."
     Me "よし、"
     menu:
-        "よし、"
+        Me "よし、"
 
         "泳ぎに行くか":
+            $ renpy.block_rollback()
+
             Me "泳ぎに行くか。"
 
             show leap question
@@ -344,6 +356,8 @@ label sum1:
 
 
         "ビーチバレーでもする？":
+            $ renpy.block_rollback()
+
             Me "ビーチバレーでもする？"
 
             play sound "poyon.mp3"
@@ -367,6 +381,7 @@ label sum1:
 
         
         "英単語テストでもする？":
+            $ renpy.block_rollback()
             $ like = likeChanger(like, 5)
 
             jump sum2
@@ -421,6 +436,7 @@ label sum3:
     play music "audio/leap.mp3" volume 0.05
 
     if 0 <= sumT <= 3:
+        $ renpy.block_rollback()
         $ like = likeChanger(like, -15)
     
         show leap question
@@ -450,6 +466,7 @@ label sum3:
 
 
     elif 4 <= sumT <= 7:
+        $ renpy.block_rollback()
         $ like = likeChnager(like, 5)
 
         show leap normal
@@ -472,6 +489,7 @@ label sum3:
 
 
     elif 8 <= sumT <= 10:
+        $ renpy.block_rollback()
         $ like = likeChanger(like, 15)
 
         show leap smile
@@ -495,6 +513,7 @@ label sum3:
 
     # バッドエンド処理
     if(like < 0):
+        $ renpy.block_rollback()
         $ like_meter = False
         stop music fadeout 1.0
 

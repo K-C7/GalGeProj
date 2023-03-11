@@ -1,28 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 90, in script
-    if isRestart == False:
-  File "game/script.rpy", line 90, in <module>
-    if isRestart == False:
-NameError: name 'isRestart' is not defined
+  File "game/story_opening.rpy", line 409, in script
+    $ config.block_rollback()
+  File "game/story_opening.rpy", line 409, in <module>
+    $ config.block_rollback()
+Exception: config.block_rollback is not a known configuration variable.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 90, in script
-    if isRestart == False:
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 2127, in execute
-    if renpy.python.py_eval(condition):
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1116, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1109, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 90, in <module>
-    if isRestart == False:
-NameError: name 'isRestart' is not defined
+  File "game/story_opening.rpy", line 409, in script
+    $ config.block_rollback()
+  File "I:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 1132, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "I:\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/story_opening.rpy", line 409, in <module>
+    $ config.block_rollback()
+  File "I:\Renpy\renpy-8.0.3-sdk\renpy\defaultstore.py", line 97, in __getattr__
+    raise Exception('config.%s is not a known configuration variable.' % (name))
+Exception: config.block_rollback is not a known configuration variable.
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.1.0.23010208n
 英語ができない俺が縁結び神社に行ったら英単語帳が後輩になった件 5.2b
-Sat Mar 11 14:04:25 2023
+Sat Mar 11 16:35:39 2023

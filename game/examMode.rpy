@@ -31,7 +31,6 @@ label initExamMode:
     show leap normal at leapPos
     play music "audio/leap.mp3" volume 0.05
     $ isReview = False
-    $ config.rollback_enabled = True
 
     jump modeSelect
 
@@ -77,7 +76,7 @@ label rangeSelect:
             else:
                 flag = True
             
-            renpy.block_rollback()
+            renpy.block_rollback() #これがないと稀にバグる
         
         flag = False
         while flag == False:
@@ -88,7 +87,7 @@ label rangeSelect:
             else:
                 flag = True
             
-            renpy.block_rollback()
+            renpy.block_rollback() #これがないと稀にバグる
 
     Me "[minNum]番から[maxNum]番の範囲でお願い。"
 
@@ -163,7 +162,7 @@ label numOfQueSelect: #問題数選択
                     else:
                         flag = True
                     
-                renpy.block_rollback()
+                renpy.block_rollback() #これがないと稀にバグる
 
     Me "[numOfQue]問で。"
 
@@ -208,7 +207,6 @@ label answerWaySelect: #解答形式選択 四択かスペル入力
 
 label exam:
     $ renpy.block_rollback() #これ以前へのロルバの禁止 ズル防止のため
-    
     $ questionNumber = 1 #問題番号の初期化
     $ withHint = False #スペル入力時のヒントの設定の初期化
     if isReview == False: #復習モードでないとき

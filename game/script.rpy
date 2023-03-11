@@ -65,7 +65,6 @@ init:
 label start:
     $ progress = 1 #ストーリーの進行状況
     $ like = 30 #好感度
-    $ config.rollback_enabled = False #ストーリー中のロルバの禁止
 
     scene bg black
 
@@ -84,19 +83,17 @@ label rest:
 
         "いいえ":
             pause 0.0
-
-    $ renpy.block_rollback() #これ以前へのロルバの停止（学習モードに入ってからストーリーをロードするとロルバできてしまうため）
         
     menu:
         "続けますか？"
 
         "はい":
-            $ config.rollback_enabled = False #先述の理由によるロルバの再禁止
-            
             if progress == 2:
                 jump spring
             elif progress == 3:
                 jump summer
+            elif progress == 4:
+                jump fall
             else:
                 "変数\"progress\"の設定がバグってるっぴ！"
                 return
