@@ -161,10 +161,133 @@ label fall1:
     L "二人三脚は協力して勝つ競技です。"
     L "ですからさらに親睦を深めるついでに、一緒にお昼ご飯を食べましょう。"
 
-    Me "おっ、おう。いいよ。どこで食べるの？"
+    Me "おっ、おう、いいよ。どこで食べるの？"
 
     L "どこがいいですか？"
 
-    #menu:
-    #    L "どこがいいですか？"
+    $ passedOkujou = False
+    $ passedKoutei = False
 
+    jump fall1_menu
+
+label fall1_menu:
+    menu:
+        L "どこがいいですか？"
+
+        "屋上" if passedOkujou == False:
+            $ renpy.block_rollback()
+            $ passedOkujou = True
+
+            Me "屋上はどう？。"
+
+            L "いいですね。そこにしましょう。"
+
+            scene bg black
+            with dissolve
+            play sound "audio/walk.mp3" volume 0.05 fadein 1.0
+
+            pause 2.0
+
+            scene bg okujou
+            with dissolve
+            stop sound fadeout 1.0
+            play music "audio/zawazawa.mp3" volume 0.05 fadein 1.0
+
+            L "着きましたね。"
+
+            Me "結構人がいるね。"
+
+            L "こんな青空ですから、皆屋上で食べたいのでしょう。"
+
+            Me "...やっぱり場所を変えない？"
+
+            L "何でですか？"
+
+            Me "いや～こんだけ人が多いと食事に集中できないよ。"
+
+            L "んー、確かにそうですね。場所を変えましょうか。"
+
+            $ like = likeChanger(like, -10)
+
+            jump fall1_menu
+        
+        "校庭" if passedKoutei == False:
+            $ renpy.block_rollback()
+            $ passedKoutei = True
+
+            Me "校庭はどう？"
+
+            L "いいですね。そこにしましょう。"
+
+            scene bg black
+            with dissolve
+            play sound "audio/walk.mp3" volume 0.05 fadein 1.0
+
+            pause 2.0
+
+            scene bg taiikusai
+            with dissolve
+            stop sound fadeout 1.0
+            play music "audio/blow.mp3" volume 0.05 fadein 1.0
+
+            L "着きましたね。"
+            L "体育祭だからか、思ったよりたくさんの人が校庭でご飯を食べてますね。"
+
+            Me "本当だね。"
+            Me "..."
+
+            L "..."
+
+            Me "結構砂がまってるね..."
+
+            L "そうですね..."
+
+            Me "...傘とかテントとかあったりする？"
+
+            L "あると思います？"
+
+            Me "...外はやめようか。"
+
+            $ like = likeChanger(like, -10)
+
+            jump fall1_menu
+        
+        "教室":
+            Me "教室はどう？"
+
+            L "いいですね。そこにしましょう。"
+
+            scene bg black
+            with dissolve
+            play sound "audio/walk.mp3" volume 0.05 fadein 1.0
+
+            pause 2.0
+
+            scene bg classroom day
+            with dissolve
+            stop sound fadeout 1.0
+
+            L "着きましたね。"
+            L "ちょうどよく空き教室があって良かったですね。"
+
+            Me "...勝手に入って大丈夫なの？"
+
+            L "大丈夫ですよ、バレませんて。"
+            L "そんなことよりお昼ご飯を食べましょうよ。"
+
+            Me "まあそうするか。"
+
+            scene bg black
+            with dissolve
+
+            "食事中"
+
+            scene bg classroom day
+            with dissolve
+            play music "audio/leap.mp3" volume 0.05 fadein 1.0
+
+            Me "そういえば、さっき親睦を深めるって言ってたけど、何をするの？"
+
+            L "先輩、二人三脚において私たちに足りないものはなんだと思います？"
+
+            Me "運動能りょ{nw}"
