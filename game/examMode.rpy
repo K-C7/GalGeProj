@@ -208,9 +208,10 @@ label answerWaySelect: #解答形式選択 四択かスペル入力
 
 label exam:
     $ renpy.block_rollback() #これ以前へのロルバの禁止 ズル防止のため
-    $ questionNumber = 1 #問題番号
-    $ withHint = False #スペル入力時にヒントが出ているかどうか 
-    if isReview == False: #復習モードでなければ
+    
+    $ questionNumber = 1 #問題番号の初期化
+    $ withHint = False #スペル入力時のヒントの設定の初期化
+    if isReview == False: #復習モードでないとき
         $ tfList = [0 for i in range(0, numOfQue)] #問題の正誤リストの初期化
         $ leapModule.makeExam(minNum, maxNum, numOfQue) #問題の初期化
     $ optNum = 3 #ここを変えると選択肢を手動で増やす必要アリ、触らないことを勧める
