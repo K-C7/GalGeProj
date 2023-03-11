@@ -278,6 +278,7 @@ label spring1:
     play sound "audio/kirakira.mp3" volume 0.2
     L "英単語テストの時間ですよ！"
     show leap normal
+    stop sound
     L "先輩があれからどれくらい英語を勉強したのか確かめないとですね。"
     L "じゃあ始めますよ。"
 

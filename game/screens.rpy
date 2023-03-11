@@ -260,6 +260,7 @@ screen quick_menu():
             # textbutton _("Q.ロード") action QuickLoad()
             textbutton _("設定") action ShowMenu('preferences')
 
+# 好感度のメーター（ハート）を表示する
 screen like_meter():
 
     zorder 100
@@ -282,9 +283,18 @@ screen like_meter():
                 heartImage = "heart6.png"
 
         add heartImage align (heartImageAlignX, heartImageAlignY) zoom heartImageSize
-        text "[like]" size heartTextSize color "#FFFFFF":
-            at transform:
-                align (heartTextAlignX, heartTextAlignY) alpha 1.0
+        if 0 <= like < 10:
+            text "[like]" size heartTextSize color "#FFFFFF":
+                at transform:
+                    align (heartTextAlignX+oneDigitGosa, heartTextAlignY) alpha 1.0
+        elif like == 100:
+            text "[like]" size heartTextSize color "#FFFFFF":
+                at transform:
+                    align (heartTextAlignX-oneDigitGosa, heartTextAlignY) alpha 1.0
+        else:
+            text "[like]" size heartTextSize color "#FFFFFF":
+                at transform:
+                    align (heartTextAlignX, heartTextAlignY) alpha 1.0
 
 ## 次のコードは、プレイヤーが明示的にインターフェースを隠さない限り quick_menu
 ## スクリーンが常にゲーム中に表示されるようにしています。
@@ -330,6 +340,8 @@ screen navigation():
 
             textbutton _("つづきから") action ShowMenu("load")
 
+            textbutton _("学習モード") action Start("initExamMode")
+
         else:
 
             # textbutton _("セーブ") action ShowMenu("save")
@@ -337,8 +349,6 @@ screen navigation():
             textbutton _("ロード") action ShowMenu("load")
 
             textbutton _("ヒストリー") action ShowMenu("history")
-
-        textbutton _("学習モード") action Start("initExamMode")
 
         textbutton _("設定") action ShowMenu("preferences")
 

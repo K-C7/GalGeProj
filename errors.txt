@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 628: expected a keyword argument or end of line.
-    zorder = 0
-           ^
+File "game/screens.rpy", line 289: Line is indented, but the preceding ATL statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    align (heartTextAlignX+0.01, heartTextAlignY) alpha 1.0
+    ^
 
 Ren'Py Version: Ren'Py 8.1.0.23010208n
-Sat Mar 11 01:16:50 2023
+Sat Mar 11 13:49:15 2023
