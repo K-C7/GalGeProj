@@ -14,7 +14,7 @@ define Fri = Character("Leapの友人", color="#080808") #色は未定
 define Man = Character("男", color="#b8af3b") #色は未定
 
 $ zakoName = ""
-$ Zako = DynamicCharacter("zakoName", color(0,0,0,0))
+define Zako = DynamicCharacter("zakoName", color="#080808")
 
 init:
     $ import module.leapModule as leapModule
@@ -72,7 +72,7 @@ label start:
     scene bg black
 
     # jump opening
-    jump autumn_bad
+    jump fall_bad
 
 
 label rest:
