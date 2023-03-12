@@ -71,8 +71,7 @@ label start:
 
     scene bg black
 
-    # jump opening
-    jump fall_bad
+    jump opening
 
 
 label rest:
