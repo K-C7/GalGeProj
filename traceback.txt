@@ -1,72 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/story_opening.rpy", line 435, in script
-    L "わぁ、本当に英語が苦手なんですね。"
-  File "game/screens.rpy", line 263, in execute
-    screen like_meter():
-  File "game/screens.rpy", line 263, in execute
-    screen like_meter():
-  File "game/screens.rpy", line 267, in execute
-    if like_meter:
-  File "game/screens.rpy", line 269, in execute
-    add "heart.png" align (heartImageAlign) zoom heartImageSize
-  File "game/screens.rpy", line 269, in keywords
-    add "heart.png" align (heartImageAlign) zoom heartImageSize
-  File "game/screens.rpy", line 269, in <module>
-    add "heart.png" align (heartImageAlign) zoom heartImageSize
-NameError: name 'heartImageAlign' is not defined
+  File "game/story_opening.rpy", line 409, in script
+    $ config.block_rollback()
+  File "game/story_opening.rpy", line 409, in <module>
+    $ config.block_rollback()
+Exception: config.block_rollback is not a known configuration variable.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/story_opening.rpy", line 435, in script
-    L "わぁ、本当に英語が苦手なんですね。"
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 923, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\exports.py", line 1464, in say
-    who(what, *args, **kwargs)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\character.py", line 1317, in __call__
-    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\character.py", line 975, in do_display
-    display_say(who,
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\character.py", line 665, in display_say
-    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\ui.py", line 299, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 3435, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 3865, in interact_core
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 587, in visit_all
-    d.visit_all(callback, seen)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 587, in visit_all
-    d.visit_all(callback, seen)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 587, in visit_all
-    d.visit_all(callback, seen)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\screen.py", line 451, in visit_all
-    callback(self)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 3865, in <lambda>
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\screen.py", line 462, in per_interact
-    self.update()
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\display\screen.py", line 653, in update
-    self.screen.function(**self.scope)
-  File "game/screens.rpy", line 263, in execute
-    screen like_meter():
-  File "game/screens.rpy", line 263, in execute
-    screen like_meter():
-  File "game/screens.rpy", line 267, in execute
-    if like_meter:
-  File "game/screens.rpy", line 269, in execute
-    add "heart.png" align (heartImageAlign) zoom heartImageSize
-  File "game/screens.rpy", line 269, in keywords
-    add "heart.png" align (heartImageAlign) zoom heartImageSize
-  File "game/screens.rpy", line 269, in <module>
-    add "heart.png" align (heartImageAlign) zoom heartImageSize
-NameError: name 'heartImageAlign' is not defined
+  File "game/story_opening.rpy", line 409, in script
+    $ config.block_rollback()
+  File "I:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 1132, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "I:\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/story_opening.rpy", line 409, in <module>
+    $ config.block_rollback()
+  File "I:\Renpy\renpy-8.0.3-sdk\renpy\defaultstore.py", line 97, in __getattr__
+    raise Exception('config.%s is not a known configuration variable.' % (name))
+Exception: config.block_rollback is not a known configuration variable.
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.1.0.23010208n
 英語ができない俺が縁結び神社に行ったら英単語帳が後輩になった件 5.2b
-Fri Mar 10 19:58:59 2023
+Sat Mar 11 16:35:39 2023

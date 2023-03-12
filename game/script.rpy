@@ -1,5 +1,6 @@
 ﻿define config.has_quicksave = False
 define config.has_autosave = False
+define _game_menu_screen = 'load'
 
 define L = Character('Leap', color="#26aa5d")
 define Me = Character('自分', color="#000000")
@@ -13,20 +14,21 @@ define Fri = Character("Leapの友人", color="#080808") #色は未定
 define Man = Character("男", color="#b8af3b") #色は未定
 
 init:
-    $ import time
     $ import module.leapModule as leapModule
 
     python:
-        
-
         LEAP_PATH = config.basedir + r"\game\module\leap.csv"
         #LEAP_PATH = "/game/module/leap.csv"
         leapModule.leapPathSet(LEAP_PATH)
-
-        def likeChanger(deltaLike):
+    
+    # 好感度を上下させる関数
+    python:
+        def likeChanger(like, deltaLike):
             like += deltaLike
             if like > 100:
                 like = 100
+                        
+            return like
 
     image bg classroom evening = im.Scale("bg classroom evening notrim.jpg", 1280, 720)
     image leap normal = im.Scale("leap normal.png", 800, 1600)
@@ -50,24 +52,28 @@ init:
         "bg black.png"
         pause 2.0
 
-    define leapPos = Position(xancor=0.0, ypos=2.15)
-    define heartImageAlignX = 0.02
-    define heartImageAlignY = 0.05
-    define heartImageSize = 0.3
-    define heartTextAlignX = 0.045
-    define heartTextAlignY = 0.09
-    define heartTextSize = 40
+    define leapPos = Position(xancor=0.0, ypos=2.15) #Leapちゃんの位置
+    # 以下の位置は0以上1以下
+    define heartImageAlignX = 0.02 #好感度のハートのx位置
+    define heartImageAlignY = 0.05 #好感度のハートのy位置
+    define heartImageSize = 0.3 #好感度のハートの大きさ
+    define heartTextAlignX = 0.045 #好感度のテキストのx位置
+    define oneDigitGosa = 0.008 #好感度のテキストが一桁の時にずれる誤差
+    define heartTextAlignY = 0.09 #好感度のテキストのy位置
+    define heartTextSize = 40 #好感度のテキストの大きさ
 
+label start:
     $ progress = 1 #ストーリーの進行状況
     $ like = 30 #好感度
 
-label start:
     scene bg black
 
     jump opening
 
+
 label rest:
-    $ progress += 1
+    $ progress += 1 #ストーリーの進行度増加
+    $ like_meter = False #好感度の非表示化
     
     menu:
         "セーブしますか？"
@@ -76,8 +82,8 @@ label rest:
             $ renpy.call_screen("save")
 
         "いいえ":
-            pause 0
-
+            pause 0.0
+        
     menu:
         "続けますか？"
 
@@ -86,15 +92,16 @@ label rest:
                 jump spring
             elif progress == 3:
                 jump summer
+            elif progress == 4:
+                jump fall
             else:
                 "変数\"progress\"の設定がバグってるっぴ！"
-
                 return
-        
+            
         "いいえ":
             "お疲れさまでした。タイトル画面に戻ります。"
-
             return
+        
 
 label badEnd_call:
     scene bg black
@@ -120,6 +127,7 @@ label badEnd_call:
     pause 2.0
 
     return
+
 
 label exit:
     return

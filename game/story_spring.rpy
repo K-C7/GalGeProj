@@ -1,4 +1,6 @@
 label spring:
+    $ like_meter = True
+
     jump spring1
 
 label spring1:
@@ -32,21 +34,25 @@ label spring1:
     Me "わぁ、ビックリした。"
     Me "あれ、君は確か..."
     menu:
-        "あれ、君は確か..."
+        Me "あれ、君は確か..."
 
         "Leapちゃん":
+            $ renpy.block_rollback()
+
             Me "Leapちゃんだよね。"
             
-            $ likeChanger(5)
+            $ like = likeChanger(like, 5)
             show leap smile
             L "あっ、はいそうです。覚えてくれたんですね。"
 
             show leap normal
         
         "Brightstageちゃん":
+            $ renpy.block_rollback()
+
             Me "Brightstageちゃんだよね。"
             
-            $ likeChanger(-10)
+            $ like = likeChanger(like, -10)
             show leap question
             play sound "audio/konwaku.mp3" volume 0.5
             Ano "違いますよ。私の名前を忘れたんですか。"
@@ -54,9 +60,11 @@ label spring1:
             L "私の名前はLeap\nエル　イー　エー　ピー　Leapですよ！"
         
         "新明説漢文ちゃん":
+            $ renpy.block_rollback()
+
             Me "新明説漢文ちゃんだよね。"
 
-            $ likeChanger(-20)
+            $ like = likeChanger(like, -20)
             show leap question
             play sound "audio/konwaku.mp3" volume 0.5
             Ano "違いますよ。ていうかそれまったく英語じゃないじゃないですか。"
@@ -67,7 +75,11 @@ label spring1:
     L "その、ちょっと用事がありまして..."
 
     menu:
+        L "その、ちょっと用事がありまして..."
+
         "用事って？":
+            $ renpy.block_rollback()
+
             Me "用事って？"
 
             L "友達に勉強を教えてまして。"
@@ -79,7 +91,7 @@ label spring1:
 
             Me "ごめんって。でも英語なんでしょ？"
 
-            $ likeChanger(5)
+            $ like = likeChanger(like, 5)
             L "まあそうですけど..."
 
             Me "..."
@@ -87,15 +99,17 @@ label spring1:
             L "..."
         
         "遅刻とは感心しないな":
+            $ renpy.block_rollback()
+
             Me "遅刻とは感心しないな。"
 
-            $ likeChanger(-15)
+            $ like = likeChanger(like, -15)
             show leap question
             L "すみません..."
 
             Me "許す。"
 
-            $ likeChanger(5)
+            $ like = likeChanger(like, 5)
             show leap normal
             L "あ、意外とあっさり許してくれるんですね。"
 
@@ -108,6 +122,8 @@ label spring1:
             L "そうなんですね。"
 
         "君がもう一人の当番？":
+            $ renpy.block_rollback()
+
             Me "君がもう一人の当番？"
 
             L "あっはいそうです。"
@@ -115,7 +131,7 @@ label spring1:
 
             Me "あれ？そうだっけ？"
 
-            $ likeChanger(-20)
+            $ like = likeChanger(like, -20)
             show leap question
             play sound "audio/konwaku.mp3" volume 0.5
             L "...先輩？"
@@ -184,9 +200,11 @@ label spring1:
     Me "（ここは責任をもってなんか話題を振らないと。）"
     Me "そういえば、"
     menu:
-        "そういえば、"
+        Me "そういえば、"
 
         "君は何で図書委員になったの？":
+            $ renpy.block_rollback()
+
             Me "君は何で図書委員になったの？"
 
             show leap question
@@ -205,7 +223,7 @@ label spring1:
 
             Me "じゃんけんで負けたから。"
 
-            $ likeChanger(-10)
+            $ like = likeChanger(like, -10)
             show leap question
             L "..."
 
@@ -214,9 +232,11 @@ label spring1:
             show leap normal
         
         "本は好き？":
+            $ renpy.block_rollback()
+
             Me "本は好き？"
 
-            $ likeChanger(5)
+            $ like = likeChanger(like, 5)
             L "本ですか？まあまあ好きですよ。"
 
             Me "へえ、そうなんだ。ジャンルとかは？"
@@ -276,6 +296,7 @@ label spring1:
     play sound "audio/kirakira.mp3" volume 0.2
     L "英単語テストの時間ですよ！"
     show leap normal
+    stop sound
     L "先輩があれからどれくらい英語を勉強したのか確かめないとですね。"
     L "じゃあ始めますよ。"
 
@@ -284,7 +305,8 @@ label spring1:
 label spring2:
     play music "audio/leap.mp3" volume 0.05
     if 0 <= sumT <= 3:
-        $ likeChanger(-15)
+        $ renpy.block_rollback()
+        $ like = likeChanger(like, -15)
 
         show leap question
         L "先輩..."
@@ -304,7 +326,8 @@ label spring2:
         show leap normal
 
     elif 4 <= sumT <= 7:
-        $ likeChanger(5)
+        $ renpy.block_rollback()
+        $ like = likeChanger(like, 5)
 
         show leap normal
         L "及第点って感じですね。"
@@ -318,7 +341,8 @@ label spring2:
         Me "精進いたします。"
     
     elif 8 <= sumT <= 10:
-        $ likeChanger(15)
+        $ renpy.block_rollback()
+        $ like = likeChanger(like, 15)
 
         show leap normal
         L "ちゃんとできてるじゃないですか。"
@@ -366,11 +390,13 @@ label normalEndSpring:
     L "先輩も英単語テストできて良かったですよね？"
 
     menu:
+        L "先輩も英単語テストできて良かったですよね？"
+
         "もちろん":
             Me "もちろん。"
             Me "次があったらまたよろしく頼むよ。"
         
-    $ likeChanger(5)
+    $ like = likeChanger(like, 5)
     L "こちらこそよろしくお願いします。"
     L "なにげに問題出すほうも楽しいですしね。"
 
@@ -387,6 +413,8 @@ label normalEndSpring:
     jump rest
 
 label badEndSpring:
+    $ renpy.block_rollback()
+    $ like_meter = False
     stop music
 
     Me "そうこうしてるうちにもう時間になったな。"

@@ -1,0 +1,293 @@
+label fall:
+    jump fall1
+
+
+label fall1:
+    scene bg black
+
+    "夏休みが明けてから数か月、今日は待ちに待った体育祭。"
+    "学年を超えて交流し、それぞれのチームが切磋琢磨して優勝を狙っていく。"
+    "そんな日に、一人乗り気じゃない男がいた..."
+
+    scene bg taiikusai
+    with dissolve
+
+    Me "あ～あ、体育祭かぁ..."
+    Me "なんで体育祭なんてあるんだよ、どうせ活躍できるのは陽キャだけなのに。"
+    Me "毎年戦犯かましてる俺みたいな奴にスポットライトは当たりはしないよ。"
+    Me "やってらんないZE☆"
+
+    "そう、この男は運動音痴なのである。"
+
+    Me "まぁ、今年こそは戦犯にならないために頑張らないとなぁ。"
+    Me "そういえば、俺の出る競技ってなんだっけ。えーっと..."
+    Me "午前中は徒競走で、午後は二人三脚か。"
+    Me "徒競走はビリ確定として、二人三脚か。ぺアの足を引っ張らないようにしないと。"
+    Me "{size=*0.8}...二人三脚だけに。{/size}"
+
+    "おまけにギャグのセンスも壊滅的である。"
+
+    Me "てか、俺のペアって誰なんだろう。"
+    Me "この二人三脚、学年混合なんだよなぁ。初めて会う人と組むとか正気の沙汰じゃねぇ。そして何より気まずい。"
+    Me "確か午後の競技の詳細は体育館前の掲示板で発表されるんだったな。"
+    Me "二人三脚のペアもそこで分かるのかな。発表の時間までもう少しだし、確認しに行くか。"
+
+    scene bg black
+    with dissolve
+
+    scene bg keijiban
+    with dissolve
+    play music "audio/zawazawa.mp3" volume 0.05 fadein 1.0
+
+    Me "掲示板の前は人が多いな。みんな確認しに来てるのかな。"
+
+    show leap silhouette at leapPos
+    with dissolve
+    stop music fadeout 1.0
+
+    Me "ん...？あれは..."
+
+    show leap normal
+    with dissolve
+
+    Me "Leapちゃん！？"
+
+    play music "leap.mp3" volume 0.05
+    
+    L "あっ！先輩！"
+    L "どうしたんですか？"
+
+    Me "二人三脚に出るから、ペアを確認しに来たんだ。"
+
+    L "奇遇ですね。私も二人三脚に出るので確認に来たんですよ。"
+    L "ところで、先輩は何チームなんですか？"
+
+    Me "赤い彗星チームだよ。Leapちゃんは？"
+
+    L "私も同じです！頑張りましょうね！"
+
+    Me "う、うん。頑張ろうね。"
+    Me "（Leapちゃんと同じチームだったのか...これは戦犯とか言ってる場合じゃないな。頑張ろう。）"
+
+    L "だけどペア表が張り出されるのはもう少しかかるみたいですね。"
+
+    Me "そっかー、まぁ待つしかないか。"
+
+    L "もしかしたら同じペアかもしれませんね。"
+
+    menu:
+        L "もしかしたら同じペアかもしれませんね。"
+
+        "そうだったら嬉しいな":
+            $ renpy.block_rollback()
+
+            Me "そうだったら嬉しいな。"
+            Me "俺、あんまり友達いないからさ。Leapちゃんがペアだったらすごい助かるよ。"
+
+            L "そう言ってもらえるのは嬉しいですけど、先輩友達いないんですか？"
+
+            Me "ぐぅ..."
+
+            L "そういえば先輩は部活入ってませんもんね。"
+
+            Me "部活入ったからってできるもんじゃないぞ。"
+
+            L "私はいますよ。"
+
+            Me "..."
+
+            $ likeChanger(-10)
+            L "なんかすみません。"
+
+        "めったなこと言うんじゃない":
+            $ renpy.block_rollback()
+
+            Me "めったなこと言うんじゃない！"
+
+            $ likeChanger(-5)
+            L "何でですか！"
+
+            Me "俺は協調性がない。"
+            Me "..."
+            Me "こういう協力する競技は苦手なんだ、ごめんね。"
+
+            $ likeChanger(15)
+            L "そんなことないですよ、先輩は優しい人ですよ！"
+
+            Me "うぅ...ありがとう..."
+    
+    L "あっ、紙が張り出されましたよ。"
+
+    Me "ほんとだ。えーっと、俺の名前は...お、あったあった。"
+    Me "で、ペアは..."
+    Me "！？"
+
+    # あとで背景をペア表に変えるそうです
+
+    Me "Leap...ちゃん..."
+
+    L "...どうやら本当にペアみたいですね。よろしくお願いします、先輩！"
+
+    Me "よっ、よろしく。"
+    Me "（こんな偶然ってあるんだな...）"
+
+    L "二人三脚は午後からでしたよね。一緒に頑張りましょうね！"
+
+    Me "う、うん。"
+
+    scene bg black
+    with dissolve
+
+    "そこで二人は別れた。"
+    "そして、午前競技が始まって数時間後..."
+
+    Me "は～、結局徒競走はビリだったな。"
+    Me "午前中の俺が出る競技はもう終わったな、ていうか午前競技自体がもう終わりか。"
+    Me "教室に戻って昼飯でも食べよう。"
+
+    L "あっ先輩～"
+
+    Me "あ、Leapちゃん。"
+
+    L "さっきの徒競走見てましたよ。"
+    L "ビリでしたね。"
+
+    Me "うるさいやい。"
+
+    L "だけど大丈夫ですよ。二人三脚では重要なのはスピードだけじゃないですから。"
+
+    Me "と、言いますと？"
+
+    L "二人三脚は協力して勝つ競技です。"
+    L "ですからさらに親睦を深めるついでに、一緒にお昼ご飯を食べましょう。"
+
+    Me "おっ、おう、いいよ。どこで食べるの？"
+
+    L "どこがいいですか？"
+
+    $ passedOkujou = False
+    $ passedKoutei = False
+
+    jump fall1_menu
+
+label fall1_menu:
+    menu:
+        L "どこがいいですか？"
+
+        "屋上" if passedOkujou == False:
+            $ renpy.block_rollback()
+            $ passedOkujou = True
+
+            Me "屋上はどう？。"
+
+            L "いいですね。そこにしましょう。"
+
+            scene bg black
+            with dissolve
+            play sound "audio/walk.mp3" volume 0.05 fadein 1.0
+
+            pause 2.0
+
+            scene bg okujou
+            with dissolve
+            stop sound fadeout 1.0
+            play music "audio/zawazawa.mp3" volume 0.05 fadein 1.0
+
+            L "着きましたね。"
+
+            Me "結構人がいるね。"
+
+            L "こんな青空ですから、皆屋上で食べたいのでしょう。"
+
+            Me "...やっぱり場所を変えない？"
+
+            L "何でですか？"
+
+            Me "いや～こんだけ人が多いと食事に集中できないよ。"
+
+            L "んー、確かにそうですね。場所を変えましょうか。"
+
+            $ like = likeChanger(like, -10)
+
+            jump fall1_menu
+        
+        "校庭" if passedKoutei == False:
+            $ renpy.block_rollback()
+            $ passedKoutei = True
+
+            Me "校庭はどう？"
+
+            L "いいですね。そこにしましょう。"
+
+            scene bg black
+            with dissolve
+            play sound "audio/walk.mp3" volume 0.05 fadein 1.0
+
+            pause 2.0
+
+            scene bg taiikusai
+            with dissolve
+            stop sound fadeout 1.0
+            play music "audio/blow.mp3" volume 0.05 fadein 1.0
+
+            L "着きましたね。"
+            L "体育祭だからか、思ったよりたくさんの人が校庭でご飯を食べてますね。"
+
+            Me "本当だね。"
+            Me "..."
+
+            L "..."
+
+            Me "結構砂がまってるね..."
+
+            L "そうですね..."
+
+            Me "...傘とかテントとかあったりする？"
+
+            L "あると思います？"
+
+            Me "...外はやめようか。"
+
+            $ like = likeChanger(like, -10)
+
+            jump fall1_menu
+        
+        "教室":
+            Me "教室はどう？"
+
+            L "いいですね。そこにしましょう。"
+
+            scene bg black
+            with dissolve
+            play sound "audio/walk.mp3" volume 0.05 fadein 1.0
+
+            pause 2.0
+
+            scene bg classroom day
+            with dissolve
+            stop sound fadeout 1.0
+
+            L "着きましたね。"
+            L "ちょうどよく空き教室があって良かったですね。"
+
+            Me "...勝手に入って大丈夫なの？"
+
+            L "大丈夫ですよ、バレませんて。"
+            L "そんなことよりお昼ご飯を食べましょうよ。"
+
+            Me "まあそうするか。"
+
+            scene bg black
+            with dissolve
+
+            "食事中"
+
+            scene bg classroom day
+            with dissolve
+            play music "audio/leap.mp3" volume 0.05 fadein 1.0
+
+            Me "そういえば、さっき親睦を深めるって言ってたけど、何をするの？"
+
+            L "先輩、二人三脚において私たちに足りないものはなんだと思います？"
+
+            Me "運動能りょ{nw}"
