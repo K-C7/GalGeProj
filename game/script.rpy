@@ -71,7 +71,10 @@ label start:
 
     scene bg black
 
-    jump opening
+    # jump opening
+
+    $ like_meter = True
+    jump fall
 
 
 label rest:
