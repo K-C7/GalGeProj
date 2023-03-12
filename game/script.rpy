@@ -43,6 +43,8 @@ init:
     image leap question_mark = im.Scale("leap question_mark.png", 800, 1600)
     image bg seahouse = im.Scale("bg seahouse.jpg", 1280, 720)
     image bg sea = im.Scale("bg sea.jpg", 1280, 720)
+    image bg taiikusai = im.Scale("bg taiikusai.png", 1280, 720)
+    image bg taiikusai mono = im.Scale("bg taiikusai mono.png", 1280, 720)
     image openingVideo:
         "opening-0001.jpg"
         pause 2.0

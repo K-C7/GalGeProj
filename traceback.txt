@@ -1,22 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/story_fall.rpy", line 499, in script
-    Zako1 "第〇レースは星の白銀チームの勝利でした。次のレースのペアは準備を始めてください。"
-Exception: Sayer 'Zako1' is not defined.
+  File "game/story_autumn.rpy", line 13, in script
+    Zako 'では、位置について'
+Exception: Sayer 'Zako' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/story_fall.rpy", line 499, in script
-    Zako1 "第〇レースは星の白銀チームの勝利でした。次のレースのペアは準備を始めてください。"
+  File "game/story_autumn.rpy", line 13, in script
+    Zako 'では、位置について'
   File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 883, in execute
     who = eval_who(self.who, self.who_fast)
   File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 776, in eval_who
     raise Exception("Sayer '%s' is not defined." % who)
-Exception: Sayer 'Zako1' is not defined.
+Exception: Sayer 'Zako' is not defined.
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.1.0.23010208n
 英語ができない俺が縁結び神社に行ったら英単語帳が後輩になった件 5.2b
-Mon Mar 13 01:53:22 2023
+Mon Mar 13 02:00:46 2023
