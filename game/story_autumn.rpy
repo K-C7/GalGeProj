@@ -1,4 +1,4 @@
-label autumn_bad:
+label fall_bad:
 L 'じゃあスタート位置につきましょうか'
 
 # 背景：校庭（トラック）

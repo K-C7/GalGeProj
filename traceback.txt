@@ -1,28 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/story_opening.rpy", line 409, in script
-    $ config.block_rollback()
-  File "game/story_opening.rpy", line 409, in <module>
-    $ config.block_rollback()
-Exception: config.block_rollback is not a known configuration variable.
+  File "game/story_autumn.rpy", line 10, in script
+    Zako 'では、位置について'
+Exception: Sayer 'Zako' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/story_opening.rpy", line 409, in script
-    $ config.block_rollback()
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 1132, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/story_opening.rpy", line 409, in <module>
-    $ config.block_rollback()
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\defaultstore.py", line 97, in __getattr__
-    raise Exception('config.%s is not a known configuration variable.' % (name))
-Exception: config.block_rollback is not a known configuration variable.
+  File "game/story_autumn.rpy", line 10, in script
+    Zako 'では、位置について'
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 883, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 776, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who)
+Exception: Sayer 'Zako' is not defined.
 
-Windows-10-10.0.22621 AMD64
+Windows-10-10.0.19045 AMD64
 Ren'Py 8.1.0.23010208n
 英語ができない俺が縁結び神社に行ったら英単語帳が後輩になった件 5.2b
-Sat Mar 11 16:35:39 2023
+Mon Mar 13 00:03:58 2023
