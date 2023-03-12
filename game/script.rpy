@@ -13,8 +13,10 @@ define Kyaku = Character("客", color="#070707") #色は未定
 define Fri = Character("Leapの友人", color="#080808") #色は未定
 define Man = Character("男", color="#b8af3b") #色は未定
 
-$ zakoName = ""
-define Zako = DynamicCharacter("zakoName", color="#080808")
+$ zako1Name = ""
+define Zako1 = DynamicCharacter("zako1Name", color="#080808")
+$ zako2Name = ""
+define Zako2 = DynamicCharacter("zako2Name", color="#080808")
 
 init:
     $ import module.leapModule as leapModule
