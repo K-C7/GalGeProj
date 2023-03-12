@@ -1,6 +1,7 @@
+# ハートの輪郭
+
 label fall:
     jump fall1
-
 
 label fall1:
     scene bg black
@@ -15,7 +16,7 @@ label fall1:
     Me "あ～あ、体育祭かぁ..."
     Me "なんで体育祭なんてあるんだよ、どうせ活躍できるのは陽キャだけなのに。"
     Me "毎年戦犯かましてる俺みたいな奴にスポットライトは当たりはしないよ。"
-    Me "やってらんないZE☆"
+    Me "やってらんないZE!"
 
     "そう、この男は運動音痴なのである。"
 
@@ -52,7 +53,7 @@ label fall1:
 
     Me "Leapちゃん！？"
 
-    play music "leap.mp3" volume 0.05
+    play music "audio/leap.mp3" volume 0.05
     
     L "あっ！先輩！"
     L "どうしたんですか？"
@@ -64,11 +65,13 @@ label fall1:
 
     Me "赤い彗星チームだよ。Leapちゃんは？"
 
+    show leap smile at leapPos
     L "私も同じです！頑張りましょうね！"
 
     Me "う、うん。頑張ろうね。"
     Me "（Leapちゃんと同じチームだったのか...これは戦犯とか言ってる場合じゃないな。頑張ろう。）"
 
+    show leap normal at leapPos
     L "だけどペア表が張り出されるのはもう少しかかるみたいですね。"
 
     Me "そっかー、まぁ待つしかないか。"
@@ -96,7 +99,8 @@ label fall1:
 
             Me "..."
 
-            $ likeChanger(-10)
+            show leap question at leapPos
+            $ like = likeChanger(like, -10)
             L "なんかすみません。"
 
         "めったなこと言うんじゃない":
@@ -104,18 +108,20 @@ label fall1:
 
             Me "めったなこと言うんじゃない！"
 
-            $ likeChanger(-5)
+            $ like = likeChanger(like, -5)
             L "何でですか！"
 
             Me "俺は協調性がない。"
             Me "..."
             Me "こういう協力する競技は苦手なんだ、ごめんね。"
 
-            $ likeChanger(15)
+            show leap smile at leapPos
+            $ like = likeChanger(like, 15)
             L "そんなことないですよ、先輩は優しい人ですよ！"
 
             Me "うぅ...ありがとう..."
     
+    show leap normal at leapPos
     L "あっ、紙が張り出されましたよ。"
 
     Me "ほんとだ。えーっと、俺の名前は...お、あったあった。"
@@ -126,6 +132,7 @@ label fall1:
 
     Me "Leap...ちゃん..."
 
+    show leap smile at leapPos
     L "...どうやら本当にペアみたいですね。よろしくお願いします、先輩！"
 
     Me "よっ、よろしく。"
