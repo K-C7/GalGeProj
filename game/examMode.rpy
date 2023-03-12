@@ -18,11 +18,14 @@ label testPrepare:
         $ minNum = 201
         $ maxNum = 300
         $ numOfQue = 10
+    elif progress == 4:
+        $ minNum = 301
+        $ maxNum = 400
+        $ numOfQue = 10
     else:
         $ minNum = 1
         $ maxNum = 100
         $ numOfQue = 10
-        #あとでいじってください
 
     jump exam
 
@@ -383,7 +386,13 @@ label endSelect:
         elif progress == 3:
             stop music
             jump sum3
-    
+        elif progress == 4:
+            stop music
+            jump fall3
+        else:
+            "変数\"progress\"がバグってるっぴ！"
+
+            return
 
     else:
         L "変数\"mode\"がバグってるっぴ！"

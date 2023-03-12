@@ -257,37 +257,285 @@ label fall1_menu:
 
             L "いいですね。そこにしましょう。"
 
-            scene bg black
-            with dissolve
-            play sound "audio/walk.mp3" volume 0.05 fadein 1.0
+            jump fall2
 
-            pause 2.0
+label fall2:
+    scene bg black
+    with dissolve
+    play sound "audio/walk.mp3" volume 0.05 fadein 1.0
 
-            scene bg classroom day
-            with dissolve
-            stop sound fadeout 1.0
+    pause 2.0
 
-            L "着きましたね。"
-            L "ちょうどよく空き教室があって良かったですね。"
+    scene bg classroom day
+    with dissolve
+    stop sound fadeout 1.0
 
-            Me "...勝手に入って大丈夫なの？"
+    L "着きましたね。"
+    L "ちょうどよく空き教室があって良かったですね。"
 
-            L "大丈夫ですよ、バレませんて。"
-            L "そんなことよりお昼ご飯を食べましょうよ。"
+    Me "...勝手に入って大丈夫なの？"
 
-            Me "まあそうするか。"
+    L "大丈夫ですよ、バレませんて。"
+    L "そんなことよりお昼ご飯を食べましょうよ。"
 
-            scene bg black
-            with dissolve
+    Me "まあそうするか。"
 
-            "食事中"
+    scene bg black
+    with dissolve
 
-            scene bg classroom day
-            with dissolve
-            play music "audio/leap.mp3" volume 0.05 fadein 1.0
+    "食事中"
 
-            Me "そういえば、さっき親睦を深めるって言ってたけど、何をするの？"
+    scene bg classroom day
+    with dissolve
+    play music "audio/leap.mp3" volume 0.05 fadein 1.0
 
-            L "先輩、二人三脚において私たちに足りないものはなんだと思います？"
+    Me "そういえば、さっき親睦を深めるって言ってたけど、何をするの？"
 
-            Me "運動能りょ{nw}"
+    L "先輩、二人三脚において私たちに足りないものはなんだと思います？"
+
+    Me "運動能りょ{nw}"
+
+    play sound "audio/thunder.mp3" volume 0.05
+    L "{size=*2.0}違う{/size}"
+    L "二人三脚において私たちに足りないものは、{p}{size=*2.0}情熱、思想、理念、頭脳、気品、優雅さ、勤勉さ！{/size}"
+    play sound "audio/thunder.mp3" volume 0.05
+    L "そして何よりもーー{w=1.5}絆が足りない！"
+
+    Me "絆～？"
+    Me "絆って何をするんだよ。"
+
+    L "先輩～、もううすうす感づいてるんじゃないんですか？"
+
+    Me "まさか..."
+
+    $ passedDoping = False
+    $ passedNinin = False
+    
+label fall2_menu:
+    menu:
+        Me "まさか..."
+
+        "ドーピング" if passedDoping == False:
+            $ renpy.block_rollback()
+
+            L "そんなわけないじゃないですか、めったなこと言わないでください。"
+            $ like = likeChanger(like, -20)
+            L "ふざけてるんですか？"
+        
+            Me "ごっごめんよ。"
+
+            jump fall1_menu      
+
+        "二人三脚の練習" if passedNinin == False:
+            $ renpy.block_rollback()
+
+            L "ううぅぅ、そうだけどそうじゃない..."
+            
+            Me "俺らが次やる競技は二人三脚なんだろ。"
+            Me "練習しなきゃ。"
+
+            $ like = likeChanger(like, -10)
+            L "言ってることはごもっともだけど、ほらもっとあるじゃないですか。"
+            L "私たちの絆を高めるものが。ね？"
+
+            Me "そうだな..."
+
+            jump fall2_menu
+        
+        "英単語テスト":
+            $ renpy.block_rollback()
+
+            L "Exactly.その通りでございます。"
+            L "私たちが出会った原点、英単語テストのために頑張ってきた思い出。"
+            L "英単語テストは私たちの絆そのものですよ。"
+        
+            Me "なる...ほど？"
+
+            L "では、私たちの絆を試すためにも行きますよ。"
+
+            Me "はいはいわかったよ。"
+
+            jump testPrepare
+        
+label fall3:
+    if 0 <= sumT <= 3:
+        $ renpy.block_rollback()
+        $ like = likeChanger(like, -15)
+
+        L "..."
+
+        Me "..."
+
+        L "先輩..."
+
+        Me "何でしょうか..."
+
+        L "...やっぱ何でもないです。"
+
+        Me "..."
+
+        L "..."
+
+    if 4 <= sumT <= 7:
+        $ renpy.block_rollback()
+        $ like = likeChanger(like, 5)
+
+        L "まあまあですね。"
+
+        Me "頑張ったんだけどなぁ。"
+
+        L "だけど先輩ならもっといけます！"
+        L "その調子で頑張りましょう！"
+
+        Me "OK."
+
+    if 8 <= sumT <= 10:
+        $ renpy.block_rollback()
+        $ like = likeChanger(like, 15)
+
+        L "すごいです先輩！"
+
+        Me "まあね。"
+
+        L "私たちの絆も深まったことですし、{p}これで二人三脚も一位間違いなしですね！"
+
+        Me "ああ、一緒に頑張ろう。"
+
+    scene bg black
+    with dissolve
+
+    "そして、昼休みも終わり、午後の部が始まった。"
+    "多くの生徒が競技に熱を入れ、歓声であふれる中、"
+    "やっと二人三脚が始まった。"
+
+    scene bg taiikusai
+    with dissolve
+
+    L "もう少しで私たちの番ですね。"
+
+    Me "そ、そうだね。"
+
+    L "先輩？もしかして緊張してます？"
+
+    menu:
+        L "先輩？もしかして緊張してます？"
+
+        "別に緊張してないし":
+            $ renpy.block_rollback()
+
+            Me "別に緊張してないし。"
+
+            L "本当ですか？{p}...足震えてますけど。"
+
+            Me "これは、いや、そうだ。武者震いだよ。"
+
+            L "ならいいですけど。"
+
+            Me "大船に乗った気持ちでいたまえ。"
+
+            $ like = likeChanger(like, 5)
+            L "それは頼もしいです！"
+
+        "緊張するに決まってるじゃないか":
+            $ renpy.block_rollback()
+
+            Me "緊張するに決まってるじゃないか。"
+
+            $ like = likeChanger(like, -10)
+
+            L "それもそうですね。"
+
+            Me "ああ、こけたりしたらどうしよう。"
+
+            L "大丈夫ですよきっと。"
+
+            Me "本当に？"
+
+            L "May be..."
+        
+        "緊張してるのは君の方なんじゃないの":
+            $ renpy.block_rollback()
+
+            Me "緊張してるのは君の方なんじゃないの？"
+
+            L "別に私は平気ですけど..."
+
+            Me "本当かなぁ？"
+
+            L "疑ってるんですか？"
+
+            Me "別に疑ってるとかでは..."
+
+            L "二人三脚で大切なのは絆って言いましたよね！"
+
+            Me "ごめん..."
+
+            L "..."
+
+            $ like = likeChanger(like, -20)
+    
+    $ zakoName = "実況"
+    Zako "第〇レースは赤い彗星チームの勝利でした。次のレースのペアは準備を始めてください。"
+
+    L "先輩、私たちの番が回ってきましたよ。"
+
+    Me "そうだね。"
+
+    L "では、足を出してください。"
+
+    Me "あっ、俺が結ぶよ。"
+    Me "（あれ？結び方ってこれでいいのかな？）"
+    Me "（まあいいか。）"
+
+    L "先輩、結び終わりました？"
+
+    Me "ああ、終わったよ。"
+
+    if like < 0:
+        jump fall_bad
+    else:
+        jump fall_normal
+
+label fall_normal:
+    L "なんか結び方違くないですか？"
+    L "そんな結び方で大丈夫ですか？"
+
+    Me "あれ、違ったっけ？"
+
+    L "私が結びなおしましょうか？"
+
+    menu:
+        L "私が結びなおしましょうか？"
+
+        "一番いいのを頼む":
+            $ renpy.block_rollback()
+
+            Me "一番いいのを頼む。"
+
+            L "わかりました。"
+
+            L "...{w=1.5}はい、結び終わりましたよ。"
+
+            Me "ありがとう。"
+
+            L "このぐらいお安い御用です。"
+
+            L "じゃあスタート位置につきましょうか。"
+        
+        "大丈夫だ問題ない":
+            $ renpy.block_rollback()
+
+            L "じゃあスタート位置につきましょうか。"
+
+            jump fall_bad
+
+    scene bg taiikusai
+    with fade
+    
+    "二人は緊張しつつも、先の特訓の効果に期待を寄せながらスタートラインに立った。"
+
+    $ zakoName = "審判"
+    Zako "では、位置について。"
+    Zako "よーい、"
+    
+    Zako "ドン！"
