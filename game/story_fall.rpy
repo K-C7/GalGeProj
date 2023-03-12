@@ -276,6 +276,7 @@ label fall2:
     scene bg classroom day
     with dissolve
     stop sound fadeout 1.0
+    stop music fadeout 1.0
 
     L "着きましたね。"
     L "ちょうどよく空き教室があって良かったですね。"
@@ -300,7 +301,7 @@ label fall2:
 
     L "先輩、二人三脚において私たちに足りないものはなんだと思います？"
 
-    Me "運動能りょ{nw}"
+    Me "運動能りょ..."
 
     play sound "audio/thunder.mp3" volume 0.05
     L "{size=*2.0}違う{/size}"
@@ -331,7 +332,7 @@ label fall2_menu:
         
             Me "ごっごめんよ。"
 
-            jump fall1_menu      
+            jump fall2_menu      
 
         "二人三脚の練習" if passedNinin == False:
             $ renpy.block_rollback()
@@ -352,16 +353,19 @@ label fall2_menu:
         "英単語テスト":
             $ renpy.block_rollback()
 
-            L "Exactly.その通りでございます。"
+            L "Exactly.\nその通りでございます。"
             L "私たちが出会った原点、英単語テストのために頑張ってきた思い出。"
             L "英単語テストは私たちの絆そのものですよ。"
         
             Me "なる...ほど？"
 
+            show leap normal at leapPos
+
             L "では、私たちの絆を試すためにも行きますよ。"
 
             Me "はいはいわかったよ。"
 
+            $ progress = 4
             jump testPrepare
         
 label fall3:
@@ -417,10 +421,14 @@ label fall3:
 
     scene bg taiikusai
     with dissolve
+    
+    show leap normal at leapPos
 
     L "もう少しで私たちの番ですね。"
 
     Me "そ、そうだね。"
+
+    show leap question_mark
 
     L "先輩？もしかして緊張してます？"
 
@@ -429,6 +437,7 @@ label fall3:
 
         "別に緊張してないし":
             $ renpy.block_rollback()
+            show leap normal
 
             Me "別に緊張してないし。"
 
@@ -441,16 +450,19 @@ label fall3:
             Me "大船に乗った気持ちでいたまえ。"
 
             $ like = likeChanger(like, 5)
+            show leap smile
             L "それは頼もしいです！"
 
         "緊張するに決まってるじゃないか":
             $ renpy.block_rollback()
+            show leap normal
 
             Me "緊張するに決まってるじゃないか。"
 
             $ like = likeChanger(like, -10)
 
             L "それもそうですね。"
+            show leap normal
 
             Me "ああ、こけたりしたらどうしよう。"
 
@@ -462,6 +474,7 @@ label fall3:
         
         "緊張してるのは君の方なんじゃないの":
             $ renpy.block_rollback()
+            show leap normal
 
             Me "緊張してるのは君の方なんじゃないの？"
 
@@ -470,6 +483,7 @@ label fall3:
             Me "本当かなぁ？"
 
             L "疑ってるんですか？"
+            show leap question
 
             Me "別に疑ってるとかでは..."
 
@@ -481,8 +495,10 @@ label fall3:
 
             $ like = likeChanger(like, -20)
     
-    $ zakoName = "実況"
-    Zako "第〇レースは星の白銀チームの勝利でした。次のレースのペアは準備を始めてください。"
+    $ zako1Name = "実況"
+    Zako1 "第〇レースは星の白銀チームの勝利でした。次のレースのペアは準備を始めてください。"
+
+    show leap normal
 
     L "先輩、私たちの番が回ってきましたよ。"
 
@@ -504,6 +520,8 @@ label fall3:
         jump fall_normal
 
 label fall_normal:
+    show leap question
+
     L "なんか結び方違くないですか？"
     L "そんな結び方で大丈夫ですか？"
 
@@ -519,11 +537,15 @@ label fall_normal:
 
             Me "一番いいのを頼む。"
 
+            show leap normal
+
             L "わかりました。"
 
             L "...{w=1.5}はい、結び終わりましたよ。"
 
             Me "ありがとう。"
+
+            show leap smile
 
             L "このぐらいお安い御用です。"
 
@@ -534,17 +556,22 @@ label fall_normal:
 
             L "じゃあスタート位置につきましょうか。"
 
+            show leap smile
+
             jump fall_bad
 
     scene bg taiikusai
     with fade
+
+    hide leap
+    with dissolve
     
     "二人は緊張しつつも、先の特訓の効果に期待を寄せながらスタートラインに立った。"
 
     $ zakoName = "審判"
     Zako "では、位置について。"
     Zako "よーい、"
-    play sound "audio/pistolu.mp3" volume 0.05
+    play sound "audio/pistol.mp3" volume 0.05
     Zako "ドン！"
 
     $ zakoName = "実況"
@@ -580,6 +607,7 @@ label fall_normal:
 
     $ zakoName = "実況"
     Zako "ゴーーーーール！！！"
+    play sound 'audio/kansei.mp3' volume 0.05
     Zako "一位は赤い彗星チームだあああああ！"
 
     $ zakoName = "解説"
@@ -587,6 +615,8 @@ label fall_normal:
 
     $ zakoName = "実況"
     Zako "そして、二位は緑の悪魔チーム、三位は星の白銀チーム、四位は青眼の白龍チーム、五位は黒い三連星チームになりました。"
+
+    show leap smile at leapPos
 
     Me "やったぞおおおおお！"
     

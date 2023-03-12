@@ -1,26 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/story_fall.rpy", line 99, in script
-    $ likeChanger(-10)
-  File "game/story_fall.rpy", line 99, in <module>
-    $ likeChanger(-10)
-TypeError: likeChanger() missing 1 required positional argument: 'deltaLike'
+  File "game/story_fall.rpy", line 499, in script
+    Zako1 "第〇レースは星の白銀チームの勝利でした。次のレースのペアは準備を始めてください。"
+Exception: Sayer 'Zako1' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/story_fall.rpy", line 99, in script
-    $ likeChanger(-10)
-  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 1132, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/story_fall.rpy", line 99, in <module>
-    $ likeChanger(-10)
-TypeError: likeChanger() missing 1 required positional argument: 'deltaLike'
+  File "game/story_fall.rpy", line 499, in script
+    Zako1 "第〇レースは星の白銀チームの勝利でした。次のレースのペアは準備を始めてください。"
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 883, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 776, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who)
+Exception: Sayer 'Zako1' is not defined.
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.1.0.23010208n
 英語ができない俺が縁結び神社に行ったら英単語帳が後輩になった件 5.2b
-Mon Mar 13 00:37:00 2023
+Mon Mar 13 01:53:22 2023
