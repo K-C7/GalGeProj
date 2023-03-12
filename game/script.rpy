@@ -13,6 +13,9 @@ define Kyaku = Character("客", color="#070707") #色は未定
 define Fri = Character("Leapの友人", color="#080808") #色は未定
 define Man = Character("男", color="#b8af3b") #色は未定
 
+$ zakoName = ""
+define Zako = DynamicCharacter("zakoName", color="#080808")
+
 init:
     $ import module.leapModule as leapModule
 
@@ -122,6 +125,11 @@ label badEnd_call:
     elif(badEndCode == 4):
         "そういうと男はニヤリと笑ってLeapちゃんとともに人ごみの中に消えていった。"
         "BadEnd 4 : No Time Return"
+
+    elif(badEndCode == 5):
+        '薄れゆく意識の中で、Leapちゃんの呼ぶ声だけが聞こえた'
+        L '先輩！　先輩！？　せんぱ...'
+        "BadEnd 5 : 止まるんじゃねぇぞ"
     
     stop music fadeout 2.0
     pause 2.0
