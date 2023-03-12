@@ -7,4 +7,4 @@ label winter:
     scene bg classroom day
     with dissolve
 
-    $ zakoName = "生徒1"
+    $ zako1Name = "生徒1"
