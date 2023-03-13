@@ -41,7 +41,8 @@ label winter1:
     show leap normal at leapPos
     with dissolve
 
-    show leap uniform question
+    show leap uniform question at leapPos
+    with dissolve
     L "何が無縁の話なんですか？"
 
     menu:
@@ -66,6 +67,8 @@ label winter1:
             Me "！悪霊退散！"
 
     if passedDemon == False:
+        like = likeChanger(like, -10)
+        
         $ like = likeChanger(like, -10)
     L "なんですかその言い方は！"
     L "まったく...私のことを何だと思ってるんですか..."
