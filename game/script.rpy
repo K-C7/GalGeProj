@@ -140,6 +140,14 @@ label badEnd_call:
         L '先輩！　先輩！？　せんぱ...'
         "BadEnd 5 : 止まるんじゃねぇぞ"
     
+    elif(badEndCode == 6):
+        'huyu'
+        L '先輩！　先輩！？　せんぱ...'
+        "BadEnd 5 : 止まるんじゃねぇぞ"
+    
+    elif(badEndCode == 5):
+        "BadEnd 7 : 現実"
+    
     stop music fadeout 2.0
     pause 2.0
 
