@@ -1,41 +1,40 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/story_ending.rpy", line 9, in script
-    
-  File "game/story_ending.rpy", line 9, in script
-    
-  File "game/story_ending.rpy", line 9, in <module>
-    
-NameError: name 'hikui' is not defined
+  File "game/story_ending.rpy", line 783, in script
+    play sound audio/run.mp3 volume 1.0
+  File "renpy/common/000statements.rpy", line 300, in execute_play_sound
+    renpy.sound.play(_audio_eval(p["file"]),
+  File "renpy/common/000statements.rpy", line 32, in _audio_eval
+    return eval(expr, locals=store.audio.__dict__)
+  File "game/story_ending.rpy", line 783, in <module>
+    play sound audio/run.mp3 volume 1.0
+AttributeError: 'str' object has no attribute 'mp3'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\bootstrap.py", line 275, in bootstrap
-    renpy.main.main()
-  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\main.py", line 661, in main
-    run(restart)
-  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\main.py", line 144, in run
-    renpy.execution.run_context(True)
-  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\execution.py", line 942, in run_context
-    context.run()
-  File "game/story_ending.rpy", line 9, in script
-    
-  File "/home/tom/ab/nightly-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 441, in raise_
-  File "game/story_ending.rpy", line 9, in script
-    
-  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 2127, in execute
-    if renpy.python.py_eval(condition):
+  File "game/story_ending.rpy", line 783, in script
+    play sound audio/run.mp3 volume 1.0
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 2247, in execute
+    self.call("execute")
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 2235, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\statements.py", line 285, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 300, in execute_play_sound
+    renpy.sound.play(_audio_eval(p["file"]),
+  File "renpy/common/000statements.rpy", line 32, in _audio_eval
+    return eval(expr, locals=store.audio.__dict__)
   File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1116, in py_eval
     return py_eval_bytecode(code, globals, locals)
   File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1109, in py_eval_bytecode
     return eval(bytecode, globals, locals)
-  File "game/story_ending.rpy", line 9, in <module>
-    
-NameError: name 'hikui' is not defined
+  File "game/story_ending.rpy", line 783, in <module>
+    play sound audio/run.mp3 volume 1.0
+AttributeError: 'str' object has no attribute 'mp3'
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.1.0.23010208n
 英語ができない俺が縁結び神社に行ったら英単語帳が後輩になった件 5.2b
-Tue Mar 14 00:02:03 2023
+Tue Mar 14 02:33:45 2023

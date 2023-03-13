@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/story_ending.rpy", line 1: expected statement.
-    hikui = 30 
-          ^
-
-File "game/story_ending.rpy", line 2: expected statement.
-    takai = 80 
-          ^
+File "game/story_winter.rpy", line 70: expected statement.
+    like = likeChanger(like, -10)
+         ^
 
 Ren'Py Version: Ren'Py 8.1.0.23010208n
-Mon Mar 13 23:58:16 2023
+Tue Mar 14 02:22:07 2023
