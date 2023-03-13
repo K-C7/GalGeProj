@@ -399,7 +399,7 @@ label endSelect:
             jump fall3
         elif progress == 5:
             stop music
-            # jump ##################冬実装時にいじってください
+            jump winter2
         elif progress == 6:
             stop music
             jump ending_judgement

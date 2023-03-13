@@ -162,9 +162,8 @@ label badEnd_call:
         "BadEnd 5 : 止まるんじゃねぇぞ"
     
     elif(badEndCode == 6):
-        'huyu'
-        L '先輩！　先輩！？　せんぱ...'
-        "BadEnd 5 : 止まるんじゃねぇぞ"
+        Me "その音を境に、僕の未来は真っ黒に染まった。"
+        "BadEnd 6 : It's no use crying over split milk."
     
     elif(badEndCode == 5):
         "BadEnd 7 : 現実"
