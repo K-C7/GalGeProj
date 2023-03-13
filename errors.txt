@@ -2,17 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/story_fall.rpy", line 571: expected statement.
-    <<<<<<< HEAD
-                ^
-
-File "game/story_fall.rpy", line 577: expected statement.
-    =======
+File "game/story_ending.rpy", line 1: expected statement.
+    hikui = 30 
           ^
 
-File "game/story_fall.rpy", line 583: expected statement.
-    >>>>>>> 64fa22e4db5fb00a03f8bad653722f68d6e781d4
-                                                    ^
+File "game/story_ending.rpy", line 2: expected statement.
+    takai = 80 
+          ^
 
 Ren'Py Version: Ren'Py 8.1.0.23010208n
-Mon Mar 13 01:54:38 2023
+Mon Mar 13 23:58:16 2023

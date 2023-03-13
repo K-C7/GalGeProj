@@ -65,7 +65,7 @@ label winter1:
             Me "！悪霊退散！"
 
     if passedDemon == False:
-        like = likeChanger(like, -10)
+        $ like = likeChanger(like, -10)
     L "なんですかその言い方は！"
     L "まったく...私のことを何だと思ってるんですか..."
 
@@ -242,7 +242,7 @@ label winter1:
         "イルミネーション":
             Me "イルミネーションだよ。"
 
-            like = likeChanger(like, -20)
+            $ like = likeChanger(like, -20)
             L "..."
             L "確かにきれいですね。"
             L "私なんて霞んでしまうくらいに..."
@@ -252,7 +252,7 @@ label winter1:
         "Leapちゃん":
             Me "...Leapちゃんだよ。"
 
-            like = likeChanger(like, 10)
+            $ like = likeChanger(like, 10)
             L "えっ...先輩、もう一度言ってください。"
 
             Me "何度も言わせないでよ、恥ずかしい..."

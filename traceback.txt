@@ -1,22 +1,41 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/story_autumn.rpy", line 13, in script
-    Zako 'では、位置について'
-Exception: Sayer 'Zako' is not defined.
+  File "game/story_ending.rpy", line 9, in script
+    
+  File "game/story_ending.rpy", line 9, in script
+    
+  File "game/story_ending.rpy", line 9, in <module>
+    
+NameError: name 'hikui' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/story_autumn.rpy", line 13, in script
-    Zako 'では、位置について'
-  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 883, in execute
-    who = eval_who(self.who, self.who_fast)
-  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 776, in eval_who
-    raise Exception("Sayer '%s' is not defined." % who)
-Exception: Sayer 'Zako' is not defined.
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\bootstrap.py", line 275, in bootstrap
+    renpy.main.main()
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\main.py", line 661, in main
+    run(restart)
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\main.py", line 144, in run
+    renpy.execution.run_context(True)
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\execution.py", line 942, in run_context
+    context.run()
+  File "game/story_ending.rpy", line 9, in script
+    
+  File "/home/tom/ab/nightly-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 441, in raise_
+  File "game/story_ending.rpy", line 9, in script
+    
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 2127, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1116, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\Shiina\Documents\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1109, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/story_ending.rpy", line 9, in <module>
+    
+NameError: name 'hikui' is not defined
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.1.0.23010208n
 英語ができない俺が縁結び神社に行ったら英単語帳が後輩になった件 5.2b
-Mon Mar 13 02:00:46 2023
+Tue Mar 14 00:02:03 2023
