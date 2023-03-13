@@ -104,6 +104,8 @@ label rest:
                 jump summer
             elif progress == 4:
                 jump fall
+            elif prograss == 5:
+                jump winter
             else:
                 "変数\"progress\"の設定がバグってるっぴ！"
                 return
