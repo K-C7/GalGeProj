@@ -70,11 +70,11 @@ init:
     image leap uniform kuro = im.Scale("leap sport sad.png", 800, 1600)
     image leap uniform kuro = im.Scale("leap sport smile.png", 800, 1600)
     image leap uniform kuro = im.Scale("leap sport surprise.png", 800, 1600)
-    image leap uniform kuro = im.Scale("leap mizugi .png", 800, 1600)
-    image leap uniform kuro = im.Scale("leap uniform kuro.png", 800, 1600)
-    image leap uniform kuro = im.Scale("leap uniform kuro.png", 800, 1600)
-    image leap uniform kuro = im.Scale("leap uniform kuro.png", 800, 1600)
-    image leap uniform kuro = im.Scale("leap uniform kuro.png", 800, 1600)
+    image leap uniform kuro = im.Scale("leap mizugi normal.png", 800, 1600)
+    image leap uniform kuro = im.Scale("leap mizugi question.png", 800, 1600)
+    image leap uniform kuro = im.Scale("leap mizugi sad.png", 800, 1600)
+    image leap uniform kuro = im.Scale("leap mizugi smile.png", 800, 1600)
+    image leap uniform kuro = im.Scale("leap mizugi surprise.png", 800, 1600)
 
     image openingVideo:
         "opening-0001.jpg"
