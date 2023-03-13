@@ -1,4 +1,7 @@
 label winter:
+    jump winter1
+
+label winter1:
     scene bg black
     
     "体育大会も終わり、気温もぐっと下がり始めたころ。"
@@ -6,5 +9,152 @@ label winter:
 
     scene bg classroom day
     with dissolve
+    show boyssilhouette at leappos
+    with dissolve
 
-    $ zako1Name = "生徒1"
+    $ zako1Name = "生徒１"
+    $ zako2Name = "生徒２"
+
+    Zako1 "もう少しでクリスマスだな。"
+
+    Zako2 "ああそうだな。"
+
+    Zako1 "...お前クリスマスに一緒に過ごす人いる？"
+
+    Zako2 "...いねぇよ。"
+
+    Zako1 "...やっぱりか。"
+
+    Zako2 "やっぱりってなんだよ。"
+
+    hide boyssilhouette
+    with dissolve
+
+    Me "..."
+    Me "はぁ～あ。そろそろクリスマスか..."
+    Me "子供の頃はウキウキしてたけど、高校生にまでなると一人でいる現実に泣けてくるよ。"
+    Me "俺にもクリスマスを共にしてくれる彼女できねぇかなぁ～"
+    Me "まｘ俺には無縁の話か。"
+
+    pause 2.0
+
+    show leap normal at leapPos
+    with dissolve
+
+    L "何が無縁の話なんですか？"
+
+    menu:
+        L "何が無縁の話なんですか？"
+
+        "うわでた":
+            $ renpy.block_rollback()
+            $ passedDemon = False
+
+            Me "うわでた。"
+
+        "出たな英単語テストの悪魔！":
+            $ renpy.block_rollback()
+            $ passedDemon = True
+
+            Me "出たな英単語テストの悪魔！"
+
+        "悪霊退散":
+            $ renpy.block_rollback()
+            $ passedDemon = False
+
+            Me "！悪霊退散！"
+
+    if passedDemon == False:
+        like = likeChanger(like, -10)
+    L "なんですかその言い方は！"
+    L "まったく...私のことを何だと思ってるんですか..."
+
+    Me "ごめんごめん。"
+
+    if passedDemon:
+        Me "だけど実際そうじゃん。"
+
+        L "まぁ...否定はしませんけど..."
+
+    L "あーあ、せっかくクリスマス一緒に過ごしてあげようかと思ってたんですけどねぇ。"
+
+    Me "！？！？！？"
+
+    L "でもなー、どうしますかねー？"
+    L "今謝るなら許してあげないこともな..."
+
+    Me "すみませんでした。" #立ち絵を足だけにするのもいいかも
+
+    L "は、速いですね。"
+
+    Me "クリぼっちは嫌なんです...お願いします..."
+
+    L "まったく...そんなに言うなら仕方ないですね～"
+    L "クリスマスは一緒にいてあげてもいいですよ？"
+
+    Me "本当に！？ありがとう！"
+
+    L "でも、今年のクリスマスは学校と被ってるんですよねー。"
+    L "それなので、クリスマスの日の放課後に集合して遊びにでも行きます？"
+
+    Me "そうだね！そうしよう。"
+
+    L "あ、ちょっと待ってくださいね。"
+
+    play sound "audio/writing.mp3" volume 0.1
+
+    pause 2.0
+
+    stop sound
+
+    L "これ、私の電話番号です。何かあったら連絡してくださいね。"
+    
+    Me "ああ、ありがとう。じゃあ俺のも...{w=2.0}はい。"
+
+    L "ありがとうございます。"
+    show leap surprise
+    L "あっ、もう少しで授業始まっちゃいますね。"
+    L "では私は戻りますね。また会いましょう。"
+
+    Me "うん、じゃあね。"
+
+    scene bg black
+    with dissolve
+
+    "クリスマス当日"
+
+    scene bg genkan
+    with dissolve
+
+    Me "せっかくのクリスマスだけども、相変わらず学校は疲れるなぁ。"
+    Me "Leapちゃんはまだかな。まだ来てなさそうだけど..."
+
+    show leap normal at leapPos
+    L "先輩先輩、どこ見てるんですか？"
+
+    Me "うぉ、いつの間に。"
+    
+    L "今来たところですよ。{p}それより遅れてすみません。部活を早く切り上げるつもりだったんですけど..."
+
+    menu:
+        L "今来たところですよ。それより遅れてすみません。部活を早く切り上げるつもりだったんですけど..."
+
+        "来るのが遅い":
+            Me "来るのが遅い！"
+
+            $ like = likeChanger(like, -10)
+            L "す、すみません..."
+
+            Me "別に謝らなくていいよ。ただ、今日が本当に楽しみでさ。"
+
+            L "えっ..."
+
+            Me "もし来なかったらどうしようかと思って、すごく心配してたんだ。"
+
+            $ like = likeChanger(like, 15)
+            L "あっ、ああ、ありがとうございます。"
+        
+        "別にいいよ":
+            Me "別にいいよ。"
+
+            L "先輩、もしかしておこ"
