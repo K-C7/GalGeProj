@@ -727,6 +727,9 @@ label ending_normal:
 
     "ノーマルクリアおめでとうございます。この他にもエンディングをご用意してあります。引き続きお楽しみください。"
 
+    jump exit
+
+
 label ending_happy:
     God "ふふふ、"
     God "ハハハハハハハハハハハハハハハハハハハハハハハハハハハハハ"
@@ -780,7 +783,13 @@ label ending_happy:
     Me "...?"
 
     # 音：走る
-    play sound audio/run.mp3 volume 1.0
+    play sound "audio/run.mp3" volume 1.0
+
+    pause 2.0
+
+    stop sound
+
+    show leap uniform normal at leapPos
 
     L "先輩！？"
     Me "Leap！？"
@@ -790,17 +799,20 @@ label ending_happy:
     Me "君のために頑張れるんだったら"
     Me "俺は..."
     L "先輩って...本当に..."
+    show leap uniform smile
     L "...バカ"
     Me "ふふ"
     L "何笑ってるんですか"
     Me "いや、幸せだなって"
     L "もう、先輩//"
+    show leap uniform normal
     L "...先輩"
     Me "何だい？"
     L "本当にありがとうございます"
     Me "それほどでもないよ"
     Me "Leapちゃん、君の事が好きだ。"
     L "..."
+    show leap uniform smile
     L "私もです先輩"
     Zako1 "若いもんはいいねぇ～"
     Me "///"
@@ -812,7 +824,7 @@ label ending_happy:
     scene bg black
     with dissolve
 
-    show leap uniform smile at leapPos
+    # show leap uniform smile at leapPos
 
     "その後、いつもの平穏な日々が続いた。"
     "いつもと変わらない、Leapちゃんとの日々"
@@ -838,4 +850,10 @@ label ending_happy:
     
     pause 5.0
 
-    "ハッピーエンドおめでとうございます。\n己の技量・時間不足でしばしばお見苦しいところをお見せいたしましたことをここでお詫び申し上げます。\nこの度は私たちが作った「俺単」をプレイしていただき、誠にありがとうございました。"
+    """
+    ハッピーエンドおめでとうございます。
+    
+    己の技量・時間不足でしばしばお見苦しいところをお見せいたしましたことをここでお詫び申し上げます。
+    
+    この度は私たちが作った「俺単」をプレイしていただき、誠にありがとうございました。
+    """

@@ -235,7 +235,7 @@ label exam:
                 $ leapNum, ans, que, opt = leapModule.getExam(questionNumber,answerWay,minNum,maxNum,optNum)
                 $ selected = 0 #どの選択肢を選んだか
 
-                show leap question_mark at leapPos
+                show leap uniform question at leapPos
                 menu:
                     L "第[questionNumber]問、Leap[leapNum]番です。\n[que] は？"
 
@@ -255,11 +255,11 @@ label exam:
 
                 if(opt[selected] == ans): #正解した場合
                     $ tfList[questionNumber-1] = 1 #正誤リストの問題番号目を正にする
-                    show leap smile
+                    show leap uniform smile
                     play sound "audio/seikai.mp3" volume 0.1
                     L "{color=#26aa5d}正解{/color}です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
                 else: #不正解の場合
-                    show leap question
+                    show leap uniform sad
                     play sound "audio/hazure.mp3" volume 0.1
                     L "{color=#ED1616}不正解{/color}です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
                 
