@@ -1,10 +1,16 @@
+<<<<<<< HEAD
 Tue Mar 14 04:13:18 2023
 Windows-10-10.0.22621
+=======
+Tue Mar 14 03:00:01 2023
+Windows-10-10.0.19045
+>>>>>>> 8f992c5699aa6dd2afabdbdcfcb2e10dea4b4d0f
 Ren'Py 8.1.0.23010208n
  
 
 Bootstrap to the start of init.init took 0.03s
 Early init took 0.00s
+<<<<<<< HEAD
 Loader init took 0.02s
 Loading error handling took 0.02s
 Loading script took 0.26s
@@ -51,6 +57,15 @@ Loading save slot metadata. took 0.03s
 Loading persistent took 0.00s
 Faled to initialize steam: FileNotFoundError("Could not find module 'I:\\Renpy\\renpy-8.0.3-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
 Running init code took 0.05s
+=======
+Loader init took 0.04s
+Loading error handling took 0.03s
+Loading script took 0.17s
+Loading save slot metadata. took 0.06s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\Shiina\\Documents\\Renpy\\renpy-8.0.3-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.07s
+>>>>>>> 8f992c5699aa6dd2afabdbdcfcb2e10dea4b4d0f
 Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
@@ -62,6 +77,7 @@ Initial gc. took 0.03s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
+<<<<<<< HEAD
 Creating interface object took 0.24s
 Cleaning stores took 0.00s
 Init translation took 0.03s
@@ -277,17 +293,32 @@ Load screen analysis took 0.02s
 Analyze screens took 0.00s
 Save screen analysis took 0.00s
 Prepare screens took 0.04s
+=======
+Creating interface object took 0.26s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.09s
+>>>>>>> 8f992c5699aa6dd2afabdbdcfcb2e10dea4b4d0f
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.00s
 Running _start took 0.00s
 Performance test:
+<<<<<<< HEAD
 Interface start took 0.04s
+=======
+Interface start took 0.10s
+>>>>>>> 8f992c5699aa6dd2afabdbdcfcb2e10dea4b4d0f
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
 swap interval: 1 frames
 Windowed mode.
 Vendor: "b'NVIDIA Corporation'"
+<<<<<<< HEAD
 Renderer: b'NVIDIA GeForce GTX 1660/PCIe/SSE2'
 Version: b'4.6.0 NVIDIA 516.59'
 Display Info: None
@@ -432,4 +463,10 @@ Renderer: b'NVIDIA GeForce GTX 1660/PCIe/SSE2'
 Version: b'4.6.0 NVIDIA 516.59'
 Display Info: None
 Screen sizes: virtual=(1280, 720) physical=(652, 367) drawable=(652, 367)
+=======
+Renderer: b'NVIDIA GeForce GTX 1650/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 528.24'
+Display Info: None
+Screen sizes: virtual=(1280, 720) physical=(1337, 752) drawable=(1337, 752)
+>>>>>>> 8f992c5699aa6dd2afabdbdcfcb2e10dea4b4d0f
 Maximum texture size: 4096x4096
