@@ -13,12 +13,9 @@ webビルドの時はLEAP_PATHを"/game/module/leap.csv"にする
 
 ー　掲示板差し替え　学校前か校庭
 
-ー　heartに縁をつける
-
-ー　examでstoryのsummer(progress=3)のときだけleapを水着仕様に
-    examでstoryのsummer(progress=4)のときだけleapを体育着仕様に
-
 ー　英和が選択形式であっても良さそう（1番の意味だけとかで）
+
+ー　学習モードで立ち絵・ｂｇｍ・背景を選べるようにする
 
 ー　称号実装したい・・・
 

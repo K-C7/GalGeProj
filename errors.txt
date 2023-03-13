@@ -2,9 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/story_winter.rpy", line 70: expected statement.
-    like = likeChanger(like, -10)
-         ^
+File "game/examMode.rpy", line 352: expected statement.
+    f(numOfQue == sumT): 
+                       ^
+
+File "game/examMode.rpy", line 355: expected statement.
+    elif(numOfQue - sumT == 1): 
+                              ^
+
+File "game/examMode.rpy", line 358: expected statement.
+    else: 
+        ^
 
 Ren'Py Version: Ren'Py 8.1.0.23010208n
-Tue Mar 14 02:22:07 2023
+Tue Mar 14 04:13:18 2023

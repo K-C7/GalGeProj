@@ -39,13 +39,14 @@ label testPrepare:
 
 label initExamMode:
     scene bg classroom evening
-    show leap normal at leapPos
+    show leap uniform normal at leapPos
     play music "audio/leap.mp3" volume 0.05
     $ isReview = False
 
     jump modeSelect
 
 label modeSelect:
+    show leap uniform question
     L "それでは、どうやって勉強しますか？"
     menu:
         L "それでは、どうやって勉強しますか？"
@@ -65,12 +66,15 @@ label modeSelect:
         "休憩する":
             Me "疲れたから、いったん休憩したいな。"
 
+            show leap uniform normal
             L "了解です。お疲れさまでした。"
 
             jump exit
     
 label rangeSelect:
+    show leap uniform normal
     L "分かりました。"
+    show leap uniform question
     L "範囲はどうしますか？"
 
     show leapseclist at topleft: #leap範囲表の表示
@@ -104,6 +108,7 @@ label rangeSelect:
 
     hide leapseclist #leap範囲表を隠す
     
+    show leap uniform normal
     L "分かりました。[minNum]番から[maxNum]番ですね。"
 
     # learnモードなら準備終了、examモードなら出題数選択に飛ぶ
@@ -145,6 +150,7 @@ label learn: #指定した範囲の日本語と英語を載せるだけ
     jump endSelect
 
 label numOfQueSelect: #問題数選択
+    show leap uniform question
     L "何問ほど出したらいいでしょうか？"
     menu:
         L "何問ほど出したらいいでしょうか？"
@@ -177,12 +183,13 @@ label numOfQueSelect: #問題数選択
 
     Me "[numOfQue]問で。"
 
-    show leap normal
+    show leap uniform normal
     L "分かりました。[numOfQue]問ですね。"
 
     jump answerWaySelect
 
 label answerWaySelect: #解答形式選択 四択かスペル入力
+    show leap uniform question
     L "それでは、解答形式はどのようにしますか？"
     menu:
         L "それでは、解答形式はどのようにしますか？"
@@ -192,6 +199,7 @@ label answerWaySelect: #解答形式選択 四択かスペル入力
 
             Me "４択でお願い。"
 
+            show leap uniform normal
             L "了解です。それでは、[minNum]番から[maxNum]番の範囲で[numOfQue]問を、四択形式で出題しますね。"
 
         "スペル入力":
@@ -199,6 +207,7 @@ label answerWaySelect: #解答形式選択 四択かスペル入力
 
             Me "じゃあ、スペルが合ってるか判定してほしい。"
 
+            show leap uniform normal
             L "了解です。それでは、[minNum]番から[maxNum]番の範囲で[numOfQue]問を、スペル形式で出題しますね。"
 
             menu:
@@ -235,7 +244,14 @@ label exam:
                 $ leapNum, ans, que, opt = leapModule.getExam(questionNumber,answerWay,minNum,maxNum,optNum)
                 $ selected = 0 #どの選択肢を選んだか
 
-                show leap uniform question at leapPos
+                if (mode == 'story') & (progress == 3):
+                    show leap mizugi question
+                elif (mode == 'story') & (progress == 4):
+                    show leap sport question
+                elif (mode == 'story') & (progress == 6):
+                    show leap uniform normal yami
+                else:
+                    show leap uniform question
                 menu:
                     L "第[questionNumber]問、Leap[leapNum]番です。\n[que] は？"
 
@@ -255,11 +271,25 @@ label exam:
 
                 if(opt[selected] == ans): #正解した場合
                     $ tfList[questionNumber-1] = 1 #正誤リストの問題番号目を正にする
-                    show leap uniform smile
+                    if (mode == 'story') & (progress == 3):
+                        show leap mizugi smile
+                    elif (mode == 'story') & (progress == 4):
+                        show leap sport smile
+                    elif (mode == 'story') & (progress == 6):
+                        show leap uniform normal yami
+                    else:
+                        show leap uniform smile
                     play sound "audio/seikai.mp3" volume 0.1
                     L "{color=#26aa5d}正解{/color}です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
                 else: #不正解の場合
-                    show leap uniform sad
+                    if (mode == 'story') & (progress == 3):
+                        show leap mizugi sad
+                    elif (mode == 'story') & (progress == 4):
+                        show leap sport sad
+                    elif (mode == 'story') & (progress == 6):
+                        show leap uniform normal yami
+                    else:
+                        show leap uniform sad
                     play sound "audio/hazure.mp3" volume 0.1
                     L "{color=#ED1616}不正解{/color}です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
                 
@@ -268,7 +298,7 @@ label exam:
         
 
             elif answerWay == 'spell': #スペル入力のとき
-                show leap question_mark
+                show leap uniform question
                 # 問題の製作
                 $ leapNum, ans, que = leapModule.getExam(questionNumber,answerWay)
                 
@@ -288,13 +318,13 @@ label exam:
                     $ tfList[questionNumber-1] = 1 #正誤リストの問題番号目を正にする
                     $ withHint = False #ヒント設定の初期化
                     $ questionNumber += 1
-                    show leap smile
+                    show leap uniform smile
                     play sound "audio/seikai.mp3" volume 0.1
                     L "{color=#26aa5d}正解{/color}です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
                 else: #不正解の場合
                     $ withHint = False #ヒント設定の初期化
                     $ questionNumber += 1
-                    show leap question
+                    show leap uniform question
                     play sound "audio/hazure.mp3" volume 0.1
                     L "{color=#ED1616}不正解{/color}です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
             
@@ -307,22 +337,48 @@ label exam:
     $ sumT = sum(tfList) #合計正解数の計算
     $ rateT = round((sumT / numOfQue) * 100, 1) #正解率の計算
     if isReview == False: #復習モードでないとき
-        if(numOfQue == sumT): #全問正解なら
-            show leap smile
-            L "結果は、[numOfQue]問中全問正解でした。素晴らしいです！"
-        elif(numOfQue - sumT == 1): #一問間違いなら
-            show leap normal
-            L "結果は、[numOfQue]問中１問間違えでした。おしいです。"
-        else: #二個以上間違えた場合
-            show leap normal
-            L "結果は、[numOfQue]問中[sumT]問正解で、正答率は[rateT]％でした。"
+        if (mode == 'story') & (progress == 4):
+            if(numOfQue == sumT): #全問正解なら
+                show leap sport smile
+                L "結果は、[numOfQue]問中全問正解でした。素晴らしいです！"
+            elif(numOfQue - sumT == 1): #一問間違いなら
+                show leap sport normal
+                L "結果は、[numOfQue]問中１問間違えでした。おしいです。"
+            else: #二個以上間違えた場合
+                show leap sport normal
+                L "結果は、[numOfQue]問中[sumT]問正解で、正答率は[rateT]％でした。"
+        
+        elif (mode == 'story') & (progress == 3):
+            if(numOfQue == sumT): #全問正解なら
+                show leap mizugi smile
+                L "結果は、[numOfQue]問中全問正解でした。素晴らしいです！"
+            elif(numOfQue - sumT == 1): #一問間違いなら
+                show leap mizugi normal
+                L "結果は、[numOfQue]問中１問間違えでした。おしいです。"
+            else: #二個以上間違えた場合
+                show leap mizugi normal
+                L "結果は、[numOfQue]問中[sumT]問正解で、正答率は[rateT]％でした。"
+        
+        elif (mode == 'story') & (progress == 6):
+            pause 0.0
+        
+        else:
+            if(numOfQue == sumT): #全問正解なら
+                show leap uniform smile
+                L "結果は、[numOfQue]問中全問正解でした。素晴らしいです！"
+            elif(numOfQue - sumT == 1): #一問間違いなら
+                show leap uniform normal
+                L "結果は、[numOfQue]問中１問間違えでした。おしいです。"
+            else: #二個以上間違えた場合
+                show leap uniform normal
+                L "結果は、[numOfQue]問中[sumT]問正解で、正答率は[rateT]％でした。"
 
     $ isReview = False #復習モード設定の初期化
 
     jump endSelect
 
 label endSelect:
-    show leap normal
+    show leap uniform normal
 
     if mode == 'learn': #learnモードの時
         L "この後どうされますか？"

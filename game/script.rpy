@@ -6,7 +6,7 @@ define L = Character('Leap', color="#26aa5d")
 define Me = Character('自分', color="#000000")
 define Mom = Character('母', color="#6b3d01")
 define God = Character('神', color="#5f6634")
-define cd = Character("車掌", color="#000000")
+define Cd = Character("車掌", color="#000000")
 define Ano = Character('???', color="#252525")
 define Sinseki = Character("親戚", color="#080808") #色は未定
 define Kyaku = Character("客", color="#070707") #色は未定
@@ -36,17 +36,13 @@ init:
             return like
 
     image bg classroom evening = im.Scale("bg classroom evening notrim.jpg", 1280, 720)
-    image leap normal = im.Scale("leap normal.png", 800, 1600)
-    image leap smile = im.Scale("leap smile.png", 800, 1600)
-    image leap surprise = im.Scale("leap surprise.png", 800, 1600)
-    image leap question = im.Scale("leap question.png", 800, 1600)
-    image leap question_mark = im.Scale("leap question_mark.png", 800, 1600)
     image bg seahouse = im.Scale("bg seahouse.jpg", 1280, 720)
     image bg sea = im.Scale("bg sea.jpg", 1280, 720)
     image bg taiikusai = im.Scale("bg taiikusai.png", 1280, 720)
     image bg taiikusai mono = im.Scale("bg taiikusai mono.png", 1280, 720)
     image bg school ground = im.Scale("bg school ground.jpg", 1280, 720)
     image bg station = im.Scale("bg station.jpg", 1280, 720)
+    image bg hospital = im.Scale("bg hospital.png", 1280, 720)
     image bg city1 = im.Scale("bg city1.jpg", 1280, 720)
     image bg city2 = im.Scale("bg city2.jpg", 1280, 720)
     image bg city3 = im.Scale("bg city3.jpg", 1280, 720)
@@ -56,11 +52,16 @@ init:
     image bg room evening = im.Scale("bg room evening.jpg", 1280, 720)
     image bg shrine evening guwan = im.Scale("bg shrine evening guwan.jpg", 1280, 720)
     image bg irumi = im.Scale("bg irumi.jpeg", 1280, 720)
+    image leap normal = im.Scale("leap normal.png", 800, 1600)
+    image leap smile = im.Scale("leap smile.png", 800, 1600)
+    image leap surprise = im.Scale("leap surprise.png", 800, 1600)
+    image leap question = im.Scale("leap question.png", 800, 1600)
+    image leap question_mark = im.Scale("leap question_mark.png", 800, 1600)
     image leap uniform kuro = im.Scale("leap uniform kuro.png", 800, 1600)
     image leap uniform normal = im.Scale("leap uniform normal.png", 800, 1600)
     image leap uniform normal yami = im.Scale("leap uniform normal yami.png", 800, 1600)
     image leap uniform question sweat = im.Scale("leap uniform question sweat.png", 800, 1600)
-    image leap uniform quesiong = im.Scale("leap uniform quesiong.png", 800, 1600)
+    image leap uniform question = im.Scale("leap uniform question.png", 800, 1600)
     image leap uniform sad yami = im.Scale("leap uniform sad yami.png", 800, 1600)
     image leap uniform sad = im.Scale("leap uniform sad.png", 800, 1600)
     image leap uniform smile = im.Scale("leap uniform smile.png", 800, 1600)
@@ -75,7 +76,6 @@ init:
     image leap mizugi sad = im.Scale("leap mizugi sad.png", 800, 1600)
     image leap mizugi smile = im.Scale("leap mizugi smile.png", 800, 1600)
     image leap mizugi surprise = im.Scale("leap mizugi surprise.png", 800, 1600)
-    image bg hospital = im.Scale("bg hospital.png", 1280, 720)
 
     image openingVideo:
         "opening-0001.jpg"
@@ -110,7 +110,8 @@ label start:
     # jump opening
 
     $ like_meter = True
-    jump ending
+    $ progress = 5
+    jump winter
 
 
 label rest:
@@ -136,8 +137,10 @@ label rest:
                 jump summer
             elif progress == 4:
                 jump fall
-            elif prograss == 5:
+            elif progress == 5:
                 jump winter
+            elif progress == 6:
+                jump ending
             else:
                 "変数\"progress\"の設定がバグってるっぴ！"
                 return

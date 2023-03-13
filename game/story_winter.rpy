@@ -9,7 +9,7 @@ label winter1:
 
     scene bg classroom day
     with dissolve
-    show boyssilhouette at leappos
+    show boyssilhouette at Position(xancor=0.0, ypos=1.5)
     with dissolve
 
     $ zako1Name = "生徒１"
@@ -37,9 +37,6 @@ label winter1:
     Me "まぁ俺には無縁の話か。"
 
     pause 2.0
-
-    show leap normal at leapPos
-    with dissolve
 
     show leap uniform question at leapPos
     with dissolve
@@ -69,7 +66,6 @@ label winter1:
     if passedDemon == False:
         $ like = likeChanger(like, -10)
         
-        $ like = likeChanger(like, -10)
     show leap uniform question sweat
     L "なんですかその言い方は！"
     show leap uniform question
@@ -237,10 +233,11 @@ label winter1:
 
     scene bg irumi
     with dissolve
+    show leap uniform normal at leapPos
+    with dissolve
 
     Me "駅前だし結構混んでるね。"
 
-    show leap uniform normal at leapPos
     L "本当ですね。"
 
     Me "今日一緒にいてくれてありがとね。"
@@ -343,6 +340,129 @@ label winter1:
     L "では行きますよ。"
 
     jump testPrepare
+
+label winter2:
+    if 0 <= sumT <= 6:
+        $ renpy.block_rollback()
+        $ like = likeChanger(like, -15)
+
+        show leap uniform question
+        L "先輩..."
+        L "このテストももう五回目です。"
+        L "それで、７割も取れないってどういうことですか？"
+
+        Me "えっああ、ごめん。"
+
+        show leap uniform question sweat
+        L "ちゃんと勉強してます？"
+
+        Me "まっまあ、それなりには..."
+
+        show leap uniform question
+        L "それなりじゃダメです。もっとちゃんとやってください。"
+
+        Me "わっ分かったよ。"
+        Me "だけど、何でそんな言うの？"
+
+        show leap uniform surprise
+        L "えっ..."
+        show leap uniform question
+        L "あ..."
+        show leap uniform sad
+        L "すみません。"
+
+        Me "いやいや、こっちこそごめんね。"
+
+    elif 7 <= sumT <= 10:
+        $ renpy.block_rollback()
+        $ like = likeChanger(like, 10)
+
+        L "流石先輩ですね。"
+
+        Me "そうかな。"
+
+        L "最初あった時とは見違えるように成長しましたね。"
+
+        Me "これも全部君のおかげだよ。"
+
+        L "そ、そう言われると照れますね。"
+
+        Me "本当にそう思う。"
+        Me "一年前は本当に嫌いだった英語だけれども、{p}今となっては君との英単語テストも楽しいと思えるよ。"
+
+        show leap uniform smile
+        L "それはうれしい限りです。"
+        show leap uniform sad
+        L "{size=*0.8}もう私がいなくても大丈夫なくらいですね。{/size}"
+
+        Me "何か言った？"
+
+        show leap uniform normal
+        L "何でもないです。"
+
+    Me "じゃあ、そろそろ帰ろうか。"
+
+    show leap uniform normal
+    L "そうですね。"
+
+    Me "..."
+
+    L "..."
+
+    scene bg black
+    with dissolve
+
+    pause 2.0
+
+    scene bg train day
+    with dissolve
+    show leap uniform normal at leapPos
+    with dissolve
+
+    "そして、同じ電車に乗り家に帰る二人。"
+    "二人は終始無言であった。"
+    "それは、楽しいデートの余韻に浸っているからなのか、\n明日からのいつも変わらない日々を喘いでいるのか。"
+    "もしくはその両方なのか、はたまたまた違う大きな理由があるのかは分からない。"
+    "だがしかし、二人の間に今日を名残惜しむ感情が流れていることは確かであった。"
+
+    Cd "駅に到着しました。車内にお忘れ物のないようご注意ください。"
+    Cd "お出口は左側です。扉にご注意ください。"
+
+    Me "着いたね。"
+
+    L "そうですね。"
+
+    scene bg station
+    with dissolve
+    show leap uniform normal at leapPos
+    with dissolve
+
+    Me "今日は本当に楽しかったよ、ありがとう。"
+
+    L "私の方こそありがとうございました。"
+    L "思ってた以上に楽しかったです。"
+
+    Me "また、行けたらいいね。"
+
+    L "また、ですか..."
+
+    Me "Leapちゃんが良かったら、また一緒にデートできないかな。"
+
+    L "...{p}...もちろんです。"
+    show leap uniform smile
+    L "いつかまたデートしましょう、約束ですよ？"
+
+    Me "あぁ、約束だ。"
+    Me "じゃあ、僕こっちだから。じゃあね。"
+
+    show leap uniform normal
+    L "先輩..."
+    L "さようなら..."
+
+    scene bg black
+    with dissolve
+
+    jump rest
 
 label winter_bad:
     $ renpy.block_rollback()
@@ -474,7 +594,7 @@ label winter_bad:
     scene bg shrine day
     with dissolve
 
-    show leap uniform normal yami
+    show leap uniform normal yami at leapPos
     L "先輩...意外と早かったですね。"
     L "もう少し、遅いと思ってました。"
 
@@ -568,118 +688,3 @@ label winter_bad:
     $ badEndCode = 6
     
     jump badEnd_call
-
-label winter2:
-    if 0 <= sumT <= 6:
-        $ like = likeChanger(like, -15)
-
-        show leap uniform question
-        L "先輩..."
-        L "このテストももう五回目です。"
-        L "それで、７割も取れないってどういうことですか？"
-
-        Me "えっああ、ごめん。"
-
-        show leap uniform question sweat
-        L "ちゃんと勉強してます？"
-
-        Me "まっまあ、それなりには..."
-
-        show leap uniform question
-        L "それなりじゃダメです。もっとちゃんとやってください。"
-
-        Me "わっ分かったよ。"
-        Me "だけど、何でそんな言うの？"
-
-        show leap uniform surprise
-        L "えっ..."
-        show leap uniform question
-        L "あ..."
-        show leap uniform sad
-        L "すみません。"
-
-        Me "いやいや、こっちこそごめんね。"
-
-    elif 7 <= sumT <= 10:
-        $ like = likeChnager(like, 10)
-
-        L "流石先輩ですね。"
-
-        Me "そうかな。"
-
-        L "最初あった時とは見違えるように成長しましたね。"
-
-        Me "これも全部君のおかげだよ。"
-
-        L "そ、そう言われると照れますね。"
-
-        Me "本当にそう思う。"
-        Me "一年前は本当に嫌いだった英語だけれども、{p}今となっては君との英単語テストも楽しいと思えるよ。"
-
-        show leap uniform smile
-        L "それはうれしい限りです。"
-        show leap uniform sad
-        L "{size=*0.8}もう私がいなくても大丈夫なくらいですね。{/size}"
-
-        Me "何か言った？"
-
-        show leap uniform normal
-        L "何でもないです。"
-
-    Me "じゃあ、そろそろ帰ろうか。"
-
-    show leap uniform normal
-    L "そうですね。"
-
-    Me "..."
-
-    L "..."
-
-    scene bg black
-    with dissolve
-
-    pause 2.0
-
-    scene bg train day
-    with dissolve
-
-    "そして、同じ電車に乗り家に帰る二人。"
-    "二人は終始無言であった。"
-    "それは、楽しいデートの余韻に浸っているからなのか、\n明日からのいつも変わらない日々を喘いでいるのか。"
-    "もしくはその両方なのか、はたまたまた違う大きな理由があるのかは分からない。"
-    "だがしかし、二人の間に今日を名残惜しむ感情が流れていることは確かであった。"
-
-    Cd "駅に到着しました。車内にお忘れ物のないようご注意ください。"
-    Cd "お出口は左側です。扉にご注意ください。"
-
-    Me "着いたね。"
-
-    show leap uniform normal at leapPos
-    L "そうですね。"
-
-    scene bg station
-    with dissolve
-
-    Me "今日は本当に楽しかったよ、ありがとう。"
-
-    L "私の方こそありがとうございました。"
-    L "思ってた以上に楽しかったです。"
-
-    Me "また、行けたらいいね。"
-
-    L "また、ですか..."
-
-    Me "Leapちゃんが良かったら、また一緒にデートできないかな。"
-
-    L "...{p}...もちろんです。"
-    show leap uniform smile
-    L "いつかまたデートしましょう、約束ですよ？"
-
-    Me "あぁ、約束だ。"
-    Me "じゃあ、僕こっちだから。じゃあね。"
-
-    show leap uniform normal
-    L "先輩..."
-    L "さようなら..."
-
-    jump rest
