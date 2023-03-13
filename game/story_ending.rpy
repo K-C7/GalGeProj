@@ -12,6 +12,7 @@ label ending_bunki:
 
 
 label ending_bad:
+    $ renpy.block_rollback()
     $ like_meter = False
 
     scene bg black
@@ -641,6 +642,7 @@ label ending1:
 
 
 label ending_judgement:
+    $ renpy.block_rollback()
     if(sumT == 10):
         jump ending_happy
     else:
@@ -720,6 +722,10 @@ label ending_normal:
     "きっと普通の生活..."
 
     "NORMAL END : 破られてしまった本"
+
+    pause 5.0
+
+    "ノーマルクリアおめでとうございます。この他にもエンディングをご用意してあります。引き続きお楽しみください。"
 
 label ending_happy:
     God "ふふふ、"
@@ -829,3 +835,7 @@ label ending_happy:
     "英語との生活を送るだろう..."
 
     "HAPPY END : 縁結び"
+    
+    pause 5.0
+
+    "ハッピーエンドおめでとうございます。\n己の技量・時間不足でしばしばお見苦しいところをお見せいたしましたことをここでお詫び申し上げます。\nこの度は私たちが作った「俺単」をプレイしていただき、誠にありがとうございました。"
