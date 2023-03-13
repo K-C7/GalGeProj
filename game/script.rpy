@@ -165,8 +165,10 @@ label badEnd_call:
         Me "その音を境に、僕の未来は真っ黒に染まった。"
         "BadEnd 6 : It's no use crying over split milk."
     
-    elif(badEndCode == 5):
+    elif(badEndCode == 7):
         "BadEnd 7 : 現実"
+        "もう少し好感度をあげてみたら、何かが起きるかも...！？"
+        jump exit
     
     stop music fadeout 2.0
     pause 2.0

@@ -22,11 +22,11 @@ label testPrepare:
         $ minNum = 601
         $ maxNum = 800
         $ numOfQue = 10
-    elif prograss == 5:
+    elif progress == 5:
         $ minNum = 801
         $ maxNum = 1000
         $ numOfQue = 10
-    elif prograss == 6:
+    elif progress == 6:
         $ minNum = 1
         $ maxNum = 1000
         $ numOfQue = 10
