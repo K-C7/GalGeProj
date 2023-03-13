@@ -70,7 +70,9 @@ label winter1:
         $ like = likeChanger(like, -10)
         
         $ like = likeChanger(like, -10)
+    show leap uniform question sweat
     L "なんですかその言い方は！"
+    show leap uniform question
     L "まったく...私のことを何だと思ってるんですか..."
 
     Me "ごめんごめん。"
@@ -80,29 +82,36 @@ label winter1:
 
         L "まぁ...否定はしませんけど..."
 
+    show leap uniform sad
     L "あーあ、せっかくクリスマス一緒に過ごしてあげようかと思ってたんですけどねぇ。"
 
     Me "！？！？！？"
 
+    show leap uniform normal
     L "でもなー、どうしますかねー？"
     L "今謝るなら許してあげないこともな..."
 
     Me "すみませんでした。" #立ち絵を足だけにするのもいいかも
 
+    show leap uniform question sweat
     L "は、速いですね。"
 
     Me "クリぼっちは嫌なんです...お願いします..."
 
+    show leap uniform normal
     L "まったく...そんなに言うなら仕方ないですね～"
     L "クリスマスは一緒にいてあげてもいいですよ？"
 
     Me "本当に！？ありがとう！"
 
     L "でも、今年のクリスマスは学校と被ってるんですよねー。"
+
+    show leap uniform question
     L "それなので、クリスマスの日の放課後に集合して遊びにでも行きます？"
 
     Me "そうだね！そうしよう。"
 
+    show leap uniform surprise
     L "あ、ちょっと待ってくださいね。"
 
     play sound "audio/writing.mp3" volume 0.1
@@ -111,13 +120,15 @@ label winter1:
 
     stop sound
 
+    show leap uniform normal
     L "これ、私の電話番号です。何かあったら連絡してくださいね。"
     
     Me "ああ、ありがとう。じゃあ俺のも...{w=2.0}はい。"
 
     L "ありがとうございます。"
-    show leap surprise
+    show leap uniform surprise
     L "あっ、もう少しで授業始まっちゃいますね。"
+    show leap uniform normal
     L "では私は戻りますね。また会いましょう。"
 
     Me "うん、じゃあね。"
@@ -133,11 +144,12 @@ label winter1:
     Me "せっかくのクリスマスだけども、相変わらず学校は疲れるなぁ。"
     Me "Leapちゃんはまだかな。まだ来てなさそうだけど..."
 
-    show leap normal at leapPos
+    show leap uniform surprise at leapPos
     L "先輩先輩、どこ見てるんですか？"
 
     Me "うぉ、いつの間に。"
     
+    show leap uniform question
     L "今来たところですよ。{p}それより遅れてすみません。部活を早く切り上げるつもりだったんですけど..."
 
     menu:
@@ -148,15 +160,18 @@ label winter1:
 
             Me "来るのが遅い！"
 
+            show leap uniform sad
             $ like = likeChanger(like, -10)
             L "す、すみません..."
 
             Me "別に謝らなくていいよ。ただ、今日が本当に楽しみでさ。"
 
+            show leap uniform surprise
             L "えっ..."
 
             Me "もし来なかったらどうしようかと思って、すごく心配してたんだ。"
 
+            show leap uniform normal
             $ like = likeChanger(like, 15)
             L "あっ、ああ、ありがとうございます。"
         
@@ -165,14 +180,17 @@ label winter1:
 
             Me "別にいいよ。"
 
+            show leap uniform question
             L "先輩、もしかして怒ってます？"
 
             Me "いや、怒ってないよ。"
 
+            show leap uniform question sweat
             L "怒ってますよね？"
 
             Me "怒ってないって。"
 
+            show leap uniform sad
             $ like = likeChanger(like, -20)
             L "ごめんなさい..."
 
@@ -190,20 +208,25 @@ label winter1:
         
     Me "じゃあ行こっか。"
 
+    show leap uniform question
     L "行く場所は決まってるんですか？"
 
     Me "うん。" 
 
+    show leap uniform normal
     L "じゃあ、今日のデートは先輩に任せますね。"
 
     Me "デッデート！！？？"
 
+    show leap uniform surprise
     L "えっ気づいてなかったんですか！？"
+    show leap uniform normal
     L "男女でクリスマスにお出かけするんですから、{w}これはれっきとしたデートですよ。"
     L "ちゃんとリードしてくださいね。"
 
     Me "わっわかったよ。"
 
+    show leap uniform smile
     L "お願いしますね、先輩。"
 
     scene bg black
@@ -217,6 +240,7 @@ label winter1:
 
     Me "駅前だし結構混んでるね。"
 
+    show leap uniform normal at leapPos
     L "本当ですね。"
 
     Me "今日一緒にいてくれてありがとね。"
@@ -226,17 +250,21 @@ label winter1:
 
     Me "そうだよ。"
 
+    show leap uniform normal
     L "じゃあ、私が初めてのデート相手ですね。"
 
     Me "なっ...何言ってんだよ。"
 
+    show leap uniform smile
     L "ふふっ"
 
     Me "..."
 
+    show leap uniform normal
     L "..."
 
     Me "...綺麗だね。"
+
 
     L "...何がですか？"
 
@@ -249,6 +277,7 @@ label winter1:
             Me "イルミネーションだよ。"
 
             $ like = likeChanger(like, -20)
+            show leap uniform sad
             L "..."
             L "確かにきれいですね。"
             L "私なんて霞んでしまうくらいに..."
@@ -261,11 +290,13 @@ label winter1:
             Me "...Leapちゃんだよ。"
 
             $ like = likeChanger(like, 10)
+            show leap uniform question sweat
             L "えっ...先輩、もう一度言ってください。"
 
             Me "何度も言わせないでよ、恥ずかしい..."
 
             L "綺麗だなんで初めて言われました。"
+            show leap uniform smile
             L "先輩、ありがとうございます！"
 
             Me "...どういたしまして。"
@@ -277,7 +308,7 @@ label winter1:
 
             jump winter_bad
     
-
+    show leap uniform question
     L "...{p}先輩？"
 
     Me "どうしたの？"
@@ -286,6 +317,7 @@ label winter1:
 
     Me "もちろん。"
 
+    show leap uniform normal
     L "それから、先輩とはいろいろありましたよね。"
 
     Me "確かにね。委員会が同じだったり、海で出会ったり、体育大会一緒に出たり..."
@@ -296,6 +328,7 @@ label winter1:
     L "確かに...そうですね。"
     L "..."
     L "......."
+    show leap uniform question
     L "...先輩..."
     L "英単語テスト、しませんか..."
 
@@ -306,14 +339,19 @@ label winter1:
 
     Me "（あれ？すごい真剣な顔してる？）"
     
+    show leap uniform normal
     L "では行きますよ。"
 
     jump testPrepare
 
 label winter_bad:
+    $ renpy.block_rollback()
+
     Me "あそこのお姉さんがだよ。"
 
+    show leap uniform question
     L "...え？"
+    show leap uniform sad
     L "...何でそんなこと言うんですか？"
 
     Me "あっ、いや今の冗談で..."
@@ -336,6 +374,7 @@ label winter_bad:
     
     Me "え、あ、ちょっと待っ..."
 
+    show leap uniform normal yami
     L "冗談でも言って良いことと悪いことがあるんですよ、先輩。"
     L "また一つ賢くなりましたね。"
     L "では、さようなら。"
@@ -367,6 +406,9 @@ label winter_bad:
     with dissolve
 
     "その日の放課後"
+
+    scene bg classroom evening
+    with dissolve
 
     Me "でも、どうやってLeapちゃんに謝ろう。"
     Me "Leapちゃんの家知らないしなぁ。{w}...あっ！"
@@ -432,6 +474,7 @@ label winter_bad:
     scene bg shrine day
     with dissolve
 
+    show leap uniform normal yami
     L "先輩...意外と早かったですね。"
     L "もう少し、遅いと思ってました。"
 
@@ -453,6 +496,7 @@ label winter_bad:
 
     Me "..."
 
+    show leap uniform sad yami
     L "やっぱり覚えてないですよね。"
 
     "Leapは喋りながらゆっくりと先輩に歩み寄る。"
@@ -471,6 +515,7 @@ label winter_bad:
     Me "！？！？"
     Me "（体が動かない...）"
 
+    show leap uniform normal yami
     L "しびれて動けなくなった先輩もカワイイですよ。"
 
     Me "うっ...ぐっ..."
@@ -481,12 +526,14 @@ label winter_bad:
     L "こんなカワイイ先輩にはご褒美に教えてあげますよ。"
     L "先輩のことが大好きだからですよ..."
     L "大好きで大好きで胸が張り裂けそうだったのに..."
+    show leap uniform sad yami
     L "なのに、"
     L "先輩が私のほうを見てくれないから。"
     L "見てくれないからいけないんですよ。"
 
     Me "俺は...ただ...謝りた...かった...だけ..."
 
+    show leap uniform normal yami
     L "律儀ですね先輩、そんな先輩もカワイイ。"
     L "あっそうだ先輩。{p}私がこの数日間、学校に行かず何をしていたか分かりますか？"
 
@@ -526,23 +573,29 @@ label winter2:
     if 0 <= sumT <= 6:
         $ like = likeChanger(like, -15)
 
+        show leap uniform question
         L "先輩..."
         L "このテストももう五回目です。"
         L "それで、７割も取れないってどういうことですか？"
 
         Me "えっああ、ごめん。"
 
+        show leap uniform question sweat
         L "ちゃんと勉強してます？"
 
         Me "まっまあ、それなりには..."
 
+        show leap uniform question
         L "それなりじゃダメです。もっとちゃんとやってください。"
 
         Me "わっ分かったよ。"
         Me "だけど、何でそんな言うの？"
 
+        show leap uniform surprise
         L "えっ..."
+        show leap uniform question
         L "あ..."
+        show leap uniform sad
         L "すみません。"
 
         Me "いやいや、こっちこそごめんね。"
@@ -563,15 +616,19 @@ label winter2:
         Me "本当にそう思う。"
         Me "一年前は本当に嫌いだった英語だけれども、{p}今となっては君との英単語テストも楽しいと思えるよ。"
 
+        show leap uniform smile
         L "それはうれしい限りです。"
+        show leap uniform sad
         L "{size=*0.8}もう私がいなくても大丈夫なくらいですね。{/size}"
 
         Me "何か言った？"
 
+        show leap uniform normal
         L "何でもないです。"
 
     Me "じゃあ、そろそろ帰ろうか。"
 
+    show leap uniform normal
     L "そうですね。"
 
     Me "..."
@@ -597,6 +654,7 @@ label winter2:
 
     Me "着いたね。"
 
+    show leap uniform normal at leapPos
     L "そうですね。"
 
     scene bg station
@@ -614,10 +672,14 @@ label winter2:
     Me "Leapちゃんが良かったら、また一緒にデートできないかな。"
 
     L "...{p}...もちろんです。"
+    show leap uniform smile
     L "いつかまたデートしましょう、約束ですよ？"
 
     Me "あぁ、約束だ。"
     Me "じゃあ、僕こっちだから。じゃあね。"
 
+    show leap uniform normal
     L "先輩..."
     L "さようなら..."
+
+    jump rest
