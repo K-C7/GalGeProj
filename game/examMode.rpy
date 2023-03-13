@@ -8,19 +8,27 @@ label testPrepare:
 
     if progress == 1:
         $ minNum = 1
-        $ maxNum = 100
+        $ maxNum = 150
         $ numOfQue = 10
     elif progress == 2:
-        $ minNum = 101
-        $ maxNum = 200
-        $ numOfQue = 10
-    elif progress == 3:
-        $ minNum = 201
+        $ minNum = 151
         $ maxNum = 300
         $ numOfQue = 10
-    elif progress == 4:
+    elif progress == 3:
         $ minNum = 301
-        $ maxNum = 400
+        $ maxNum = 450
+        $ numOfQue = 10
+    elif progress == 4:
+        $ minNum = 451
+        $ maxNum = 600
+        $ numOfQue = 10
+    elif prograss == 5:
+        $ minNum = 601
+        $ maxNum = 800
+        $ numOfQue = 10
+    elif prograss == 6:
+        $ minNum = 1
+        $ maxNum = 800
         $ numOfQue = 10
     else:
         $ minNum = 1
