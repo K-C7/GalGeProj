@@ -389,6 +389,12 @@ label endSelect:
         elif progress == 4:
             stop music
             jump fall3
+        elif progress == 5:
+            stop music
+            jump ##################
+        elif progress == 6:
+            stop music
+            jump ending_judgement
         else:
             "変数\"progress\"がバグってるっぴ！"
 
