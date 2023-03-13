@@ -1,7 +1,18 @@
-label ending:
-    jump ending1
+$ hikui = 30
+$ takai = 80
 
-label ending1:
+label ending:
+    jump ending_bunki
+
+
+label ending_bunki:
+    if(like < hikui):
+        jump ending_bad
+    elif(like >= takai):
+        jump ending_normal
+
+
+label ending_bad:
 scene bg black
 with dissolve
 
@@ -183,3 +194,4 @@ show leap normal at leapPos
 
 $ badEndCode = 7
 jump badEnd_call
+
