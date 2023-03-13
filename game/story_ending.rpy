@@ -16,6 +16,7 @@ label ending_bad:
 
     scene bg black
     with dissolve
+    play music "audio/distance.mp3" volume 0.1 fadein 1.0
 
     Me "あれから数週間後、いつもの平穏な日々が続いた。"
 
@@ -224,7 +225,9 @@ label ending_bad:
     ...もっともこれを見ているあなたがこっち側に来る勇気があるならば、話は別なのだが。
     """
 
+    stop music fadeout 2.0
     $ badEndCode = 7
+
     jump badEnd_call
 
 
@@ -372,6 +375,7 @@ label ending1:
     # 背景：街いろんなところ（ちょくちょく変えて）
     scene bg city1
     with dissolve
+    play music "audio/run.mp3" fadein 1.0
     
     Me "それから、先輩は町中を探し回った。"
 
@@ -406,6 +410,8 @@ label ending1:
     だけど見つかることはなかった。
     何の情報も、何の面影も、見つからなかった。
     """
+
+    stop music fadeout 2.0
 
     # 背景：街夕方
     scene bg city evening
@@ -463,7 +469,7 @@ label ending1:
     "そして、いつか通った道を通て”あの場所”に来る。"
     "\"あの場所\"に。"
 
-    stop music
+    stop music fadeout 1.0
 
     # 背景：夕方神社 <===どうする
     scene bg shrine evening
@@ -656,16 +662,26 @@ label ending_judgement:
 
 
 label ending_normal:
+    play music "audio/blow.mp3" volume 0.2
+
     God "ふふふ、"
+
     Me "くっ...うぅう..."
     Me "畜生..."
+
     God "実に愉快だったぞ...人間..."
+
     Me "クソ..."
-    God "そう自分攻めるでない。"
+
+    God "そう自分を責めるでない。"
     God "もとよりできると思っておらんわ。"
+
     Me "貴様..."
+
     God "では、約束通りに..."
     God "没収だ..."
+
+    stop music
     Me "やめろっ...うっ... なんだこの光は...!"
 
     # (光エフェクト) どうする
@@ -720,6 +736,7 @@ label ending_normal:
     pause 2.0
 
     stop sound
+    play music "audio/distance.mp3" volume 0.1 fadein 1.0
 
     "その後、あなたがLeapちゃんを思い出すことはなかった。"
     "いや、"
@@ -733,6 +750,8 @@ label ending_normal:
     "あなたはこれから先、きっと普通の生活を送るだろう..."
     "きっと普通の生活..."
 
+    stop music fadeout 1.0
+
     "NORMAL END : 破られてしまった本"
 
     pause 5.0
@@ -743,12 +762,18 @@ label ending_normal:
 
 
 label ending_happy:
+    play music "audio/blow.mp3" volume 0.2
+
     God "ふふふ、"
     God "ハハハハハハハハハハハハハハハハハハハハハハハハハハハハハ！"
+
     Me "ちゃんと答えたぞ。"
+
     Me "Leapちゃんを返してくれ。"
     God "はぁ..."
+
     Me "！？"
+
     God "ふふふ、人間は本当に面白い。"
     God "よくこの試練を突破したな。"
     God "Leapか..."
@@ -757,11 +782,14 @@ label ending_happy:
     God "一年前に我に英語ができますようにと願ってきた人間とは思えないな。"
     God "言い出したのは私だ..."
     God "良いだろう。"
+
     Me "！？"
     God "本来ならこんなことはあり得ないのだが。"
     God "それなりに、面白いものを見れた。"
     God "その対価として..."
     God "貴様の願いをかなえてやろうオオオオオオ！"
+
+    stop music fadeout 1.0
     Me "うっ... なんだこの光は...!"
     
     #(光エフェクト)どうする
@@ -779,7 +807,7 @@ label ending_happy:
     Me "...ハッ！"
     Me "ここは.."
 
-    $zako1Name = "医者"
+    $ zako1Name = "医者"
 
     Zako1 "起きましたか..."
     Zako1 "落ち着いて聞いてください。"
@@ -806,39 +834,56 @@ label ending_happy:
     with dissolve
 
     show leap uniform surprise
+    play music "leap.mp3" volume 0.05
     L "先輩！？"
-    Me "Leap！？"
+
+    Me "Leapちゃん！？"
+
     show leap uniform question
-    L "本当に無茶する人ですね..."
+    L "まったく、本当に無茶する人ですね..."
+
     Me "ごめんね。"
     Me "だけど、後悔はなかったよ。"
     Me "君のために頑張れるんだったら。"
     Me "俺は..."
+
     show leap uniform surprise
     L "先輩って...本当に..."
     show leap uniform smile
     L "...バカ..."
+
     Me "ふふ。"
+
     show leap uniform question
     L "何笑ってるんですか。"
+
     Me "いや、幸せだなって"
+
     show leap uniform normal
     L "もう、先輩..."
-    L "...先輩"
+    L "...先輩、"
+
     Me "どうしたの？"
-    L "本当にありがとうございます。"
+
+    L "本当に、ありがとうございました。"
+
     Me "それほどでもないよ。"
     Me "...Leapちゃん、君の事が好きだ。"
+
     L "..."
     show leap uniform smile
     L "私もです、先輩！"
+
     Zako1 "{size=*0.8}若いもんはいいねぇ～{/size}"
+
     Me "///"
+
     L "///"
 
     # 背景：黒
     # 登場：Leap
-
+    
+    stop music fadeout 2.0
     scene bg black
     with dissolve
 

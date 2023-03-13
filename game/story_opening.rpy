@@ -2,6 +2,8 @@ label opening:
     jump opening1
 
 label opening1:
+    scene bg black
+
     "Note: 会話中に下の「ロールバック」ボタンを押すと、\nひとつ前の画面に戻ることができます。\n一部の場面を除いて基本的に使用できるので、ぜひご活用ください。"
     "Note: また、セーブは各章終了時にのみすることができます。\nご了承ください。"
 
@@ -159,25 +161,25 @@ label opening1_menu1:
     Me "（急ぐあまり、人とぶつかってしまった。謝らないと。）"
     Me "あのーすみません。お怪我はあり...？"
 
-    show leap normal at leapPos
+    show leap uniform normal at leapPos
     with dissolve
     play music "audio/leap.mp3" volume 0.05 fadein 1.0
 
     Me "かっ..."
     Me "（かわいい...）"
 
-    show leap surprise
+    show leap uniform surprise
     Ano "大丈夫ですか！？"
 
     Me "あっ、ああ。大丈夫だよ。"
 
-    show leap question_mark
+    show leap uniform question
     Ano "同じ制服？"
     Ano "あのー、もしかして同じ学校の先輩なんですか？"
 
     Me "（たしかに同じ制服だけど、この子誰だ？学校で見たことないぞ。）"
 
-    show leap surprise
+    show leap uniform surprise
     Ano "あーーーっ！先輩！"
 
     Me "何？"
@@ -200,7 +202,7 @@ label opening1_menu1:
     scene bg train day
     with dissolve
 
-    show leap normal at leapPos
+    show leap uniform normal at leapPos
     with dissolve
     play music "audio/train.mp3" volume 0.2 fadein 1.0
 
@@ -215,15 +217,15 @@ label opening1_menu1:
 
     Ano "…"
 
-    show leap question
+    show leap uniform question sweat
     Ano "どうしたんですか先輩？"
 
     Me "いっ、いやなんでも。"
 
-    show leap surprise
+    show leap uniform surprise
     Ano "あっ！そういえば名乗ってなかったですね。"
 
-    show leap normal
+    show leap uniform normal
     L "私、Leapといいます。"
 
     pause
@@ -238,7 +240,7 @@ label opening1_menu1:
     Me "え？"
     Me "あっ、ああ、キラキラネーム的な？"
 
-    show leap question
+    show leap uniform question sweat
     L "キラキラネーム？私の名前ってそんなにおかしいですか？"
 
     Me "？？？"
@@ -264,23 +266,25 @@ label opening1_menu1:
     play sound "audio/thunder.mp3" volume 0.05
     Me "いや、こうはならないだろ。"
 
-    show leap question
+    show leap uniform question sweat
     L "どうしたんですか先輩、そんな難しい顔して。"
     
     Me "いや、何でもないよ。"
 
-    show leap question_mark
     L "...そんなに私の名前変ですか？"
     
     Me "........"
     Me "俺の気のせいだった、気にしないでくれ。"
 
-    show leap normal
+    show leap uniform normal
     L "あっそうですか。良かった。"
     
     Me "（いや、良くないだろ。）"
     Me "（このままだとこちらの印象は悪くなるし、もっと差し障りのない話題に変えなければ。）"
     Me "あっそうだ、"
+
+    $ passedNew = False
+    $ passedClub = False
 
     jump opening1_menu2
 
@@ -288,7 +292,9 @@ label opening1_menu2:
     menu:
         Me "あっそうだ、"
 
-        "君は新入生、でいいんだよね？":
+        "君は新入生、でいいんだよね？" if passedNew == False:
+            $ passedNew = True
+
             Me "君は新入生、でいいんだよね？"
             
             L "はい、そうですよ。"
@@ -309,33 +315,33 @@ label opening1_menu2:
 
             jump opening1_menu2
 
-        "LEAPちゃんって何か部活入るの？":
-            show leap question
+        "LEAPちゃんって何か部活入るの？" if passedClub == False:
+            $ passedClub = True
+
+            show leap uniform question
             L "うーん。"
             L "まだ決めてないですね。"
 
-            show leap normal
             L "何かおすすめとかありますか？"
 
             Me "..."
             Me "実は俺部活入ってないんだよね。"
 
-            show leap surprise
+            show leap uniform surprise
             L "えっ、そうなんですか。"
 
-            show leap question_mark
+            show leap uniform question
             L "何で入らなかったんですか？"
 
             Me "うーーーん。"
             Me "入りたいところがなかったから？"
             Me "..."
 
-            show leap question
             L "..."
 
             Me "（会話が終わってしまった。何か次の話題はないのか？）"
 
-            show leap normal
+            show leap uniform normal
 
             jump opening1_menu2
         
@@ -348,7 +354,7 @@ label opening1_menu2:
                 "英語":
                     Me "英語だろ。"
 
-                    show leap surprise
+                    show leap uniform surprise
                     L "なんでわかったんですか？"
 
                     Me "(いや、分かるだろ。)"
@@ -361,7 +367,7 @@ label opening1_menu2:
 
                     Me "引っ掛けとかじゃなかったか。"
 
-                    show leap question
+                    show leap uniform question
                     L "何がですか？"
 
                     Me "いや、なんでもない。"
@@ -373,24 +379,24 @@ label opening1_menu2:
 
                     Me "引っ掛けとかじゃなかったか。"
 
-                    show leap question
+                    show leap uniform question
                     L "何がですか？"
 
                     Me "いや、なんでもない。"
 
-    show leap normal
+    show leap uniform normal
     L "そうなんですか、じゃあ先輩はどうなんですか？"
         
     Me "何が？"
 
-    show leap question  
+    show leap uniform question  
     L "英語は得意なんですか？"
         
     Me "...実は結構苦手で..."
     Me "期始めの実力テストでは毎回酷い点数しかとれなくて。"
     Me "本当に誰かに教えてもらいたいくらいだよ。"
         
-    show leap normal  
+    show leap uniform normal  
     L "苦手なんですね。へー。"
     L "..."
     
@@ -446,16 +452,17 @@ label opening2:
     if 0 <= sumT <= 3:
         $ like = likeChanger(like, -15)
 
+        show leap uniform normal
         L "わぁ、本当に英語が苦手なんですね。"
 
         Me "く、くそぉ..."
 
-        show leap question
+        show leap uniform question
         L "勉強してます？"
 
         Me "苦手なんだからしょうがないだろ。"
 
-        show leap normal
+        show leap uniform normal
         L "いや、先輩。むしろこれは伸びしろですよ。"
 
         Me "伸びしろ？"
@@ -465,34 +472,32 @@ label opening2:
 
         Me "そ、そうかな。"
 
-        show leap smile
         L "そうですよ！"
 
         Me "じゃあ、ちゃんと英語勉強するか。"
 
-        show leap normal
+        show leap uniform normal
         L "その調子です。それなら付き合ってあげますよ。"
 
         Me "えっ、それって...？"
 
-        show leap question
+        show leap uniform question
         L "？英語のテストをですよ？"
 
-        show leap normal
+        show leap uniform normal
 
     elif 4 <= sumT <= 7:
         $ like = likeChanger(like, 5)
 
+        show leap uniform normal
         L "まあまあじゃないですか。"
 
         Me "そうかな。"
 
-        show leap smile
         L "単語はちゃんと覚えられてるってことですし、素晴らしいと思いますよ！"
 
         Me "そっか。ありがとう。"
 
-        show leap normal
         L "もしまたご一緒することがあったら、その時はまた英語の問題を出してあげますよ。"
 
         Me "そうなった時はよろしく頼むよ。"
@@ -511,20 +516,22 @@ label opening2:
 
         Me "そうかな。"
 
+        show leap uniform surprise
         L "あっ、そうだ。先輩は毎日この電車を使ってるんですか？"
 
         Me "そうだけど。"
 
+        show leap uniform normal
         L "じゃあ、また今度会ったときも問題出してあげますよ。"
 
         Me "{size=*0.8}...だるいな。{/size}"
 
-        show leap question
+        show leap uniform question
         L "なにか言いました？"
 
         Me "いや、ありがとうって言ったんだ。"
 
-        show leap normal
+        show leap uniform normal
         L "それなら良かったです。"
     
     stop music fadeout 1.0
@@ -542,10 +549,10 @@ label opening2:
 
     Me "褒めてるよ。"
 
-    show leap smile
+    show leap uniform smile
     L "ふふふ、それはありがとうございます。"
 
-    show leap normal
+    show leap uniform normal
     L "じゃあ、学校に行きましょうか。"
 
     Me "そうだな。"

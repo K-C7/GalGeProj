@@ -39,14 +39,14 @@ label testPrepare:
 
 label initExamMode:
     scene bg classroom evening
-    show leap uniform normal at leapPos
     play music "audio/leap.mp3" volume 0.05
     $ isReview = False
+    $ progress = 0
 
     jump modeSelect
 
 label modeSelect:
-    show leap uniform question
+    show leap uniform question at leapPos
     L "それでは、どうやって勉強しますか？"
     menu:
         L "それでは、どうやって勉強しますか？"
@@ -136,7 +136,7 @@ label rangeSelect:
         jump modeSelect
 
 label learn: #指定した範囲の日本語と英語を載せるだけ
-    $ leapNumber = minNum載せるだけ
+    $ leapNumber = minNum
 
     while leapNumber <= maxNum:
         $ en, jp = leapModule.getWords(leapNumber)
@@ -324,7 +324,7 @@ label exam:
                 else: #不正解の場合
                     $ withHint = False #ヒント設定の初期化
                     $ questionNumber += 1
-                    show leap uniform question
+                    show leap uniform sad
                     play sound "audio/hazure.mp3" volume 0.1
                     L "{color=#ED1616}不正解{/color}です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
             

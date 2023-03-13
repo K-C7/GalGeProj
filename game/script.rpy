@@ -71,7 +71,9 @@ init:
     image leap sport sad = im.Scale("leap sport sad.png", 800, 1600)
     image leap sport smile = im.Scale("leap sport smile.png", 800, 1600)
     image leap sport surprise = im.Scale("leap sport surprise.png", 800, 1600)
+    image leap sport silhouette = im.Scale("leap sport silhouette.png", 800, 1600)
     image leap mizugi normal = im.Scale("leap mizugi normal.png", 800, 1600)
+    image leap mizugi question sweat = im.Scale("leap mizugi question sweat.png", 800, 1600)
     image leap mizugi question = im.Scale("leap mizugi question.png", 800, 1600)
     image leap mizugi sad = im.Scale("leap mizugi sad.png", 800, 1600)
     image leap mizugi smile = im.Scale("leap mizugi smile.png", 800, 1600)
@@ -92,6 +94,7 @@ init:
         pause 2.0
 
     define leapPos = Position(xancor=0.0, ypos=2.15) #Leapちゃんの位置
+    define sinPos = Position(xancor=0.0, ypos=1.3) #親戚の位置
     # 以下の位置は0以上1以下
     define heartImageAlignX = 0.02 #好感度のハートのx位置
     define heartImageAlignY = 0.05 #好感度のハートのy位置
@@ -105,13 +108,7 @@ label start:
     $ progress = 1 #ストーリーの進行状況
     $ like = 30 #好感度
 
-    scene bg black
-
-    # jump opening
-
-    $ like_meter = True
-    $ progress = 5
-    jump winter
+    jump opening
 
 
 label rest:

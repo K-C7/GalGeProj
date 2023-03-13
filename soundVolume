@@ -23,9 +23,11 @@ seikai 0.1
 shock 0.1
 stungun 0.05
 syakin 0.1
-tanukiti -
+tanukiti 0.05
 thunder 0.05
 train 0.2
+undoukai 0.05
+victory 0.05
 wakeup 0.5
 walk 0.05
 writing 0.1

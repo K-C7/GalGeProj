@@ -9,6 +9,7 @@ label winter1:
 
     scene bg classroom day
     with dissolve
+    play music "audio/morning.mp3" volume 0.05 fadein 1.0
     show boyssilhouette at Position(xancor=0.0, ypos=1.5)
     with dissolve
 
@@ -40,6 +41,7 @@ label winter1:
 
     show leap uniform question at leapPos
     with dissolve
+    play music "audio/leap.mp3" volume 0.05
     L "何が無縁の話なんですか？"
 
     menu:
@@ -87,7 +89,7 @@ label winter1:
     L "でもなー、どうしますかねー？"
     L "今謝るなら許してあげないこともな..."
 
-    Me "すみませんでした。" #立ち絵を足だけにするのもいいかも
+    Me "すみませんでした。"
 
     show leap uniform question sweat
     L "は、速いですね。"
@@ -131,11 +133,13 @@ label winter1:
 
     scene bg black
     with dissolve
+    stop music fadeout 2.0
 
     "クリスマス当日"
 
     scene bg genkan
     with dissolve
+    play music "audio/routine.mp3" volume 0.05
 
     Me "せっかくのクリスマスだけども、相変わらず学校は疲れるなぁ。"
     Me "Leapちゃんはまだかな。まだ来てなさそうだけど..."
@@ -143,6 +147,7 @@ label winter1:
     show leap uniform surprise at leapPos
     L "先輩先輩、どこ見てるんですか？"
 
+    play music "audio/leap.mp3" volume 0.05
     Me "うぉ、いつの間に。"
     
     show leap uniform question
@@ -227,12 +232,14 @@ label winter1:
 
     scene bg black
     with dissolve
+    stop music fadeout 2.0
 
     "デートは先輩のプラン通り順調に進み、{p}二人は放課後のクリスマスを存分に楽しんだ。"
     "そして、最後の目的地、駅前のイルミネーションに向かう。"
 
     scene bg irumi
     with dissolve
+    play music "audio/zawazawa.mp3" volume 0.05 fadein 1.0
     show leap uniform normal at leapPos
     with dissolve
 
@@ -261,7 +268,6 @@ label winter1:
     L "..."
 
     Me "...綺麗だね。"
-
 
     L "...何がですか？"
 
@@ -416,6 +422,7 @@ label winter2:
 
     scene bg train day
     with dissolve
+    play music "audio/train.mp3" volume 0.2 fadein 1.0
     show leap uniform normal at leapPos
     with dissolve
 
@@ -425,6 +432,7 @@ label winter2:
     "もしくはその両方なのか、はたまたまた違う大きな理由があるのかは分からない。"
     "だがしかし、二人の間に今日を名残惜しむ感情が流れていることは確かであった。"
 
+    stop music fadeout 1.0
     Cd "駅に到着しました。車内にお忘れ物のないようご注意ください。"
     Cd "お出口は左側です。扉にご注意ください。"
 
@@ -470,6 +478,7 @@ label winter_bad:
     Me "あそこのお姉さんがだよ。"
 
     show leap uniform question
+    stop music fadeout 1.0
     L "...え？"
     show leap uniform sad
     L "...何でそんなこと言うんですか？"
@@ -584,10 +593,13 @@ label winter_bad:
 
     scene bg black
     with dissolve
+    play music "audio/run.mp3" fadein 1.0
 
     "送られた場所の所まで、急いで向かう先輩。"
     "とても不穏な気配を感じながらも、{p}これを逃したらもう次はないという直感からか、足に力が入る。"
     "そして、到着した。"
+
+    stop music fadeout 1.0
 
     Me "ここって..."
 
@@ -638,6 +650,7 @@ label winter_bad:
     show leap uniform normal yami
     L "しびれて動けなくなった先輩もカワイイですよ。"
 
+    play music "audio/distance.mp3" volume 0.1
     Me "うっ...ぐっ..."
     Me "何で...こんなこと..."
 
@@ -679,12 +692,14 @@ label winter_bad:
     L "楽しみですね。ふふふ。"
     L "フフフフフフフフフフフフフ"
     L "だから先輩。"
+    stop music
     L "少しの間、寝ていてくださいね。"
 
     play sound "audio/stungun.mp3" volume 0.05
     "バチン"
 
     stop sound
+
     $ badEndCode = 6
     
     jump badEnd_call

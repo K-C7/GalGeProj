@@ -32,7 +32,7 @@ label sum1:
     Me "なーんで目の前に海があるのに泳げないんだ。"
 
     # 登場：親戚
-    show sinseki
+    show sinseki at sinPos
     with dissolve
 
     Sinseki "おーい、サボってんじゃねーぞ。"
@@ -84,9 +84,9 @@ label sum1:
     Me "！？！？！？"
 
     # 登場：Leap　Leap友達
-    show leap normal at leapPos
+    show leap mizugi normal at Position(xpos=0.65, ypos=2.15)
     with dissolve
-    show friend at left
+    show friend at Position(xpos=0.35, ypos=2.3)
     with dissolve
     play music "audio/retroparty.mp3" volume 0.05 fadein 1.0
 
@@ -97,12 +97,12 @@ label sum1:
             Me "あ。"
 
             $ like = likeChanger(like, -10)
-            show leap surprise
+            show leap mizugi surprise
             L "あ。"
 
             Fri "ん？知り合い？"
 
-            show leap normal
+            show leap mizugi question sweat
             L "えっ？あっいや、違うよ。"
         
 
@@ -112,13 +112,12 @@ label sum1:
             Me "Leapちゃん！？"
 
             $ like = likeChanger(like, 5)
-            show leap question
+            show leap mizugi question sweat
             play sound "audio/poyon.mp3"
             L "先輩？"
 
             Fri "ん？知り合い？"
 
-            show leap normal
             L "えっあ、うん、まぁ。"
         
 
@@ -128,10 +127,10 @@ label sum1:
             Me "ご注文は？"
 
             $ like = likeChanger(like, -20)
-            show leap question
+            show leap mizugi sad
             L "..."
 
-            show leap normal
+            show leap mizugi question sweat
 
     Fri "あのーすみません。"
     Fri "ジュースください。"
@@ -141,7 +140,9 @@ label sum1:
     Fri "んー、コーラで。"
     Fri "Leapは？"
 
+    show leap mizugi surprise
     L "えっ。"
+    show leap mizugi question sweat
     L "わ...わたしもコーラで。"
 
     Me "承りました。"
@@ -178,7 +179,7 @@ label sum1:
     # 背景：海の家
     scene bg seahouse
     with dissolve
-    show sinseki
+    show sinseki at sinPos
     with dissolve
     play music "audio/everyday.mp3" volume 0.1 fadein 1.0
 
@@ -215,16 +216,16 @@ label sum1:
     Me "よし、じゃあこの辺で..."
 
     # 登場：Leap(水着)
-    show leap normal at leapPos
+    show leap mizugi normal at leapPos
     with dissolve
     stop music fadeout 1.0
 
     Me "あ..."
 
-    show leap surprise
+    show leap mizugi surprise
     L "あ..."
 
-    show leap normal
+    show leap mizugi normal
     play music "audio/leap.mp3" volume 0.05
 
     Me "久しぶり。"
@@ -247,12 +248,12 @@ label sum1:
             Me "あっそうなんだ。"
             Me "君は泳がないの？"
 
-            show leap question
+            show leap mizugi question
             L "いえ、少し疲れてしましまして。"
 
             Me "あー、泳ぐのは結構疲れるよね。"
 
-            show leap normal
+            show leap mizugi normal
             L "ですよね。自分の運動不足を実感しました。"
 
             Me "それはそれは。"
@@ -261,13 +262,13 @@ label sum1:
 
             Me "本当は泳ぐつもりだったけど、いいかな。"
 
-            show leap question_mark
+            show leap mizugi question
             play sound "audio/poyon.mp3"
             L "何でですか？"
 
             Me "店の手伝いで疲れちゃって。"
 
-            show leap normal
+            show leap mizugi normal
             L "そうなんですか、お疲れ様です。"
 
 
@@ -285,45 +286,44 @@ label sum1:
 
             Me "そうなんだけど、まさか海の家の手伝いがこんなに辛いとは..."
 
-            show leap question
+            show leap mizugi question
             play sound "audio/konwaku.mp3" volume 0.5
             L "確かに大変そうでしたね。"
 
             Me "いやー本当に大変だった。"
             Me "海に来たのに泳ぐ元気もないよ。"
 
-            show leap normal
+            show leap mizugi normal
             L "そうなんですか、私もちょうど泳ぎ疲れて休んでいるところなんですよ。"
 
             Me "そうなんだ。"
 
-
-    # （①少々減少　②少々増加）
-
     Me "だけど泳がなくてもいいもんだね。"
 
-    show leap question_mark
+    show leap mizugi question
     L "なんでですか？"
 
     Me "ほら、青い空、白い砂浜、それに海。"
     Me "なんというか夏って感じでいいじゃん。"
 
-    show leap normal
+    show leap mizugi normal
     L "確かにそうですね。"
-    show leap question_mark
+    show leap mizugi question
     L "ところで先輩、休憩はいつまでなんですか？"
 
     Me "んー、もう少し休んだらまた仕事に戻ろうかな。"
 
-    show leap normal
+    show leap mizugi normal
     L "あっそうなんですね。"
 
     Me "どうしたの？休憩の時間なんて聞いて？"
 
+    show leap mizugi question
     L "いや別に何でもないですよ。"
 
     Me "...もしかして暇なの？"
 
+    show leap mizugi surprise
     L "まあ、ざっくりいうとそうなりますね。"
 
     Me "..."
@@ -336,22 +336,23 @@ label sum1:
 
             Me "泳ぎに行くか。"
 
-            show leap question
+            show leap mizugi question
             L "疲れたって言ってませんでしたか？"
 
             Me "いや、Leapちゃんも退屈してるかなぁと思って。"
             Me "それにせっかく海に来たんだしさ。"
 
             play sound "audio/konwaku.mp3" volume 0.5
+            show leap mizugi question sweat
             L "いや、別に私はもう泳ぎたくないんですけど。"
+            show leap mizugi question
             L "もう泳ぎ疲れました。"
             $ like = likeChanger(like, -20)
 
             Me "あれ？そっか。"
 
-            show leap normal
+            show leap mizugi normal
 
-            #（大きく減少して③の選択肢に行く）
             jump sum2
 
 
@@ -360,8 +361,8 @@ label sum1:
 
             Me "ビーチバレーでもする？"
 
-            play sound "poyon.mp3"
-            show leap question
+            play sound "audio/poyon.mp3"
+            show leap mizugi question sweat
             L "二人でですか？"
 
             Me "ほら、海来たって感じがするじゃん。"
@@ -370,13 +371,13 @@ label sum1:
 
             Me "まあ、疲れてるけど頑張るよ。"
 
-            show leap normal
+            show leap mizugi normal
             L "いえいえ、無理しなくていいですよ。"
             L "私も疲れてますし。"
             $ like = likeChanger(like, -10)
 
             Me "えぇ？あぁ、そう？"
-            #（少し減少して③の選択肢に行く）
+
             jump sum2
 
         
@@ -390,13 +391,13 @@ label sum1:
 label sum2:
     Me "じゃあ、英単語テストでもする？"
 
-    show leap smile
+    show leap mizugi smile
     play sound "audio/kirakira.mp3" volume 0.2
     L "{size=*2.0}良いですね！{/size}"
 
     Me "うわ、ビックリした。"
 
-    show leap normal
+    show leap mizugi normal
     L "あっ、すみません。つい。"
     L "だけどやりましょうよ。"
 
@@ -408,24 +409,26 @@ label sum2:
 
     Me "ん、なに？"
 
-    show leap question_mark
+    show leap mizugi question
     L "なんで英単語テストしようなんて言ったんですか？"
 
     Me "手軽にできて時間をつぶせるからかな。"
 
-    show leap normal
+    show leap mizugi normal
     L "へー。"
 
     Me "あと、君が喜びそうだったから。"
 
     L "..."
-    #（表情を赤らめて）(なお、素材はない)
+    show leap mizugi surprise
     L "なるほど。"
 
     Me "？"
     Me "どうかした？"
 
+    show leap mizugi question
     L "あっ、いえ何でもありません。"
+    show leap mizugi normal
     L "じゃあ問題だしますよ。"
     L "夏休みの成果、出してくださいね！"
 
@@ -439,23 +442,26 @@ label sum3:
         $ renpy.block_rollback()
         $ like = likeChanger(like, -15)
     
-        show leap question
+        show leap mizugi question sweat
         L "...先輩？"
 
         Me "..."
 
+        show leap mizugi sad
         L "先輩。"
 
         Me "ハイ..."
 
+        show leap mizugi question
         L "ちゃんと夏休みの宿題ちゃんとやってます？"
 
         Me "まだやってないです..."
 
         play sound "audio/konwaku.mp3" volume 0.5
+        show leap mizugi sad
         L "はぁ..."
         L "..."
-        show leap normal
+        show leap mizugi question
         L "ちゃんとやってくださいね。"
 
         Me "わかりました..."
@@ -464,12 +470,14 @@ label sum3:
 
         Me "ごめんなさい..."
 
+        show leap mizugi normal
+
 
     elif 4 <= sumT <= 7:
         $ renpy.block_rollback()
         $ like = likeChnager(like, 5)
 
-        show leap normal
+        show leap mizugi normal
         L "まあまあ頑張りましたね。"
 
         Me "俺も成長してるしね。"
@@ -479,36 +487,42 @@ label sum3:
 
         Me "ＯＫ、善処する。"
 
-        show leap question
+        show leap mizugi question
         L "そういえばちゃんと課題はやりましたか？"
 
         Me "...あ。"
 
-        show leap normal
+        show leap mizugi question sweat
         L "...ちゃんと終わらせないとだめですよ？"
+
+        show leap mizugi normal
 
 
     elif 8 <= sumT <= 10:
         $ renpy.block_rollback()
         $ like = likeChanger(like, 15)
 
-        show leap smile
+        show leap mizugi smile
         L "さすがですね先輩。"
         L "夏休みに怠けず勉強してたんですね。"
 
         Me "いや、別に。"
 
-        show leap normal
-        L "本当ですかぁ～私には見え見えですよ。"
+        show leap mizugi normal
+        L "本当ですかぁ～？私には見え見えですよ。"
 
         Me "英語は勉強してるよ。"
         Me "まあ、宿題はまだしてないんだけどね。"
 
+        show leap mizugi question sweat
         L "え。"
+        show leap mizugi question
         L "...先輩っていつもそうですよね。宿題のことを何だと思ってるんですか。"
         L "まったく、ちゃんと宿題はやってくださいね。"
 
         Me "ハイ。"
+
+        show leap mizugi normal
 
 
     # バッドエンド処理
@@ -548,7 +562,7 @@ label sum3:
         Me "んー、コーラにしよう。"
         Me "Leapちゃんのはどうしようかなぁ～。"
 
-        show sinseki
+        show sinseki at sinPos
         with dissolve
         Sinseki "おい。"
 
@@ -581,9 +595,9 @@ label sum3:
         Me "Leapちゃ..."
 
         # 登場：Leap＆男
-        show leap smile at leapPos
+        show leap mizugi smile at Position(xpos=0.7, ypos=2.15)
         with dissolve
-        show otoko at left
+        show otoko at Position(xpos=0.3, ypos=1.8)
         with dissolve
         play music "audio/distance.mp3" volume 0.1 fadein 2.0
 
@@ -637,9 +651,9 @@ label sum3:
         Me "えっ...ああ...ん？"
         Me "（なんて言ったのか聞き取れなかった。）"
 
-        show leap question
+        show leap mizugi sad
         L "..."
-        show leap normal
+        show leap mizugi normal
 
         Man "oops.英語が聞き取れなかったかな？"
         Man "まあいいや。それより君たち英語のテストしてなかったかい？"
@@ -650,7 +664,7 @@ label sum3:
 
         Man "それさ、Meにもやらしてくれよ。"
 
-        show leap smile
+        show leap mizugi smile
         L "もちろんいいですよ。"
         L "ではいきますね。"
 
@@ -662,9 +676,9 @@ label sum3:
 
         scene bg sea
         with dissolve
-        show leap smile at leapPos
+        show leap mizugi smile at Position(xpos=0.7, ypos=2.15)
         with dissolve
-        show otoko at left
+        show otoko at Position(xpos=0.3, ypos=1.8)
         with dissolve
 
         L "わぁ～スゴイ！全部あってます。"
@@ -678,10 +692,11 @@ label sum3:
 
         Man "先輩とMeどっちがスゴイのかな？"
 
-        show leap normal
+        show leap mizugi question sweat
         L "えっ、ああ。"
+        show leap mizugi normal
         L "あなたのほうがスゴイですけど、先輩だって負けてません！"
-        show leap smile
+        show leap mizugi smile
         L "ですよね！先輩！"
 
         Me "あっ、もっもちろんだよ。"
@@ -690,7 +705,7 @@ label sum3:
         Man "君たち結構仲良いんだね。"
         Man "もしかして付き合ってたりするの～？"
 
-        show leap surprise
+        show leap mizugi surprise
 
         Me "！？"
         
@@ -698,7 +713,7 @@ label sum3:
 
         Man "どうなのどうなの？"
 
-        show leap question
+        show leap mizugi question sweat
         L "いや、別に付き合ってるとかはないです。"
 
         Man "付き合ってないんだね"
@@ -708,7 +723,7 @@ label sum3:
         Man "おっと！もうこんな時間だ。"
         Man "そろそろあいつらを探しに行かなきゃな。"
 
-        show leap normal
+        show leap mizugi normal
         L "お友達をですか？"
 
         Man "That's right."
@@ -723,7 +738,7 @@ label sum3:
         Me "ぐぅ..."
 
         L "そっそれに先輩は海の家の手伝いがあるんですよね。"
-        show leap smile
+        show leap mizugi smile
         L "人助けは私に任せてください。"
 
         Me "Leapちゃん..."
@@ -746,7 +761,7 @@ label sum3:
 
     Sinseki "おーい何処だー。"
 
-    show leap question_mark
+    show leap mizugi question
     L "あれ？先輩呼ばれてるんじゃないんですか？"
 
     Me "あっホントだ！"
@@ -755,7 +770,7 @@ label sum3:
 
     Me "あれは..."
 
-    show leap normal
+    show leap mizugi normal
     L "私も呼ばれてるみたいですね。"
     L "..."
     L "今日はもうお別れですね。"
@@ -768,7 +783,7 @@ label sum3:
     Me "じゃあ俺そろそろ行くね。"
 
     L "そうですね、私も行かなきゃ。"
-    show leap smile
+    show leap mizugi smile
     L "さようなら！"
 
     Me "じゃあね。"
