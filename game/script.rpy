@@ -45,6 +45,27 @@ init:
     image bg sea = im.Scale("bg sea.jpg", 1280, 720)
     image bg taiikusai = im.Scale("bg taiikusai.png", 1280, 720)
     image bg taiikusai mono = im.Scale("bg taiikusai mono.png", 1280, 720)
+    image bg school ground = im.Scale("bg school ground.jpg", 1280, 720)
+    image bg station = im.Scale("bg station.jpg", 1280, 720)
+    image bg city1 = im.Scale("bg city1.jpg", 1280, 720)
+    image bg city2 = im.Scale("bg city2.jpg", 1280, 720)
+    image bg city3 = im.Scale("bg city3.jpg", 1280, 720)
+    image bg city4 = im.Scale("bg city4.jpg", 1280, 720)
+    image bg city evening = im.Scale("bg city evening.jpg", 1280, 720)
+    image bg road evening = im.Scale("bg road evening.jpg", 1280, 720)
+    image bg room evening = im.Scale("bg room evening.jpg", 1280, 720)
+    image bg shrine evening guwan = im.Scale("bg shrine evening guwan.jpg", 1280, 720)
+    image bg irumi = im.Scale("bg irumi.jpeg", 1280, 720)
+    image leap uniform kuro = im.Scale("leap uniform kuro.png", 800, 1600)
+    image leap uniform normal = im.Scale("leap uniform normal.png", 800, 1600)
+    image leap uniform normal yami = im.Scale("leap uniform normal yami.png", 800, 1600)
+    image leap uniform question sweat = im.Scale("leap uniform question sweat.png", 800, 1600)
+    image leap uniform quesiong = im.Scale("leap uniform quesiong.png", 800, 1600)
+    image leap uniform sad yami = im.Scale("leap uniform sad yami.png", 800, 1600)
+    image leap uniform sad = im.Scale("leap uniform sad.png", 800, 1600)
+    image leap uniform smile = im.Scale("leap uniform smile.png", 800, 1600)
+    image leap uniform surprise = im.Scale("leap uniform surprise.png", 800, 1600)
+
     image openingVideo:
         "opening-0001.jpg"
         pause 2.0
@@ -78,7 +99,7 @@ label start:
     # jump opening
 
     $ like_meter = True
-    jump fall
+    jump ending
 
 
 label rest:

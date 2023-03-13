@@ -67,8 +67,12 @@ label winter1:
             Me "！悪霊退散！"
 
     if passedDemon == False:
+<<<<<<< HEAD
         like = likeChanger(like, -10)
         
+=======
+        $ like = likeChanger(like, -10)
+>>>>>>> 6d3dc6011b7a094a3f9dccd8301e5f956fa9a339
     L "なんですかその言い方は！"
     L "まったく...私のことを何だと思ってるんですか..."
 
