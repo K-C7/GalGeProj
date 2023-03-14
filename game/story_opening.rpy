@@ -505,12 +505,12 @@ label opening2:
     elif 8 <= sumT <= 10:
         $ like = likeChanger(like, 15)
 
-        show leap smile
+        show leap uniform smile
         L "すごいじゃないですか！英語が苦手って嘘じゃないんですか？"
 
         Me "今回はたまたまできただけだよ。"
 
-        show leap normal
+        show leap uniform normal
         L "本当ですかー？"
         L "でも、この調子なら実力テストもいい点数取れると思いますよ。"
 
