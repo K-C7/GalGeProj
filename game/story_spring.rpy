@@ -284,7 +284,7 @@ label spring1:
     show leap uniform surprise
     play sound "audio/hit.mp3" volume 0.5
     L "{size=*2.0}あっ思い出した！{/size}"
-    show leap normal
+    show leap uniform normal
     L "先輩～、忘れちゃいけないのは私じゃなくて先輩じゃないですか。"
 
     Me "え、俺？"

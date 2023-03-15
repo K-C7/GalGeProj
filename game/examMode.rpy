@@ -378,7 +378,14 @@ label exam:
     jump endSelect
 
 label endSelect:
-    show leap uniform normal
+    if (mode == 'story') & (progress == 3):
+        show leap mizugi normal
+    elif (mode == 'story') & (progress == 4):
+        show leap sport normal
+    elif (mode == 'story') & (progress == 6):
+        show leap uniform normal yami
+    else:
+        show leap uniform normal
 
     if mode == 'learn': #learnモードの時
         L "この後どうされますか？"

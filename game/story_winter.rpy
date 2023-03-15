@@ -1,4 +1,6 @@
 label winter:
+    $ like_meter = True
+
     jump winter1
 
 label winter1:
@@ -477,6 +479,7 @@ label winter_bad:
 
     Me "あそこのお姉さんがだよ。"
 
+    $ like_meter = False
     show leap uniform question
     stop music fadeout 1.0
     L "...え？"
