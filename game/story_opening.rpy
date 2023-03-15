@@ -257,7 +257,7 @@ label opening1_menu1:
 
     scene bg train day
     with dissolve
-    show leap question at leapPos
+    show leap uniform question at leapPos
     with dissolve
 
     Me "............."
