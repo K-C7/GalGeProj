@@ -45,7 +45,7 @@ label spring1:
             show leap uniform smile
             L "あっ、はいそうです。覚えてくれたんですね。"
 
-            show leap normal
+            show leap uniform normal
         
         "Brightstageちゃん":
             $ renpy.block_rollback()

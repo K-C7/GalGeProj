@@ -22,8 +22,8 @@ init:
     $ import module.leapModule as leapModule
 
     python:
-        #LEAP_PATH = config.basedir + r"\game\module\leap.csv"
-        LEAP_PATH = "/game/module/leap.csv"
+        LEAP_PATH = config.basedir + r"\game\module\leap.csv"
+        #LEAP_PATH = "/game/module/leap.csv"
         leapModule.leapPathSet(LEAP_PATH)
     
     # 好感度を上下させる関数
@@ -107,7 +107,7 @@ init:
 label start:
     $ progress = 1 #ストーリーの進行状況
     $ like = 30 #好感度
-
+    
     jump opening
 
 

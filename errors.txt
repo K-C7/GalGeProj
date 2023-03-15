@@ -2,17 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/examMode.rpy", line 352: expected statement.
-    f(numOfQue == sumT): 
-                       ^
-
-File "game/examMode.rpy", line 355: expected statement.
-    elif(numOfQue - sumT == 1): 
-                              ^
-
-File "game/examMode.rpy", line 358: expected statement.
-    else: 
-        ^
+File "game/script.rpy", line 41: invalid syntax
+                show i
+                      ^
 
 Ren'Py Version: Ren'Py 8.1.0.23010208n
-Tue Mar 14 04:13:18 2023
+Wed Mar 15 15:06:04 2023
