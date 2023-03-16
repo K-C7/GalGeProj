@@ -631,6 +631,7 @@ label fall_normal:
     Zako2 "パワフルかつ精密な動きですね！"
 
     Zako1 "それから巻き返し始めたのは青眼の白龍チーム！"
+    Zako1 'そして、それにぴったりついて行ってるのは緑の悪魔チーム！'
 
     Zako2 "すごい執着力ですね。恐怖すら感じます。"
 
@@ -696,10 +697,10 @@ label fall_bad:
     '二人は大きな緊張に押しつぶされそうになりながらもスタート位置についた。'
 
     $ zako1Name = "審判"
-    Zako1 'では、位置について'
-    Zako1 'よーい'
+    Zako1 'では、位置について。'
+    Zako1 'よーい、'
     play sound "audio/pistol.mp3" volume 0.05
-    Zako1 'ドン!!'
+    Zako1 'ドン！！'
 
     play music "audio/undoukai.mp3" volume 0.05
 
@@ -715,7 +716,6 @@ label fall_bad:
     Zako2 'パワフルかつ精密な動きですね。'
 
     Zako1 'それから巻き返し始めたのは青眼の白龍チーム。'
-
     Zako1 'そして、それにぴったりついて行ってるのは緑の悪魔チーム。'
 
     Zako2 'すごい執着力ですね。恐怖すら感じます。'
@@ -767,14 +767,14 @@ label fall_bad:
 
     play music "audio/distance.mp3" volume 0.1
 
-    Zako1 'ゴール!!!'
-    Zako1 '一位は黒い三連星だああ!!!'
+    Zako1 'ゴーーーーール！！！'
+    Zako1 '一位は黒い三連星チームだああ！！！'
     play sound "audio/kansei.mp3" volume 0.05
 
-    Zako2 '三人ではなく二人ですがすごいチームワークでしたね。'
+    Zako2 'すごいチームワークでしたね。'
 
     Zako1 'そして、二位は緑の悪魔チーム、三位は星の白銀チーム、四位は青眼の白竜チーム。'
-    Zako1 'そして、赤い彗星チームは惜しくもリタイアとなってしまいました。'
+    Zako1 '赤い彗星チームは惜しくもリタイアとなってしまいました。'
 
     scene bg taiikusai mono
     with dissolve
