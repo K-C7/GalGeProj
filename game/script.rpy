@@ -107,7 +107,7 @@ init:
 label start:
     $ progress = 1 #ストーリーの進行状況
     $ like = 30 #好感度
-    
+
     jump opening
 
 

@@ -535,9 +535,7 @@ label ending1:
     Me "お久しぶりですね。"
 
     God "我は神なり..."
-
-    Me "また貴様か..."
-
+    God "また貴様か..."
     God "ここに来た理由はなんとなくわかるが..."
 
     Me "あんたが始めた物語だ、落とし前はつけてもらうぞ。"
@@ -649,12 +647,11 @@ label ending1:
     God "ほう、良いだろう。"
     God "では行くぞ。"
 
-    $ progress = 6 ###どうする
-    jump testPrepare
+    call testPrepare
 
-
-label ending_judgement:
+    play music "audio/blow.mp3" volume 0.2
     $ renpy.block_rollback()
+    
     if(sumT == 10):
         jump ending_happy
     else:
@@ -662,8 +659,6 @@ label ending_judgement:
 
 
 label ending_normal:
-    play music "audio/blow.mp3" volume 0.2
-
     God "ふふふ、"
 
     Me "くっ...うぅう..."
@@ -762,8 +757,6 @@ label ending_normal:
 
 
 label ending_happy:
-    play music "audio/blow.mp3" volume 0.2
-
     God "ふふふ、"
     God "ハハハハハハハハハハハハハハハハハハハハハハハハハハハハハ！"
 

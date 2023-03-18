@@ -35,8 +35,10 @@ def makeExam(min, max, numOfQue):
     global examNumberList
     examNumberList = ranNoKaburi(min, max ,numOfQue)
 
+# 問題リストと問題番号から問題を取得し、必要なら誤答選択肢を作成
 def getExam(questionNumber, answerWay, optMin=0, optMax=0, optNum=3):
-    """問題番号,解答方法(,選択肢の問題番号範囲の下限,〃の上限,選択肢の数) -> Leap上の問題番号,解答,問題(,選択肢(リスト))"""
+    """問題番号,回答方法(,選択肢の問題番号範囲の下限,〃の上限,選択肢の数) -> Leap上の問題番号,解答,問題(,選択肢(リスト))"""
+    # 解答方法が'spell'の時は（）内は飛ばされる
     global examNumberList
     questionNumber -= 1 #leap.csvとのつじつま合わせ
     ans = ''

@@ -302,9 +302,8 @@ label spring1:
     L "先輩があれからどれくらい英語を勉強したのか確かめないとですね。"
     L "じゃあ始めますよ。"
 
-    jump testPrepare
+    call testPrepare
 
-label spring2:
     play music "audio/leap.mp3" volume 0.05
     if 0 <= sumT <= 3:
         $ renpy.block_rollback()

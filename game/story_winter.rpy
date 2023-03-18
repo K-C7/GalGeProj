@@ -347,9 +347,10 @@ label winter1:
     show leap uniform normal
     L "では行きますよ。"
 
-    jump testPrepare
+    call testPrepare
 
-label winter2:
+    play music "audio/leap.mp3" volume 0.05
+
     if 0 <= sumT <= 6:
         $ renpy.block_rollback()
         $ like = likeChanger(like, -15)

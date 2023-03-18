@@ -422,7 +422,7 @@ label opening1_menu2:
 
             Me "やるしかないのか。"
 
-            jump testPrepare
+            call testPrepare
         
         "断る":
             $ renpy.block_rollback()
@@ -560,6 +560,6 @@ label opening2:
     scene bg black
     with dissolve
 
-    "この物語は謎の少女Leapちゃんと数奇な恋愛な恋愛を追う物語である。"
+    "この物語は謎の少女Leapちゃんとの数奇な恋愛を追う物語である。"
 
     jump rest

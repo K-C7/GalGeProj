@@ -392,21 +392,22 @@ label fall2_menu:
         "英単語テスト":
             $ renpy.block_rollback()
 
-            show leap sport normal
-            L "Exactly.\nその通りでございます。"
-            L "私たちが出会った原点、英単語テストのために頑張ってきた思い出。"
-            L "英単語テストは私たちの絆そのものですよ。"
-        
-            Me "なる...ほど？"
-
-            L "では、私たちの絆を試すためにも行きますよ。"
-
-            Me "はいはいわかったよ。"
-
-            $ progress = 4
-            jump testPrepare
+            jump fall3
         
 label fall3:
+    show leap sport normal
+    L "Exactly.\nその通りでございます。"
+    L "私たちが出会った原点、英単語テストのために頑張ってきた思い出。"
+    L "英単語テストは私たちの絆そのものですよ。"
+        
+    Me "なる...ほど？"
+
+    L "では、私たちの絆を試すためにも行きますよ。"
+
+    Me "はいはいわかったよ。"
+
+    call testPrepare
+
     play music "audio/leap.mp3" volume 0.05
 
     if 0 <= sumT <= 3:

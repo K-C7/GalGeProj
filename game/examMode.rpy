@@ -1,15 +1,19 @@
 # ストーリー時の処理
 label testPrepare:
-    $ mode = 'story'
-    $ answerWay = 'fourChoice'
-    $ isReview = False
-
-    play music "audio/exam.mp3" volume 0.05
-
+    # 初期化
+    $ mode = 'story' #モード
+    $ answerWay = 'fourChoice' #テストの解答方法
+    $ isReview = False #復習モードかどうか
+    # BGMの初期化 ラスボス戦時は変える
+    if progress == 6:
+        play music "audio/lastboss.mp3" volume 0.05
+    else:
+        play music "audio/exam.mp3" volume 0.05
+    # 問題の範囲、問題数の初期化 ストーリーの進行状況で変える
     if progress == 1:
-        $ minNum = 1
-        $ maxNum = 200
-        $ numOfQue = 10
+        $ minNum = 1 #範囲の最小値
+        $ maxNum = 200 #範囲の最大値
+        $ numOfQue = 10 #問題数
     elif progress == 2:
         $ minNum = 201
         $ maxNum = 400
@@ -37,14 +41,16 @@ label testPrepare:
 
     jump exam
 
+# 学習モード時の初期化
 label initExamMode:
-    scene bg classroom evening
-    play music "audio/leap.mp3" volume 0.05
-    $ isReview = False
-    $ progress = 0
+    scene bg classroom evening #背景
+    play music "audio/leap.mp3" volume 0.05 #BGM
+    $ isReview = False #復習モードかどうか
+    $ progress = 0 #ストーリーの進行状況 ここでは無関係なので0
 
     jump modeSelect
 
+# モード選択
 label modeSelect:
     show leap uniform question at leapPos
     L "それでは、どうやって勉強しますか？"
@@ -71,21 +77,25 @@ label modeSelect:
 
             jump exit
     
+# 範囲選択
 label rangeSelect:
     show leap uniform normal
     L "分かりました。"
     show leap uniform question
     L "範囲はどうしますか？"
 
-    show leapseclist at topleft: #leap範囲表の表示
+    # leap範囲表の表示
+    show leapseclist at topleft:
         zoom 0.8
         pos (20, 150)
 
-    python: #範囲選択 自分で入力
+    python:
+        # minNumにintが入力されるまで繰り返す
         flag = False
         while flag == False:
             kariNum = renpy.input("何番から？")
             minNum = leapModule.verifyValue(kariNum)
+            # kariNumがintでない時
             if minNum == -1:
                 renpy.say(None, "数字を入力してください。")
             else:
@@ -93,6 +103,7 @@ label rangeSelect:
             
             renpy.block_rollback() #これがないと稀にバグる
         
+        # maxNumにintが入力されるまで繰り返す
         flag = False
         while flag == False:
             kariNum = renpy.input("何番まで？")
@@ -106,8 +117,9 @@ label rangeSelect:
 
     Me "[minNum]番から[maxNum]番の範囲でお願い。"
 
-    hide leapseclist #leap範囲表を隠す
-    
+    # leap範囲表を隠す
+    hide leapseclist
+
     show leap uniform normal
     L "分かりました。[minNum]番から[maxNum]番ですね。"
 
@@ -135,7 +147,9 @@ label rangeSelect:
         
         jump modeSelect
 
-label learn: #指定した範囲の日本語と英語を載せるだけ
+# 指定した範囲の日本語と英語を載せるだけ
+label learn:
+    # leap番号の初期化
     $ leapNumber = minNum
 
     while leapNumber <= maxNum:
@@ -149,7 +163,8 @@ label learn: #指定した範囲の日本語と英語を載せるだけ
 
     jump endSelect
 
-label numOfQueSelect: #問題数選択
+# 問題数選択
+label numOfQueSelect:
     show leap uniform question
     L "何問ほど出したらいいでしょうか？"
     menu:
@@ -157,14 +172,17 @@ label numOfQueSelect: #問題数選択
 
         "15問":
             $ numOfQue = 15
+            # numOfQueが最大問題数より大きい時
             if numOfQue > maxNum - minNum + 1:
                 $ numOfQue = maxNum - minNum + 1
 
         "範囲内の全問":
             $ numOfQue = maxNum - minNum + 1
 
+        # 自分で範囲入力
         "その他":
-            python: #自分で入力
+            python:
+                # numOfQueにintが入力されるまで繰り返す
                 flag = False
                 while flag == False:
                     try:
@@ -173,6 +191,7 @@ label numOfQueSelect: #問題数選択
                         if numOfQue > maxNum - minNum + 1:
                             numOfQue = maxNum - minNum + 1
                 
+                    # kariNumがintでない時
                     except:
                         renpy.say(None, "数字を入力してください。")
                     
@@ -188,12 +207,14 @@ label numOfQueSelect: #問題数選択
 
     jump answerWaySelect
 
-label answerWaySelect: #解答形式選択 四択かスペル入力
+# 解答形式選択:四択かスペル入力
+label answerWaySelect:
     show leap uniform question
     L "それでは、解答形式はどのようにしますか？"
     menu:
         L "それでは、解答形式はどのようにしますか？"
 
+        # 最大問題数が4より少ないとき非表示
         "４択問題" if maxNum - minNum + 1 >= 4:
             $ answerWay = 'fourChoice'
 
@@ -213,7 +234,8 @@ label answerWaySelect: #解答形式選択 四択かスペル入力
             menu:
                 L "了解です。それでは、[minNum]番から[maxNum]番の範囲で[numOfQue]問を、スペル形式で出題しますね。"
 
-                "OK":
+                # 「OK」でexamへ、「やっぱ待って」で最初からやり直す
+                "OK"
                     L "ではいきますよ。"
 
                     jump exam
@@ -225,25 +247,33 @@ label answerWaySelect: #解答形式選択 四択かスペル入力
 
                     jump modeSelect
 
+# 問題を出す 学習モード時だけでなくストーリー時もここで処理する
 label exam:
     $ renpy.block_rollback() #これ以前へのロルバの禁止 ズル防止のため
-    $ questionNumber = 1 #問題番号の初期化
-    $ withHint = False #スペル入力時のヒントの設定の初期化
-    if isReview == False: #復習モードでないとき
-        $ tfList = [0 for i in range(0, numOfQue)] #問題の正誤リストの初期化
-        $ leapModule.makeExam(minNum, maxNum, numOfQue) #問題の初期化
-    $ optNum = 3 #ここを変えると選択肢を手動で増やす必要アリ、触らないことを勧める
 
-    while questionNumber <= numOfQue: #問題数の分だけループ
-        #（復習モード時）正誤リストの問題番号目が正になっているときその問題を飛ばす
+    # 変数の初期化
+    $ questionNumber = 1 #問題番号
+    $ withHint = False #スペル入力時のヒントの有無
+    # 復習モードでない時（復習モードの時は正誤リストと問題リストを使いまわす）
+    if isReview == False:
+        $ tfList = [0 for i in range(0, numOfQue)] #問題の正誤リスト 0なら不正解、1なら正解
+        $ leapModule.makeExam(minNum, maxNum, numOfQue) #問題リスト
+    $ optNum = 3 #選択肢数（ここを変えると選択肢の処理を自分で増やす必要アリ）
+
+    # 合計問題数だけ出題を繰り返す
+    while questionNumber <= numOfQue:
+        # 正誤リストの問題番号目が1（正解）になっている時問題を飛ばす(実質復習モード時のみ)
         if tfList[questionNumber-1] == 1:
+            # 問題番号を進める
             $ questionNumber += 1
         else:
-            if answerWay == 'fourChoice': #四択出題の時
-                #問題の選択肢の製作
+            # 四択問題の時
+            if answerWay == 'fourChoice':
+                # 問題の取得と選択肢の作成
                 $ leapNum, ans, que, opt = leapModule.getExam(questionNumber,answerWay,minNum,maxNum,optNum)
-                $ selected = 0 #どの選択肢を選んだか
+                $ selected = 0 #選んだ選択肢の識別番号
 
+                # ストーリー時の立ち絵処理
                 if (mode == 'story') & (progress == 3):
                     show leap mizugi question
                 elif (mode == 'story') & (progress == 4):
@@ -252,6 +282,7 @@ label exam:
                     show leap uniform normal yami
                 else:
                     show leap uniform question
+                # 問題と選択肢の出題と表示
                 menu:
                     L "第[questionNumber]問、Leap[leapNum]番です。\n[que] は？"
 
@@ -269,129 +300,183 @@ label exam:
 
                 $ renpy.block_rollback() #これ以前へのロルバの禁止 ズル防止のため
 
-                if(opt[selected] == ans): #正解した場合
-                    $ tfList[questionNumber-1] = 1 #正誤リストの問題番号目を正にする
+                # 正解時
+                if(opt[selected] == ans):
+                    # 正誤リストの問題番号目を1（正解）にする
+                    $ tfList[questionNumber-1] = 1
+                    # 正解音を鳴らす
+                    play sound "audio/seikai.mp3" volume 0.1
+                    # ストーリー時の立ち絵処理
                     if (mode == 'story') & (progress == 3):
                         show leap mizugi smile
                     elif (mode == 'story') & (progress == 4):
                         show leap sport smile
                     elif (mode == 'story') & (progress == 6):
                         show leap uniform normal yami
+                    # 通常時の立ち絵処理
                     else:
                         show leap uniform smile
-                    play sound "audio/seikai.mp3" volume 0.1
                     L "{color=#26aa5d}正解{/color}です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
-                else: #不正解の場合
+                # 不正解時
+                else:
+                    # 不正解音を鳴らす
+                    play sound "audio/hazure.mp3" volume 0.1
+                    # ストーリー時の立ち絵処理
                     if (mode == 'story') & (progress == 3):
                         show leap mizugi sad
                     elif (mode == 'story') & (progress == 4):
                         show leap sport sad
                     elif (mode == 'story') & (progress == 6):
                         show leap uniform normal yami
+                    # 通常時の立ち絵処理
                     else:
                         show leap uniform sad
-                    play sound "audio/hazure.mp3" volume 0.1
                     L "{color=#ED1616}不正解{/color}です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
                 
                 $ renpy.block_rollback() #これ以前へのロルバの禁止 ズル防止のため
+                # 問題番号を進める
                 $ questionNumber += 1
         
 
-            elif answerWay == 'spell': #スペル入力のとき
-                show leap uniform question
-                # 問題の製作
+            # スペル入力の時
+            elif answerWay == 'spell':
+                # 問題の取得と選択肢の作成
                 $ leapNum, ans, que = leapModule.getExam(questionNumber,answerWay)
                 
-                if withHint: #ヒントが出ているとき
-                    $ initial = ans[0] #正解の頭文字を取得
+                show leap uniform question
+
+                # ヒントがONの時
+                if withHint:
+                    # 正解の頭文字を取得
+                    $ initial = ans[0]
+                    # 問題文の作成
                     $ kariQue = "第{0}問、Leap{1}番です。\n{2} は？\nHint: {3} から始まるよ。".format(questionNumber,leapNum,que,initial).replace('[','(').replace(']',')')
-                else: #ヒントが出ていないとき
+                # ヒントがOFFの時
+                else:
+                    # 問題文の作成
                     $ kariQue = "第{0}問、Leap{1}番です。\n{2} は？\n(hを入力すると頭文字が出ます。)".format(questionNumber,leapNum,que).replace('[','(').replace(']',')')
                 
-                $ spell = renpy.input(kariQue) #解答を入力
+                # 問題の出題と表示
+                $ spell = renpy.input(kariQue)
 
                 $ renpy.block_rollback() #これ以前へのロルバの禁止 ズル防止のため
 
-                if spell == "h": #入力がhのときヒントを表示
+                # 入力がhの時
+                if spell == "h":
+                    # ヒントをONにする
                     $ withHint = True
-                elif spell == ans: #正解の場合
-                    $ tfList[questionNumber-1] = 1 #正誤リストの問題番号目を正にする
-                    $ withHint = False #ヒント設定の初期化
-                    $ questionNumber += 1
-                    show leap uniform smile
+                # 正解時
+                elif spell == ans:
+                    # 正誤リストの問題番号目を1（正解）にする
+                    $ tfList[questionNumber-1] = 1
+                    # 正解音を鳴らす
                     play sound "audio/seikai.mp3" volume 0.1
-                    L "{color=#26aa5d}正解{/color}です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
-                else: #不正解の場合
-                    $ withHint = False #ヒント設定の初期化
-                    $ questionNumber += 1
-                    show leap uniform sad
-                    play sound "audio/hazure.mp3" volume 0.1
-                    L "{color=#ED1616}不正解{/color}です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
-            
 
+                    show leap uniform smile
+                    L "{color=#26aa5d}正解{/color}です！\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
+                    
+                    # ヒント設定の初期化（OFF）
+                    $ withHint = False
+                    # 問題番号を進める
+                    $ questionNumber += 1
+                # 不正解時
+                else:
+                    # 不正解音を鳴らす
+                    play sound "audio/hazure.mp3" volume 0.1
+
+                    show leap uniform sad
+                    L "{color=#ED1616}不正解{/color}です。\n[que] は\n{color=#26aa5d}[ans]{/color} です。"
+                    
+                    # ヒント設定の初期化（OFF）
+                    $ withHint = False
+                    # 問題番号を進める
+                    $ questionNumber += 1
+
+            # "answerway"の設定がおかしい時
             else:
                 "変数\"answerway\"の設定がバグってるっぴ！"
 
-                jump modeSelect
+                # 最初に戻る
+                jump initExamMode
     
-    $ sumT = sum(tfList) #合計正解数の計算
-    $ rateT = round((sumT / numOfQue) * 100, 1) #正解率の計算
-    if isReview == False: #復習モードでないとき
-        if (mode == 'story') & (progress == 4):
-            if(numOfQue == sumT): #全問正解なら
-                show leap sport smile
-                L "結果は、[numOfQue]問中全問正解でした。素晴らしいです！"
-            elif(numOfQue - sumT == 1): #一問間違いなら
-                show leap sport normal
-                L "結果は、[numOfQue]問中１問間違えでした。おしいです。"
-            else: #二個以上間違えた場合
-                show leap sport normal
-                L "結果は、[numOfQue]問中[sumT]問正解で、正答率は[rateT]％でした。"
-        
-        elif (mode == 'story') & (progress == 3):
-            if(numOfQue == sumT): #全問正解なら
+    # 合計正解数の計算
+    $ sumT = sum(tfList)
+    # 正解率の計算
+    $ rateT = round((sumT / numOfQue) * 100, 1) 
+    # 復習モードでない時
+    if isReview == False:
+        # 特定ストーリー時
+        if (mode == 'story') & (progress == 3):
+            # 全問正解の時
+            if(numOfQue == sumT):
                 show leap mizugi smile
                 L "結果は、[numOfQue]問中全問正解でした。素晴らしいです！"
-            elif(numOfQue - sumT == 1): #一問間違いなら
+            # 一問間違いの時
+            elif(numOfQue - sumT == 1):
                 show leap mizugi normal
                 L "結果は、[numOfQue]問中１問間違えでした。おしいです。"
-            else: #二個以上間違えた場合
+            # 二問以上間違えた時
+            else:
                 show leap mizugi normal
+                L "結果は、[numOfQue]問中[sumT]問正解で、正答率は[rateT]％でした。"
+        
+        elif (mode == 'story') & (progress == 4):
+            # 全問正解の時
+            if(numOfQue == sumT):
+                show leap sport smile
+                L "結果は、[numOfQue]問中全問正解でした。素晴らしいです！"
+            # 一問間違いの時
+            elif(numOfQue - sumT == 1):
+                show leap sport normal
+                L "結果は、[numOfQue]問中１問間違えでした。おしいです。"
+            # 二問以上間違えた時
+            else:
+                show leap sport normal
                 L "結果は、[numOfQue]問中[sumT]問正解で、正答率は[rateT]％でした。"
         
         elif (mode == 'story') & (progress == 6):
             pause 0.0
         
+        # 通常時
         else:
-            if(numOfQue == sumT): #全問正解なら
+            # 全問正解の時
+            if(numOfQue == sumT):
                 show leap uniform smile
                 L "結果は、[numOfQue]問中全問正解でした。素晴らしいです！"
-            elif(numOfQue - sumT == 1): #一問間違いなら
+            # 一問間違いの時
+            elif(numOfQue - sumT == 1):
                 show leap uniform normal
                 L "結果は、[numOfQue]問中１問間違えでした。おしいです。"
-            else: #二個以上間違えた場合
+            # 二問以上間違えた時
+            else:
                 show leap uniform normal
                 L "結果は、[numOfQue]問中[sumT]問正解で、正答率は[rateT]％でした。"
 
-    $ isReview = False #復習モード設定の初期化
+    # 復習モード設定の初期化（OFF）
+    $ isReview = False
 
     jump endSelect
 
+# 事後処理
 label endSelect:
+    # 特定ストーリー時の立ち絵処理
     if (mode == 'story') & (progress == 3):
         show leap mizugi normal
     elif (mode == 'story') & (progress == 4):
         show leap sport normal
     elif (mode == 'story') & (progress == 6):
         show leap uniform normal yami
+    # 通常時の立ち絵処理
     else:
         show leap uniform normal
 
-    if mode == 'learn': #learnモードの時
+    # learnモードの時
+    if mode == 'learn':
         L "この後どうされますか？"
         menu:
             L "この後どうされますか？"
 
+            # 同じ設定でもう一回
             "もう一周する":
                 Me "もう一周お願いできる？"
 
@@ -399,11 +484,13 @@ label endSelect:
 
                 jump learn
 
+            # モードは同じで範囲を変える
             "範囲を変える":
                 Me "範囲を変えたいな。"
 
                 jump rangeSelect
             
+            # 同じ範囲でテストをする
             "この範囲でテストをする":
                 $ mode = 'exam'
 
@@ -413,17 +500,22 @@ label endSelect:
 
                 jump numOfQueSelect
             
+            # 最初に戻る
             "戻る":
                 jump modeSelect
     
 
+    # examモードの時
     elif mode == 'exam':
         L "この後どうされますか？"
         menu:
             L "この後どうされますか？"
 
-            "間違えた問題を復習する" if rateT != 100: #正解率が100%でないなら表示
-                $ isReview = True #復習モードに移行
+            # 復習モードに移行する
+            # 全問正解の時非表示
+            "間違えた問題を復習する" if rateT != 100:
+                #復習モードをON
+                $ isReview = True
 
                 Me "間違えた問題を復習したいな。"
 
@@ -431,6 +523,7 @@ label endSelect:
 
                 jump exam
 
+            # 同じ設定でもう一回
             "同じ条件で続ける":
                 Me "もう一回やりたいな。"
 
@@ -438,40 +531,18 @@ label endSelect:
 
                 jump exam
 
+            # 設定を変えてテスト
             "条件を変えて続ける":
                 Me "別の条件でやりたいな。"
 
                 jump rangeSelect
             
+            # 最初に戻る
             "戻る":
                 jump modeSelect
 
 
-    elif mode == 'story': #ストーリー時の処理
-        if progress == 1:
-            stop music
-            jump opening2
-        elif progress == 2:
-            stop music
-            jump spring2
-        elif progress == 3:
-            stop music
-            jump sum3
-        elif progress == 4:
-            stop music
-            jump fall3
-        elif progress == 5:
-            stop music
-            jump winter2
-        elif progress == 6:
-            stop music
-            jump ending_judgement
-        else:
-            "変数\"progress\"がバグってるっぴ！"
-
-            return
-
-    else:
-        L "変数\"mode\"がバグってるっぴ！"
-
-        jump modeSelect
+    # ストーリー時
+    elif mode == 'story':
+        # 元のlabelに戻る
+        return

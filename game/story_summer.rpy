@@ -432,10 +432,8 @@ label sum2:
     L "じゃあ問題だしますよ。"
     L "夏休みの成果、出してくださいね！"
 
-    jump testPrepare
+    call testPrepare
 
-
-label sum3:
     play music "audio/leap.mp3" volume 0.05
 
     if 0 <= sumT <= 3:
@@ -475,7 +473,7 @@ label sum3:
 
     elif 4 <= sumT <= 7:
         $ renpy.block_rollback()
-        $ like = likeChnager(like, 5)
+        $ like = likeChanger(like, 5)
 
         show leap mizugi normal
         L "まあまあ頑張りましたね。"
