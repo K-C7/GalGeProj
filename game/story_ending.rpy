@@ -53,7 +53,7 @@ label ending_bad:
     Me "校庭を見るだけで脳裏に浮かび上がる思い出したくもない日々。"
 
     # 背景：駅
-    scene bg station
+    scene bg station day
     with dissolve
 
     Me """
@@ -67,7 +67,7 @@ label ending_bad:
     # 背景：ひとつづつ変えて
     scene bg room
     Me "朝起きて、"
-    scene bg station
+    scene bg station day
     Me "学校に行って、"
     scene bg school ground
     Me "勉強して、"
@@ -269,7 +269,7 @@ label ending1:
     Me "校庭を見るだけで浮かび上がる、二人で協力して切磋琢磨した日々。"
 
     # 背景：駅
-    scene bg station
+    scene bg station day
 
     Me "今日も駅前は人で込み合ってる。"
     Me "そういえばあそこの木はクリスマスの日に装飾されていたな。"
@@ -278,7 +278,7 @@ label ending1:
     # 背景：ひとつづつ変えて
     scene bg room
     Me "朝起きて、"
-    scene bg station
+    scene bg station day
     Me "学校に行って、"
     scene bg school ground
     Me "勉強して、"

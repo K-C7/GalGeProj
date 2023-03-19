@@ -4,12 +4,12 @@ label testPrepare:
     $ mode = 'story' #モード
     $ answerWay = 'fourChoice' #テストの解答方法
     $ isReview = False #復習モードかどうか
-    # BGMの初期化 ラスボス戦時は変える
+    # BGM ラスボス戦時は変える
     if progress == 6:
         play music "audio/lastboss.mp3" volume 0.05
     else:
         play music "audio/exam.mp3" volume 0.05
-    # 問題の範囲、問題数の初期化 ストーリーの進行状況で変える
+    # 問題の範囲、問題数 ストーリーの進行状況で変える
     if progress == 1:
         $ minNum = 1 #範囲の最小値
         $ maxNum = 200 #範囲の最大値
@@ -235,7 +235,7 @@ label answerWaySelect:
                 L "了解です。それでは、[minNum]番から[maxNum]番の範囲で[numOfQue]問を、スペル形式で出題しますね。"
 
                 # 「OK」でexamへ、「やっぱ待って」で最初からやり直す
-                "OK"
+                "OK":
                     L "ではいきますよ。"
 
                     jump exam

@@ -423,7 +423,7 @@ label winter1:
 
     pause 2.0
 
-    scene bg train day
+    scene bg train night
     with dissolve
     play music "audio/train.mp3" volume 0.2 fadein 1.0
     show leap uniform normal at leapPos
@@ -443,7 +443,7 @@ label winter1:
 
     L "そうですね。"
 
-    scene bg station
+    scene bg station night
     with dissolve
     show leap uniform normal at leapPos
     with dissolve
