@@ -1,6 +1,7 @@
 ﻿define config.has_quicksave = False
 define config.has_autosave = False
 define _game_menu_screen = 'load'
+define config.image_cache_size = 150
 
 define L = Character('Leap', color="#26aa5d")
 define Me = Character('自分', color="#000000")
