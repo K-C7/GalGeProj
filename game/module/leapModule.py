@@ -19,6 +19,17 @@ def getWords(leapNumber):
 
         return en, jp
 
+def jpSeparater(jp):
+    if '①' in jp:
+        if jp[4] == '①':
+            return jp[5:jp.find(' ', start=5)]
+        elif jp[4] == '（':
+            return jp [4:jp.find('）')]+jp[jp.find('）')+2:jp.find(' ', start=jp.find('）')+2)]
+        else:
+            return jp
+    else:
+        if jp[4:]
+
 def ranNoKaburi(min, max, n, remove = []):
     """乱数の下限,上限,個数,除外リスト(省略可) -> 乱数のリスト"""
     result = []
@@ -68,10 +79,8 @@ def verifyValue(rangeNum, minNum=1):
         if rangeNum < minNum:
             rangeNum = minNum
         elif rangeNum > 1935:
-            rangeNum = 1935
-            
+            rangeNum = 1935    
     except:
-        return -1
-            
+        return -1  
     else:
         return rangeNum
