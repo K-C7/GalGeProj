@@ -308,6 +308,7 @@ label exam:
                 # 英和の時
                 else:
                     $ leapNum, que, ans = leapModule.getExam(questionNumber)
+                    $ ans = leapModule.jpSeparater(ans)
                 # 選択肢の取得
                 $ opt = leapModule.getOption(questionNumber, JpEn, minNum, maxNum, optNum)
                 $ selected = 0 #選んだ選択肢の識別番号

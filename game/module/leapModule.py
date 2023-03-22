@@ -20,15 +20,23 @@ def getWords(leapNumber):
         return en, jp
 
 def jpSeparater(jp):
+    """日本語(原文) -> 日本語(選択肢用)"""
+    kariJp = ''
     if '①' in jp:
         if jp[4] == '①':
-            return jp[5:jp.find(' ', start=5)]
+            kariJp = jp[5:jp.find(' ', start=5)]
         elif jp[4] == '（':
-            return jp [4:jp.find('）')]+jp[jp.find('）')+2:jp.find(' ', start=jp.find('）')+2)]
+            kariJp =  jp[4:jp.find('）')]+jp[jp.find('）')+2:jp.find(' ', start=jp.find('）')+2)]
         else:
-            return jp
+            kariJp = jp # elseに入ることは有りえないはずなので、バグ発見用の分岐
     else:
-        if jp[4:]
+        kariJp = jp[4:]
+    if kariJp.find('〉') == len(kariJp) - 1:
+        kariJp = kariJp.replace(kariJp[kariJp.find('〈'):])
+    else:
+        kariJp = kariJp.replace(kariJp[kariJp.find('〈'):kariJp.find('〉')]
+    
+    return kariJp
 
 def ranNoKaburi(min, max, n, remove = []):
     """乱数の下限,上限,個数,除外リスト(省略可) -> 乱数のリスト"""
@@ -57,7 +65,7 @@ def getOption(questionNumber, JpEn, optMin, optMax, optNum):
             if JpEn:
                 opt.append(leap[optQueNum[i]][0])
             else:
-                opt.append(leap[optQueNum[i]][1])
+                opt.append(jpSeparater(leap[optQueNum[i]][1]))
     opt.append(ans)
     random.shuffle(opt)
 
