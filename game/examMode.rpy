@@ -3,6 +3,7 @@ label testPrepare:
     # 初期化
     $ mode = 'story' #モード
     $ answerWay = 'fourChoice' #テストの解答方法
+    $ optNum = 3 #選択肢数（ここを変えると選択肢の処理を自分で増やす必要アリ）
     $ isReview = False #復習モードかどうか
     # BGM ラスボス戦時は変える
     if progress == 6:
@@ -217,6 +218,7 @@ label answerWaySelect:
         # 最大問題数が4より少ないとき非表示
         "４択問題" if maxNum - minNum + 1 >= 4:
             $ answerWay = 'fourChoice'
+            $ optNum = 3 #選択肢数（ここを変えると選択肢の処理を自分で増やす必要アリ）
 
             Me "４択でお願い。"
 
@@ -258,7 +260,6 @@ label exam:
     if isReview == False:
         $ tfList = [0 for i in range(0, numOfQue)] #問題の正誤リスト 0なら不正解、1なら正解
         $ leapModule.makeExam(minNum, maxNum, numOfQue) #問題リスト
-    $ optNum = 3 #選択肢数（ここを変えると選択肢の処理を自分で増やす必要アリ）
 
     # 合計問題数だけ出題を繰り返す
     while questionNumber <= numOfQue:
@@ -269,8 +270,10 @@ label exam:
         else:
             # 四択問題の時
             if answerWay == 'fourChoice':
-                # 問題の取得と選択肢の作成
-                $ leapNum, ans, que, opt = leapModule.getExam(questionNumber,answerWay,minNum,maxNum,optNum)
+                # 問題の取得
+                $ leapNum, ans, que = leapModule.getExam(questionNumber)
+                # 選択肢の取得
+                $ opt = leapModule.getOption(questionNumber, minNum, maxNum, optNum)
                 $ selected = 0 #選んだ選択肢の識別番号
 
                 # ストーリー時の立ち絵処理
@@ -340,8 +343,8 @@ label exam:
 
             # スペル入力の時
             elif answerWay == 'spell':
-                # 問題の取得と選択肢の作成
-                $ leapNum, ans, que = leapModule.getExam(questionNumber,answerWay)
+                # 問題の取得
+                $ leapNum, ans, que = leapModule.getExam(questionNumber)
                 
                 show leap uniform question
 
@@ -391,6 +394,7 @@ label exam:
                     $ withHint = False
                     # 問題番号を進める
                     $ questionNumber += 1
+
 
             # "answerway"の設定がおかしい時
             else:
