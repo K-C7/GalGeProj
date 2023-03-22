@@ -19,6 +19,25 @@ def getWords(leapNumber):
 
         return en, jp
 
+def jpSeparater(jp):
+    """日本語(原文) -> 日本語(選択肢用)"""
+    kariJp = ''
+    if '①' in jp:
+        if jp[4] == '①':
+            kariJp = jp[5:jp.find(' ', start=5)]
+        elif jp[4] == '（':
+            kariJp =  jp[4:jp.find('）')]+jp[jp.find('）')+2:jp.find(' ', start=jp.find('）')+2)]
+        else:
+            kariJp = jp # elseに入ることは有りえないはずなので、バグ発見用の分岐
+    else:
+        kariJp = jp[4:]
+    if kariJp.find('〉') == len(kariJp) - 1:
+        kariJp = kariJp.replace(kariJp[kariJp.find('〈'):])
+    else:
+        kariJp = kariJp.replace(kariJp[kariJp.find('〈'):kariJp.find('〉')]
+    
+    return kariJp
+
 def ranNoKaburi(min, max, n, remove = []):
     """乱数の下限,上限,個数,除外リスト(省略可) -> 乱数のリスト"""
     result = []
@@ -35,35 +54,31 @@ def makeExam(min, max, numOfQue):
     global examNumberList
     examNumberList = ranNoKaburi(min, max ,numOfQue)
 
-# 問題リストと問題番号から問題を取得し、必要なら誤答選択肢を作成
-def getExam(questionNumber, answerWay, optMin=0, optMax=0, optNum=3):
-    """問題番号,回答方法(,選択肢の問題番号範囲の下限,〃の上限,選択肢の数) -> Leap上の問題番号,解答,問題(,選択肢(リスト))"""
+def getOption(questionNumber, JpEn, optMin, optMax, optNum):
+    """問題番号,和英かどうか、選択肢の問題番号の下限、上限、選択肢の数 -> 選択肢(リスト)"""
+    opt = []
+    optRemove = [examNumberList[questionNumber]]
+    optQueNum = ranNoKaburi(optMin, optMax, optNum, optRemove)
+    with open(LEAP_PATH, encoding='UTF-8') as L:
+        leap = list(csv.reader(L))
+        for i in range(optNum):
+            if JpEn:
+                opt.append(leap[optQueNum[i]][0])
+            else:
+                opt.append(jpSeparater(leap[optQueNum[i]][1]))
+    opt.append(ans)
+    random.shuffle(opt)
+
+    return opt
+
+def getExam(questionNumber):
+    """問題番号 -> Leap上の問題番号,英単語,意味"""
     # 解答方法が'spell'の時は（）内は飛ばされる
     global examNumberList
     questionNumber -= 1 #leap.csvとのつじつま合わせ
-    ans = ''
-    que = ''
+    en, jp = getWords(examNumberList[questionNumber])
 
-    with open(LEAP_PATH, encoding='UTF-8') as L:
-        leap = list(csv.reader(L))
-        ans = leap[examNumberList[questionNumber]][0]
-        que = leap[examNumberList[questionNumber]][1]
-
-        if answerWay == 'fourChoice':
-            opt = []
-            optRemove = [examNumberList[questionNumber]]
-            optQueNum = ranNoKaburi(optMin, optMax, optNum, optRemove)
-            for i in range(optNum):
-                opt.append(leap[optQueNum[i]][0])
-            opt.append(ans)
-            random.shuffle(opt)
-            return examNumberList[questionNumber], ans, que, opt
-        
-        elif answerWay == 'spell':
-            return examNumberList[questionNumber], ans, que
-        
-        else:
-            raise Exception("変数\"answerWay\"の設定がバグってるっぴ!")
+    return examNumberList[questionNumber], en, jp
 
 def verifyValue(rangeNum, minNum=1):
     """出題範囲が正しいか確認"""
@@ -72,10 +87,8 @@ def verifyValue(rangeNum, minNum=1):
         if rangeNum < minNum:
             rangeNum = minNum
         elif rangeNum > 1935:
-            rangeNum = 1935
-            
+            rangeNum = 1935    
     except:
-        return -1
-            
+        return -1  
     else:
         return rangeNum
