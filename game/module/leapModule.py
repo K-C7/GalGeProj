@@ -14,27 +14,23 @@ def getWords(leapNumber):
     """LEAP番号 -> 英単語、意味"""
     with open(LEAP_PATH, encoding='UTF-8') as L:
         leap = list(csv.reader(L))
-        en = leap[leapNumber-1][0]
-        jp = leap[leapNumber-1][1]
+        en = leap[leapNumber][0]
+        jp = leap[leapNumber][1]
 
         return en, jp
 
 def jpSeparater(jp):
     """日本語(原文) -> 日本語(選択肢用)"""
     kariJp = ''
-    if '①' in jp:
-        if jp[4] == '①':
-            kariJp = jp[5:jp.find(' ', start=5)]
-        elif jp[4] == '（':
-            kariJp =  jp[4:jp.find('）')]+jp[jp.find('）')+2:jp.find(' ', start=jp.find('）')+2)]
-        else:
-            kariJp = jp # elseに入ることは有りえないはずなので、バグ発見用の分岐
-    else:
+    onePos = jp.find('①')
+    twoPos = jp.find('②')
+    if onePos == -1:
         kariJp = jp[4:]
-    if kariJp.find('〉') == len(kariJp) - 1:
-        kariJp = kariJp.replace(kariJp[kariJp.find('〈'):])
     else:
-        kariJp = kariJp.replace(kariJp[kariJp.find('〈'):kariJp.find('〉')]
+        kariJp = jp[4:onePos]+jp[onePos+1:twoPos-1]
+    kagiPos = kariJp.find('[')
+    if kagiPos != -1:
+        kariJp = kariJp.replace(kariJp[kagiPos:], '')
     
     return kariJp
 
@@ -56,24 +52,26 @@ def makeExam(min, max, numOfQue):
 
 def getOption(questionNumber, JpEn, optMin, optMax, optNum):
     """問題番号,和英かどうか、選択肢の問題番号の下限、上限、選択肢の数 -> 選択肢(リスト)"""
+    questionNumber -= 1
     opt = []
     optRemove = [examNumberList[questionNumber]]
     optQueNum = ranNoKaburi(optMin, optMax, optNum, optRemove)
     with open(LEAP_PATH, encoding='UTF-8') as L:
         leap = list(csv.reader(L))
-        for i in range(optNum):
-            if JpEn:
+        if JpEn:
+            for i in range(optNum):
                 opt.append(leap[optQueNum[i]][0])
-            else:
+            opt.append(leap[examNumberList[questionNumber]][0])
+        else:
+            for i in range(optNum):
                 opt.append(jpSeparater(leap[optQueNum[i]][1]))
-    opt.append(ans)
+            opt.append(jpSeparater(leap[examNumberList[questionNumber]][1]))
     random.shuffle(opt)
 
     return opt
 
 def getExam(questionNumber):
     """問題番号 -> Leap上の問題番号,英単語,意味"""
-    # 解答方法が'spell'の時は（）内は飛ばされる
     global examNumberList
     questionNumber -= 1 #leap.csvとのつじつま合わせ
     en, jp = getWords(examNumberList[questionNumber])

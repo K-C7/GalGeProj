@@ -1,28 +1,27 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/examMode.rpy", line 247, in script
-    if (mode == 'story') & (progress == 3):
-  File "game/examMode.rpy", line 247, in <module>
-    if (mode == 'story') & (progress == 3):
-NameError: name 'progress' is not defined
+  File "game/examMode.rpy", line 311, in script
+    $ ans = leapModule.jpSeparater(ans)
+  File "game/examMode.rpy", line 311, in <module>
+    $ ans = leapModule.jpSeparater(ans)
+TypeError: replace expected at least 2 arguments, got 1
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/examMode.rpy", line 247, in script
-    if (mode == 'story') & (progress == 3):
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 2127, in execute
-    if renpy.python.py_eval(condition):
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1116, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "I:\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1109, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/examMode.rpy", line 247, in <module>
-    if (mode == 'story') & (progress == 3):
-NameError: name 'progress' is not defined
+  File "game/examMode.rpy", line 311, in script
+    $ ans = leapModule.jpSeparater(ans)
+  File "I:\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 1132, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "I:\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/examMode.rpy", line 311, in <module>
+    $ ans = leapModule.jpSeparater(ans)
+  File "module/leapModule.py", line 33, in jpSeparater
+TypeError: replace expected at least 2 arguments, got 1
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.1.0.23010208n
 英語ができない俺が縁結び神社に行ったら英単語帳が後輩になった件 5.2b
-Tue Mar 14 07:24:26 2023
+Thu Mar 23 01:21:58 2023

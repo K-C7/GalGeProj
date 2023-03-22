@@ -206,13 +206,13 @@ label numOfQueSelect:
 
     show leap uniform normal
     L "分かりました。[numOfQue]問ですね。"
-    L "では、[minNum]番から[maxNum]番の範囲で[numOfQue]問を出題するのでいいですか？。"
+    L "では、[minNum]番から[maxNum]番の範囲で[numOfQue]問を出題するのでいいですか。"
     menu:
-        L "では、[minNum]番から[maxNum]番の範囲で[numOfQue]問を出題するのでいいですか？。"
+        L "では、[minNum]番から[maxNum]番の範囲で[numOfQue]問を出題するのでいいですか？"
 
         # 「OK」でexamへ、「やっぱ待って」で最初からやり直す
         "OK":
-            L "分かりました。。"
+            L "分かりました。"
 
             jump answerWaySelect
                 
