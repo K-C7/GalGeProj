@@ -172,8 +172,8 @@ label numOfQueSelect:
     menu:
         L "何問ほど出したらいいでしょうか？"
 
-        "15問":
-            $ numOfQue = 15
+        "20問":
+            $ numOfQue = 20
             # numOfQueが最大問題数より大きい時
             if numOfQue > maxNum - minNum + 1:
                 $ numOfQue = maxNum - minNum + 1
